@@ -49,4 +49,8 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
     $scope.register = function(){
     	$location.path("/register/step1");
     }
+    
+    $scope.reset = function(){
+    	$location.path("/register/reset1");
+    }
 });
