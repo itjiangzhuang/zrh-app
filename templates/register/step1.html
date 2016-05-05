@@ -3,8 +3,8 @@
     <input type="text" placeholder="请输入手机号" class="phonecode" id="mobile"
     	maxlength="11" size="11" ng-model="registerUser.mobile"
     	onkeyup="value=value.replace(/[^\d{1,}\d{1,}|\d{1,}]/g,'')"
-    	ng-blur="validate_mobile()" />	
-    <div class="Verification">
+    	ng-blur="validate_mobile()" />
+        <div class="Verification">12
         <input type="text" placeholder="请输入验证码" class="vercode" id="code"
         	ng-model="registerUser.code" ng-change="changeCode()">
         <span class="verbtn" ng-click="send_code()" ng-show="send_sms">发送验证码</span>
