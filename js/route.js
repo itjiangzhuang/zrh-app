@@ -22,4 +22,4 @@ myApp.config(function ($routeProvider) {
             controller: 'ArticleListCtrl'
         })
         .otherwise({redirectTo: '/article/list'})
-})
+});
