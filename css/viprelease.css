@@ -1,0 +1,399 @@
+/*全局样式开始*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 黑体;
+
+
+}
+html,body{height:100%;
+    font-size:62.5%}
+body{
+
+    color:#4C4C4C;
+    font-size:1.2rem;
+    height:100%;
+    overflow-x: hidden;
+}
+/*全局样式结束*/
+/*release1的样式开始*/
+.information{
+    width:100%;
+    height:50px;
+    font-size: 1.7rem;
+    /*border:1px solid red;*/
+    line-height: 48px;
+    background:#F0F0F0;
+    text-indent: 5%;
+    color:#888888;
+    position:relative;
+}
+.viprelease1Header{
+    width:100%;
+    height:100px;
+    background: url('../img/header.png') no-repeat center center;
+    background-size: cover;
+}
+.required{
+    width:100%;
+    height:68px;
+    position:relative;
+    border-bottom:1px solid #f0f0f0;
+    box-sizing: border-box;
+
+}
+.reqname{
+    margin-top: 10px;
+}
+.reqnamespan1,.reqnamespan2{
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#4c4c4c;
+}
+.reqnamespan1{
+    width:8px;
+    height:8px;
+    background:#f97383;
+    border-radius: 50%;
+    margin-left: 5%;
+
+}
+.required input,.norequired input{
+    width:80%;
+    height:28px;
+    margin-top: 8px;
+    margin-left:5%;
+    border:none;
+    font-size: 1.4rem;
+}
+.setupimg{
+    position:absolute;
+    display: inline-block;
+    /*border:1px solid red;*/
+    width:28px;
+    height:28px;
+    margin-left: 3%;
+    background:url("../img/setup.png") no-repeat;
+    background-size:72%;
+    left:86%;
+
+}
+.viprelease1Headerp1{
+    font-size: 1.8rem;
+    color:#ffffff;
+    padding-top: 30px;
+    padding-left:5%;
+    padding-bottom: 5px;
+}
+.viprelease1Headerp2{
+    font-size: 16px;
+    color:#ffffff;
+    margin-left:5%;
+}
+.next{
+    width:70%;
+    height:40px;
+    background:#f0f0f0;
+    border:none;
+    border-radius:20px;
+    font-size: 1.8rem;
+    position:fixed;
+    bottom:2%;
+    right:15%;
+    color:#888888;
+    letter-spacing: 2px;
+
+}
+
+/*release1的样式结束*/
+
+/*release8勾选贷款方式样式开始*/
+.chccontainer{
+    width:70%;
+    height:55%;
+
+}
+.chkboxline{
+    width:90%;
+    border-bottom:2px solid #f0f0f0;
+    margin: 2% auto;
+    position:relative;
+
+}
+.chkbox{
+    width:76%;
+    background: #fff;
+    position:fixed;
+    top:23%;
+    margin-left: 12%;
+    padding-top:5%;
+    border-radius: 12px;
+    z-index:3;
+    height:350px;
+    overflow-y:auto ;
+    font-size: 1.5rem;
+
+
+}
+.check{
+    display: inline-block;
+    /*border:1px solid red;*/
+    width:28px;
+    height:28px;
+    margin-left: 3%;
+    background:url("../img/check.png") no-repeat;
+    background-size:72%;
+
+}
+
+.checked{
+    display: none;
+    /*border:1px solid red;*/
+    width:28px;
+    height:28px;
+    margin-left: 3%;
+    background-size:72%;
+    background:url("../img/checked.png") no-repeat;
+}
+.buxiang{
+    position:absolute;
+    display: inline-block;
+    top:5px;
+    left:20%;
+}
+.surebtn{
+    width:78%;
+    height:38px;
+    margin:5% auto;
+    margin-top: 43px;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    font-size:2rem ;
+    color:#fff;
+    line-height:36px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 6px #ccc;
+}
+.moneyzhezhaoceng{
+    width:100%;
+    height:100%
+}
+.cover{
+    width:100%;
+    height:100%;
+    background:#55555D;
+    position:fixed;
+    z-index:2;
+    top:0;
+    left:0;
+    opacity:0.6;
+}
+/*release8勾选贷款方式样式开始*/
+/*release2和3样式开始*/
+ .upload{
+     width:100%;
+     height:68px;
+     border-bottom:1px solid #f0f0f0;
+     line-height: 66px;
+     position:relative;
+ }
+ .upload span{
+     display: inline-block;
+ }
+ .uploadtext{
+     width:66%;
+     font-size:1.7rem;
+     color:#f97383;
+     /*border:1px solid red;*/
+     margin-left: 5%;
+ }
+ .uploadimg{
+     width:20%;
+     height:42px;
+     /*border:1px solid red;*/
+     background: url('../img/upload.png') no-repeat center  center;
+     background-size: 60%;
+     left: 80%;
+     position:absolute;
+     top:13px;
+     opacity: 0.7;
+
+ }
+ .noreqname{
+     font-size:1.6rem;
+     margin-left: 5%;
+     margin-top: 10px;
+     color:#888888;
+ }
+ .norequired{
+     border-bottom:1px solid #f0f0f0;
+     width:100%;
+     height:68px;
+     position:relative;
+ }
+.release{
+    width:60%;
+    height:40px;
+    font-size:2rem;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    position:fixed;
+    bottom: 20px;
+    margin-left: 20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}
+/*release2和3样式结束*/
+
+/*release4样式开始*/
+.mortgage{
+    width:100%;
+    height:50px;
+    font-size:1.7rem;
+    /*border:1px solid red;*/
+    line-height: 40px;
+
+}
+.mortgagewu{
+    margin-top: 8px;
+    width:100%;
+    overflow: hidden;
+    /*border-bottom: 1px solid #f0f0f0;*/
+}
+.mortgagewu1 div{
+    float:left;
+}
+.mortgagewuline{
+    width:18%;
+   height:10px;
+   background: #ffffff;
+    position:absolute;
+    left:83.8%;
+    top:26px;
+}
+.mortgagewudiv{
+    position:relative;
+    margin-top: 5px;
+    width:28.2%;
+    border-right: 1px solid #f0f0f0;
+    margin-left: 5%;
+    border-bottom:1px solid #f0f0f0;
+}
+.checkwenzi{
+    display: inline-block;
+    font-size: 1.4rem;
+    position:absolute;
+
+}
+.lineclear{
+    border-right: 1px solid #ffffff;
+}
+.mortgagewu2{
+    width:100%;
+    padding-top: 10px;
+    /*border-bottom:1px solid #f0f0f0;*/
+    overflow: hidden;
+}
+.mortgagewu2 div{
+    float:left;
+}
+.bottomline{
+    width:90%;
+    border-bottom:1px solid #f0f0f0;
+    margin: 0 auto;
+    padding-top: 8px;
+
+}
+.xushu{
+
+    width:92%;
+    margin-left:5%;
+    font-size:1.6rem;
+    margin-top: 15px;
+    color:#888888;
+    border:none;
+
+}
+.load{
+    width:100%;
+    height:62px;
+    margin-top: 20px;
+    border-bottom:1px solid #f0f0f0;
+}
+.loadimg{
+    display: inline-block;
+    width:44px;
+    height:44px;
+    border:1px solid gray;
+    margin-left: 5%;
+}
+.loadjia{
+    display: inline-block;
+    width:20%;
+    height:42px;
+    /*border:1px solid red;*/
+    background: url('../img/upload.png') no-repeat center  center;
+    background-size: 60%;
+    opacity: 0.7;
+}
+.sureslecte{
+    width:86%;
+    height:50px;
+    position:fixed;
+    bottom:16px;
+    left:7%;
+    font-size:2.1rem;
+    /*border:1px solid blue;*/
+    border-radius: 25px;
+    box-shadow: 0 6px 6px #ccc;
+}
+.sureslecte1{
+    /*border:1px solid #f0f0f0;*/
+    border-top:1px solid #f0f0f0;
+    color: #6045BB;
+    background:#ffffff;
+    border-radius: 25px 0 0 25px;
+}
+.sureslecte1,.sureslecte2{
+    display:inline-block;
+    width:49.9%;
+    height:50px;
+    line-height: 48px;
+    text-align: center;
+}
+.sureslecte2{
+    margin-left:-4% ;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    color:#fff;
+    box-shadow: 0 6px 6px #ccc;
+    border-radius:  0 25px 25px 0;
+}
+/*release4样式结束*/
+/*选择行业的样式*/
+/*选择行业的样式开始*/
+.next3{
+    width:60%;
+    height:40px;
+    font-size:2rem;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    position:fixed;
+    bottom: 27%;
+    /*margin-left: 20%;*/
+    left:20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}

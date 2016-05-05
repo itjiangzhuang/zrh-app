@@ -1,0 +1,43 @@
+<div class="mobile">
+    <input type="checkbox" id="tm" />
+    <ul class="foundStep2left">
+    <li class="img stepleftli1"></li>
+    <li class="stepleftli2">找项目</li>
+    <!--<li class="stepleftli3">发布风控标准</li>-->
+    <li class="stepleftli4">发布项目</li>
+    <li class="stepleftli5">个人中心</li>
+</ul>
+    <label for="tm" class="step21cart"></label>
+    <div class="foundStep2right">
+        <label for="tm" class="step2cart"></label>
+        <div class="found-step1" ng-repeat="article in article_list">
+            <div class="tittle">生活消费</div>
+            <lable class="amount">
+                <div>融资金额</div>
+                <input type="text" value="2000"><span>万</span>
+            </lable>
+            <div class="expect">
+                <div class="expect_border">
+                    <p>营业执照</p>
+                    <input type="text" value="2013.10.10">
+                </div>
+                <div class="expect_border">
+                    <p>融资期限</p>
+                    <input class="term" type="text" value="24个月">
+                </div>
+                <div>
+                    <p>接受利率</p>
+                    <input class="rate" type="text" ng-model="rate">
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="line"></div>
+            <ul class="message">
+                <li class="img"></li>
+                <li class="messageli2">推荐人成交率</li>
+                <li class="messageli3">10/12</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

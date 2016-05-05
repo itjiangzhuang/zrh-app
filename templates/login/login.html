@@ -1,0 +1,11 @@
+<div class="regform1">
+	<div style="background: #ffffff">
+		<input type="text" placeholder="请输入手机号" class="phonecode" 
+			ng-model="loginUser.mobile" onkeyup="value=value.replace(/[^\d{1,}\d{1,}|\d{1,}]/g,'')"/>
+	    <input type="password" placeholder="请输入密码" class="phonecode" 
+	    	ng-model="loginUser.password"/>
+    </div>
+    <div class="forget">忘记密码</div>
+    <input  type="submit" class="regrelease" value="登录" ng-click="login()"/>	
+    <div class="newuser" ng-click="register()">注册新用户</div>	
+</div>

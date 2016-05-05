@@ -1,0 +1,557 @@
+/*全局样式*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 黑体;
+
+
+}
+html,body{height:100%;
+    font-size:62.5%}
+body{
+
+    /*background:#F0F0F0;*/
+    color:#4C4C4C;
+    font-size:1.2rem;
+    height:100%;
+    overflow-x: hidden;
+}
+
+/*vipuser1样式开始*/
+.usercontainer1{
+    width:100%;
+    height:100%;
+    background: #ffffff;
+}
+.userheader{
+    width:100%;
+    height:220px;
+    background:linear-gradient(to bottom,#8898EB,#6045BB);
+    border:1px solid transparent;
+}
+.userlogo{
+ width:40%;
+    height:70px;
+    margin: 30px auto;
+    margin-top: 30px;
+}
+.userlogo1{
+    margin: 0 auto;
+    width:66px;
+    height:66px;
+    background: url('../img/recommendl.png') no-repeat center center;
+    background-size: 86%;
+
+}
+.userlogo2{
+    width:100%;
+    font-size: 1.6rem;
+    margin: 0 auto;
+    color:#fffffF;
+    text-align: center;
+    height:30px;
+   line-height: 26px;
+}
+.userlogo2 img{
+    max-width:17%;
+    vertical-align:middle;
+    padding-left: 3%;
+}
+.headerfooter{
+    border:1px solid transparent;
+    width:100%;
+    margin-top: 30px;
+}
+.hfdiv{
+    width:33%;
+    font-size: 1.3rem;
+    color:#ffffff;
+    text-align: center;
+    border-right:1px solid #f0f0f0;
+    margin-top: 30px;
+    float:left;
+}
+.hfdivp2{
+    margin-top: 8px;
+}
+.usercontent{
+    width:100%;
+    height:50px;
+    background:#ffffff;
+    position:relative;
+
+}
+.contentname{
+
+    display: inline-block;
+    width:100%;
+    height:50px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.6rem;
+    line-height: 48px;
+    padding-left: 5%;
+
+
+}
+.moneyicon{
+    display:inline-block;
+    width:44px;
+    height:44px;
+    background: url('../img/arrow1.png') no-repeat ;
+    -moz-background-size:70%;
+    background-size:60%;
+    position:absolute;
+    left:88.5%;
+    top:14px;
+
+}
+.megcount{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    border-radius: 50%;
+    position:absolute;
+    left:89%;
+    top:10px;
+    background:#f97383;
+    font-size: 0.9rem;
+    color:#ffffff;
+    text-align: center;
+    line-height:24px;
+
+}
+
+
+
+/*vipuser1样式结束*/
+/*vipuser2样式开始*/
+.answer{
+    width:100%;
+    background: #ffffff;
+    margin-bottom: 8px;
+}
+
+.bgask{
+    background: url('../img/ask.png') no-repeat  5% 10px ;
+    background-size: 9% 57%;
+    text-indent: 10%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width:80%;
+    overflow: hidden;
+    border:none;
+}
+.answertime{
+    width:100%;
+    height:50px;
+    border-top:1px solid #f0f0f0;
+    line-height: 48px;
+}
+.answertime span{
+    display: inline-block;
+    font-size:1.45rem;
+    color:#888888;
+    height:48px;
+}
+.anstimespan1{
+     width:21%;
+     border-right: 1px solid #f0f0f0;
+     text-align: center;
+ }
+.anstimespan2{
+    width:18%;
+    text-align: center;
+}
+.anstimespan3{
+    margin-left: 35%;
+}
+/*vipuser2样式结束*/
+
+/*vipuser3样式开始*/
+/*vipuser3样式结束*/
+
+/*vipuser4样式开始*/
+.msgtishi{
+    width:100%;
+    /*height:76px;*/
+    background:#ffffff;
+    position:relative;
+    margin-bottom: 8px;
+    /*border:1px solid red;*/
+
+}
+.tishiimg{
+    /*vertical-align: middle;*/
+    padding-top: 10px;
+    font-size: 1.6rem;
+    color:#f97383;
+    padding-left: 5%;
+}
+.tishiimg span{
+vertical-align: middle;
+}
+.tishiimg img{
+    vertical-align: middle;
+    max-width: 8.5%;
+    font-size: 1.6rem;
+    color:#f97383;
+}
+.msgtishi p{
+    width:88%;
+    padding-left:15%;
+    font-size: 1.5rem;
+    padding-bottom: 12px;
+}
+.msgtishiicon{
+    top:21px;
+}
+.guarantee{
+    width:76%;
+    background: #fff;
+    position:fixed;
+    top:23%;
+    margin-left: 12%;
+    padding-top:5%;
+    border-radius: 12px;
+    z-index:3;
+    height:230px;
+    overflow-y:auto ;
+    font-size: 1.5rem;
+}
+
+/*vipuser4样式结束*/
+/*vipuser6的样式开始*/
+.industry{
+    width:100%;
+    background: #ffffff;
+}
+.otherindustry{
+    width:100%;
+    height:40px;
+    padding-left:5%;
+    font-size: 1.4rem;
+    border-bottom: none;
+    border-left:none;
+    border-right:none;
+    /*margin-top: 2px;*/
+    border-top:1px solid #f0f0f0;
+}
+.ok{
+    max-width: 4%;
+    position:absolute;
+    top:20px;
+    left:90%;
+}
+.policy{
+    width:100%;
+    padding-left: 5%;
+    margin-top: 6px;
+    border-bottom:1px solid #f0f0f0;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    margin-bottom: 70px;
+    color:#888888;
+}
+.policycount{
+    display: inline-block;
+    color:#8898EB;
+   position:absolute;
+    top:0;
+    left:86%;
+}
+/*vipuser6的样式结束*/
+/*设置页面样式开始*/
+.userset{
+    width:100%;
+    height:58px;
+    line-height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 1.5rem;
+    color:#4c4c4c;
+    margin-left: 5%;
+    position:relative;
+}
+.userset img{
+    display: inline-block;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    vertical-align: middle;
+    position:absolute;
+    left: 72%;
+    top:6px;
+}
+.userseticon{
+    position:absolute;
+    top:3px;
+    left:87%;
+}
+.usersetcontent{
+
+    display: inline-block;
+    position:absolute;
+    top:3px;
+    right:17%;
+}
+.usersetout{
+    width:76%;
+    height:43px;
+    border:1px solid #e6e6e6;
+    border-radius: 20px;
+    text-align: center;
+    line-height:42px;
+    font-size: 2rem;
+    position:fixed;
+    bottom:40px;
+    left:13%;
+    color:#888888;
+}
+/*设置页面样式结束*/
+/*聊天室样式开始*/
+.displayframe{
+    width:100%;
+    /*min-height:45px;*/
+}
+.myframe ,.otherframe{
+    position:relative;
+    width:100%;
+    min-height:45px;
+    /*border:1px solid red;*/
+
+
+}
+.otherframe{
+    margin-top: 100px;
+}
+
+.myframe img{
+    width:40px;
+    height:40px;
+    background: #ffffff;
+    border-radius: 50%;
+    position:absolute;
+    right:8px;
+    top:8px;
+}
+.my{
+    max-width: 76%;
+    min-width:20%;
+    min-height:30px;
+    background:#868ee3;
+    border-radius: 22px;
+    position:absolute;
+    margin-bottom: 10px;
+    right:68px;
+    z-index: 1;
+    font-size: 1.4rem;
+    color:#ffffff;
+    padding:1% 3% 1% 3%;
+    text-align: left;
+    line-height: 26px;
+    box-sizing: border-box;
+}
+.mytriangle{
+    width:0;
+    height:0;
+    border-width:12px 6px 12px 36px;
+    border-style:solid;
+    border-color:transparent  transparent  transparent #868ee3 ;
+    font-size:0;
+    line-height:0;
+    position:absolute;
+    right:46px;
+    top:12px;
+    z-index: 1;
+}
+.otherframe img{
+    width:40px;
+    height:40px;
+    background: #ffffff;
+    border-radius: 50%;
+    position:absolute;
+    left:8px;
+    top:8px;
+}
+.others{
+    max-width: 76%;
+    min-width:20%;
+    min-height:30px;
+    background:#ffffff;
+    border-radius: 22px;
+    position:absolute;
+    top:8px;
+   left:68px;
+    z-index: 2;
+    font-size: 1.4rem;
+    color:#888888;
+    padding:1% 3% 1% 3%;
+    text-align: left;
+    line-height: 26px;
+    box-sizing: border-box;
+}
+.othertriangle{
+    width:0;
+    height:0;
+    border-width:12px 6px 12px 36px;
+    border-style:solid;
+    border-color:#ffffff transparent  transparent  transparent ;
+    font-size:0;
+    line-height:0;
+    position:absolute;
+    left:46px;
+    top:15px;
+    z-index: 1;
+}
+/*聊天室样式结束*/
+/*普通用户申请投资资质页面样式开始*/
+.zizhiheader{
+    height:100px;
+    width:100%;
+    background:#868ee3;
+    border:1px solid transparent;
+
+}
+.zizhiheader p{
+    color:#ffffff;
+    margin-left: 5%;
+
+
+}
+.zizhiheaderp1{
+    font-size:1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.zizhiheaderp2{
+    font-size: 1.4rem;
+}
+.moneyStep1top2 {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: 58px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.moneyStep1top2_p {
+    padding-top: 10px;
+    margin-left: 5%;
+    color:#888888;
+}
+.moneyStep1top2_input {
+    margin-top: 8px;
+    margin-left: 5%;
+    border: none;
+    width:66%;
+}
+.namecard{
+    width:100%;
+}
+.namecard_pone{
+    width:100%;
+    margin-left: 5%;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color:#888888;
+}
+.namecard_ptwo{
+    width:90%;
+    margin: 10px auto;
+    font-size: 1.3rem;
+}
+.imgbackground{
+    width:50%;
+    height:120px;
+    margin:0 auto;
+    background: #f0f0f0;
+    margin-top: 30px;
+    position:relative;
+    border:1px solid transparent;
+
+}
+.imgbackground img{
+
+    max-width: 28%;
+    position:absolute;
+    top:20px;
+    left:37%;
+}
+.imgbackground p{
+  width:100%;
+    font-size: 1.4rem;
+    color:#4c4c4c;
+    /*margin: 0 auto;*/
+    text-align: center;
+    margin-top: 80px;
+}
+/*普通用户申请投资资质页面样式结束*/
+/*普通用户项目完整度样式开始*/
+  .complete{
+      width:100%;
+      height:60px;
+      background:#868ee3;
+  }
+.complete span{
+    display: inline-block;
+    color:#ffffff;
+
+}
+.completespan1{
+    font-size: 1.5rem;
+    /*width:20%;*/
+    /*border:1px solid red;*/
+    margin-top: 20px;
+    margin-left: 5%;
+}
+.completespan2{
+    width:58%;
+    height:12px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+.completepro{
+    height:12px;
+    background: #f97383;
+    border-radius: 12px;
+}
+.completespan3{
+    font-size: 1.5rem;
+    margin-left: 1%;
+}
+/*普通用户项目完整度样式结束*/
+/*普通用户选择银行样式开始*/
+.bankcheck{
+    width:100%;
+    height:80px;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+.bankcheck span{
+    display: inline-block;
+}
+.backcheckleft{
+    width:15%;
+    height:60px;
+    border-right:1px solid #f0f0f0;
+    margin-top: 10px;
+    margin-left: 5%;
+   text-align: center;
+    line-height: 76px;
+
+}
+.backcheckleft img{
+    max-width: 50%;
+
+
+}
+.backcheckright{
+    font-size: 1.5rem;
+}
+
+.backcheckrightp2{
+    margin-top: 8px;
+    color:#888888;
+}
+/*普通用户选择银行样式结束*/

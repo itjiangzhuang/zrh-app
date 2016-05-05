@@ -1,0 +1,20 @@
+*{margin: 0;padding: 0;}
+li{list-style-type: none;}
+a,input{outline: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+#choose{display: none;}
+canvas{width: 100%;border: 1px solid #000000;}
+#upload{display:inline-block;width:20%;;height: 42px;text-align: center;line-height: 60px;cursor: pointer;
+    position:absolute;left:1%;top:20px; background: url('../img/upload.png') no-repeat center  center;
+    background-size: 60%;
+    opacity: 0.7;
+}
+.touch{background-color: #ddd;}
+.img-list{ position:absolute;top:15px;left:18%;}
+.img-list li{position: relative;display: inline-block;width: 44px;height: 44px;margin: 5px 5px 20px 5px;background: #fff no-repeat center;background-size: cover;}
+.progress{position: absolute;width: 100%;height: 20px;line-height: 20px;bottom: 0;left: 0;}
+.progress span{display: block;width: 0;height: 100%;text-align: center;color: #FFF;font-size: 13px;}
+.size{position: absolute;width: 100%;height: 15px;line-height: 15px;bottom: -18px;text-align: center;font-size: 13px;color: #666;}
+
+.loadlie{
+    position:relative;
+}

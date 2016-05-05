@@ -1,0 +1,144 @@
+/*全局样式*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 黑体;
+
+
+}
+html,body{height:100%;
+    font-size:62.5%}
+body{
+
+    background:#F0F0F0;
+    color:#4C4C4C;
+    font-size:1.2rem;
+    height:100%;
+    overflow-x: hidden;
+}
+/*登录样式开始*/
+.forget{
+   margin-top: 10px;
+    width:26%;
+    /*border:1px solid red;*/
+    text-align: center;
+    margin-left: 74%;
+    cursor:pointer;
+}
+/*登录样式结束*/
+/*register1样式开始*/
+.regform1{
+    width:100%;
+    font-size: 1.7rem;
+    position:relative;
+    margin-top: 40px;
+}
+.Verification{
+    width:100%;
+    border-bottom: 1px solid #f0f0f0;
+    height:50px;
+}
+.newuser{
+    width:40%;
+    height:40px;
+    margin-top: 30px;
+    /*border:1px solid red;*/
+    margin-left: 30%;
+    text-align: center;
+    cursor:pointer;
+}
+.phonecode{
+    width:100%;
+    height:50px;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: none;
+    border-left: none;
+    border-top:none;
+    padding-left:5%;
+}
+.vercode{
+    width:70%;
+    height:50px;
+    font-size: 1.6rem;
+    padding-left: 5%;
+    border-right: 1px solid #f0f0f0;
+    border-left: none;
+    border-top:none;
+    border-left: none;
+    border-bottom: none;
+}
+.verbtn{
+    width:24%;
+    background:#ffffff;
+    font-size:1.6rem;
+/*    height:49px;*/
+    border:none;
+    color:#8898EB;
+    display: inline-block;
+    text-align: center;
+}
+ .regrelease{
+    width:60%;
+    height:50px;
+    font-size:2rem;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    /*position:fixed;*/
+    /*top: 26%;*/
+    margin-left: 20%;
+     margin-top: 30px;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 48px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}
+.hideclass{
+     width:60%;
+     height:50px;
+     font-size:2rem;
+     background:#e0e0e0;
+     margin-left: 20%;
+     margin-top: 30px;
+     border-radius: 26px;
+     text-align: center;
+     color: #888888;
+     line-height: 48px;
+     letter-spacing: 2px;
+     cursor:pointer;
+     border:none;
+ }
+
+ .prompt{
+     width:50%;
+     /*height:28px;*/
+     /*border:1px solid red;*/
+
+     text-align: center;
+     font-size: 1.4rem;
+     color:#f97383;
+/*     display: none;*/
+     /*position:absolute;*/
+     margin-left:25%;
+     margin-top: 10px;
+ }
+ #regalert{
+     width:80%;
+     height:50px;
+     border-radius: 12px;
+     background:#8898EB;
+     font-size: 1.6rem;
+     text-align: center;
+     line-height: 48px;
+     color:#ffffff;
+     position:fixed;
+     left:10%;
+     top:50%;
+     display:none;
+ }
+/*register1样式结束*/
