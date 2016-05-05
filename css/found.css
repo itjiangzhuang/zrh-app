@@ -686,9 +686,19 @@ body{
 #tm {display: none;}
 
 #tm:checked ~ .foundStep2right {background:#cccccc;
-    filter: alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5; transform: translateX(40%);height: 100%; position:fixed;}
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    transform: translateX(40%);
+    height: 100%;
+    position: fixed;
+}
 #tm:checked ~ .step2cart {transform: translateX(40%);}
-#tm:checked ~ .step21cart {display: block}
+
+#tm:checked ~ .step21cart {
+    display: block;
+    transform: translateX(40%);
+}
 
 #tm:checked ~ .foundStep2left {transform: translateX(100%);}
 
