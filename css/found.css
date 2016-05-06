@@ -26,6 +26,7 @@ body{
     width:100%;
     margin-bottom: 2%;
     background: #fff;
+    border: 1px solid transparent;
 }
 .tittle{
     font-size:18px;
@@ -36,7 +37,11 @@ body{
     background-color:#868EE3;
     border-radius:0 0 0 20px;
     color:#fff;
-    margin-left:75%;
+    margin-left: 75%;
+}
+
+.amountcon {
+    margin-top: 36px;
 }
 .amount{
     display:block;
@@ -45,19 +50,20 @@ body{
     text-align: center;
 
 }
-.amount .countdiv{
+
+.amount .countdiv {
 
     font-size: 3rem;
-    color:#f97383;
+    color: #f97383;
     padding-left: 11%;
     margin-top: 5px;
 
-
 }
-.amount .countdiv span{
-    font-size:1.4rem ;
-    display:inline-block;
-     margin-left: 8%;
+
+.amount .countdiv span {
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-left: 8%;
 }
 .amount input{
     width:65%;
@@ -69,8 +75,8 @@ body{
     text-align: center;
 }
 .amount div{
-    width:89%;
-    font-size:13px;
+    width: 89%;
+    font-size: 13px;
     text-align: center;
 
 
@@ -95,30 +101,31 @@ body{
     color:#888888;
 }
 
-.expect span{
-    display:inline-block;
+.expect span {
+    display: inline-block;
     margin-left: 20%;
-    width:88px;
+    width: 88px;
     margin-top: 8px;
     font-size:16px;
     /*border:1px solid red;*/
     /*text-align: center;*/
 }
+
 /*.expect input{*/
-    /*margin-left: 14.5%;*/
-    /*width:80%;*/
-    /*margin-top: 8px;*/
-    /*font-size:16px;*/
-    /*border:none;*/
+/*margin-left: 14.5%;*/
+/*width:80%;*/
+/*margin-top: 8px;*/
+/*font-size:16px;*/
+/*border:none;*/
 /*}*/
 .expect_border{
     border-right:1px solid #f0f0f0;
 }
 .expect .term{
- padding-left: 6%;
+    padding-left: 6%;
 }
 .expect .rate{
-padding-left:6%;
+    padding-left: 6%;
 }
 .line{
     width:98%;
@@ -138,7 +145,7 @@ padding-left:6%;
 
     width:22px;
     height:22px;
-    background: url('../img/icon/recommend.png') no-repeat;
+    background: url('../../img/recommend.png') no-repeat;
     background-size:100%;
 
 }
@@ -160,7 +167,7 @@ padding-left:6%;
 .cart{
     width:130px;
     height:130px;
-    background:url('../img/icon/cart.png') no-repeat;
+    background: url('../../img/cart.png') no-repeat;
     position:fixed;
     bottom:-10%;
     left:-2%;
@@ -268,7 +275,7 @@ padding-left:6%;
     width:100%;
 }
 .discript p{
-    padding-left:5%;
+    padding-left: 5%;
     color:#888888;
     margin-top:3%;
     margin-bottom: 2%;
@@ -280,13 +287,15 @@ padding-left:6%;
     border:none;
     padding-left:3.5%;
 }
-.discript div{
-    width:95%;
+
+.discript div {
+    width: 95%;
     margin-left: 5%;
     font-size: 1.4rem;
 }
-hr{
-    border:0.5px solid #f0f0f0;
+
+hr {
+    border: 0.5px solid #f0f0f0;
     margin-top: 16px;
 }
 /*found3样式开始*/
@@ -297,26 +306,30 @@ hr{
 }
 .moneymsg{
     width:100%;
-    height:100px;
+    height: 100px;
     border-bottom: 1px solid  #f0f0f0;
 }
-.fimation{
+
+.fimation {
     margin-left: 5%;
     font-size: 1.5rem;
     margin-top: 15px;
 
 }
-.fimationimg1,.fimationimg2{
-    width:50px;
-    height:50px;
+
+.fimationimg1, .fimationimg2 {
+    width: 50px;
+    height: 50px;
     max-width: 100%;
     margin-top: 22px;
     margin-right: 2%;
 }
-.fimationimg1{
-    margin-left:4%;
+
+.fimationimg1 {
+    margin-left: 4%;
 }
-.watchdiv{
+
+.watchdiv {
     width: 80%;
     height: 30px;
     margin-top: 6px;
@@ -324,7 +337,7 @@ hr{
     /*border: none;*/
     font-size: 1.45rem;
     /*border:1px solid red;*/
-   line-height: 30px;
+    line-height: 30px;
 }
 
 /*found3样式结束*/
@@ -719,7 +732,8 @@ hr{
     background-color: #f0f0f0;
     /*left:40%;*/
     top:0;
-    position: relative; transition: all 0.05s;
+    position: relative;
+    transition: all 0.05s;
     /*transform: translateX(150px);*/
     overflow: hidden;
 }
@@ -748,26 +762,39 @@ hr{
 #tm {display: none;}
 
 #tm:checked ~ .foundStep2right {background:#cccccc;
-    filter: alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5; transform: translateX(40%);height: 100%; position:fixed;}
-#tm:checked ~ .af {transform: translateX(40%);}
-#tm:checked ~ .step21cart {display: block}
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    transform: translateX(40%);
+    height: 100%;
+    position: fixed;
+}
+
+#tm:checked ~ .af {
+    transform: translateX(40%);
+}
+
+#tm:checked ~ .step21cart {
+    display: block
+}
 
 #tm:checked ~ .foundStep2left {transform: translateX(100%);}
+
 .af {
     position: fixed;
-    bottom:2px;
-    width:100%;
-    height:60px;
+    bottom: 2px;
+    width: 100%;
+    height: 60px;
     z-index: 4;
     transition: all 0.05s;
 }
 .step2cart{
     display: block;
     z-index:6;
-    width:60px;
-    height:60px;
-    background:url('../img/icon/cart.png') no-repeat;
-    position:absolute;
+    width: 60px;
+    height: 60px;
+    background: url('../../img/cart.png') no-repeat;
+    position: absolute;
     /*right:50%;*/
     /*bottom:100px;*/
 
