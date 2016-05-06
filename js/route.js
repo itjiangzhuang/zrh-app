@@ -45,7 +45,14 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep2.html',
             controller: 'ArticleCreateStep2Ctrl'
         })
-        
+        .when('/article/industry', {
+            templateUrl: templates_root + 'article/industry.html',
+            controller: 'IndustryCtrl'
+        })
+        .when('/article/branch', {
+            templateUrl: templates_root + 'article/branch.html',
+            controller: 'BranchCtrl'
+        })
         
         .otherwise({redirectTo: '/article/list'})
 })

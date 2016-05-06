@@ -70,8 +70,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         }).success(function (d) {
         	console.log(d);
             if (d.returnCode == 0) {
-                $scope.article = d.result.article;
-                $scope.operate = d.result.operate;
+                $scope.formToken = d.result;
             }
             else {
                 console.log(d);
@@ -89,3 +88,49 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	 
      $('#time').date();
 });
+
+articleCtrl.controller('IndustryCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.loginUser = $rootScope.getObject("login_user");
+	 
+	 $scope.credit_list = ["不限","信用贷款","固定资产贷款","流动资产贷款","经营性物业贷款","房地产开发贷款","哈啊哈","够够够","辣辣辣"];
+	 
+	 
+	  window.onload=function(){
+	        var chkboxline=document.getElementsByClassName('chkboxline');
+	        for(var i=0;i<chkboxline.length;i++){
+	            chkboxline[i].onclick=function(){
+	                var check=this.querySelector('span');
+	                var checked=this.querySelectorAll("span")[1];
+	                checked.style.display='inline-block';
+	                checked.style.backgroundSize='72%'
+	                check.style.display='none';
+	            }
+	        }
+	    }
+	 
+     $('#time').date();
+});
+
+articleCtrl.controller('BranchCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.loginUser = $rootScope.getObject("login_user");
+	 
+	 $scope.branch_list = ["大农业","房地产","商业贸易","仓储物流","工业制造","医疗","教育","建筑工程","电子商务"];
+	 
+	 
+	 window.onload=function(){
+        var chkboxline=document.getElementsByClassName('chkboxline');
+        for(var i=0;i<chkboxline.length;i++){
+            chkboxline[i].onclick=function(){
+                var check=this.querySelector('span');
+                var checked=this.querySelectorAll("span")[1];
+                checked.style.display='inline-block';
+                checked.style.backgroundSize='72%'
+                check.style.display='none';
+            }
+        }
+    }
+	 
+     $('#time').date();
+});
+
+    

@@ -41,7 +41,7 @@ body{
     margin: 0 auto;
     width:66px;
     height:66px;
-    background: url('../../img/recommendl.png') no-repeat center center;
+    background: url('../img/icon/recommendl.png') no-repeat center center;
     background-size: 86%;
 
 }
@@ -99,7 +99,7 @@ body{
     display:inline-block;
     width:44px;
     height:44px;
-    background: url('../../img/arrow1.png') no-repeat ;
+    background: url('../img/icon/arrow1.png') no-repeat ;
     -moz-background-size:70%;
     background-size:60%;
     position:absolute;
@@ -134,7 +134,7 @@ body{
 }
 
 .bgask{
-    background: url('../../img/ask.png') no-repeat  5% 10px ;
+    background: url('../img/icon/ask.png') no-repeat  5% 10px ;
     background-size: 9% 57%;
     text-indent: 10%;
     white-space: nowrap;
