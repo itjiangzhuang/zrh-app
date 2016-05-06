@@ -4,8 +4,7 @@
 
 var articleCtrl = angular.module('articleCtrl', []);
 
-articleCtrl
-.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $location) {
+articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $location) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.list = function () {
@@ -35,7 +34,7 @@ articleCtrl
     }
 })
 
-.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.init = function () {
@@ -59,4 +58,34 @@ articleCtrl
     
     $scope.init();
     
+});
+
+articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.loginUser = $rootScope.getObject("login_user");
+	 
+	 $scope.init = function () {
+        $http({
+            url: api_uri+"api/article/formToken",
+            method: "GET"
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                $scope.article = d.result.article;
+                $scope.operate = d.result.operate;
+            }
+            else {
+                console.log(d);
+            }
+
+        }).error(function (d) {
+            console.log("login error");
+        })
+    };
+    
+});
+
+articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.loginUser = $rootScope.getObject("login_user");
+	 
+     $('#time').date();
 });

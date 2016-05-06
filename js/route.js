@@ -37,5 +37,15 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/show.html',
             controller: 'ArticleShowCtrl'
         })
+        .when('/article/create/step1', {
+            templateUrl: templates_root + 'article/createStep1.html',
+            controller: 'ArticleCreateStep1Ctrl'
+        })
+        .when('/article/create/step2', {
+            templateUrl: templates_root + 'article/createStep2.html',
+            controller: 'ArticleCreateStep2Ctrl'
+        })
+        
+        
         .otherwise({redirectTo: '/article/list'})
 })
