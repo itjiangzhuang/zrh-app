@@ -28,24 +28,25 @@ articleCtrl
     
     $scope.list();
     
-    $scope.show =  function(id){
+    $scope.article_show =  function(id){
     	if(!isNullOrEmpty(id)){
     		$location.path("/article/show/"+id);
     	}
     }
 })
 
-.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location) {
+.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.init = function () {
         $http({
-            url: api_uri+"api/article/show/"+$rootScope.id,
+            url: api_uri+"api/article/show/"+$routeParams.id,
             method: "GET"
         }).success(function (d) {
         	console.log(d);
             if (d.returnCode == 0) {
-                $scope.article = d.result;
+                $scope.article = d.result.article;
+                $scope.operate = d.result.operate;
             }
             else {
                 console.log(d);

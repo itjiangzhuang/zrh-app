@@ -167,7 +167,7 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 });
 
 registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $location,$timeout) {
-	$scope.registerUser = {
+	$scope.resetUser = {
 		"mobile":"",
 		"code":""
 	}	
@@ -185,21 +185,21 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	}
 	
 	$scope.validate_mobile = function(){
-		if(isNullOrEmpty($scope.registerUser.mobile)){
+		if(isNullOrEmpty($scope.resetUser.mobile)){
 			$scope.changeErrorMsg("手机号码不能为空");
 			$("#mobile").focus();
 		}else{
 			$http({
 	            url: api_uri+"api/reg/validateMobile",
 	            method: "GET",
-	            params: {"mobile":$scope.registerUser.mobile}           
+	            params: {"mobile":$scope.resetUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 1001) {
 	                $scope.enableMobile = true;
 	            }
 	            else {
 	            	$scope.enableMobile =false;
-	            	$scope.changeErrorMsg(d.result);
+	            	$scope.changeErrorMsg(d.returnCode);
 	                console.log(d);
 	            }
 	
@@ -229,16 +229,16 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 		if($scope.enableMobile){			
 			$scope.times();			
 			$http({
-	            url: api_uri+"api/reg/sendSms",
+	            url: api_uri+"api/reg/sendSms2",
 	            method: "GET",
-	            params: {"mobile":$scope.registerUser.mobile}           
+	            params: {"mobile":$scope.resetUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
 	            	$("#code").focus();
                     alert("短信验证码已经发送到你的手机");
 	            }
 	            else {
-	                console.log(d);
+	                $scope.changeErrorMsg(d.result);
 	            }
 	
 	        }).error(function (d) {
@@ -248,7 +248,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	}
 	
 	$scope.changeCode = function(){
-		if($scope.enableMobile && !isNullOrEmpty($scope.registerUser.code)){
+		if($scope.enableMobile && !isNullOrEmpty($scope.resetUser.code)){
 			$scope.isVerify= true;
 		}else{
 			$scope.isVerify= false;
@@ -261,10 +261,10 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 			$http({
 	            url: api_uri+"api/reg/validateSms",
 	            method: "POST",
-	            params: $scope.registerUser
+	            params: $scope.resetUser
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
-	                $location.path("/register/step2/"+$scope.registerUser.mobile+"/"+d.result);
+	                $location.path("/register/reset2/"+$scope.resetUser.mobile+"/"+d.result);
 	            }
 	            else {
 	            	$scope.changeErrorMsg(d.result);
@@ -279,28 +279,28 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 
 registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 
-	$scope.registerUser = {
+	$scope.resetUser = {
 		"mobile":$routeParams.mobile,
 		"password":"",
 		"validatePwd":"",
 		"token":$routeParams.token
 	}
 	
-	$scope.user_register = function(){
+	$scope.user_reset = function(){
 		$http({
             url: api_uri+"api/reg/reset",
             method: "POST",
-            params: $scope.registerUser
+            params: $scope.resetUser
         }).success(function (d) {
             if (d.returnCode == 0) {
             	alert("重置密码成功");
-            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
+            	$rootScope.putObject("login_mobile",$scope.resetUser.mobile);
                 $http({
 		            url: api_uri+"api/auth/web",
 		            method: "POST",
 		            params: {
-		            	"mobile":$scope.registerUser.mobile,
-		            	"password":$scope.registerUser.password
+		            	"mobile":$scope.resetUser.mobile,
+		            	"password":$scope.resetUser.password
 		            }
 		        }).success(function (d) {
 		            if (d.returnCode == 0) {

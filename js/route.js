@@ -33,5 +33,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/list.html',
             controller: 'ArticleListCtrl'
         })
+        .when('/article/show/:id', {
+            templateUrl: templates_root + 'article/show.html',
+            controller: 'ArticleShowCtrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 })
