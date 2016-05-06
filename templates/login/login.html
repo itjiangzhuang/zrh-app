@@ -5,7 +5,7 @@
 	    <input type="password" placeholder="请输入密码" class="phonecode" 
 	    	ng-model="loginUser.password"/>
     </div>
-    <div class="forget">忘记密码</div>
+    <div class="forget" ng-click="reset()">忘记密码</div>
     <input  type="submit" class="regrelease" value="登录" ng-click="login()"/>	
     <div class="newuser" ng-click="register()">注册新用户</div>	
 </div>

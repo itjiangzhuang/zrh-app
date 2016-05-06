@@ -8,26 +8,28 @@
     <li class="stepleftli5">个人中心</li>
 </ul>
     <label for="tm" class="step21cart"></label>
-    <div class="foundStep2right">
+    <div class="af">
         <label for="tm" class="step2cart"></label>
+    </div>
+    <div class="foundStep2right">
         <div class="found-step1" ng-repeat="article in article_list">
             <div class="tittle">生活消费</div>
             <lable class="amount">
                 <div>融资金额</div>
-                <input type="text" value="2000"><span>万</span>
+                <div class="countdiv">{{article.loanValue}}<span>万</span></div>
             </lable>
             <div class="expect">
                 <div class="expect_border">
                     <p>营业执照</p>
-                    <input type="text" value="2013.10.10">
+                    <span>{{article.license.regTime}}</span>
                 </div>
                 <div class="expect_border">
                     <p>融资期限</p>
-                    <input class="term" type="text" value="24个月">
+                    <span class="term" >{{article.loanLife}}个月</span>
                 </div>
                 <div>
                     <p>接受利率</p>
-                    <input class="rate" type="text" ng-model="rate">
+                    <span class="rate">{{article.rateCap}}%-{{article.rateFloor}}%</span>
                 </div>
             </div>
             <div style="clear:both"></div>
