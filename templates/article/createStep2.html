@@ -1,0 +1,48 @@
+<div class="upload">
+    <input type="text" name="path" readonly class="uploadtext" value="上传营业执照自动录入信息" style="border:none">
+    <!--<span >上传营业执照自动录入信息</span>-->
+    <input type="file" style="display:none" name="picpath" onChange="document.uploadform1.path.value=this.value">
+    <span class="uploadimg" onclick="document.uploadform1.picpath.click()"></span>
+</div>
+
+
+<div class=" required">
+    <div class="reqname">
+        <span class="reqnamespan1"></span>
+        <span class="reqnamespan2">公司名称</span>
+    </div>
+    <input type="text" placeholder="请输入公司名称">
+    <!--<span class="setupimg"></span>-->
+</div>
+<div class=" required">
+    <div class="reqname">
+        <span class="reqnamespan1"></span>
+        <span class="reqnamespan2 ">注册时间</span>
+    </div>
+    <input type="text" placeholder="请选择公司注册时间" id="time">
+    <span class="setupimg"></span>
+</div>
+
+<!--<div class="norequired">-->
+    <!--<div class="noreqname">法人代表</div>-->
+    <!--<input type="text" placeholder="请输入法人代表姓名">-->
+    <!--<span class="setupimg"></span>-->
+<!--</div>-->
+.<div class="norequired">
+    <div class="noreqname">法人代表</div>
+    <input type="text" placeholder="请输入法人代表姓名">
+
+</div>
+<div class="norequired">
+    <div class="noreqname">类型</div>
+    <input type="text" placeholder="请选择您的行业">
+    <span class="setupimg"></span>
+</div>
+<div class="norequired">
+    <div class="noreqname">注册资本</div>
+    <input type="text" placeholder="请输入注册资本金额">
+
+</div>
+<input type="submit" value="确定" class='next'>
+<!--插件中加的div-->
+<div id="datePlugin"></div>
