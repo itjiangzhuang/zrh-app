@@ -2,7 +2,7 @@
  * Created by jiangzhuang on 5/5/16.
  */
 
-api_uri = "http://127.0.0.1:8080/";
+api_uri = "http://172.17.2.13:8080/";
 templates_root = '/zrh-app/templates/';
 
 var myApp = angular.module('myApp', [
