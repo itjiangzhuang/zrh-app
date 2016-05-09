@@ -63,14 +63,22 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.init = function () {
+	 $scope.createArticle = $rootScope.getObject("create_article");
+	 
+	 $scope.createArticle={
+	 	"loanValue":9000,
+	 	"loanLife":24,
+	 	"classification":"测试"
+	 };
+	  
+	 $scope.getFormToken = function () {
         $http({
             url: api_uri+"api/article/formToken",
             method: "GET"
         }).success(function (d) {
         	console.log(d);
             if (d.returnCode == 0) {
-                $scope.formToken = d.result;
+                $scope.createArticle.formToken = d.result;
             }
             else {
                 console.log(d);
@@ -80,6 +88,11 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             console.log("login error");
         })
     };
+    
+    if(isNullOrEmpty($scope.createArticle.id)){
+    	$scope.getFormToken();
+    }
+    
     
 });
 

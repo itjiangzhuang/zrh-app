@@ -23,7 +23,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'register/reset1.html',
             controller: 'ResetStep1Ctrl'
         })
-        .when('/register/reset2/:mobile/:token', {
+         .when('/register/reset2/:mobile/:token', {
             templateUrl: templates_root + 'register/reset2.html',
             controller: 'ResetStep2Ctrl'
         })
