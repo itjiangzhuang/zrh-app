@@ -41,7 +41,7 @@ body{
     margin: 0 auto;
     width:66px;
     height:66px;
-    background: url('../img/icon/recommendl.png') no-repeat center center;
+    background: url('../../img/recommendl.png') no-repeat center center;
     background-size: 86%;
 
 }
@@ -99,7 +99,7 @@ body{
     display:inline-block;
     width:44px;
     height:44px;
-    background: url('../img/icon/arrow1.png') no-repeat ;
+    background: url('../../img/arrow1.png') no-repeat ;
     -moz-background-size:70%;
     background-size:60%;
     position:absolute;
@@ -134,7 +134,7 @@ body{
 }
 
 .bgask{
-    background: url('../img/icon/ask.png') no-repeat  5% 10px ;
+    background: url('../../img/ask.png') no-repeat  5% 10px ;
     background-size: 9% 57%;
     text-indent: 10%;
     white-space: nowrap;
@@ -313,85 +313,84 @@ vertical-align: middle;
 /*聊天室样式开始*/
 .displayframe{
     width:100%;
+    height:62%;
+    border:1px solid red;
+    overflow: auto;
+    position:fixed;
+   top:200px;
+
     /*min-height:45px;*/
 }
-.myframe ,.otherframe{
-    position:relative;
+.myframe{
     width:100%;
-    min-height:45px;
-    /*border:1px solid red;*/
-
+    min-height: 45px;
+    margin-top:13px;
+    position:relative;
 
 }
-.otherframe{
-    margin-top: 100px;
+.myframe span{
+   float: right;
 }
-
-.myframe img{
+.spanimg{
+    display: inline-block;
     width:40px;
     height:40px;
-    background: #ffffff;
-    border-radius: 50%;
+    border-radius:50%;
+    background: #d8d8d8;
+    margin-left: 2%;
     position:absolute;
-    right:8px;
-    top:8px;
+    top:2px;
+    right:15px;
 }
 .my{
-    max-width: 76%;
+    display: inline-block;
+    max-width:70%;
     min-width:20%;
     min-height:30px;
     background:#868ee3;
     border-radius: 22px;
-    position:absolute;
-    margin-bottom: 10px;
-    right:68px;
-    z-index: 1;
+    text-align: left;
+    line-height: 26px;
     font-size: 1.4rem;
     color:#ffffff;
     padding:1% 3% 1% 3%;
-    text-align: left;
-    line-height: 26px;
-    box-sizing: border-box;
+    margin-right:81px;
 }
 .mytriangle{
+    display: inline-block;
     width:0;
     height:0;
-    border-width:12px 6px 12px 36px;
+    border-width:7px 2px 7px 28px;
     border-style:solid;
     border-color:transparent  transparent  transparent #868ee3 ;
     font-size:0;
     line-height:0;
     position:absolute;
-    right:46px;
-    top:12px;
-    z-index: 1;
+    top:13px;
+    right:55px;
 }
-.otherframe img{
-    width:40px;
+.speak{
+    width:92%;
+    position:fixed;
+    bottom: 15px;
+    margin-left: 4%;
     height:40px;
-    background: #ffffff;
-    border-radius: 50%;
-    position:absolute;
-    left:8px;
-    top:8px;
+    border:none;
+    padding-left:2%;
+    border-radius: 10px;
+
 }
-.others{
-    max-width: 76%;
-    min-width:20%;
-    min-height:30px;
-    background:#ffffff;
-    border-radius: 22px;
-    position:absolute;
-    top:8px;
-   left:68px;
-    z-index: 2;
-    font-size: 1.4rem;
-    color:#888888;
-    padding:1% 3% 1% 3%;
-    text-align: left;
-    line-height: 26px;
-    box-sizing: border-box;
+.otherframe{
+    width:100%;
+    min-height: 45px;
+    margin-top:13px;
+    position:relative;
 }
+.otherframe span{
+    display:inline-block ;
+    float: left;
+}
+
 .othertriangle{
     width:0;
     height:0;
@@ -401,9 +400,34 @@ vertical-align: middle;
     font-size:0;
     line-height:0;
     position:absolute;
-    left:46px;
+    left:55px;
     top:15px;
     z-index: 1;
+
+    /*border-width:7px 2px 7px 28px;*/
+}
+.spanimgother{
+
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background: #d8d8d8;
+    position:absolute;
+    top:2px;
+    left:15px;
+}
+.others{
+    max-width:70%;
+    min-width:20%;
+    min-height:30px;
+    background:#FFFFFF;
+    border-radius: 22px;
+    text-align: left;
+    line-height: 26px;
+    font-size: 1.4rem;
+    color:#888888;
+    padding:1% 3% 1% 3%;
+    margin-left:82px;
 }
 /*聊天室样式结束*/
 /*普通用户申请投资资质页面样式开始*/
