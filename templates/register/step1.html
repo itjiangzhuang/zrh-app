@@ -7,7 +7,7 @@
         <div class="Verification">
         <input type="text" placeholder="请输入验证码" class="vercode" id="code"
         	ng-model="registerUser.code" ng-change="changeCode()">
-        <span class="verbtn" ng-click="send_code()" ng-show="send_sms">发送验证码</span>
+        <span class="verbtn" ng-click="send_code()" ng-show="send_sms" id="send_sms">发送验证码</span>
         <span class="verbtn" ng-hide="send_sms">{{sms_second}}s</span>
     </div>
     </div>

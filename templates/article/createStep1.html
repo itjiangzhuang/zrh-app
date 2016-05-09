@@ -4,7 +4,7 @@
 </div>
 <div style="height:565px;background:#ffffff;">
 <div class="information">基本信息</div>
-<div class=" required">
+<div class=" required" ng-click="choose_loanValue()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">融资金额</span>
@@ -12,7 +12,7 @@
     <input readonly="readonly" type="text" placeholder="请选择您要融资的金额" ng-model="createArticle.loanValue"/>
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_loanLife()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">融资期限</span>
@@ -22,7 +22,7 @@
     <input type="text" placeholder="请选择您要融资的期限" ng-hide="createArticle.loanLife"/>
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_rate()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">接受利率</span>
@@ -31,7 +31,7 @@
     <input type="text" placeholder="请选择您期望的利息率">
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_classification()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">行业分类</span>
@@ -41,7 +41,7 @@
     <input type="text" placeholder="请选择您的行业" ng-hide="createArticle.classification"/>
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="create_license()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">营业执照</span>

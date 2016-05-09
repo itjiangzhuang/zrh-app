@@ -91,15 +91,44 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
     if(isNullOrEmpty($scope.createArticle.id)){
     	$scope.getFormToken();
-    }
+    };
     
+    $scope.choose_classification = function(){
+    	$location.path("/article/branch");
+    };
     
+    $scope.choose_loanLife = function(){
+    	alert("选择融资期限");
+    };
+    
+    $scope.choose_loanValue = function(){
+    	alert("选择融资金额");
+    };
+    
+    $scope.choose_rate = function(){
+    	alert("选择融资利率");
+    };
+    
+    $scope.create_license = function(){
+    	$location.path("/article/create/license");
+    };
+    
+    $scope.next_step = function(){
+    	$location.path("/article/create/step2");
+    };
+    
+});
+
+articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.loginUser = $rootScope.getObject("login_user");
+	 
+     $('#time').date();
 });
 
 articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-     $('#time').date();
+     
 });
 
 articleCtrl.controller('IndustryCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {

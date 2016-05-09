@@ -15,6 +15,8 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	
 	$scope.error_msg = "";
 	
+	$("#mobile").focus();
+	
 	$scope.changeErrorMsg = function(msg){
 		$scope.error_msg = msg;
 		$timeout(function() {  
@@ -34,11 +36,11 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
 	                $scope.enableMobile = true;
+	                $("#send_sms").focus();
 	            }
 	            else {
 	            	$scope.enableMobile =false;
 	            	$scope.changeErrorMsg(d.result);
-	                console.log(d);
 	            }
 	
 	        }).error(function (d) {
@@ -72,8 +74,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	            params: {"mobile":$scope.registerUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
-	            	$("#code").focus();
-                    alert("短信验证码已经发送到你的手机");
+                    $scope.changeErrorMsg("短信验证码已经发送到你的手机");
 	            }
 	            else {
 	                console.log(d);
