@@ -94,7 +94,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     };
     
     $scope.choose_classification = function(){
-    	$location.path("/article/branch");
+    	$location.path("/article/classification");
     };
     
     $scope.choose_loanLife = function(){
@@ -153,26 +153,32 @@ articleCtrl.controller('IndustryCtrl', function ($http, $scope, $rootScope, $loc
      $('#time').date();
 });
 
-articleCtrl.controller('BranchCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.branch_list = ["大农业","房地产","商业贸易","仓储物流","工业制造","医疗","教育","建筑工程","电子商务"];
+	 $scope.branch_list = [{"name":"大农业","check":false},
+	 {"name":"房地产","check":false},
+	 {"name":"商业贸易","check":false},
+	 {"name":"仓储物流","check":false},
+	 {"name":"工业制造","check":false},
+	 {"name":"医疗","check":false},
+	 {"name":"教育","check":false},
+	 {"name":"建筑工程","check":false},
+	 {"name":"电子商务","check":false}];
 	 
-	 
-	 window.onload=function(){
-        var chkboxline=document.getElementsByClassName('chkboxline');
-        for(var i=0;i<chkboxline.length;i++){
-            chkboxline[i].onclick=function(){
-                var check=this.querySelector('span');
-                var checked=this.querySelectorAll("span")[1];
-                checked.style.display='inline-block';
-                checked.style.backgroundSize='72%'
-                check.style.display='none';
-            }
-        }
-    }
-	 
-     $('#time').date();
+	 $scope.check = function(name){
+	 	for (var i = 0; i < $scope.branch_list.length; i++) {
+		    // 计算表单的总价
+		    var branch = $scope.branch_list[i];
+		    if(branch.name == name){
+		    	if(branch.check){
+		    		branch.check = false;
+		    	}else{
+		    		branch.check = true;
+		    	}
+		    }
+		}
+	 };
 });
 
     

@@ -53,9 +53,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/industry.html',
             controller: 'IndustryCtrl'
         })
-        .when('/article/branch', {//行业类别
-            templateUrl: templates_root + 'article/branch.html',
-            controller: 'BranchCtrl'
+        .when('/article/classification', {//行业类别
+            templateUrl: templates_root + 'article/classification.html',
+            controller: 'ClassificationCtrl'
         })
         
         .otherwise({redirectTo: '/article/list'})

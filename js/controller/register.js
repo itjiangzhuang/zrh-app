@@ -71,7 +71,11 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 			$http({
 	            url: api_uri+"api/reg/sendSms",
 	            method: "GET",
-	            params: {"mobile":$scope.registerUser.mobile}           
+	            params: {
+	            	"mobile":$scope.registerUser.mobile,
+	            	"token":$rootScope.encryptByDES($scope.registerUser.mobile),
+	            	"timestamp":moment().format('X')
+	            }
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
                     $scope.changeErrorMsg("短信验证码已经发送到你的手机");

@@ -3,7 +3,8 @@
  */
 
 api_uri = "http://172.17.2.13:8080/";
-templates_root = '/zrh-app/templates/';
+templates_root = "/zrh-app/templates/";
+deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
     'ng','ngRoute','ngAnimate','loginCtrl','registerCtrl','articleCtrl'
@@ -32,6 +33,36 @@ myApp.run(['$location', '$rootScope', '$http',
         $rootScope.getObject = function (key) {
             return angular.fromJson(localStorage.getItem(key))
         };
+        
+        $rootScope.putSessionObject = function (key, value) {
+        	sessionStorage.setItem(key, angular.toJson(value));
+        };
+        $rootScope.getSessionObject = function (key) {
+            return angular.fromJson(sessionStorage.getItem(key))
+        };
+        //加密 3des
+        $rootScope.encryptByDES = function(message) {        
+            var keyHex = CryptoJS.enc.Utf8.parse(deskey);  
+            var encrypted = CryptoJS.DES.encrypt(message, keyHex, {    
+            mode: CryptoJS.mode.ECB,    
+            padding: CryptoJS.pad.Pkcs7    
+            });   
+            return encrypted.toString();    
+        }  
+        //解密 
+        $rootScope.decryptByDES = function(ciphertext) {    
+            var keyHex = CryptoJS.enc.Utf8.parse(deskey);    
+             
+            // direct decrypt ciphertext  
+            var decrypted = CryptoJS.DES.decrypt({    
+                ciphertext: CryptoJS.enc.Base64.parse(ciphertext)    
+            }, keyHex, {    
+                mode: CryptoJS.mode.ECB,    
+                padding: CryptoJS.pad.Pkcs7    
+            });    
+             
+            return decrypted.toString(CryptoJS.enc.Utf8);    
+        }   
 
         $rootScope.close_alert = function () {
             $rootScope.alert_show = null;
