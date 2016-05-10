@@ -4,7 +4,7 @@
 </div>
 
 <div class="information">基本信息</div>
-<div class=" required">
+<div class=" required" ng-click="choose_loanValue()">
     <div class="reqname">
         <span class="reqnamespan1" ng-hide="createArticle.loanValue"></span>
         <span class="reqnamespan2">融资金额</span>
@@ -13,7 +13,7 @@
     <!--<input readonly="readonly" type="text" placeholder="请选择您要融资的金额" ng-model="createArticle.loanValue"/>-->
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_loanLife()">
     <div class="reqname" ng-hide="createArticle.loanLife">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">融资期限</span>
@@ -28,7 +28,7 @@
     <!--<input type="text" placeholder="请选择您要融资的期限" ng-hide="createArticle.loanLife"/>-->
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_rate()">
     <div class="reqname" ng-hide="createArticle.ratecap">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">接受利率</span>
@@ -44,7 +44,7 @@
 
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="choose_classification()">
     <div class="reqname" ng-hide="createArticle.classification">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">行业分类</span>
@@ -58,7 +58,7 @@
 
     <span class="setupimg"></span>
 </div>
-<div class=" required">
+<div class=" required" ng-click="create_license()">
     <div class="reqname">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">营业执照</span>
@@ -67,4 +67,4 @@
     <div class="reqtishi">请上传您公司的营业执照</div>
     <span class="setupimg"></span>
 </div>
-<input type="submit" value="下一步" class='next'>
+<input type="submit" value="下一步" class="next" ng-click="next_step()"/>

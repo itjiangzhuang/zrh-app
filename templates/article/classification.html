@@ -1,0 +1,15 @@
+
+<!--贷款方式-->
+<div class="chkbox">
+
+    <li class="chkboxline"  ng-repeat="branch in branch_list" ng-click="check(branch.name)">
+        <span ng-class="{true: 'check', false: 'checked'}[branch.check]"></span>
+        <span class="buxiang">{{branch.name}}</span>
+    </li>
+    
+    <!--<li class="surebtn">确定</li>-->
+    <input  type='submit'class="next3" value="确定" />
+</div>
+
+<!--遮罩层-->
+<div class="cover"></div>
