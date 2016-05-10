@@ -64,12 +64,11 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.createArticle = $rootScope.getObject("create_article");
+	 console.log($scope.createArticle);
 	 
-	 $scope.createArticle={
-	 	"loanValue":9000,
-	 	"loanLife":24,
-	 	"classification":"测试"
-	 };
+	 if(!$scope.createArticle){
+	 	$scope.createArticle = {}
+	 }
 	  
 	 $scope.getFormToken = function () {
         $http({
@@ -94,6 +93,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     };
     
     $scope.choose_classification = function(){
+    	$rootScope.putObject("create_article",$scope.createArticle);
     	$location.path("/article/classification");
     };
     
@@ -154,6 +154,8 @@ articleCtrl.controller('IndustryCtrl', function ($http, $scope, $rootScope, $loc
 });
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 $scope.article = $rootScope.getObject("create_article");
+	 
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.branch_list = [{"name":"大农业","check":false},
@@ -164,7 +166,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 {"name":"医疗","check":false},
 	 {"name":"教育","check":false},
 	 {"name":"建筑工程","check":false},
-	 {"name":"电子商务","check":false}];
+	 {"name":"电子商务","check":false}];	 
 	 
 	 $scope.check = function(name){
 	 	for (var i = 0; i < $scope.branch_list.length; i++) {
@@ -176,9 +178,25 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 		    	}else{
 		    		branch.check = true;
 		    	}
+		    }else{
+		    	branch.check = false;
 		    }
 		}
 	 };
+	 
+	 $scope.check($scope.article.classification);
+	 
+	 $scope.sure = function(){ 	
+	 	$scope.article.classification = "";	 	
+	 	for (var i = 0; i < $scope.branch_list.length; i++) {
+	 	   var branch = $scope.branch_list[i];
+	 	   if(branch.check){
+            	$scope.article.classification = branch.name;	 
+	 	   }
+	 	}
+	 	$rootScope.putObject("create_article",$scope.article);
+	 	$location.path("/article/create/step1");
+	 }
 });
 
     
