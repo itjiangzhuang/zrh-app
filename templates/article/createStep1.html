@@ -6,7 +6,7 @@
 <div class="information">基本信息</div>
 <div class=" required">
     <div class="reqname">
-        <span class="reqnamespan1"></span>
+        <span class="reqnamespan1" ng-hide="createArticle.loanValue"></span>
         <span class="reqnamespan2">融资金额</span>
     </div>
     <div class="reqtishi">{{createArticle.loanValue}}</div>
@@ -14,34 +14,48 @@
     <span class="setupimg"></span>
 </div>
 <div class=" required">
-    <div class="reqname">
+    <div class="reqname" ng-hide="createArticle.loanLife">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">融资期限</span>
-
     </div>
-    <div class="reqtishi" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
     <div class="reqtishi" ng-hide="createArticle.loanLife">请选择您要融资的期限</div>
+
+    <div class="setafter" ng-show="createArticle.loanLife">
+        <span class="reqnamespan2">融资期限</span>
+    </div>
+    <div class="reqtishiafter" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
+
     <!--<input type="text" placeholder="请选择您要融资的期限" ng-hide="createArticle.loanLife"/>-->
     <span class="setupimg"></span>
 </div>
 <div class=" required">
-    <div class="reqname">
+    <div class="reqname" ng-hide="createArticle.ratecap">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">接受利率</span>
 
     </div>
-    <div class="reqtishi">请选择您要融资的金额</div>
+    <div class="reqtishi" ng-hide="createArticle.ratecap">请选择您要融资的金额</div>
+
+    <div class="setafter" ng-show="createArticle.ratecap">
+        <span class="reqnamespan2">接受利率</span>
+
+    </div>
+    <div class="reqtishiafter" ng-show="createArticle.ratecap">{{createArticle.rateCap}}~{{createArticle.rateFloor}}</div>
+
     <span class="setupimg"></span>
 </div>
 <div class=" required">
-    <div class="reqname">
+    <div class="reqname" ng-hide="createArticle.classification">
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">行业分类</span>
-
     </div>
-    <!--<span ng-show="createArticle.classification">{{createArticle.classification}}</span>-->
+    <div class="reqtishi" ng-hide="createArticle.classification">请选择您的行业</div>
+
+    <div class="reqname" ng-show="createArticle.classification">
+        <span class="reqnamespan2">行业分类</span>
+    </div>
     <div class="reqtishi" ng-show="createArticle.classification">{{createArticle.classification}}</div>
-    <!--<input type="text" placeholder="请选择您的行业" ng-hide="createArticle.classification"/>-->
+
     <span class="setupimg"></span>
 </div>
 <div class=" required">
