@@ -22,7 +22,7 @@ body{
 .information{
     width:100%;
     height:50px;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     /*border:1px solid red;*/
     line-height: 48px;
     background:#F0F0F0;
@@ -49,7 +49,7 @@ body{
 }
 .reqnamespan1,.reqnamespan2{
     display: inline-block;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color:#4c4c4c;
 }
 .reqnamespan1{
@@ -60,16 +60,30 @@ body{
     margin-left:15px;
 
 }
-.reqtishi{
+.reqtishi,.reqtishiafter{
     width: 80%;
     height: 30px;
     margin-top: 4px;
     margin-left: 15px;
-    /*border: none;*/
-    /*border:1px solid red;*/
-   line-height: 30px;
-    font-size: 1.4rem;
+    line-height: 30px;
+    font-size: 1.5rem;
     color:#888888;
+}
+.setafter{
+    display: inline-block;
+    font-size: 1.5rem;
+    color:#888888;
+    margin-left: 15px;
+
+}
+.reqtishiafter{
+    width: 80%;
+    height: 30px;
+    margin-top: 4px;
+    margin-left: 15px;
+    line-height: 30px;
+    font-size: 1.5rem;
+    color:#4c4c4c;
 }
 .required input,.norequired input{
     width:80%;
