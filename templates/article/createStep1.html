@@ -1,3 +1,4 @@
+ <div style="height:98%;;background:#ffffff;">
 <div class="viprelease1Header">
     <p class="viprelease1Headerp1">温馨提示：</p>
     <p class="viprelease1Headerp2">信息越完整，成功率越高!</p>
@@ -5,59 +6,43 @@
 
 <div class="information">基本信息</div>
 <div class=" required" ng-click="choose_loanValue()">
-    <div class="reqname" ng-hide="createArticle.loanValue">
-        <span class="reqnamespan1"></span>
+    <div ng-class="setStyle_div(createArticle.loanValue)">
+        <span class="reqnamespan1" ng-hide="createArticle.loanValue"></span>
         <span class="reqnamespan2">融资金额</span>
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanValue">请选择您要融资的金额</div>
-    
-    <div class="setafter" ng-show="createArticle.loanValue">
-        <span class="reqnamespan2">融资金额</span>
-    </div>
     <div class="reqtishiafter" ng-show="createArticle.loanValue">{{createArticle.loanValue}}</div>
     
     <span class="setupimg"></span>
 </div>
-<div class=" required" ng-click="choose_loanLife()">
-    <div class="reqname" ng-hide="createArticle.loanLife">
-        <span class="reqnamespan1"></span>
+<div class=" required" id="term">
+    <div ng-class="setStyle_div(createArticle.loanLife)" >
+        <span class="reqnamespan1" ng-hide="createArticle.loanLife"></span>
         <span class="reqnamespan2">融资期限</span>
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanLife">请选择您要融资的期限</div>
-
-    <div class="setafter" ng-show="createArticle.loanLife">
-        <span class="reqnamespan2">融资期限</span>
-    </div>
     <div class="reqtishiafter" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
-
+    <input type="hidden" name="loanLife" ng-model="createArticle.loanLife"/>
     <span class="setupimg"></span>
 </div>
-<div class=" required" ng-click="choose_rate()">
-    <div class="reqname" ng-hide="createArticle.ratecap">
-        <span class="reqnamespan1"></span>
+<div class=" required" id="rate">
+    <div ng-class="setStyle_div(createArticle.ratecap)">
+        <span class="reqnamespan1" ng-hide="createArticle.ratecap"></span>
         <span class="reqnamespan2">接受利率</span>
 
     </div>
     <div class="reqtishi" ng-hide="createArticle.ratecap">请选择您要融资的金额</div>
-
-    <div class="setafter" ng-show="createArticle.ratecap">
-        <span class="reqnamespan2">接受利率</span>
-
-    </div>
     <div class="reqtishiafter" ng-show="createArticle.ratecap">{{createArticle.rateCap}}~{{createArticle.rateFloor}}</div>
-
+    <input type="hidden" name="rateCap" ng-model="createArticle.rateCap"/>
+    <input type="hidden" name="rateFloor" ng-model="createArticle.rateFloor"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="choose_classification()">
-    <div class="reqname" ng-hide="createArticle.classification">
-        <span class="reqnamespan1"></span>
+    <div ng-class="setStyle_div(createArticle.classification)">
+        <span class="reqnamespan1" ng-hide="createArticle.classification"></span>
         <span class="reqnamespan2">行业分类</span>
     </div>
     <div class="reqtishi" ng-hide="createArticle.classification">请选择您的行业</div>
-
-    <div class="reqname" ng-show="createArticle.classification">
-        <span class="reqnamespan2">行业分类</span>
-    </div>
     <div class="reqtishi" ng-show="createArticle.classification">{{createArticle.classification}}</div>
 
     <span class="setupimg"></span>
@@ -72,3 +57,6 @@
     <span class="setupimg"></span>
 </div>
 <input type="submit" value="下一步" class="next" ng-click="next_step()"/>
+<!--插件中加的div-->
+       <div id="datePlugin"></div>
+</div>

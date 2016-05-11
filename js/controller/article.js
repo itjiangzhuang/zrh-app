@@ -99,7 +99,26 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
 	    	$scope.getFormToken();
 	    }
+    	$('#rate').daterate();//利率选择
+    	$('#term').dateterm();//期限选择
     };
+    
+    $scope.setStyle_div = function(args){	   
+	 	if(args){
+	 		return "setafter";
+	 	}else{
+	 		return "reqname";
+	 	}
+	 }
+    
+     $scope.setStyle_div2 = function(arg1,arg2){	   
+	 	if(arg1&&arg2){
+	 		return "setafter";
+	 	}else{
+	 		return "reqname";
+	 	}
+	 }
+    
     $scope.init();
     console.log($scope.createArticle);
     $scope.choose_classification = function(){
