@@ -50,11 +50,11 @@ myApp.config(function ($routeProvider) {
             controller: 'ArticleCreateStep2Ctrl'
         })
         .when('/article/credit', {//贷款方式
-            templateUrl: templates_root + 'article/credit.html',
+            templateUrl: templates_root + 'article/select.html',
             controller: 'CreditCtrl'
         })
         .when('/article/classification', {//行业类别
-            templateUrl: templates_root + 'article/classification.html',
+            templateUrl: templates_root + 'article/select.html',
             controller: 'ClassificationCtrl'
         })
         

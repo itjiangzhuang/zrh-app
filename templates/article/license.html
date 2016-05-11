@@ -12,7 +12,7 @@
 </form>
 
     <div class=" required">
-       <div ng-class="setStyle_div(license.regTime)">
+       <div ng-class="setStyle_div(license.businessName)">
            <span class="reqnamespan1" ng-hide="license.businessName"></span>
            <span class="reqnamespan2">公司名称</span>
        </div>
@@ -36,7 +36,8 @@
     
     <div class="norequired" ng-click="choose_type()">
        <div class="noreqname">类型</div>
-       <input type="text" placeholder="请选择您的公司类型" ng-model="license.businessType"/>
+       <div class="reqtishi"  >请选择您的公司类型</div>
+       <!--<input type="text" placeholder="请选择您的公司类型" ng-model="license.businessType"/>-->
        <span class="setupimg"></span>
     </div>
     

@@ -269,7 +269,7 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 	 
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.credit_list = [{"name":"不限","check":false},
+	 $scope.obj_list = [{"name":"不限","check":false},
 		 {"name":"信用贷款","check":false},
 		 {"name":"固定资产贷款","check":false},
 		 {"name":"流动资产贷款","check":false},
@@ -277,17 +277,17 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 		 {"name":"房地产开发贷款","check":false}];	 
 	 
 	 $scope.check = function(name){
-	 	for (var i = 0; i < $scope.credit_list.length; i++) {
+	 	for (var i = 0; i < $scope.obj_list.length; i++) {
 		    // 计算表单的总价
-		    var credit = $scope.credit_list[i];
-		    if(credit.name == name){
-		    	if(credit.check){
-		    		credit.check = false;
+		    var obj = $scope.obj_list[i];
+		    if(obj.name == name){
+		    	if(obj.check){
+		    		obj.check = false;
 		    	}else{
-		    		credit.check = true;
+		    		obj.check = true;
 		    	}
 		    }else{
-		    	credit.check = false;
+		    	obj.check = false;
 		    }
 		}
 	 };
@@ -296,10 +296,10 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 	 
 	 $scope.sure = function(){ 	
 	 	$scope.article.credit = "";	 	
-	 	for (var i = 0; i < $scope.credit_list.length; i++) {
-	 	   var credit = $scope.credit_list[i];
-	 	   if(credit.check){
-            	$scope.article.credit = credit.name;	 
+	 	for (var i = 0; i < $scope.obj_list.length; i++) {
+	 	   var obj = $scope.obj_list[i];
+	 	   if(obj.check){
+            	$scope.article.credit = obj.name;	 
 	 	   }
 	 	}
 	 	$rootScope.putObject("create_article",$scope.article);
@@ -312,7 +312,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.branch_list = [{"name":"大农业","check":false},
+	 $scope.obj_list = [{"name":"大农业","check":false},
 	 {"name":"房地产","check":false},
 	 {"name":"商业贸易","check":false},
 	 {"name":"仓储物流","check":false},
@@ -323,17 +323,17 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 {"name":"电子商务","check":false}];	 
 	 
 	 $scope.check = function(name){
-	 	for (var i = 0; i < $scope.branch_list.length; i++) {
+	 	for (var i = 0; i < $scope.obj_list.length; i++) {
 		    // 计算表单的总价
-		    var branch = $scope.branch_list[i];
-		    if(branch.name == name){
-		    	if(branch.check){
-		    		branch.check = false;
+		    var obj = $scope.obj_list[i];
+		    if(obj.name == name){
+		    	if(obj.check){
+		    		obj.check = false;
 		    	}else{
-		    		branch.check = true;
+		    		obj.check = true;
 		    	}
 		    }else{
-		    	branch.check = false;
+		    	obj.check = false;
 		    }
 		}
 	 };
@@ -342,10 +342,10 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 
 	 $scope.sure = function(){ 	
 	 	$scope.article.classification = "";	 	
-	 	for (var i = 0; i < $scope.branch_list.length; i++) {
-	 	   var branch = $scope.branch_list[i];
-	 	   if(branch.check){
-            	$scope.article.classification = branch.name;	 
+	 	for (var i = 0; i < $scope.obj_list.length; i++) {
+	 	   var obj = $scope.obj_list[i];
+	 	   if(obj.check){
+            	$scope.article.classification = obj.name;	 
 	 	   }
 	 	}
 	 	$rootScope.putObject("create_article",$scope.article);
