@@ -5,12 +5,17 @@
 
 <div class="information">基本信息</div>
 <div class=" required" ng-click="choose_loanValue()">
-    <div class="reqname">
-        <span class="reqnamespan1" ng-hide="createArticle.loanValue"></span>
+    <div class="reqname" ng-hide="createArticle.loanValue">
+        <span class="reqnamespan1"></span>
         <span class="reqnamespan2">融资金额</span>
     </div>
-    <div class="reqtishi">{{createArticle.loanValue}}</div>
-    <!--<input readonly="readonly" type="text" placeholder="请选择您要融资的金额" ng-model="createArticle.loanValue"/>-->
+    <div class="reqtishi" ng-hide="createArticle.loanValue">请选择您要融资的金额</div>
+    
+    <div class="setafter" ng-show="createArticle.loanValue">
+        <span class="reqnamespan2">融资金额</span>
+    </div>
+    <div class="reqtishiafter" ng-show="createArticle.loanValue">{{createArticle.loanValue}}</div>
+    
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="choose_loanLife()">
@@ -25,7 +30,6 @@
     </div>
     <div class="reqtishiafter" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
 
-    <!--<input type="text" placeholder="请选择您要融资的期限" ng-hide="createArticle.loanLife"/>-->
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="choose_rate()">

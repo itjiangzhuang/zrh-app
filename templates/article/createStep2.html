@@ -1,51 +1,108 @@
-<div style="height:100%;background:#ffffff;">
-    <form action="" name="uploadform1">
-   <div class="upload">
-       <img class="uploadup" src="/zrh-app/img/icon/up.png"  alt="">
-       <div class="uploadtext">上传营业执照自动录入信息</div>
-       <img id="portrait" class="portrait" src=""  >
-    <!--<span >上传营业执照自动录入信息</span>-->
-       <input type="file" style="display:none" name="picpath" ng-change="showPreview(this)">
-       <span class="uploadimg" id="uploading" onclick="document.uploadform1.picpath.click()"></span>
-   </div>
-    </form>
+<div class="viprelease1Header">
+    <p class="viprelease1Headerp1">温馨提示：</p>
+    <p class="viprelease1Headerp2">信息越完整，成功率越高!</p>
+</div>
+<div class="information">精准信息</div>
+<div  class="mortgage">
+    <span class="reqnamespan1"></span>
+    <span class="reqnamespan2">抵押物</span>
+</div>
+<div class="mortgagewu">
+    <div class="mortgagewu1">
+        <div class="mortgagewudiv">
+            <span class="check"></span>
+            <span class="checkwenzi">房产</span>
+            <p class="mortgagewuline"></p>
+        </div>
+        <!--<div style="clear:both"></div>-->
 
-    <div class=" required">
-       <div class="reqname">
-           <span class="reqnamespan1"></span>
-           <span class="reqnamespan2">公司名称</span>
-       </div>
-       <input type="text" placeholder="请输入公司名称">
-    <!--<span class="setupimg"></span>-->
-   </div>
-   <div class=" required">
-       <div class="reqname">
-           <span class="reqnamespan1"></span>
-           <span class="reqnamespan2 ">注册时间</span>
-       </div>
-       <input type="text" placeholder="请选择公司注册时间" id="time">
-       <span class="setupimg"></span>
-   </div>
+        <div class="mortgagewudiv">
+            <span class="check"></span>
+            <span class="checkwenzi">地产</span>
+            <p class="mortgagewuline"></p>
+        </div>
+        <div class="mortgagewudiv" style="border-right:1px solid #ffffff">
+            <span class="check"></span>
+            <span class="checkwenzi">股票</span>
+            <p class="mortgagewuline"></p>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="mortgagewu2">
+        <div class="mortgagewudiv">
+            <span class="check"></span>
+            <span class="checkwenzi">股票</span>
+            <p class="mortgagewuline"></p>
+        </div>
+        <div class="mortgagewudiv" >
+            <span class="check"></span>
+            <span class="checkwenzi">股票</span>
+            <p class="mortgagewuline"></p>
+        </div>
+    </div>
+    <!--<div style="clear:both"></div>-->
 
-<!--<div class="norequired">-->
-    <!--<div class="noreqname">法人代表</div>-->
-    <!--<input type="text" placeholder="请输入法人代表姓名">-->
-    <!--<span class="setupimg"></span>-->
+   </div>
+<!--<textarea class="xushu" type="text" placeholder="">-->
+<textarea name="" id="" cols="" rows="3" class="xushu">请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。</textarea>
+<div class="loadlie">
+    <input type="file" id="choose" accept="image/*" multiple>
+    <ul class="img-list"></ul>
+    <a id="upload" class="loadjia"></a>
+</div>
+<!--<div class="load">-->
+    <!--<span class="loadimg"></span>-->
+    <!--<span class="loadjia"></span>-->
 <!--</div>-->
-    <div class="norequired">
-       <div class="noreqname">法人代表</div>
-       <input type="text" placeholder="请输入法人代表姓名">
+<div class=" required" style="margin-top: 86px;">
+    <div class="reqname">
+        <span class="reqnamespan1"></span>
+        <span class="reqnamespan2">年实际经营流水（万元）</span>
     </div>
-    <div class="norequired">
-       <div class="noreqname">类型</div>
-       <input type="text" placeholder="请选择您的行业">
-       <span class="setupimg"></span>
-    </div>
-    <div class="norequired">
-       <div class="noreqname">注册资本</div>
-       <input type="text" placeholder="请输入注册资本金额">
-    </div>
-    <input type="submit" value="确定" class='next'>
-<!--插件中加的div-->
-    <div id="datePlugin"></div>
+    <input type="text" placeholder="20036">
+</div>
+<div class="norequired">
+    <div class="noreqname">对公账户流水（万元）</div>
+    <input type="text" placeholder="请输入对公账户流水">
+</div>
+<div class="norequired">
+    <div class="noreqname">贷款方式</div>
+    <input type="text" placeholder="不限">
+    <span class="setupimg"></span>
+</div>
+
+<div class="norequired">
+    <div class="noreqname">财务信息（应收 资产规模）</div>
+    <input type="text" placeholder="点击加号添加财务报表图片">
+</div>
+<!--<div class="load">-->
+    <!--<span class="loadimg"></span>-->
+    <!--<span class="loadjia"></span>-->
+<!--</div>-->
+<!--<div class="loadlie">-->
+<!--<input type="file" id="choose" accept="image/*" multiple>-->
+<!--<ul class="img-list"></ul>-->
+<!--<a id="upload" class="loadjia"></a>-->
+<!--</div>-->
+<div class="norequired" style="margin-top: 86px">
+    <div class="noreqname">业务往来</div>
+    <input type="text" placeholder="请输入几个上下游主要客户和采购对象">
+</div>
+<div class="norequired">
+    <div class="noreqname">法人户籍</div>
+    <input type="text" placeholder="请输入法人户籍">
+</div>
+<div class="norequired">
+    <div class="noreqname">公司优势</div>
+    <input type="text" placeholder="请输入公司的其他贷款优势">
+</div>
+<div class="load" style="margin-bottom: 70px;">
+    <span class="loadimg"></span>
+    <!--<input type="file">-->
+    <span class="loadjia"></span>
+</div>
+
+<div class="sureslecte">
+    <span class="sureslecte1">保存</span>
+    <span class="sureslecte2">发布</span>
 </div>

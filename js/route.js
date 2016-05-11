@@ -49,9 +49,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep2.html',
             controller: 'ArticleCreateStep2Ctrl'
         })
-        .when('/article/industry', {//贷款方式
-            templateUrl: templates_root + 'article/industry.html',
-            controller: 'IndustryCtrl'
+        .when('/article/credit', {//贷款方式
+            templateUrl: templates_root + 'article/credit.html',
+            controller: 'CreditCtrl'
         })
         .when('/article/classification', {//行业类别
             templateUrl: templates_root + 'article/classification.html',

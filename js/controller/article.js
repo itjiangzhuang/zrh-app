@@ -122,7 +122,56 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-     $('#time').date();
+	 $scope.article = $rootScope.getObject("create_article");
+	 
+	 $scope.uploadFile = "";
+	 
+	 if($scope.article){
+	 	$scope.license = $scope.article.license;
+	 }else{
+	 	$scope.license = {}
+	 }
+	 
+     $("#time").date();
+     
+     $scope.choose_type = function(){
+     	alert("选择公司类型");
+     };
+     
+     $scope.pic_select = function(){
+     	alert("select");
+     	$("#picpath").click();
+     };
+     
+     $scope.upload = function() {    //$files: an array of files selected, each file has name, size, and type.
+//	    for (var i = 0; i < $files.length; i++) {     
+//	    	var file = $files[i];	    	
+//	    }
+            alert("upload");
+//          $.ajaxFileUpload({
+//              url: api_uri+"api/file/upload",
+//              type: 'post',
+//              secureuri: false, //一般设置为false
+//              fileElementId: 'picpath', // 上传文件的id、name属性名
+//              dataType: 'text', //返回值类型，一般设置为json、application/json
+////              elementIds: elementIds, //传递参数到服务器
+//              data:{
+//              	"userId":$scope.loginUser.userId,
+//              	"token":$scope.loginUser.token
+//              },
+//              success: function (data, status) {
+//                  alert(data);
+//              },
+//              error: function (data, status, e) {
+//                  alert(e);
+//              }
+//          });
+	};
+	
+	$scope.sure = function(){
+		console.log($scope.uploadFile);
+		alert("sure");
+	}
 });
 
 articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
@@ -131,26 +180,48 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
      
 });
 
-articleCtrl.controller('IndustryCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+	 	 
+	 $scope.article = $rootScope.getObject("create_article");
+	 
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.credit_list = ["不限","信用贷款","固定资产贷款","流动资产贷款","经营性物业贷款","房地产开发贷款","哈啊哈","够够够","辣辣辣"];
+	 $scope.credit_list = [{"name":"不限","check":false},
+		 {"name":"信用贷款","check":false},
+		 {"name":"固定资产贷款","check":false},
+		 {"name":"流动资产贷款","check":false},
+		 {"name":"经营性物业贷款","check":false},
+		 {"name":"房地产开发贷款","check":false}];	 
 	 
+	 $scope.check = function(name){
+	 	for (var i = 0; i < $scope.credit_list.length; i++) {
+		    // 计算表单的总价
+		    var credit = $scope.credit_list[i];
+		    if(credit.name == name){
+		    	if(credit.check){
+		    		credit.check = false;
+		    	}else{
+		    		credit.check = true;
+		    	}
+		    }else{
+		    	credit.check = false;
+		    }
+		}
+	 };
 	 
-	  window.onload=function(){
-	        var chkboxline=document.getElementsByClassName('chkboxline');
-	        for(var i=0;i<chkboxline.length;i++){
-	            chkboxline[i].onclick=function(){
-	                var check=this.querySelector('span');
-	                var checked=this.querySelectorAll("span")[1];
-	                checked.style.display='inline-block';
-	                checked.style.backgroundSize='72%'
-	                check.style.display='none';
-	            }
-	        }
-	    }
+	 $scope.check($scope.article.credit);
 	 
-     $('#time').date();
+	 $scope.sure = function(){ 	
+	 	$scope.article.credit = "";	 	
+	 	for (var i = 0; i < $scope.credit_list.length; i++) {
+	 	   var credit = $scope.credit_list[i];
+	 	   if(credit.check){
+            	$scope.article.credit = credit.name;	 
+	 	   }
+	 	}
+	 	$rootScope.putObject("create_article",$scope.article);
+	 	$location.path("/article/create/step1");
+	 }
 });
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
