@@ -67,15 +67,23 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 	 console.log($scope.createArticle);
 	 
 	 if(!$scope.createArticle){
-	 	$scope.createArticle = {}
+	 	$scope.createArticle = {};
+	 	$scope.createArticle.license = {};
+	 }else{
+	 	if(!$scope.createArticle.license){
+	 		$scope.createArticle.license = {};
+	 	}
 	 }
 	  
 	 $scope.getFormToken = function () {
         $http({
             url: api_uri+"api/article/formToken",
-            method: "GET"
+            method: "GET",
+            params:{
+            	"userId":$scope.loginUser.userId,
+            	"token":$scope.loginUser.token
+            }
         }).success(function (d) {
-        	console.log(d);
             if (d.returnCode == 0) {
                 $scope.createArticle.formToken = d.result;
             }
@@ -87,11 +95,13 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             console.log("login error");
         })
     };
-    
-    if(isNullOrEmpty($scope.createArticle.id)){
-    	$scope.getFormToken();
+    $scope.init = function(){
+    	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
+	    	$scope.getFormToken();
+	    }
     };
-    
+    $scope.init();
+    console.log($scope.createArticle);
     $scope.choose_classification = function(){
     	$rootScope.putObject("create_article",$scope.createArticle);
     	$location.path("/article/classification");
@@ -113,22 +123,89 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	$location.path("/article/create/license");
     };
     
+    
+    
+    
+    params = {
+    	"id":$scope.createArticle.id,
+    	"userId":$scope.loginUser.userId,
+    	"token":$scope.loginUser.token,
+    	"formToken":$scope.createArticle.formToken   	
+    }
+    
+    
     $scope.next_step = function(){
-    	$location.path("/article/create/step2");
+    	if(!isNullOrEmpty($scope.createArticle.loanvalue)){
+    		params.loanvalue = $scope.createArticle.loanvalue;
+    	}
+    	if(!isNullOrEmpty($scope.createArticle.loanlife)){
+    		params.loanlife = $scope.createArticle.loanlife;
+    	}
+    	if(!isNullOrEmpty($scope.createArticle.ratecap)){
+    		params.ratecap = $scope.createArticle.ratecap;
+    	}
+    	if(!isNullOrEmpty($scope.createArticle.ratefloor)){
+    		params.ratefloor = $scope.createArticle.ratefloor;
+    	}
+    	if(!isNullOrEmpty($scope.createArticle.classification)){
+    		params.classification = $scope.createArticle.classification;
+    	}
+
+        if(!isNullOrEmpty($scope.createArticle.license.businessName)){
+    		params.businessName = $scope.createArticle.license.businessName;
+    	}
+        if(!isNullOrEmpty($scope.createArticle.license.regTime)){
+    		params.regTime = $scope.createArticle.license.regTime;
+    	}
+        if(!isNullOrEmpty($scope.createArticle.license.businessType)){
+    		params.businessType = $scope.createArticle.license.businessType;
+    	}
+        if(!isNullOrEmpty($scope.createArticle.license.regFunds)){
+    		params.regFunds = $scope.createArticle.license.regFunds;
+    	}
+        if(!isNullOrEmpty($scope.createArticle.license.licenseImgs)){
+    		params.licenseImgs = $scope.createArticle.license.licenseImgs;
+    	}
+    	if(!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)){
+    		params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
+    	}
+    	
+    	$http({
+	            url: api_uri+"api/article/createStep1",
+	            method: "POST",
+	            params: params           
+        }).success(function (d) {
+            if (d.returnCode == 0) {
+//          	$scope.createArticle.id = d.result;
+            	$rootScope.removeObject("create_article");
+            	$scope.articleStep2 = {
+            		"id":d.result
+            	}           	
+            	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
+                $location.path("/article/create/step2");
+            }else {
+            	console.log(d);
+            }
+
+        }).error(function (d) {
+            console.log(d);
+        })
+    	
+    	
     };
     
 });
 
 articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 $scope.loginUser = $rootScope.getObject("login_user");
+	$scope.loginUser = $rootScope.getObject("login_user");
 	 
-	 $scope.article = $rootScope.getObject("create_article");
+	$scope.article = $rootScope.getObject("create_article");
 	 
-	 if($scope.article){
-	 	$scope.license = $scope.article.license;
-	 }else{
-	 	$scope.license = {}
-	 }
+
+	$scope.license = $scope.article.license;
+ 	if($scope.license){
+ 		$scope.license = {}
+ 	}
 	 
 	 $scope.setStyle_div = function(args){	   
 	 	if(args){
@@ -174,8 +251,9 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 	}
 	
 	$scope.sure = function(){
-		console.log($scope.article);
-		console.log($scope.license);
+		$scope.article.license = $scope.license;
+        $rootScope.putObject("create_article",$scope.article);
+        $location.path("/article/create/step1");
 	}
 });
 

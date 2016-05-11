@@ -5,11 +5,12 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 黑体;
+
+
 }
 html,body{height:100%;
     font-size:62.5%}
 body{
-
     color:#4C4C4C;
     font-size:1.2rem;
     height:100%;
@@ -38,7 +39,7 @@ body{
     margin: 0 auto;
     width:66px;
     height:66px;
-    background: url('../../img/recommendl.png') no-repeat center center;
+    background: url('../img/icon/recommendl.png') no-repeat center center;
     background-size: 86%;
 
 }
@@ -96,7 +97,7 @@ body{
     display:inline-block;
     width:44px;
     height:44px;
-    background: url('../../img/arrow1.png') no-repeat ;
+    background: url('../img/icon/arrow1.png') no-repeat ;
     -moz-background-size:70%;
     background-size:60%;
     position:absolute;
@@ -129,9 +130,19 @@ body{
     background: #ffffff;
     margin-bottom: 8px;
 }
+.portrait{
 
+    width: 66%;
+    height:68px;
+    position:absolute;
+    top:0;
+    left:0;
+    border:none;
+    margin-left: 15px;
+    display:none;
+}
 .bgask{
-    background: url('../../img/ask.png') no-repeat  5% 10px ;
+    background: url('../img/icon/ask.png') no-repeat  5% 10px ;
     background-size: 9% 57%;
     text-indent: 10%;
     white-space: nowrap;
@@ -310,20 +321,16 @@ vertical-align: middle;
 /*聊天室样式开始*/
 .displayframe{
     width:100%;
-    height:62%;
-    border:1px solid red;
+    height: calc(100% - 253px);
     overflow: auto;
     position:fixed;
-   top:200px;
-
-    /*min-height:45px;*/
+    margin-top: -3px;
 }
 .myframe{
     width:100%;
     min-height: 45px;
     margin-top:13px;
     position:relative;
-
 }
 .myframe span{
    float: right;
@@ -375,7 +382,6 @@ vertical-align: middle;
     border:none;
     padding-left:2%;
     border-radius: 10px;
-
 }
 .otherframe{
     width:100%;

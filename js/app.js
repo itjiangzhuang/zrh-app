@@ -31,8 +31,12 @@ myApp.run(['$location', '$rootScope', '$http',
             localStorage.setItem(key, angular.toJson(value));
         };
         $rootScope.getObject = function (key) {
-            return angular.fromJson(localStorage.getItem(key))
+            return angular.fromJson(localStorage.getItem(key));
         };
+        $rootScope.removeObject = function (key) {
+            localStorage.removeItem(key);
+        };
+        
         
         $rootScope.putSessionObject = function (key, value) {
         	sessionStorage.setItem(key, angular.toJson(value));

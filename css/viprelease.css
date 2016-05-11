@@ -12,6 +12,7 @@
 html,body{height:100%;
     font-size:62.5%}
 body{
+
     color:#4C4C4C;
     font-size:1.2rem;
     height:100%;
@@ -22,7 +23,7 @@ body{
 .information{
     width:100%;
     height:50px;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     /*border:1px solid red;*/
     line-height: 48px;
     background:#F0F0F0;
@@ -52,6 +53,23 @@ body{
     font-size: 1.5rem;
     color:#4c4c4c;
 }
+.setafter{
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    color:#888888;
+}
+.reqtishiafter{
+    color:#4c4c4c;
+    width: 80%;
+    height: 30px;
+    margin-top: 4px;
+    margin-left: 15px;
+    /*border: none;*/
+    /*border:1px solid red;*/
+    line-height: 30px;
+    font-size: 1.5rem;
+}
 .reqnamespan1{
     width:8px;
     height:8px;
@@ -60,31 +78,18 @@ body{
     margin-left:15px;
 
 }
-.reqtishi,.reqtishiafter{
+.reqtishi{
     width: 80%;
     height: 30px;
     margin-top: 4px;
     margin-left: 15px;
-    line-height: 30px;
+    /*border: none;*/
+    /*border:1px solid red;*/
+   line-height: 30px;
     font-size: 1.5rem;
     color:#888888;
 }
-.setafter{
-    display: inline-block;
-    font-size: 1.5rem;
-    color:#888888;
-    margin-left: 15px;
 
-}
-.reqtishiafter{
-    width: 80%;
-    height: 30px;
-    margin-top: 4px;
-    margin-left: 15px;
-    line-height: 30px;
-    font-size: 1.5rem;
-    color:#4c4c4c;
-}
 .required input,.norequired input{
     width:80%;
     height:28px;
@@ -151,13 +156,33 @@ body{
     /*border:1px solid red;*/
 
 }
+.mask{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:#55555D;
+    display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+    display: -moz-box;      /* OLD: Firefox (buggy) */
+    display: -ms-flexbox;   /* MID: IE 10 */
+    display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
+    display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
+
+    -webkit-box-align: center; -moz-box-align: center; /* OLD… */
+    -ms-flex-align: center; /* You know the drill now… */
+    -webkit-align-items: center;
+    align-items: center;
+
+    -webkit-box-pack: center; -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
 .chkbox{
     width:76%;
     background: #fff;
-    position:fixed;
-    bottom:14%;
-    margin-left: 12%;
-    padding-top:28px;
     border-radius: 12px;
     z-index:3;
     height:336px;
@@ -166,9 +191,7 @@ body{
 
 
 }
-.tobottom{
-   margin-bottom: 90px;
-}
+
 .check{
     display: inline-block;
     /*border:1px solid red;*/
@@ -176,6 +199,7 @@ body{
     height:28px;
     background:url("../img/icon/check.png") no-repeat;
     background-size:72%;
+    margin-left: 10px;
 
 }
 
@@ -186,12 +210,13 @@ body{
     height:28px;
     background-size:72%;
     background:url("../img/icon/checked.png") no-repeat;
+    margin-left: 10px;
 }
 .buxiang{
     position:absolute;
     display: inline-block;
     top:2px;
-    left:43px;
+    left:50px;
 }
 .surebtn{
     width:78%;
@@ -207,24 +232,26 @@ body{
     box-shadow: 0 6px 6px #ccc;
 }
 .coverinner{
-    width:74%;
-    height:96px;
+    width:76%;
+    height:99px;
     /*border:1px solid red;*/
     position:fixed;
-    bottom:14%;
+    /*bottom:14%;*/
     background: #ffffff;
     z-index: 10;
     border-radius: 12px;
+    margin-top:237px;
     /*opacity: 0.9;*/
 }
 .coverinnertop{
-    width:74%;
+    width:76%;
     height:30px;
     position:fixed;
-    bottom:399px;
+    /*bottom:399px;*/
     /*border:1px solid red;*/
     border-radius: 12px;
     background: #ffffff;
+    z-index: 10;
 }
 
 .moneyzhezhaoceng{
@@ -476,4 +503,22 @@ body{
     cursor:pointer;
     border:none;
     z-index:11;
+}
+.next4{
+    width:60%;
+    height:40px;
+    font-size:2rem;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    position:fixed;
+    left:20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+    z-index:11;
+    margin-top: 276px;
 }
