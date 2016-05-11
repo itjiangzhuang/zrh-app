@@ -124,12 +124,18 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 	 
 	 $scope.article = $rootScope.getObject("create_article");
 	 
-	 $scope.uploadFile = "";
-	 
 	 if($scope.article){
 	 	$scope.license = $scope.article.license;
 	 }else{
 	 	$scope.license = {}
+	 }
+	 
+	 $scope.setStyle_div = function(args){	   
+	 	if(args){
+	 		return "setafter";
+	 	}else{
+	 		return "reqname";
+	 	}
 	 }
 	 
      $("#time").date();
@@ -139,38 +145,37 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
      };
      
      $scope.pic_select = function(){
-     	alert("select");
-     	$("#picpath").click();
+     	$("#file").click();
      };
      
-     $scope.upload = function() {    //$files: an array of files selected, each file has name, size, and type.
-//	    for (var i = 0; i < $files.length; i++) {     
-//	    	var file = $files[i];	    	
-//	    }
-            alert("upload");
-//          $.ajaxFileUpload({
-//              url: api_uri+"api/file/upload",
-//              type: 'post',
-//              secureuri: false, //一般设置为false
-//              fileElementId: 'picpath', // 上传文件的id、name属性名
-//              dataType: 'text', //返回值类型，一般设置为json、application/json
-////              elementIds: elementIds, //传递参数到服务器
-//              data:{
-//              	"userId":$scope.loginUser.userId,
-//              	"token":$scope.loginUser.token
-//              },
-//              success: function (data, status) {
-//                  alert(data);
-//              },
-//              error: function (data, status, e) {
-//                  alert(e);
-//              }
-//          });
+     $scope.upload = function() {    
+            $.ajaxFileUpload({
+                url: api_uri+"api/file/upload",
+                type: 'post',
+                secureuri: false, //一般设置为false
+                fileElementId: 'file', // 上传文件的id、name属性名
+                dataType: 'text', //返回值类型，一般设置为json、application/json
+                jsonp: 'jsoncallback',  
+                data:{
+                	"userId":$scope.loginUser.userId,
+                	"token":$scope.loginUser.token
+                },
+                success: function (data, status) {
+                    console.log(data);
+                },
+                error: function (data, status, e) {
+                    console.log(e);
+                }
+            });
 	};
 	
+	$scope.change_time = function(){
+		$scope.license.regTime = $("#time").val();
+	}
+	
 	$scope.sure = function(){
-		console.log($scope.uploadFile);
-		alert("sure");
+		console.log($scope.article);
+		console.log($scope.license);
 	}
 });
 

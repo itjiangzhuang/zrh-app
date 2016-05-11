@@ -5,30 +5,27 @@
        <div class="uploadtext">上传营业执照自动录入信息</div>
        <img id="portrait" class="portrait" src=""  >
     <!--<span >上传营业执照自动录入信息</span>-->
-       <input type="file" style="display: none;" id="picpath" ng-change="upload()" ng-model="uploadFile" accept="image/*">
+       <input type="file" style="display: none;" id="file"  
+       	onchange="angular.element(this).scope().upload()" accept="image/*">
        <span class="uploadimg" id="uploading" ng-click="pic_select()"></span>
    </div>
 </form>
 
     <div class=" required">
-       <div class="reqname" ng-hide="license.businessName">
-           <span class="reqnamespan1"></span>
+       <div ng-class="setStyle_div(license.regTime)">
+           <span class="reqnamespan1" ng-hide="license.businessName"></span>
            <span class="reqnamespan2">公司名称</span>
        </div>
-       
-       <div class="setafter" ng-show="license.businessName">
-	       <span class="reqnamespan2">公司名称</span>
-	   </div>
 	   
        <input type="text" placeholder="请输入公司名称" ng-model="license.businessName" />
     <!--<span class="setupimg"></span>-->
    </div>
    <div class=" required">
-       <div class="reqname" ng-hide="license.regTime">
+       <div ng-class="setStyle_div(license.regTime)">
            <span class="reqnamespan1"></span>
            <span class="reqnamespan2 ">注册时间</span>
        </div>
-       <input type="text" placeholder="请选择公司注册时间" ng-model="license.regTime" id="time"/>
+       <input type="text" placeholder="请选择公司注册时间" ng-change="change_time()" ng-model="license.regTime" id="time"/>
        <span class="setupimg"></span>
    </div>
 
