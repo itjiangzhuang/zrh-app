@@ -100,22 +100,33 @@ myApp.run(['$location', '$rootScope', '$http',
 
         $rootScope.check_user = function () {
             $rootScope.login_user = $rootScope.getObject("login_user");
-            //console.log($rootScope.admin_info);
+            //console.log($rootScope.login_user);
             if (!$rootScope.login_user) {
-                return false
+                $rootScope.removeObject("login_user");
+                $location.path("/login");
+                return false;
             }
             $http({
-                url: api_uri + "/api/auth/validateAuth",
+                url: api_uri + "api/auth/validateAuth",
                 method: "POST",
                 params: $rootScope.login_user
             }).success(function (d) {
+                console.log(d);
                 if (d.returnCode == 0) {
+                    console.log("login success");
                     return true;
+                } else {
+                    $rootScope.removeObject("login_user");
+                    $location.path("/login");
+                    return false;
                 }
 
             }).error(function (d) {
+                console.log(d);
+                $rootScope.removeObject("login_user");
+                $location.path("/login");
+                return false;
             });
-            return false;
         };
 
 
@@ -123,10 +134,7 @@ myApp.run(['$location', '$rootScope', '$http',
             alert('This browser does NOT support localStorage');
         }
 
-        if (!$rootScope.check_user()) {
-            $rootScope.removeObject("login_user");
-            $location.path("/login");
-        }
+        $rootScope.check_user();
 
 
     }]);

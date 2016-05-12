@@ -6,8 +6,8 @@ var loginCtrl = angular.module('loginCtrl', []);
 
 loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location) {
 	$scope.loginUser = {
-        "mobile": "18037075210",
-        "password": "1Aa5461"
+        "mobile": "15901487291",
+        "password": "123#@!qwe"
     };
     var check_params = function (params) {
         if (params.mobile == "" || params.password == "") {
@@ -28,7 +28,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             params: m_params           
         }).success(function (d) {
             if (d.returnCode == 0) {
-                alert("登录成功");
+                //alert("登录成功");
                 $rootScope.login_user = {
             		"userId":d.result.split("_")[0],
             		"token":d.result.split("_")[1]
