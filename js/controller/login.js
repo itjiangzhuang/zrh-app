@@ -29,11 +29,11 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         }).success(function (d) {
             if (d.returnCode == 0) {
                 alert("登录成功");
-                loginUser = {
+                $rootScope.login_user = {
             		"userId":d.result.split("_")[0],
             		"token":d.result.split("_")[1]
             	}
-            	$rootScope.putObject("login_user",loginUser);
+                $rootScope.putObject("login_user", $rootScope.login_user);
             	$location.path("/article/list");
             }
             else {

@@ -147,11 +147,11 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 		            }
 		        }).success(function (d) {
 		            if (d.returnCode == 0) {
-		            	loginUser = {
+						$rootScope.login_user = {
 		            		"userId":d.result.split("_")[0],
 		            		"token":d.result.split("_")[1]
 		            	}
-		            	$rootScope.putObject("login_user",loginUser);
+						$rootScope.putObject("login_user", $rootScope.login_user);
 		            	$location.path("/article/list");
 		            }
 		            else {
@@ -309,11 +309,11 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 		            }
 		        }).success(function (d) {
 		            if (d.returnCode == 0) {
-		            	loginUser = {
+						$rootScope.login_user = {
 		            		"userId":d.result.split("_")[0],
 		            		"token":d.result.split("_")[1]
 		            	}
-		            	$rootScope.putObject("login_user",loginUser);
+						$rootScope.putObject("login_user", $rootScope.login_user);
 		            	$location.path("/article/list");
 		            }
 		            else {

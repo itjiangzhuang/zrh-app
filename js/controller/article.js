@@ -5,7 +5,6 @@
 var articleCtrl = angular.module('articleCtrl', []);
 
 articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $location) {
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.list = function () {
         $http({
@@ -35,7 +34,6 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 })
 
 articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.init = function () {
         $http({
@@ -61,7 +59,6 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 });
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.createArticle = $rootScope.getObject("create_article");
 	 console.log($scope.createArticle);
@@ -80,8 +77,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             url: api_uri+"api/article/formToken",
             method: "GET",
             params:{
-            	"userId":$scope.loginUser.userId,
-            	"token":$scope.loginUser.token
+				"userId": $rootScope.login_user.userId,
+				"token": $rootScope.login_user.token
             }
         }).success(function (d) {
             if (d.returnCode == 0) {
@@ -147,8 +144,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
     params = {
     	"id":$scope.createArticle.id,
-    	"userId":$scope.loginUser.userId,
-    	"token":$scope.loginUser.token,
+		"userId": $rootScope.login_user.userId,
+		"token": $rootScope.login_user.token,
     	"formToken":$scope.createArticle.formToken   	
     }
     
@@ -215,8 +212,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
 });
 
-articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	$scope.loginUser = $rootScope.getObject("login_user");
+articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 	 
 	$scope.article = $rootScope.getObject("create_article");
 	 
@@ -253,8 +249,8 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
                 dataType: 'text', //返回值类型，一般设置为json、application/json
                 jsonp: 'jsoncallback',  
                 data:{
-                	"userId":$scope.loginUser.userId,
-                	"token":$scope.loginUser.token
+					"userId": $rootScope.login_user.userId,
+					"token": $rootScope.login_user.token
                 },
                 success: function (data, status) {
                     console.log(data);
@@ -277,7 +273,6 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 });
 
 articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
      
 });
@@ -285,8 +280,6 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 	 
 	 $scope.article = $rootScope.getObject("create_article");
-	 
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.obj_list = [{"name":"不限","check":false},
 		 {"name":"信用贷款","check":false},
@@ -328,8 +321,6 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.article = $rootScope.getObject("create_article");
-	 
-	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
 	 $scope.obj_list = [{"name":"大农业","check":false},
 	 {"name":"房地产","check":false},
