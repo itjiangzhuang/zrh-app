@@ -273,6 +273,13 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
        {"name":"车辆","check":false},
        {"name":"其他","check":false}
      ]
+
+	 params = {
+		"id":$scope.createArticle.id,
+		"userId": $rootScope.login_user.userId,
+		"token": $rootScope.login_user.token,
+		"formToken":$scope.createArticle.formToken
+	 }
 });
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
