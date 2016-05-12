@@ -57,6 +57,25 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/select.html',
             controller: 'ClassificationCtrl'
         })
-        
+         .when('/article/details', {//产品详情
+            templateUrl: templates_root + 'article/details.html',
+            controller: 'DetailsCtrl'
+        })
+        .when('/article/details', {//产品详情
+            templateUrl: templates_root + 'article/details.html',
+            controller: 'DetailsCtrl'
+        })
+        .when('/article/putquestions', {//问答界面
+            templateUrl: templates_root + 'article/putquestions.html',
+            controller: 'PutquestionsCtrl'
+        })
+        .when('/article/bidalert1', {//未竞标alert
+            templateUrl: templates_root + 'article/bidalert1.html',
+            controller: 'Bidalert1Ctrl'
+        })
+        .when('/article/bidalert2', {//已竞标alert
+            templateUrl: templates_root + 'article/bidalert2.html',
+            controller: 'Bidalert2Ctrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 });

@@ -59,7 +59,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 });
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 
+
 	 $scope.createArticle = $rootScope.getObject("create_article");
 	 console.log($scope.createArticle);
 	 
@@ -360,5 +360,19 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 	$location.path("/article/create/step1");
 	 }
 });
+
+articleCtrl.controller('DetailsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('PutquestionsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Bidalert1Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Bidalert2Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+
 
     

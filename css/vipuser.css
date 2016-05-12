@@ -325,6 +325,7 @@ vertical-align: middle;
     overflow: auto;
     position:fixed;
     margin-top: -3px;
+    background: #f0f0f0;
 }
 .myframe{
     width:100%;
