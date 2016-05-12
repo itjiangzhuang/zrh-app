@@ -2,9 +2,8 @@
  * Created by jiangzhuang on 5/5/16.
  */
 
-api_uri = "http://localhost:8080/";
+api_uri = "http://127.0.0.1:8080/";
 templates_root = "/zrh-app/templates/";
-templates_root = "templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
@@ -132,6 +131,10 @@ myApp.run(['$location', '$rootScope', '$http',
 
         if (!window.localStorage) {
             alert('This browser does NOT support localStorage');
+        }
+
+        if (!window.sessionStorage) {
+            alert('This browser does NOT support sessionStorage');
         }
 
         $rootScope.check_user();

@@ -9,51 +9,20 @@
 </div>
 <div class="mortgagewu">
     <div class="mortgagewu1">
-        <div class="mortgagewudiv">
-            <span class="check"></span>
-            <span class="checkwenzi">房产</span>
-            <p class="mortgagewuline"></p>
-        </div>
-        <!--<div style="clear:both"></div>-->
-
-        <div class="mortgagewudiv">
-            <span class="check"></span>
-            <span class="checkwenzi">地产</span>
-            <p class="mortgagewuline"></p>
-        </div>
-        <div class="mortgagewudiv" style="border-right:1px solid #ffffff">
-            <span class="check"></span>
-            <span class="checkwenzi">股票</span>
+        <div class="mortgagewudiv" ng-repeat="pledgeType in pledgeTypeList">
+            <span ng-class="{true: 'check', false: 'checked'}[pledgeType.check]></span>
+            <span class="checkwenzi">{{pledgeType.name}}</span>
             <p class="mortgagewuline"></p>
         </div>
     </div>
-    <div style="clear:both"></div>
-    <div class="mortgagewu2">
-        <div class="mortgagewudiv">
-            <span class="check"></span>
-            <span class="checkwenzi">股票</span>
-            <p class="mortgagewuline"></p>
-        </div>
-        <div class="mortgagewudiv" >
-            <span class="check"></span>
-            <span class="checkwenzi">股票</span>
-            <p class="mortgagewuline"></p>
-        </div>
-    </div>
-    <!--<div style="clear:both"></div>-->
-
-   </div>
-<!--<textarea class="xushu" type="text" placeholder="">-->
-<textarea name="" id="" cols="" rows="3" class="xushu">请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。</textarea>
+</div>
+<div  class="xushu">请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。</div>
 <div class="loadlie">
-    <input type="file" id="choose" accept="image/*" multiple>
+    <input type="file" id="choose"  multiple>
     <ul class="img-list"></ul>
     <a id="upload" class="loadjia"></a>
 </div>
-<!--<div class="load">-->
-    <!--<span class="loadimg"></span>-->
-    <!--<span class="loadjia"></span>-->
-<!--</div>-->
+
 <div class=" required" style="margin-top: 86px;">
     <div class="reqname">
         <span class="reqnamespan1"></span>
@@ -67,7 +36,7 @@
 </div>
 <div class="norequired">
     <div class="noreqname">贷款方式</div>
-    <input type="text" placeholder="不限">
+    <div class="reqtishi">请选择您要融资的金额</div>
     <span class="setupimg"></span>
 </div>
 
@@ -75,16 +44,13 @@
     <div class="noreqname">财务信息（应收 资产规模）</div>
     <input type="text" placeholder="点击加号添加财务报表图片">
 </div>
-<!--<div class="load">-->
-    <!--<span class="loadimg"></span>-->
-    <!--<span class="loadjia"></span>-->
-<!--</div>-->
-<!--<div class="loadlie">-->
-<!--<input type="file" id="choose" accept="image/*" multiple>-->
-<!--<ul class="img-list"></ul>-->
-<!--<a id="upload" class="loadjia"></a>-->
-<!--</div>-->
-<div class="norequired" style="margin-top: 86px">
+
+<div class="loadlie">
+    <input type="file" id="choose"  multiple>
+    <ul class="img-list"></ul>
+    <a id="upload" class="loadjia"></a>
+</div>
+<div class="norequired" style="margin-top: 86px;">
     <div class="noreqname">业务往来</div>
     <input type="text" placeholder="请输入几个上下游主要客户和采购对象">
 </div>
@@ -96,11 +62,12 @@
     <div class="noreqname">公司优势</div>
     <input type="text" placeholder="请输入公司的其他贷款优势">
 </div>
-<div class="load" style="margin-bottom: 70px;">
-    <span class="loadimg"></span>
-    <!--<input type="file">-->
-    <span class="loadjia"></span>
+<div class="loadlie">
+    <input type="file" id="choose"  multiple>
+    <ul class="img-list"></ul>
+    <a id="upload" class="loadjia"></a>
 </div>
+<div  class="loadlast"></div>
 
 <div class="sureslecte">
     <span class="sureslecte1">保存</span>
