@@ -126,24 +126,11 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	$location.path("/article/classification");
     };
     
-    $scope.choose_loanLife = function(){
-    	alert("选择融资期限");
-    };
-    
-    $scope.choose_loanValue = function(){
-    	alert("选择融资金额");
-    };
-    
-    $scope.choose_rate = function(){
-    	alert("选择融资利率");
-    };
     
     $scope.create_license = function(){
     	$location.path("/article/create/license");
     };
-    
-    
-    
+ 
     
     params = {
     	"id":$scope.createArticle.id,
@@ -172,6 +159,9 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
         if(!isNullOrEmpty($scope.createArticle.license.businessName)){
     		params.businessName = $scope.createArticle.license.businessName;
+    	}else{
+    		alert("请完善公司名称");
+            $location.path("/article/create/license");
     	}
         if(!isNullOrEmpty($scope.createArticle.license.regTime)){
     		params.regTime = $scope.createArticle.license.regTime;
@@ -279,7 +269,15 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 $scope.loginUser = $rootScope.getObject("login_user");
 	 
+	 $scope.articleStep2 = $rootScope.getSessionObject("articleStep2");
      
+     $scope.pledgeTypeList = [
+       {"name":"房产","check":false},
+       {"name":"地产","check":false},
+       {"name":"股票","check":false},
+       {"name":"车辆","check":false},
+       {"name":"其他","check":false}
+     ]
 });
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {

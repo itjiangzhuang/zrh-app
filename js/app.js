@@ -98,6 +98,10 @@ myApp.run(['$location', '$rootScope', '$http',
         if (!window.localStorage) {
             alert('This browser does NOT support localStorage');
         }
+        
+        if (!window.sessionStorage) {
+            alert('This browser does NOT support sessionStorage');
+        }
 //      if (!$rootScope.check_user()) {
 //          $location.path("/login");
 //      }
