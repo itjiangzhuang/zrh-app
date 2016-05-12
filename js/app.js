@@ -7,7 +7,7 @@ templates_root = "/zrh-app/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
-    'ng','ngRoute','ngAnimate','loginCtrl','registerCtrl','articleCtrl'
+    'ng', 'ngRoute', 'ngAnimate', 'loginCtrl', 'registerCtrl', 'articleCtrl'
 ], function ($httpProvider) {
     // Use x-www-form-urlencoded Content-Type
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
@@ -24,6 +24,19 @@ myApp.run(['$location', '$rootScope', '$http',
             var present_route = $location.$$path; //获取当前路由
 
         });
+        // 页面跳转前
+        $rootScope.$on('$routeChangeStart', function (event, current, previous) {
+            var current_route = $location.$$path; //获取当前路由
+            //console.log("current_route", current_route);
+            //if(current_route in [
+            //        "/article/create/step1",
+            //    ]){
+            //          if (!$rootScope.check_user()) {
+            //              $location.path("/login");
+            //          }
+            //}
+
+        });
 
         /*********************************** 全局方法区 e***************************************/
             // 对象存储
@@ -36,37 +49,37 @@ myApp.run(['$location', '$rootScope', '$http',
         $rootScope.removeObject = function (key) {
             localStorage.removeItem(key);
         };
-        
-        
+
+
         $rootScope.putSessionObject = function (key, value) {
-        	sessionStorage.setItem(key, angular.toJson(value));
+            sessionStorage.setItem(key, angular.toJson(value));
         };
         $rootScope.getSessionObject = function (key) {
             return angular.fromJson(sessionStorage.getItem(key))
         };
         //加密 3des
-        $rootScope.encryptByDES = function(message) {        
-            var keyHex = CryptoJS.enc.Utf8.parse(deskey);  
-            var encrypted = CryptoJS.DES.encrypt(message, keyHex, {    
-            mode: CryptoJS.mode.ECB,    
-            padding: CryptoJS.pad.Pkcs7    
-            });   
-            return encrypted.toString();    
-        }  
+        $rootScope.encryptByDES = function (message) {
+            var keyHex = CryptoJS.enc.Utf8.parse(deskey);
+            var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+            });
+            return encrypted.toString();
+        }
         //解密 
-        $rootScope.decryptByDES = function(ciphertext) {    
-            var keyHex = CryptoJS.enc.Utf8.parse(deskey);    
-             
+        $rootScope.decryptByDES = function (ciphertext) {
+            var keyHex = CryptoJS.enc.Utf8.parse(deskey);
+
             // direct decrypt ciphertext  
-            var decrypted = CryptoJS.DES.decrypt({    
-                ciphertext: CryptoJS.enc.Base64.parse(ciphertext)    
-            }, keyHex, {    
-                mode: CryptoJS.mode.ECB,    
-                padding: CryptoJS.pad.Pkcs7    
-            });    
-             
-            return decrypted.toString(CryptoJS.enc.Utf8);    
-        }   
+            var decrypted = CryptoJS.DES.decrypt({
+                ciphertext: CryptoJS.enc.Base64.parse(ciphertext)
+            }, keyHex, {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+            return decrypted.toString(CryptoJS.enc.Utf8);
+        }
 
         $rootScope.close_alert = function () {
             $rootScope.alert_show = null;
@@ -84,27 +97,43 @@ myApp.run(['$location', '$rootScope', '$http',
             }
         };
 
-//      $rootScope.check_user = function () {
-//          $rootScope.admin_info = $rootScope.getObject("user_info");
-//          //console.log($rootScope.admin_info);
-//          if ($rootScope.user_info) {
-//              return $rootScope.user_info.id;
-//          } else {
-//              return false;
-//          }
-//      };
+        $rootScope.check_user = function () {
+            $rootScope.login_user = $rootScope.getObject("login_user");
+            //console.log($rootScope.login_user);
+            if (!$rootScope.login_user) {
+                $rootScope.removeObject("login_user");
+                $location.path("/login");
+                return false;
+            }
+            $http({
+                url: api_uri + "api/auth/validateAuth",
+                method: "POST",
+                params: $rootScope.login_user
+            }).success(function (d) {
+                console.log(d);
+                if (d.returnCode == 0) {
+                    console.log("login success");
+                    return true;
+                } else {
+                    $rootScope.removeObject("login_user");
+                    $location.path("/login");
+                    return false;
+                }
+
+            }).error(function (d) {
+                console.log(d);
+                $rootScope.removeObject("login_user");
+                $location.path("/login");
+                return false;
+            });
+        };
 
 
         if (!window.localStorage) {
             alert('This browser does NOT support localStorage');
         }
-        
-        if (!window.sessionStorage) {
-            alert('This browser does NOT support sessionStorage');
-        }
-//      if (!$rootScope.check_user()) {
-//          $location.path("/login");
-//      }
+
+        $rootScope.check_user();
 
 
     }]);

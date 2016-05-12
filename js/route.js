@@ -59,4 +59,4 @@ myApp.config(function ($routeProvider) {
         })
         
         .otherwise({redirectTo: '/article/list'})
-})
+});

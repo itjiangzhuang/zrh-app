@@ -8,7 +8,7 @@
         <div class="expect">
             <div class="expect_border">
                 <p>营业执照</p>
-                <span >{{article.license.regTime}}</span>
+                <span>{{article.license.regTime}}</span>
             </div>
             <div class="expect_border">
                 <p>融资期限</p>
@@ -27,15 +27,15 @@
             <li class="messageli3">10/12</li>
         </ul>
     </div>
-  <div class="norequired">
-      <div class="noreqname">行业分类</div>
-      <!--<input type="text" placeholder="请输入法人代表的名字" value="互联网">-->
-      <div class="watchdiv">{{article.classification}}</div>
-  </div>
-  <div class="norequired">
-      <div class="noreqname">抵押物</div>
-      <div class="watchdiv">{{article.pledgeType}}</div>
-  </div>
+    <div class="norequired">
+        <div class="noreqname">行业分类</div>
+        <!--<input type="text" placeholder="请输入法人代表的名字" value="互联网">-->
+        <div class="watchdiv">{{article.classification}}</div>
+    </div>
+    <div class="norequired">
+        <div class="noreqname">抵押物</div>
+        <div class="watchdiv">{{article.pledgeType}}</div>
+    </div>
     <div class="xushu">{{article.pledge}}</div>
     <hr>
     <div class="norequired">
@@ -44,23 +44,25 @@
     </div>
     <div class="moneymsg">
         <p class="fimation">财务信息</p>
-        <img class="fimationimg1" src="/zrh-app/img/icon/checked.png" alt="">
-        <img class="fimationimg2" src="/zrh-app/img/icon/checked.png" alt="">
+        <img class="fimationimg1" src="img/icon/checked.png" alt="">
+        <img class="fimationimg2" src="img/icon/checked.png" alt="">
     </div>
     <div class="norequired">
         <div class="noreqname">业务往来</div>
         <div class="watchdiv">{{article.businessContact}}</span>
+        </div>
+        <div class="norequired">
+            <div class="noreqname">法人户籍</div>
+            <div class="watchdiv">{{article.corporateResidence}}</span>
+            </div>
+            <div class="discript">
+                <p style="font-size: 1.7rem">公司优势</p>
+                <div>{{article.advantages}}</div>
+            </div>
+            <div class="sureslecte">
+                <span class="sureslecte1">保存</span>
+                <span class="sureslecte2">发布</span>
+            </div>
+        </div>
     </div>
-    <div class="norequired">
-        <div class="noreqname">法人户籍</div>
-        <div class="watchdiv">{{article.corporateResidence}}</span>
     </div>
-    <div class="discript">
-        <p style="font-size: 1.7rem">公司优势</p>
-        <div>{{article.advantages}}</div>
-    </div>
-    <div class="sureslecte">
-        <span class="sureslecte1">保存</span>
-        <span class="sureslecte2">发布</span>
-    </div>
-</div>
