@@ -204,8 +204,7 @@ body{
 }
 
 .checked{
-    display: none;
-    /*border:1px solid red;*/
+    display: inline-block;
     width:28px;
     height:28px;
     background-size:72%;
@@ -245,7 +244,7 @@ body{
 }
 .coverinnertop{
     width:76%;
-    height:30px;
+    height:28px;
     position:fixed;
     /*bottom:399px;*/
     /*border:1px solid red;*/
@@ -369,8 +368,11 @@ body{
     overflow: hidden;
     /*border-bottom: 1px solid #f0f0f0;*/
 }
-.mortgagewu1 div{
-    float:left;
+.mortgagewu1{
+    width:100%;
+}
+.mortgagewu1 span{
+    /*display:inline-block;*/
 }
 .mortgagewuline{
     width:18%;
@@ -381,6 +383,7 @@ body{
     top:26px;
 }
 .mortgagewudiv{
+    display:inline-block;
     position:relative;
     margin-top: 5px;
     width:28.2%;
@@ -397,15 +400,8 @@ body{
 .lineclear{
     border-right: 1px solid #ffffff;
 }
-.mortgagewu2{
-    width:100%;
-    padding-top: 10px;
-    /*border-bottom:1px solid #f0f0f0;*/
-    overflow: hidden;
-}
-.mortgagewu2 div{
-    float:left;
-}
+
+
 .bottomline{
     width:90%;
     border-bottom:1px solid #f0f0f0;

@@ -99,6 +99,10 @@
                 var datestr = $("#yearwrapper ul li:eq("+indexY+")").html().substr(0,$("#yearwrapper ul li:eq("+indexY+")").html().length-1)+"-"+
                           $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)+"-"+
 			  $("#daywrapper ul li:eq("+Math.round(indexD)+")").html().substr(0,$("#daywrapper ul li:eq("+Math.round(indexD)+")").html().length-1);
+                
+                $('#registrationtime1').val($("#yearwrapper ul li:eq("+indexY+")").html().substr(0,$("#yearwrapper ul li:eq("+indexY+")").html().length-1));
+                $('#registrationtime2').val( $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1));
+                $('#registrationtime3').val( $("#daywrapper ul li:eq("+Math.round(indexD)+")").html().substr(0,$("#daywrapper ul li:eq("+Math.round(indexD)+")").html().length-1))
                if(datetime){
                      if(Math.round(indexS)===1){//下午
                         $("#Hourwrapper ul li:eq("+indexH+")").html(parseInt($("#Hourwrapper ul li:eq("+indexH+")").html().substr(0,$("#Hourwrapper ul li:eq("+indexH+")").html().length-1))+12)
@@ -110,11 +114,11 @@
                          indexS=0;
                 }
 
-                if(Ycallback===undefined){
-                     if(docType){that.val(datestr);}else{that.html(datestr);}
-                }else{
-                                    Ycallback(datestr);
-                }
+                // if(Ycallback===undefined){
+                //      if(docType){that.val(datestr);}else{that.html(datestr);}
+                // }else{
+                //                     Ycallback(datestr);
+                // }
                 $("#datePage").hide(); 
                 $("#dateshadow").hide();
             });

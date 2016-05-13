@@ -93,10 +93,11 @@
         function bindButton(){
             resetIndex();
             $("#dateconfirm").unbind('click').click(function () {	
-                var datestr =
-                    // $("#yearwrapper ul li:eq("+indexY+")").html().substr(0,$("#yearwrapper ul li:eq("+indexY+")").html().length-1)+"%"+
-                          $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)+"个月";
-			  // $("#daywrapper ul li:eq("+Math.round(indexD)+")").html().substr(0,$("#daywrapper ul li:eq("+Math.round(indexD)+")").html().length-1);
+                var datestr = $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)+"个月";
+                //设置隐藏的input的value
+                $('#loanLife').val( $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1))
+                console.log( $('#loanLife').val())
+
                if(datetime){
                      if(Math.round(indexS)===1){//下午
                         $("#Hourwrapper ul li:eq("+indexH+")").html(parseInt($("#Hourwrapper ul li:eq("+indexH+")").html().substr(0,$("#Hourwrapper ul li:eq("+indexH+")").html().length-1))+12)
@@ -108,11 +109,11 @@
                          indexS=0;
                 }
 
-                if(Ycallback===undefined){
-                     if(docType){that.val(datestr);}else{that.html(datestr);}
-                }else{
-                                    Ycallback(datestr);
-                }
+                // if(Ycallback===undefined){
+                //      if(docType){that.val(datestr);}else{that.html(datestr);}
+                // }else{
+                //                     Ycallback(datestr);
+                // }
                 $("#datePage").hide(); 
                 $("#dateshadow").hide();
             });

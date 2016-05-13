@@ -26,6 +26,9 @@
            <span class="reqnamespan2 ">注册时间</span>
        </div>
        <input type="text" placeholder="请选择公司注册时间" ng-change="change_time()" ng-model="license.regTime" id="time"/>
+       <input type="hidden" id="registrationtime1" ng-model="createArticle.registrationtime1"/>
+       <input type="hidden" id="registrationtime2" ng-model="createArticle.registrationtime2"/>
+       <input type="hidden" id="registrationtime3" ng-model="createArticle.registrationtime3"/>
        <span class="setupimg"></span>
    </div>
 
@@ -36,9 +39,7 @@
     
     <div class="norequired" ng-click="choose_type()">
        <div class="noreqname">类型</div>
-       <div class="reqtishi" ng-hide="license.businessType">请选择您的公司类型</div>
-       <div class="reqtishi" ng-show="license.businessType">{{license.businessType}}</div>
-       
+       <div class="reqtishi"  >请选择您的公司类型</div>
        <!--<input type="text" placeholder="请选择您的公司类型" ng-model="license.businessType"/>-->
        <span class="setupimg"></span>
     </div>
