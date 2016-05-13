@@ -9,15 +9,15 @@
 </div>
 <div class="mortgagewu">
     <div class="mortgagewu1">
-        <div class="mortgagewudiv" ng-repeat="pledgeType in pledgeTypeList">
-            <span ng-class="{true: 'check', false: 'checked'}[pledgeType.check]></span>
-            <span class="checkwenzi">{{pledgeType.name}}</span>
+        <div class="mortgagewudiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
+            <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
+            <span class="checkwenzi">{{pt.name}}</span>
             <p class="mortgagewuline"></p>
         </div>
     </div>
 </div>
-<textarea name="" id="" cols="" rows="3" class="xushu">
-	请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。
+<textarea cols="" rows="3" class="xushu" ng-model="articleStep2.pledge">
+	
 </textarea>
 <div class="loadlie">
     <input type="file" id="choose"  multiple>
@@ -30,21 +30,21 @@
         <span class="reqnamespan1"></span>
         <span class="reqnamespan2">年实际经营流水（万元）</span>
     </div>
-    <input type="text" placeholder="20036">
+    <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualOperateYear"/>
 </div>
 <div class="norequired">
     <div class="noreqname">对公账户流水（万元）</div>
-    <input type="text" placeholder="请输入对公账户流水">
+    <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualPublicYear"/>
 </div>
-<div class="norequired">
+<div class="norequired" ng-click="choose_credit()">
     <div class="noreqname">贷款方式</div>
-    <div class="reqtishi">请选择您要融资的金额</div>
+    <div class="reqtishi">{{articleStep2.credit || '请选择贷款方式'}}</div>
     <span class="setupimg"></span>
 </div>
 
 <div class="norequired">
     <div class="noreqname">财务信息（应收 资产规模）</div>
-    <input type="text" placeholder="点击加号添加财务报表图片">
+    <input type="text" placeholder="点击加号添加财务报表图片" ng-model="articleStep2.financialInfo"/>
 </div>
 
 <div class="loadlie">
@@ -54,15 +54,15 @@
 </div>
 <div class="norequired" style="margin-top: 86px;">
     <div class="noreqname">业务往来</div>
-    <input type="text" placeholder="请输入几个上下游主要客户和采购对象">
+    <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="articleStep2.businessContact"/>
 </div>
 <div class="norequired">
     <div class="noreqname">法人户籍</div>
-    <input type="text" placeholder="请输入法人户籍">
+    <input type="text" placeholder="请输入法人户籍" ng-model="articleStep2.corporateResidence"/>
 </div>
 <div class="norequired">
     <div class="noreqname">公司优势</div>
-    <input type="text" placeholder="请输入公司的其他贷款优势">
+    <input type="text" placeholder="请输入公司的其他贷款优势" ng-model="articleStep2.advantages" />
 </div>
 <div class="loadlie">
     <input type="file" id="choose"  multiple>
@@ -72,6 +72,6 @@
 <div  class="loadlast"></div>
 
 <div class="sureslecte">
-    <span class="sureslecte1">保存</span>
-    <span class="sureslecte2">发布</span>
+    <span class="sureslecte1" ng-click="save()">保存</span>
+    <span class="sureslecte2" ng-click="release()">发布</span>
 </div>

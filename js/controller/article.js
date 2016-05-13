@@ -155,17 +155,17 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
     
     $scope.next_step = function(){
-    	if(!isNullOrEmpty($scope.createArticle.loanvalue)){
-    		params.loanvalue = $scope.createArticle.loanvalue;
+    	if(!isNullOrEmpty($scope.createArticle.loanValue)){
+    		params.loanValue = $scope.createArticle.loanValue;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.loanlife)){
-    		params.loanlife = $scope.createArticle.loanlife;
+    	if(!isNullOrEmpty($scope.createArticle.loanLife)){
+    		params.loanLife = $scope.createArticle.loanLife;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.ratecap)){
-    		params.ratecap = $scope.createArticle.ratecap;
+    	if(!isNullOrEmpty($scope.createArticle.rateCap)){
+    		params.rateCap = $scope.createArticle.rateCap;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.ratefloor)){
-    		params.ratefloor = $scope.createArticle.ratefloor;
+    	if(!isNullOrEmpty($scope.createArticle.rateFloor)){
+    		params.rateFloor = $scope.createArticle.rateFloor;
     	}
     	if(!isNullOrEmpty($scope.createArticle.classification)){
     		params.classification = $scope.createArticle.classification;
@@ -301,6 +301,8 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	 
 	 $scope.articleStep2 = $rootScope.getSessionObject("articleStep2");
      
+     console.log($scope.articleStep2);
+     
      $scope.pledgeTypeList = [
        {"name":"房产","check":false},
        {"name":"地产","check":false},
@@ -308,6 +310,38 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
        {"name":"车辆","check":false},
        {"name":"其他","check":false}
      ];
+     
+     $scope.check = function(name){
+	 	for (var i = 0; i < $scope.pledgeTypeList.length; i++) {
+		    // 计算表单的总价
+		    var obj = $scope.pledgeTypeList[i];
+		    if(obj.name == name){
+		    	if(obj.check){
+		    		obj.check = false;
+		    	}else{
+		    		obj.check = true;
+		    		$scope.articleStep2.pledgeType = obj.name;
+		    	}
+		    }else{
+		    	obj.check = false;
+		    }
+		}
+	 };
+	 
+	 $scope.init = function(){
+	 	$scope.check($scope.articleStep2.pledgeType);
+	 	
+	 	if(!$scope.articleStep2.pledge){
+	 		$scope.articleStep2.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
+	 	}	 	
+	 };
+	 
+	 $scope.init();
+	 
+	 $scope.choose_credit = function(){
+	 	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
+	 	$location.path("/article/credit/create");
+	 }
 
 	 params = {
 		"id":$scope.articleStep2.id,
@@ -363,22 +397,25 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 		"json");
 	};
 
-
-
+    $scope.release = function(){
+    	alert("发布项目");
+    }
 });
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 
 	 if($routeParams.op == "create"){
-	 	$scope.article = $rootScope.getObject("create_article");
+	 	$scope.article = $rootScope.getSessionObject("articleStep2");
 	 }else if($routeParams.op == "update"){
-	 	$scope.article = $rootScope.getSessionObject("update_article");
+	 	$scope.article = $rootScope.getSessionObject("articleStep2");
 	 }else{
 	 	alert("error op");
 	 	$location.path("/article/list");
 	 }
 
-
+     if(!$scope.article){
+     	$scope.article = {};
+     }
 	 
 	 $scope.obj_list = [{"name":"不限","check":false},
 		 {"name":"信用贷款","check":false},
@@ -414,11 +451,11 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 	 	   }
 	 	}
 	 	if($routeParams.op == "create"){
-	 	    $rootScope.putObject("create_article",$scope.article);
-	 	    $location.path("/article/create/step1");
+	 	    $rootScope.putSessionObject("articleStep2",$scope.article);
+	 	    $location.path("/article/create/step2");
 		}else if($routeParams.op == "update"){
-		 	$rootScope.putSessionObject("update_article",$scope.article);
-	 	    $location.path("/article/update/step1/"+$scope.article.id);
+		 	$rootScope.putSessionObject("articleStep2",$scope.article);
+	 	    $location.path("/article/update/step2/"+$scope.article.id);
 		}
 
 	 }

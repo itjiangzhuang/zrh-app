@@ -42,9 +42,7 @@
         <span class="reqnamespan1" ng-hide="createArticle.classification"></span>
         <span class="reqnamespan2">行业分类</span>
     </div>
-    <div class="reqtishi" ng-hide="createArticle.classification">请选择您的行业</div>
-    <div class="reqtishi" ng-show="createArticle.classification">{{createArticle.classification}}</div>
-
+    <div class="reqtishi" >{{createArticle.classification || '请选择您的行业'}}</div>
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="create_license()">
