@@ -12,8 +12,8 @@
         <span class="reqnamespan2">融资金额</span>
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanValue">请选择您要融资的金额</div>
-    <div class="reqtishiafter" ng-show="createArticle.loanValue">{{createArticle.loanValue}}</div>
-    <input type="hidden" id="amount" ng-model="createArticle.loanValue">
+    <div class="reqtishiafter" ng-show="createArticle.loanValue">{{createArticle.loanValue}}万</div>
+    <input type="hidden" id="loanValue" onchange="angular.element(this).scope().changeLoanValue()"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" id="term">
