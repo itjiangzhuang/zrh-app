@@ -26,8 +26,8 @@
 </div>
 
 <div class=" required" style="margin-top: 86px;">
-    <div class="reqname">
-        <span class="reqnamespan1"></span>
+    <div ng-class="setStyle_div(articleStep2.continualOperateYear)">
+        <span class="reqnamespan1" ng-hide="articleStep2.continualOperateYear"></span>
         <span class="reqnamespan2">年实际经营流水（万元）</span>
     </div>
     <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualOperateYear"/>

@@ -6,8 +6,8 @@ var loginCtrl = angular.module('loginCtrl', []);
 
 loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location) {
 	$scope.loginUser = {
-        "mobile": "15901487291",
-        "password": "123#@!qwe"
+        "mobile": "",
+        "password": ""
     };
     var check_params = function (params) {
         if (params.mobile == "" || params.password == "") {

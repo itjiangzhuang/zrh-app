@@ -116,7 +116,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
     $scope.init = function(){
     	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
-	    	$scope.getFormToken();
+	    		$scope.getFormToken();
 	    }
     	$('#rate').daterate();//利率选择
     	$('#term').dateterm();//期限选择
@@ -209,6 +209,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
                 $location.path("/article/create/step2");
             }else {
+            	$rootScope.removeObject("create_article");
             	console.log(data);
             }
 		  },
@@ -316,6 +317,14 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
        {"name":"车辆","check":false},
        {"name":"其他","check":false}
      ];
+     
+     $scope.setStyle_div = function(args){	   
+	 	if(args){
+	 		return "setafter";
+	 	}else{
+	 		return "reqname";
+	 	}
+	 }
      
      $scope.check = function(name){
 	 	for (var i = 0; i < $scope.pledgeTypeList.length; i++) {

@@ -81,7 +81,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
                     $scope.changeErrorMsg("短信验证码已经发送到你的手机");
 	            }
 	            else {
-	                console.log(d);
+	                 $scope.changeErrorMsg(d.returnCode);
 	            }
 	
 	        }).error(function (d) {
@@ -155,6 +155,7 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 		            	$location.path("/article/list");
 		            }
 		            else {
+		            	$scope.changeErrorMsg(d.result);
 		                console.log(d);
 		            }
 		        }).error(function (d) {
