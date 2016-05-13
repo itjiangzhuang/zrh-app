@@ -22,7 +22,7 @@
    </div>
    <div class=" required">
        <div ng-class="setStyle_div(license.regTime)">
-           <span class="reqnamespan1"></span>
+           <span class="reqnamespan1" ng-hide="license.regTime"></span>
            <span class="reqnamespan2 ">注册时间</span>
        </div>
        <input type="text" placeholder="请选择公司注册时间" ng-change="change_time()" ng-model="license.regTime" id="time"/>
