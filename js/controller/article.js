@@ -92,6 +92,22 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             console.log("login error");
         })
     };
+    
+    $scope.changeLoanLife = function(){
+    	$scope.createArticle.loanLife = $("#loanLife").val();
+    	$scope.$apply();
+    }
+    
+    $scope.changeRateCap = function(){
+    	$scope.createArticle.rateCap = $("#rateCap").val();
+    	$scope.$apply();
+    }
+    
+    $scope.changeRateFloor = function(){
+    	$scope.createArticle.rateFloor = $("#rateFloor").val();
+    	$scope.$apply();
+    }
+    
     $scope.init = function(){
     	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
 	    	$scope.getFormToken();
@@ -211,6 +227,12 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
  	if(!$scope.license){
  		$scope.license = {}
  	}
+ 	
+ 	$scope.changeRegTime = function(){
+ 		$scope.license.regTime = $("#regTime").val();
+ 		$scope.$apply();
+ 		console.log($scope.license);
+ 	}
 	 
 	 $scope.setStyle_div = function(args){	   
 	 	if(args){
@@ -223,7 +245,15 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
      $("#time").date();
      
      $scope.choose_type = function(){
-     	$location.path("/article/businessType/create");
+     	$scope.article.license = $scope.license;
+		if($routeParams.op == "create"){
+	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $location.path("/article/businessType/create");
+		}else if($routeParams.op == "update"){
+		 	$rootScope.putSessionObject("update_article",$scope.article);
+	 	    $location.path("/article/businessType/update");
+		}
+     	
      };
      
      $scope.pic_select = function(){
