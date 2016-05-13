@@ -55,8 +55,12 @@ myApp.run(['$location', '$rootScope', '$http',
             sessionStorage.setItem(key, angular.toJson(value));
         };
         $rootScope.getSessionObject = function (key) {
-            return angular.fromJson(sessionStorage.getItem(key))
+            return angular.fromJson(sessionStorage.getItem(key));
         };
+        $rootScope.removeSessionObject = function (key) {
+            angular.fromJson(sessionStorage.removeItem(key));
+        };
+               
         //加密 3des
         $rootScope.encryptByDES = function (message) {
             var keyHex = CryptoJS.enc.Utf8.parse(deskey);
@@ -80,6 +84,14 @@ myApp.run(['$location', '$rootScope', '$http',
 
             return decrypted.toString(CryptoJS.enc.Utf8);
         }
+        
+        $rootScope.transFn = function(obj) {
+		       var str = [];
+			   for(var p in obj){
+			       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+			   }
+			   return str.join("&").toString();
+		 };
 
         $rootScope.close_alert = function () {
             $rootScope.alert_show = null;

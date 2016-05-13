@@ -236,7 +236,11 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 			$http({
 	            url: api_uri+"api/reg/sendSms2",
 	            method: "GET",
-	            params: {"mobile":$scope.resetUser.mobile}           
+	            params: {
+	            	"mobile":$scope.resetUser.mobile,
+	            	"token":$rootScope.encryptByDES($scope.registerUser.mobile),
+	            	"timestamp":moment().format('X')
+	            }
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
 	            	$("#code").focus();

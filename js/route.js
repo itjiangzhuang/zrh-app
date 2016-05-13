@@ -41,7 +41,11 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep1.html',
             controller: 'ArticleCreateStep1Ctrl'
         })
-        .when('/article/create/license', {//选择营业执照
+        .when('/article/update/step1/:id', {//创建第一步
+            templateUrl: templates_root + 'article/createStep1.html',
+            controller: 'ArticleUpdateStep1Ctrl'
+        })
+        .when('/article/create/license/:op', {//选择营业执照
             templateUrl: templates_root + 'article/license.html',
             controller: 'ArticleCreateLicenseCtrl'
         })
@@ -49,13 +53,21 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep2.html',
             controller: 'ArticleCreateStep2Ctrl'
         })
-        .when('/article/credit', {//贷款方式
+        .when('/article/update/step2/:id', {//创建第二步
+            templateUrl: templates_root + 'article/createStep2.html',
+            controller: 'ArticleUpdateStep2Ctrl'
+        })
+        .when('/article/credit/:op', {//贷款方式
             templateUrl: templates_root + 'article/select.html',
             controller: 'CreditCtrl'
         })
-        .when('/article/classification', {//行业类别
+        .when('/article/classification/:op', {//行业类别
             templateUrl: templates_root + 'article/select.html',
             controller: 'ClassificationCtrl'
+        })
+        .when('/article/businessType/:op', {//公司类型
+            templateUrl: templates_root + 'article/select.html',
+            controller: 'BusinessTypeCtrl'
         })
         
         .otherwise({redirectTo: '/article/list'})
