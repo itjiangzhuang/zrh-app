@@ -30,7 +30,13 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
     	if(!isNullOrEmpty(id)){
     		$location.path("/article/show/"+id);
     	}
-    }
+	};
+
+	$scope.goto_create = function () {
+
+		$location.path("/article/create/step1");
+	}
+
 })
 
 articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
