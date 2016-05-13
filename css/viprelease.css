@@ -58,6 +58,7 @@ body{
     font-size: 1.5rem;
     margin-left: 15px;
     color:#888888;
+    margin-top:10px;
 }
 .reqtishiafter{
     color:#4c4c4c;
@@ -207,7 +208,7 @@ body{
     display: inline-block;
     width:28px;
     height:28px;
-    background-size:72%;
+    background-size:72% !important;
     background:url("../img/icon/checked.png") no-repeat;
     margin-left: 10px;
 }
