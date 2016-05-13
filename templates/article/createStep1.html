@@ -22,19 +22,19 @@
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanLife">请选择您要融资的期限</div>
     <div class="reqtishiafter" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
-    <input type="hidden" id="loanLife" ng-model="createArticle.loanLife"/>
+    <input type="hidden" id="loanLife" onchange="angular.element(this).scope().changeLoanLife()"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" id="rate">
-    <div ng-class="setStyle_div(createArticle.ratecap)">
-        <span class="reqnamespan1" ng-hide="createArticle.ratecap"></span>
+    <div ng-class="setStyle_div(createArticle.rateCap)">
+        <span class="reqnamespan1" ng-hide="createArticle.rateCap"></span>
         <span class="reqnamespan2">接受利率</span>
 
     </div>
-    <div class="reqtishi" ng-hide="createArticle.ratecap">请选择您要融资的金额</div>
-    <div class="reqtishiafter" ng-show="createArticle.ratecap">{{createArticle.rateCap}}~{{createArticle.rateFloor}}</div>
-    <input type="hidden" id="rateCap" ng-model="createArticle.rateCap"/>
-    <input type="hidden" id="rateFloor" ng-model="createArticle.rateFloor"/>
+    <div class="reqtishi" ng-hide="createArticle.rateCap">请选择您要融资的金额</div>
+    <div class="reqtishiafter" ng-show="createArticle.rateCap">{{createArticle.rateCap}}%-{{createArticle.rateFloor}}%</div>
+    <input type="hidden" id="rateCap" onchange="angular.element(this).scope().changeRateCap()"/>
+    <input type="hidden" id="rateFloor" onchange="angular.element(this).scope().changeRateFloor()"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="choose_classification()">

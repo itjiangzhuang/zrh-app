@@ -95,8 +95,10 @@
             $("#dateconfirm").unbind('click').click(function () {	
                 var datestr = $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)+"个月";
                 //设置隐藏的input的value
-                $('#loanLife').val( $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1))
-                console.log( $('#loanLife').val())
+                $('#loanLife').val( $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1));
+                $('#loanLife').change();
+//              console.log( $('#loanLife').val());
+                
 
                if(datetime){
                      if(Math.round(indexS)===1){//下午
