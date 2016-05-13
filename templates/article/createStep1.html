@@ -5,14 +5,15 @@
 </div>
 
 <div class="information">基本信息</div>
-<div class=" required" ng-click="choose_loanValue()">
+<div class=" required" id="aomuntmoney">
+    <!--<div class=" required" ng-click="choose_loanValue()" id="aomuntmoney">    -->
     <div ng-class="setStyle_div(createArticle.loanValue)">
         <span class="reqnamespan1" ng-hide="createArticle.loanValue"></span>
         <span class="reqnamespan2">融资金额</span>
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanValue">请选择您要融资的金额</div>
     <div class="reqtishiafter" ng-show="createArticle.loanValue">{{createArticle.loanValue}}</div>
-    
+    <input type="hidden" id="amount" ng-model="createArticle.loanValue">
     <span class="setupimg"></span>
 </div>
 <div class=" required" id="term">
@@ -58,4 +59,98 @@
 <input type="submit" value="下一步" class="next" ng-click="next_step()"/>
 <!--插件中加的div-->
        <div id="datePlugin"></div>
+     <!--选取金额的布局开始-->
+     <ul id="treelist">
+         <li>
+             <span>1</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>2</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>3</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>4</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>5</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>6</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>7</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>8</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+         <li>
+             <span>9</span>
+             <ul>
+                 <li>万</li>
+                 <li>十万</li>
+                 <li>百万</li>
+                 <li>千万</li>
+                 <li>亿</li>
+             </ul>
+         </li>
+     </ul>
+     <!--选取金额的布局结束-->
 </div>
