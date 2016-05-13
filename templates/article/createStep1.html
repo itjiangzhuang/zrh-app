@@ -22,7 +22,7 @@
     </div>
     <div class="reqtishi" ng-hide="createArticle.loanLife">请选择您要融资的期限</div>
     <div class="reqtishiafter" ng-show="createArticle.loanLife">{{createArticle.loanLife}}个月</div>
-    <input type="hidden" name="loanLife" ng-model="createArticle.loanLife"/>
+    <input type="hidden" id="loanLife" ng-model="createArticle.loanLife"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" id="rate">
@@ -33,8 +33,8 @@
     </div>
     <div class="reqtishi" ng-hide="createArticle.ratecap">请选择您要融资的金额</div>
     <div class="reqtishiafter" ng-show="createArticle.ratecap">{{createArticle.rateCap}}~{{createArticle.rateFloor}}</div>
-    <input type="hidden" name="rateCap" ng-model="createArticle.rateCap"/>
-    <input type="hidden" name="rateFloor" ng-model="createArticle.rateFloor"/>
+    <input type="hidden" id="rateCap" ng-model="createArticle.rateCap"/>
+    <input type="hidden" id="rateFloor" ng-model="createArticle.rateFloor"/>
     <span class="setupimg"></span>
 </div>
 <div class=" required" ng-click="choose_classification()">
