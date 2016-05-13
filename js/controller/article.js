@@ -175,7 +175,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	}
     	if(!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)){
     		params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
-    	}    	
+    	}
     	
     	$.post(api_uri+"api/article/createStep1",params,
 		  function(data){
@@ -223,7 +223,7 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
      $("#time").date();
      
      $scope.choose_type = function(){
-     	$location.path("/article/businessType/create");     	
+     	$location.path("/article/businessType/create");
      };
      
      $scope.pic_select = function(){
@@ -284,23 +284,23 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 		"userId": $rootScope.login_user.userId,
 		"token": $rootScope.login_user.token
 	 };
-	 
+
 	$scope.save  = function(){
 		if(!isNullOrEmpty($scope.articleStep2.pledgeType)){
 	    	params.pledgeType = $scope.articleStep2.pledgeType;
-	    }	
+	    }
 		if(!isNullOrEmpty($scope.articleStep2.pledge)){
 	    	params.pledge = $scope.articleStep2.pledge;
-	    }	
+	    }
 		if(!isNullOrEmpty($scope.articleStep2.pledgeImgs)){
 	    	params.pledgeImgs = $scope.articleStep2.pledgeImgs;
-	    }	
+	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialInfo)){
 	    	params.financialInfo = $scope.articleStep2.financialInfo;
-	    }	
+	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialImgs)){
 	    	params.financialImgs = $scope.articleStep2.financialImgs;
-	    }	
+	    }
 		if(!isNullOrEmpty($scope.articleStep2.continualOperateYear)){
 	    	params.continualOperateYear = $scope.articleStep2.continualOperateYear;
 	    }
@@ -319,12 +319,12 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 		if(!isNullOrEmpty($scope.articleStep2.advantagesImgs)){
 	    	params.advantagesImgs = $scope.articleStep2.advantagesImgs;
 	    }
-		
+
 		$.post(api_uri+"api/article/createStep2",params,
 		  function(data){
 		    if (data.returnCode == 0) {
 //          	$scope.createArticle.id = d.result;
-            	$rootScope.removeSessionObject("articleStep2");      
+            	$rootScope.removeSessionObject("articleStep2");
                 $location.path("/article/list");
             }else {
             	console.log(data);
@@ -332,13 +332,13 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 		  },
 		"json");
 	};
-	
-	
+
+
 
 });
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 
+
 	 if($routeParams.op == "create"){
 	 	$scope.article = $rootScope.getObject("create_article");
 	 }else if($routeParams.op == "update"){
@@ -347,8 +347,8 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 	 	alert("error op");
 	 	$location.path("/article/list");
 	 }
-	 
-	 
+
+
 	 
 	 $scope.obj_list = [{"name":"不限","check":false},
 		 {"name":"信用贷款","check":false},
@@ -390,7 +390,7 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 		 	$rootScope.putSessionObject("update_article",$scope.article);
 	 	    $location.path("/article/update/step1/"+$scope.article.id);
 		}
-	 	
+
 	 }
 });
 
@@ -459,14 +459,14 @@ articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, 
 	 	alert("error op");
 	 	$location.path("/article/list");
 	 }
-	 
+
 	 $scope.obj_list = [
 		 {"name":"个人独资企业","check":false},
 		 {"name":"合伙企业","check":false},
 		 {"name":"有限责任公司","check":false},
 		 {"name":"股份制有限公司","check":false}
 	 ];
-	 
+
 	 $scope.check = function(name){
 	 	for (var i = 0; i < $scope.obj_list.length; i++) {
 		    // 计算表单的总价
@@ -482,15 +482,15 @@ articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, 
 		    }
 		}
 	 };
-	 
+
 	 $scope.check($scope.article.license.businessType);
-	 
-	 $scope.sure = function(){ 	
-	 	$scope.article.license.businessType = "";	 	
+
+	 $scope.sure = function(){
+	 	$scope.article.license.businessType = "";
 	 	for (var i = 0; i < $scope.obj_list.length; i++) {
 	 	   var obj = $scope.obj_list[i];
 	 	   if(obj.check){
-            	$scope.article.license.businessType = obj.name;	 
+            	$scope.article.license.businessType = obj.name;
 	 	   }
 	 	}
 	 	if($routeParams.op == "create"){
@@ -504,24 +504,24 @@ articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, 
 });
 
 articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 	  
-	
+
+
     params = {
 		"userId": $rootScope.login_user.userId,
-		"token": $rootScope.login_user.token 	
-    } 	  
-	 
-    $scope.init = function(){   	
+		"token": $rootScope.login_user.token
+    }
+
+    $scope.init = function(){
     	if(!$routeParams.id||isNullOrEmpty($routeParams.id)){
     		$location.path("/article/list");
     	}
-    	
+
     	$scope.article = $rootScope.getSessionObject("update_article");
     	if(!$scope.article){
     		params.id = $routeParams.id
 	    	$.post(api_uri+"api/article/updateStep1",params,
 			  function(data){
-			    if (data.returnCode == 0) {    
+			    if (data.returnCode == 0) {
 			    	$scope.article = {};
 			    	$scope.article.id = $routeParams.id;
 	                $scope.article.loanValue =  data.result.loanValue;
@@ -544,34 +544,34 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
     	}else{
     		$rootScope.removeSessionObject("update_article");
     	}
-    	
+
     	$('#rate').daterate();//利率选择
     	$('#term').dateterm();//期限选择
     };
-    
-    $scope.setStyle_div = function(args){	   
+
+    $scope.setStyle_div = function(args){
 	 	if(args){
 	 		return "setafter";
 	 	}else{
 	 		return "reqname";
 	 	}
 	 }
-    
-     $scope.setStyle_div2 = function(arg1,arg2){	   
+
+     $scope.setStyle_div2 = function(arg1,arg2){
 	 	if(arg1&&arg2){
 	 		return "setafter";
 	 	}else{
 	 		return "reqname";
 	 	}
 	 }
-    
+
     $scope.init();
 
     $scope.choose_classification = function(){
     	$rootScope.putSessionObject("update_article",$scope.article);
     	$location.path("/article/classification/update");
     };
- 
+
     $scope.create_license = function(){
     	$rootScope.putSessionObject("update_article",$scope.article);
     	$location.path("/article/create/license/update");
@@ -614,11 +614,11 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
     	}
     	if(!isNullOrEmpty($scope.article.license.corporateRepresentative)){
     		params.corporateRepresentative = $scope.article.license.corporateRepresentative;
-    	}    	
-    	
+    	}
+
     	$.post(api_uri+"api/article/createStep1",params,
 		  function(data){
-		    if (data.returnCode == 0) {          	
+		    if (data.returnCode == 0) {
                 $location.path("/article/create/step2/"+$scope.article.id);
             }else {
             	console.log(data);
@@ -626,44 +626,44 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
 		  },
 		"json");
     };
-    
+
 });
 
 
 
 articleCtrl.controller('ArticleUpdateStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 	  
-	
+
+
     params = {
 		"userId": $rootScope.login_user.userId,
-		"token": $rootScope.login_user.token 	
-    } 	  
-	 
-    $scope.init = function(){   	
+		"token": $rootScope.login_user.token
+    }
+
+    $scope.init = function(){
     	if(!$routeParams.id||isNullOrEmpty($routeParams.id)){
     		$location.path("/article/list");
     	}
-    	
+
     	$scope.article = $rootScope.getSessionObject("update_article");
     	if(!$scope.article){
     		params.id = $routeParams.id
 	    	$.post(api_uri+"api/article/updateStep2",params,
 			  function(data){
-			    if (data.returnCode == 0) {    
+			    if (data.returnCode == 0) {
 			    	$scope.article = {};
 			    	$scope.article.id = $routeParams.id;
 	                $scope.article.pledgeType =  data.result.pledgeType;
 	                $scope.article.pledge =  data.result.pledge;
 	                $scope.article.pledgeImgs =  data.result.pledgeImgs;
 	                $scope.article.financialInfo =  data.result.financialInfo;
-	                $scope.article.financialImgs =  data.result.financialImgs;	 
-	                $scope.article.credit =  data.result.credit;	 
-	                $scope.article.continualOperateYear =  data.result.continualOperateYear;	 
-	                $scope.article.continualPublicYear =  data.result.continualPublicYear;	 
-	                $scope.article.businessContact =  data.result.businessContact;	 
-	                $scope.article.corporateResidence =  data.result.corporateResidence;	 
+	                $scope.article.financialImgs =  data.result.financialImgs;
+	                $scope.article.credit =  data.result.credit;
+	                $scope.article.continualOperateYear =  data.result.continualOperateYear;
+	                $scope.article.continualPublicYear =  data.result.continualPublicYear;
+	                $scope.article.businessContact =  data.result.businessContact;
+	                $scope.article.corporateResidence =  data.result.corporateResidence;
 	                $scope.article.advantagesImgs =  data.result.advantagesImgs;
-	                $scope.article.advantages =  data.result.advantages;	 
+	                $scope.article.advantages =  data.result.advantages;
 	            }else {
 	            	console.log(data);
 	            }
@@ -676,9 +676,22 @@ articleCtrl.controller('ArticleUpdateStep2Ctrl', function ($http, $scope, $rootS
 
     $scope.init();
 
-   
-    
+
+
 });
 
 
-    
+articleCtrl.controller('DetailsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('PutquestionsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Bidalert1Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Bidalert2Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+
+
