@@ -90,5 +90,85 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/bidalert2.html',
             controller: 'Bidalert2Ctrl'
         })
+        .when('/article/vipusercenter', {//vip个人中心
+            templateUrl: templates_root + 'article/vipusercenter.html',
+            controller: 'VipusercenterCtrl'
+        })
+        .when('/article/investmentproblem', {//vip投资问题
+            templateUrl: templates_root + 'article/investmentproblem.html',
+            controller: 'InvestmentproblemCtrl'
+        })
+        .when('/article/vipmymessage', {//vip我的消息
+            templateUrl: templates_root + 'article/vipmymessage.html',
+            controller: 'VipmymessageCtrl'
+        })
+        .when('/article/wallet', {//我的钱包
+            templateUrl: templates_root + 'article/wallet.html',
+            controller: 'WalletCtrl'
+        })
+        .when('/article/windcontrol', {//风控标准
+            templateUrl: templates_root + 'article/windcontrol.html',
+            controller: 'WindcontrolCtrl'
+        })
+        .when('/article/guarantee', {//信用担保选择
+            templateUrl: templates_root + 'article/guarantee.html',
+            controller: 'GuaranteeCtrl'
+        })
+        .when('/article/shezhi', {//设置
+            templateUrl: templates_root + 'article/shezhi.html',
+            controller: 'shezhiCtrl'
+        })
+        .when('/article/speedprogress', {//vip项目进度
+            templateUrl: templates_root + 'article/speedprogress.html',
+            controller: 'SpeedprogressCtrl'
+        })
+        .when('/article/administrationstep1', {//vip已发布项目管理第一步
+            templateUrl: templates_root + 'article/administrationstep1.html',
+            controller: 'Administrationstep1Ctrl'
+        })
+        .when('/article/administrationstep2', {//vip已发布项目管理第二步
+            templateUrl: templates_root + 'article/administrationstep2.html',
+            controller: 'Administrationstep2Ctrl'
+        })
+        .when('/article/administrationstep3', {//vip已发布项目管理第三步
+            templateUrl: templates_root + 'article/administrationstep3.html',
+            controller: 'Administrationstep3Ctrl'
+        })
+        .when('/article/administrationstep4', {//vip未发布项目管理第-步
+            templateUrl: templates_root + 'article/administrationstep4.html',
+            controller: 'Administrationstep4Ctrl'
+        })
+        .when('/article/administrationstep5', {//vip未发布项目管理第二步
+            templateUrl: templates_root + 'article/administrationstep5.html',
+            controller: 'Administrationstep5Ctrl'
+        })
+        .when('/article/administrationstep6', {//vip未发布项目管理第三步
+            templateUrl: templates_root + 'article/administrationstep6.html',
+            controller: 'Administrationstep6Ctrl'
+        })
+        .when('/article/speeddetailsstep1', {//vip项目进度详情审核中
+            templateUrl: templates_root + 'article/speeddetailsstep1.html',
+            controller: 'Speeddetailsstep1Ctrl'
+        })
+        .when('/article/speeddetailsstep2', {//vip项目进度详情约见
+            templateUrl: templates_root + 'article/speeddetailsstep2.html',
+            controller: 'Speeddetailsstep2Ctrl'
+        })
+        .when('/article/speeddetailsstep3', {//vip项目进度详情跟进中
+            templateUrl: templates_root + 'article/speeddetailsstep3.html',
+            controller: 'Speeddetailsstep3Ctrl'
+        })
+        .when('/article/speeddetailsstep4', {//vip项目进度详情签约完成
+            templateUrl: templates_root + 'article/speeddetailsstep4.html',
+            controller: 'Speeddetailsstep4Ctrl'
+        })
+        .when('/article/speeddetailsstep5', {//vip项目进度详情签约失败
+            templateUrl: templates_root + 'article/speeddetailsstep5.html',
+            controller: 'Speeddetailsstep5Ctrl'
+        })
+        .when('/article/telephone', {//约见电话
+            templateUrl: templates_root + 'article/telephone.html',
+            controller: 'TelephoneCtrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 });

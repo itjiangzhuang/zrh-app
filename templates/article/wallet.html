@@ -1,0 +1,72 @@
+
+<body>
+<div style="height:100%;background:#f0f0f0;overflow-y: auto">
+   <div class="walletheader">
+       <div class="walheadertittle">我的资产</div>
+       <div class="moneycount">￥<span>88888.00</span></div>
+   </div>
+   <div class="binding">
+       <span class="bindingtittle">绑定银行卡</span>
+       <span class="bindingimg">+</span>
+   </div>
+   <div class="bankcard">
+       <div class="bankcardleft"><img src="/zrh-app/img/icon/merchants.jpg" alt=""></div>
+       <div class="bankcardright">
+           <p class="bankcardrightname">平安银行</p>
+            <p class="bankcardrightcard">储蓄卡</p>
+            <p class="bankcardrightnum">1234567899876543219</p>
+       </div>
+   </div>
+   <div class="bankcard">
+       <div class="bankcardleft"><img src="/zrh-app/img/icon/merchants.jpg" alt=""></div>
+       <div class="bankcardright">
+           <p class="bankcardrightname">平安银行</p>
+           <p class="bankcardrightcard">储蓄卡</p>
+           <p class="bankcardrightnum">1234567899876543219</p>
+       </div>
+   </div>
+    <div class="bankcard">
+        <div class="bankcardleft"><img src="../../../img/merchants.jpg" alt=""></div>
+        <div class="bankcardright">
+            <p class="bankcardrightname">平安银行</p>
+            <p class="bankcardrightcard">储蓄卡</p>
+            <p class="bankcardrightnum">1234567899876543219</p>
+        </div>
+    </div>
+    <div class="bankcard">
+        <div class="bankcardleft"><img src="/zrh-app/img/icon/merchants.jpg" alt=""></div>
+        <div class="bankcardright">
+            <p class="bankcardrightname">平安银行</p>
+            <p class="bankcardrightcard">储蓄卡</p>
+            <p class="bankcardrightnum">1234567899876543219</p>
+        </div>
+    </div>
+    <div class="bankcard">
+        <div class="bankcardleft"><img src="/zrh-app/img/icon/merchants.jpg" alt=""></div>
+        <div class="bankcardright">
+            <p class="bankcardrightname">平安银行</p>
+            <p class="bankcardrightcard">储蓄卡</p>
+            <p class="bankcardrightnum">1234567899876543219</p>
+        </div>
+    </div>
+    <div class="bankcard">
+        <div class="bankcardleft"><img src="/zrh-app/img/icon/merchants.jpg" alt=""></div>
+        <div class="bankcardright">
+            <p class="bankcardrightname">平安银行</p>
+            <p class="bankcardrightcard">储蓄卡</p>
+            <p class="bankcardrightnum">1234567899876543219</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 91px;"></div>
+   <input  type='submit'class="release" value="我要提现" />
+</div>
+   <script>
+       window.onload=function(){
+           var bankcardrightnum=document.getElementsByClassName('bankcardrightnum')[0];
+            var p=bankcardrightnum.innerHTML;
+            var  numlength=p.length;
+           var num=p.substring(0,numlength-4);
+           bankcardrightnum.innerHTML=p.replace(num,'**** **** ****&nbsp;');
+
+       }
+   </script>

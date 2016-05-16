@@ -113,6 +113,15 @@ body{
     right:12px;
 
 }
+.divinput{
+    width: 86%;
+    height: 28px;
+    margin-top: 8px;
+    margin-left: 15px;
+    border: none;
+    font-size: 1.4rem;
+    color: #4c4c4c;
+}
 .viprelease1Headerp1{
     font-size: 1.8rem;
     color:#ffffff;
@@ -179,6 +188,7 @@ body{
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
+    opacity: 0.7;
 }
 
 .chkbox{
@@ -198,18 +208,32 @@ body{
     /*border:1px solid red;*/
     width:28px;
     height:28px;
-    background:url("../img/icon/check.png") no-repeat;
+    background:url("../img/icon/check.png") no-repeat 0 3px;
     background-size:72%;
     margin-left: 10px;
 
 }
-
-.checked{
+.checknext{
     display: inline-block;
+    /*border:1px solid red;*/
+    width:28px;
+    height:28px;
+    background:url("../img/icon/check.png") no-repeat 0 3px;
+    background-size:72%;
+}
+.checkednext{
+    display: none;
     width:28px;
     height:28px;
     background-size:72% !important;
-    background:url("../img/icon/checked.png") no-repeat;
+    background:url("../img/icon/checked.png") no-repeat 0 3px;
+}
+.checked{
+    display: none;
+    width:28px;
+    height:28px;
+    background-size:72% !important;
+    background:url("../img/icon/checked.png") no-repeat 0 3px;
     margin-left: 10px;
 }
 .buxiang{
@@ -230,6 +254,21 @@ body{
     border-radius: 18px;
     text-align: center;
     box-shadow: 0 6px 6px #ccc;
+}
+.surebtntwo{
+    width:78%;
+    height:38px;
+    margin:0 auto;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    font-size:2rem ;
+    color:#fff;
+    line-height:36px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 6px #ccc;
+    position:absolute;
+    left:11%;
+    top:140px;
 }
 .coverinner{
     width:76%;
@@ -321,7 +360,7 @@ body{
     border-radius: 6px;
 }
  .noreqname{
-     font-size:1.6rem;
+     font-size:1.45rem;
      margin-left: 15px;
      margin-top: 10px;
      color:#888888;
@@ -387,16 +426,16 @@ body{
     display:inline-block;
     position:relative;
     margin-top: 5px;
-    width:28.2%;
+    width:32%;
     border-right: 1px solid #f0f0f0;
-    margin-left: 15px;
+   padding-left: 15px;
     border-bottom:1px solid #f0f0f0;
 }
 .checkwenzi{
     display: inline-block;
     font-size: 1.4rem;
     position:absolute;
-
+    top:4px;
 }
 .lineclear{
     border-right: 1px solid #ffffff;

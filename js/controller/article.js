@@ -98,62 +98,26 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             console.log("login error");
         })
     };
-    $scope.changeLoanValue = function(){
-    	$scope.createArticle.loanValue = $("#loanValue").val();
-    	$scope.$apply();
-    };
-
+    
     $scope.changeLoanLife = function(){
     	$scope.createArticle.loanLife = $("#loanLife").val();
     	$scope.$apply();
-    };
+    }
     
     $scope.changeRateCap = function(){
     	$scope.createArticle.rateCap = $("#rateCap").val();
     	$scope.$apply();
-    };
+    }
     
     $scope.changeRateFloor = function(){
     	$scope.createArticle.rateFloor = $("#rateFloor").val();
     	$scope.$apply();
-    };
+    }
     
     $scope.init = function(){
     	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
-	    		$scope.getFormToken();
+	    	$scope.getFormToken();
 	    }
-    	
-    	    $('#aomuntmoney').click( function(){
-		        $('#treelist_dummy').focus()
-		    });
-		    var i = Math.floor($('#treelist>li').length/2),
-		        j = Math.floor($('#treelist>li').eq(i).find('ul li').length /2);
-		    $("#treelist").mobiscroll().treelist({
-		        theme:"android-ics light",
-		        lang:"zh",
-		        defaultValue:[i,j],
-		        cancelText:null,
-		//            placeholder:"借款金额",
-		        headerText:function(valueText){return "借款金额";},
-		        formatResult:function(array){
-		            var text = $('#treelist>li').eq(array[0]).find('ul li').eq(array[1]).text().trim(' ');
-		            if(text=="万"){
-		                var w = 1;
-		            }else if(text == "十万"){
-		                var w = 10;
-		            }else if(text =="百万"){
-		                var  w = 100;
-		            }else if(text == "千万"){
-		                var w = 1000;
-		            }else if(text =="亿"){
-		                var w =10000
-		            }
-		            $('#loanValue').val($('#treelist>li').eq(array[0]).children('span').text()*w);
-		            $('#loanValue').change();
-		        }
-		
-		    });
-    	
     	$('#rate').daterate();//利率选择
     	$('#term').dateterm();//期限选择
     };
@@ -197,17 +161,17 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     
     
     $scope.next_step = function(){
-    	if(!isNullOrEmpty($scope.createArticle.loanValue)){
-    		params.loanValue = $scope.createArticle.loanValue;
+    	if(!isNullOrEmpty($scope.createArticle.loanvalue)){
+    		params.loanvalue = $scope.createArticle.loanvalue;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.loanLife)){
-    		params.loanLife = $scope.createArticle.loanLife;
+    	if(!isNullOrEmpty($scope.createArticle.loanlife)){
+    		params.loanlife = $scope.createArticle.loanlife;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.rateCap)){
-    		params.rateCap = $scope.createArticle.rateCap;
+    	if(!isNullOrEmpty($scope.createArticle.ratecap)){
+    		params.ratecap = $scope.createArticle.ratecap;
     	}
-    	if(!isNullOrEmpty($scope.createArticle.rateFloor)){
-    		params.rateFloor = $scope.createArticle.rateFloor;
+    	if(!isNullOrEmpty($scope.createArticle.ratefloor)){
+    		params.ratefloor = $scope.createArticle.ratefloor;
     	}
     	if(!isNullOrEmpty($scope.createArticle.classification)){
     		params.classification = $scope.createArticle.classification;
@@ -245,7 +209,6 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
                 $location.path("/article/create/step2");
             }else {
-            	$rootScope.removeObject("create_article");
             	console.log(data);
             }
 		  },
@@ -344,8 +307,6 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	 
 	 $scope.articleStep2 = $rootScope.getSessionObject("articleStep2");
      
-     console.log($scope.articleStep2);
-     
      $scope.pledgeTypeList = [
        {"name":"房产","check":false},
        {"name":"地产","check":false},
@@ -353,46 +314,6 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
        {"name":"车辆","check":false},
        {"name":"其他","check":false}
      ];
-     
-     $scope.setStyle_div = function(args){	   
-	 	if(args){
-	 		return "setafter";
-	 	}else{
-	 		return "reqname";
-	 	}
-	 }
-     
-     $scope.check = function(name){
-	 	for (var i = 0; i < $scope.pledgeTypeList.length; i++) {
-		    // 计算表单的总价
-		    var obj = $scope.pledgeTypeList[i];
-		    if(obj.name == name){
-		    	if(obj.check){
-		    		obj.check = false;
-		    	}else{
-		    		obj.check = true;
-		    		$scope.articleStep2.pledgeType = obj.name;
-		    	}
-		    }else{
-		    	obj.check = false;
-		    }
-		}
-	 };
-	 
-	 $scope.init = function(){
-	 	$scope.check($scope.articleStep2.pledgeType);
-	 	
-	 	if(!$scope.articleStep2.pledge){
-	 		$scope.articleStep2.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
-	 	}	 	
-	 };
-	 
-	 $scope.init();
-	 
-	 $scope.choose_credit = function(){
-	 	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
-	 	$location.path("/article/credit/create");
-	 }
 
 	 params = {
 		"id":$scope.articleStep2.id,
@@ -448,25 +369,22 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 		"json");
 	};
 
-    $scope.release = function(){
-    	alert("发布项目");
-    }
+
+
 });
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 
 	 if($routeParams.op == "create"){
-	 	$scope.article = $rootScope.getSessionObject("articleStep2");
+	 	$scope.article = $rootScope.getObject("create_article");
 	 }else if($routeParams.op == "update"){
-	 	$scope.article = $rootScope.getSessionObject("articleStep2");
+	 	$scope.article = $rootScope.getSessionObject("update_article");
 	 }else{
 	 	alert("error op");
 	 	$location.path("/article/list");
 	 }
 
-     if(!$scope.article){
-     	$scope.article = {};
-     }
+
 	 
 	 $scope.obj_list = [{"name":"不限","check":false},
 		 {"name":"信用贷款","check":false},
@@ -502,11 +420,11 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 	 	   }
 	 	}
 	 	if($routeParams.op == "create"){
-	 	    $rootScope.putSessionObject("articleStep2",$scope.article);
-	 	    $location.path("/article/create/step2");
+	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $location.path("/article/create/step1");
 		}else if($routeParams.op == "update"){
-		 	$rootScope.putSessionObject("articleStep2",$scope.article);
-	 	    $location.path("/article/update/step2/"+$scope.article.id);
+		 	$rootScope.putSessionObject("update_article",$scope.article);
+	 	    $location.path("/article/update/step1/"+$scope.article.id);
 		}
 
 	 }
@@ -530,7 +448,12 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 {"name":"医疗","check":false},
 	 {"name":"教育","check":false},
 	 {"name":"建筑工程","check":false},
-	 {"name":"电子商务","check":false}];	 
+	 {"name":"电子商务","check":false},
+		 {"name":"生活消费","check":false},
+		 {"name":"汽车交通","check":false},
+		 {"name":"汽车交通高新技术","check":false},
+		 {"name":"互联网","check":false},
+	 ];
 	 
 	 $scope.check = function(name){
 	 	for (var i = 0; i < $scope.obj_list.length; i++) {
@@ -811,5 +734,71 @@ articleCtrl.controller('Bidalert1Ctrl',function($http, $scope, $rootScope, $loca
 articleCtrl.controller('Bidalert2Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
 
 });
+articleCtrl.controller('VipusercenterCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('InvestmentproblemCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('VipmymessageCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('WalletCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('WindcontrolCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('GuaranteeCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('shezhiCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('SpeedprogressCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep1Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep2Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep3Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep4Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep5Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Administrationstep6Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Speeddetailsstep1Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Speeddetailsstep2Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Speeddetailsstep3Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Speeddetailsstep4Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('Speeddetailsstep5Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+articleCtrl.controller('TelephoneCtrl',function($http, $scope, $rootScope, $location,$routeParams){
+
+});
+
+
+
+
+
+
 
 
