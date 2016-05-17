@@ -27,6 +27,7 @@ body{
     margin-bottom:6px;
     background: #fff;
     border:1px solid transparent;
+    position:relative;
 }
 .tittle{
     font-size:18px;
@@ -50,18 +51,23 @@ body{
 
 }
 .amount .countdiv{
-
     font-size: 35px;
     color:#f97383;
-    padding-left: 11%;
     margin-top: 5px;
+    margin-left: 9px;
 
-
+}
+.amount .failed{
+    font-size: 35px;
+    color:#4c4c4c;
+    margin-top: 5px;
+    margin-left: 9px;
 }
 .amount .countdiv span{
     font-size:14px; ;
     display:inline-block;
-     margin-left: 8%;
+    margin-left: 5px;
+
 }
 .amount input{
     width:65%;
@@ -76,7 +82,6 @@ body{
     width:89%;
     font-size:13px;
     text-align: center;
-
 
 }
 .amount span{
@@ -282,7 +287,7 @@ padding-left:6%;
 .discript textarea{
     width:100%;
     border:none;
-    padding-left:3.5%;
+    padding-left:15px;
 }
 .discript div{
     width:95%;
@@ -388,6 +393,7 @@ hr{
     font-size:1.4rem;
     line-height:46px;
     height:46px;
+    vertical-align: middle;
 }
 .biddingname{
     height:46px;
@@ -398,8 +404,13 @@ hr{
    width:75%;
     padding-left:5%;
 }
+.biddingname3{
+    width:75%;
+
+}
 .biddingname2{
-    margin-left: -1.2%;
+   position:absolute;
+    right:15px;
     color:#888888;
 }
 .progress{
@@ -430,13 +441,20 @@ hr{
     left:44%;
 }
 .progresstittle3,.progresstittle4{
-    left:79%;
+    right:15px;
 }
 .progresstittle4{
     font-size:1.4rem;
     position:absolute;
     top:123px;
     color:#888888;
+}
+.progresstittle5{
+    font-size:1.4rem;
+    position:absolute;
+    top:123px;
+    color:#888888;
+    left:5%;
 }
 /*投资项目样式结束*/
 /*项目管理已发布样式开始*/
@@ -463,11 +481,13 @@ hr{
 .managementheaderspan2{
     margin-left: 30%;
 }
-.managementheaderspan2:hover,.managementheaderspan1:hover{
-    cursor:pointer;
-    border-bottom: 2px solid #868ee3;
-    color:#4c4c4c;
-}
+.current {
+    border-bottom: 2px solid #868ee3;}
+/*.managementheaderspan2:hover,.managementheaderspan1:hover{*/
+    /*cursor:pointer;*/
+    /*border-bottom: 2px solid #868ee3;*/
+    /*color:#4c4c4c;*/
+/*}*/
 /*项目管理已发布样式结束*/
 /*项目管理未发布样式开始*/
 .biddingname .redcircle{
@@ -537,7 +557,7 @@ hr{
     /*margin-left: 62%;*/
     position:absolute;
     top:14px;
-    right:3%;
+    right:15px;
 }
 .bankcard{
     width:92%;
@@ -589,7 +609,7 @@ hr{
       border-radius: 10px;
       background:#f0f0f0;
       margin: 10px auto;
-      margin-bottom: 40px;
+      margin-bottom: 28px;
   }
   .detailchild{
       /*width:90%;*/
@@ -601,28 +621,28 @@ hr{
       font-size:1.4rem;
       color:#f97383;
       position:absolute;
-      top:162px;
+      top:172px;
       left:27%;
   }
 .detailtittle2{
     font-size:1.4rem;
     color:#f97383;
     position:absolute;
-    top:162px;
+    top:172px;
     left:43%;
 }
 .detailtittle3{
     font-size:1.4rem;
     color:#f97383;
     position:absolute;
-    top:162px;
+    top:172px;
     right:6%;
 }
 .detailtittle4{
     font-size:1.4rem;
     color:#888888;
     position:absolute;
-    top:162px;
+    top:172px;
     right:6%;
 }
   .showmsg{
@@ -634,7 +654,7 @@ hr{
       height:58px;
       /*border:1px solid black;*/
       margin-top: 15px;
-      margin-left: 5%;
+      margin-left:15px;
       max-width: 100%;
       margin-bottom: 10px;
   }
@@ -659,28 +679,22 @@ hr{
 .meeting{
     width:72%;
     background:#ffffff;
-    position:fixed;
-    left:14%;
-    top:16%;
     border-radius: 12px;
-    z-index: 2;
-
 }
 .meetlogo{
-
-    width:30%;
-    /*height:63px;*/
-    max-width: 70%;
-    padding-top: 40px;
-    margin-left:35%;
+    width:61px;
+    height:47.5px;
+    margin-top: 38px;
+    margin-left:calc(50% - 30px);
 }
+
 .meetname{
     width:100%;
     height:58px;
     border-bottom: 1px solid #f0f0f0;
     line-height: 24px;
     margin-top: 16px;
-    padding-left:5%;
+    padding-left:15px;
 }
 .meetnamep1{
     font-size: 1.6rem;
@@ -692,9 +706,9 @@ hr{
     font-family: "Arial Black";
 }
 .meetphone{
-    width:44%;
-    max-width:70%;
-    margin-left: 28%;
+    width:100px;
+    height:100px;
+    margin-left: calc(50% - 50px);
     margin-top: 20px;
 }
 /*约见信息样式结束*/
