@@ -110,6 +110,9 @@ myApp.run(['$location', '$rootScope', '$http',
         };
 
         $rootScope.check_user = function () {
+        	
+        	$rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
+        	
             $rootScope.login_user = $rootScope.getObject("login_user");
             //console.log($rootScope.login_user);
             if (!$rootScope.login_user) {

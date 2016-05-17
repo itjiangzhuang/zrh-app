@@ -66,7 +66,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 
-	 $scope.createArticle = $rootScope.getObject("create_article");
+	 $scope.createArticle = $rootScope.getSessionObject("create_article");
 	 console.log($scope.createArticle);
 	 
 	 if(!$scope.createArticle){
@@ -123,36 +123,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 	    		$scope.getFormToken();
 	    }
     	
-    	    $('#aomuntmoney').click( function(){
-		        $('#treelist_dummy').focus()
-		    });
-		    var i = Math.floor($('#treelist>li').length/2),
-		        j = Math.floor($('#treelist>li').eq(i).find('ul li').length /2);
-		    $("#treelist").mobiscroll().treelist({
-		        theme:"android-ics light",
-		        lang:"zh",
-		        defaultValue:[i,j],
-		        cancelText:null,
-		//            placeholder:"借款金额",
-		        headerText:function(valueText){return "借款金额";},
-		        formatResult:function(array){
-		            var text = $('#treelist>li').eq(array[0]).find('ul li').eq(array[1]).text().trim(' ');
-		            if(text=="万"){
-		                var w = 1;
-		            }else if(text == "十万"){
-		                var w = 10;
-		            }else if(text =="百万"){
-		                var  w = 100;
-		            }else if(text == "千万"){
-		                var w = 1000;
-		            }else if(text =="亿"){
-		                var w =10000
-		            }
-		            $('#loanValue').val($('#treelist>li').eq(array[0]).children('span').text()*w);
-		            $('#loanValue').change();
-		        }
-		
-		    });
+	    $("#treelist").aomuntmoney();
+
     	
     	$('#rate').daterate();//利率选择
     	$('#term').dateterm();//期限选择
@@ -173,27 +145,26 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 	 		return "reqname";
 	 	}
 	 }
-    
+    console.log($scope.createArticle);
     $scope.init();
     console.log($scope.createArticle);
     $scope.choose_classification = function(){
-    	$rootScope.putObject("create_article",$scope.createArticle);
+    	$rootScope.putSessionObject("create_article",$scope.createArticle);
     	$location.path("/article/classification/create");
     };
     
     
     $scope.create_license = function(){
-    	$rootScope.putObject("create_article",$scope.createArticle);
+    	$rootScope.putSessionObject("create_article",$scope.createArticle);
     	$location.path("/article/create/license/create");
     };
- 
     
     params = {
     	"id":$scope.createArticle.id,
 		"userId": $rootScope.login_user.userId,
 		"token": $rootScope.login_user.token,
     	"formToken":$scope.createArticle.formToken   	
-    }
+    };
     
     
     $scope.next_step = function(){
@@ -238,7 +209,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	$.post(api_uri+"api/article/createStep1",params,
 		  function(data){
 		    if (data.returnCode == 0) {
-            	$rootScope.removeObject("create_article");
+            	$rootScope.removeSessionObject("create_article");
             	$scope.articleStep2 = {
             		"id":data.result
             	}           	
@@ -257,7 +228,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 	 
 	 if($routeParams.op == "create"){
-	 	$scope.article = $rootScope.getObject("create_article");
+	 	$scope.article = $rootScope.getSessionObject("create_article");
 	 }else if($routeParams.op == "update"){
 	 	$scope.article = $rootScope.getSessionObject("update_article");
 	 }else{
@@ -290,7 +261,7 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
      $scope.choose_type = function(){
      	$scope.article.license = $scope.license;
 		if($routeParams.op == "create"){
-	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $rootScope.putSessionObject("create_article",$scope.article);
 	 	    $location.path("/article/businessType/create");
 		}else if($routeParams.op == "update"){
 		 	$rootScope.putSessionObject("update_article",$scope.article);
@@ -298,31 +269,61 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 		}
      	
      };
-     
-     $scope.pic_select = function(){
-     	$("#file").click();
-     };
-     
-     $scope.upload = function() {    
-            $.ajaxFileUpload({
-                url: api_uri+"api/file/upload",
-                type: 'post',
-                secureuri: false, //一般设置为false
-                fileElementId: 'file', // 上传文件的id、name属性名
-                dataType: 'text', //返回值类型，一般设置为json、application/json
-                jsonp: 'jsoncallback',  
-                data:{
-					"userId": $rootScope.login_user.userId,
-					"token": $rootScope.login_user.token
-                },
-                success: function (data, status) {
-                    console.log(data);
-                },
-                error: function (data, status, e) {
-                    console.log(e);
-                }
-            });
-	};
+	var uploader = Qiniu.uploader({
+		runtimes: 'html5,flash,html4',    //上传模式,依次退化
+		browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
+//	        uptoken_url: api_uri+"api/qiniu/getUpToken?userId="+$rootScope.login_user.userId+"&token="+$rootScope.login_user.token,
+		uptoken:"l5DXStTOahGh03hee6YhAgMAsbbQ81H7tsf9xdcf:SaomUEIEIH9Wcaa8gOgcGkhmAS0=:eyJzY29wZSI6InpyaC10ZXN0IiwiZGVhZGxpbmUiOjE0NjM0NTUxMzF9",
+//	        get_new_uptoken: true,
+		//save_key: true,
+		domain: $rootScope.qiniu_bucket_domain, //bucket 域名，下载资源时用到，**必需**
+		container: 'upload_container',           //上传区域DOM ID，默认是browser_button的父元素，
+		max_file_size: '10mb',           //最大文件体积限制
+		flash_swf_url: '../../framework/plupload/Moxie.swf',  //引入flash,相对路径
+		max_retries: 3,                   //上传失败最大重试次数
+		dragdrop: false,                   //开启可拖曳上传
+		drop_element: '',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+		chunk_size: '4mb',                //分块上传时，每片的体积
+		auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
+		init: {
+			'FilesAdded': function(up, files) {
+				//                    plupload.each(files, function(file) {
+				//                        // 文件添加进队列后,处理相关的事情
+				//                    });
+			},
+			'BeforeUpload': function(up, file) {
+				$rootScope.uploading = true;
+				$scope.upload_percent = file.percent;
+				$rootScope.$apply();
+			},
+			'UploadProgress': function(up, file) {
+				// 每个文件上传时,处理相关的事情
+				$scope.upload_percent = file.percent;
+				$scope.$apply();
+			},
+			'FileUploaded': function(up, file, info) {
+				var res = $.parseJSON(info);
+				
+				var file_url = "http://"+$rootScope.qiniu_bucket_domain+"/"+res.key;
+				$scope.license.licenseImgNames = file.name;
+				$scope.license.licenseImgs = logo_url;
+//	                document.getElementById("logo_img").style.backgroundImage = "url("+ logo_url +")";
+//	                $scope.save();
+			},
+			'Error': function(up, err, errTip) {
+				console.log(err);
+				$rootScope.alert("营业执照上传失败！");
+			},
+			'UploadComplete': function() {
+				//队列文件处理完毕后,处理相关的事情
+			},
+			'Key': function(up, file){
+				var time = new Date().getTime();
+				var k = 'article/license/'+$rootScope.login_user.userId+'/'+time;
+				return k;
+			}
+		}
+	});
 	
 	$scope.change_time = function(){
 		$scope.license.regTime = $("#time").val();
@@ -331,7 +332,7 @@ articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $roo
 	$scope.sure = function(){
 		$scope.article.license = $scope.license;
 		if($routeParams.op == "create"){
-	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $rootScope.putSessionObject("create_article",$scope.article);
 	 	    $location.path("/article/create/step1");
 		}else if($routeParams.op == "update"){
 		 	$rootScope.putSessionObject("update_article",$scope.article);
@@ -388,7 +389,7 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	 };
 	 
 	 $scope.init();
-	 
+ 
 	 $scope.choose_credit = function(){
 	 	$rootScope.putSessionObject("articleStep2",$scope.articleStep2);
 	 	$location.path("/article/credit/create");
@@ -514,7 +515,7 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 if($routeParams.op == "create"){
-	 	$scope.article = $rootScope.getObject("create_article");
+	 	$scope.article = $rootScope.getSessionObject("create_article");
 	 }else if($routeParams.op == "update"){
 	 	$scope.article = $rootScope.getSessionObject("update_article");
 	 }else{
@@ -559,7 +560,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 	 	   }
 	 	}
 	 	if($routeParams.op == "create"){
-	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $rootScope.putSessionObject("create_article",$scope.article);
 	 	    $location.path("/article/create/step1");
 		}else if($routeParams.op == "update"){
 		 	$rootScope.putSessionObject("update_article",$scope.article);
@@ -570,7 +571,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 
 articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 if($routeParams.op == "create"){
-	 	$scope.article = $rootScope.getObject("create_article");
+	 	$scope.article = $rootScope.getSessionObject("create_article");
 	 }else if($routeParams.op == "update"){
 	 	$scope.article = $rootScope.getSessionObject("update_article");
 	 }else{
@@ -612,7 +613,7 @@ articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, 
 	 	   }
 	 	}
 	 	if($routeParams.op == "create"){
-	 	    $rootScope.putObject("create_article",$scope.article);
+	 	    $rootScope.putSessionObject("create_article",$scope.article);
 	 	    $location.path("/article/create/license/create");
 		}else if($routeParams.op == "update"){
 		 	$rootScope.putSessionObject("update_article",$scope.article);
