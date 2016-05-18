@@ -24,48 +24,50 @@
         <ul class="message">
             <li class="img"></li>
             <li class="messageli2">推荐人成交率</li>
-            <li class="messageli3">10/12</li>
+            <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
         </ul>
     </div>
-    <div class="norequired">
+    <div class="norequired" ng-show="article.classification">
         <div class="noreqname">行业分类</div>
         <!--<input type="text" placeholder="请输入法人代表的名字" value="互联网">-->
         <div class="watchdiv">{{article.classification}}</div>
     </div>
-    <div class="norequired">
+    <div class="norequired" ng-show="article.pledgeType">
         <div class="noreqname">抵押物</div>
         <div class="watchdiv">{{article.pledgeType}}</div>
     </div>
-    <div class="xushu">{{article.pledge}}</div>
+    <div class="xushu" ng-show="article.pledge">
+        {{article.pledge}}
+    </div>
     <hr>
-    <div class="norequired">
+    <div class="norequired" ng-show="article.continualOperateYear">
         <div class="noreqname">年实际经营流水（万元）</div>
         <div class="watchdiv">{{article.continualOperateYear}}</div>
     </div>
     <div class="moneymsg" ng-show="article.financialImg">
         <p class="fimation">财务信息</p>
         <div ng-repeat="fi in article.financialImg">
-        	<img class="fimationimg1" src="{{fi}}" alt="" />
+            <img class="fimationimg1" src="{{fi}}" alt=""/>
         </div>
     </div>
-    <div class="norequired">
+    <div class="norequired" ng-show="article.businessContact">
         <div class="noreqname">业务往来</div>
         <div class="watchdiv">{{article.businessContact}}</span>
         </div>
-        <div class="norequired">
+        <div class="norequired" ng-show="article.corporateResidence">
             <div class="noreqname">法人户籍</div>
             <div class="watchdiv">{{article.corporateResidence}}</span>
             </div>
-            <div class="discript">
+            <div class="discript" ng-show="article.advantages">
                 <p style="font-size: 1.7rem">公司优势</p>
                 <div>{{article.advantages}}</div>
             </div>
             <div class="sureslecte">
-                <span class="sureslecte1">完善信息</span>
-                <span class="sureslecte2">我要发布</span>
-                <span class="sureslecte1">我要竞标</span>
-                <span class="sureslecte2">我要提问</span>
+                <span class="sureslecte1" ng-show="operate.update" ng-click="next_op('update')">完善信息</span>
+                <span class="sureslecte2" ng-show="operate.release" ng-click="next_op('release')">我要发布</span>
+                <span class="sureslecte1" ng-show="operate.bid" ng-click="next_op('bid')">我要竞标</span>
+                <span class="sureslecte2" ng-show="operate.ask" ng-click="next_op('ask')">我要提问</span>
             </div>
         </div>
     </div>
-    </div>
+</div>
