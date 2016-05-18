@@ -8,23 +8,26 @@
     <span class="reqnamespan2">抵押物</span>
 </div>
 <div class="mortgagewu">
-    <div class="mortgagewu1">
+    <div class="mortgagewu1 fl">
         <div class="mortgagewudiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
             <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
             <span class="checkwenzi">{{pt.name}}</span>
-            <p class="mortgagewuline"></p>
+            <hr class="mortgagewuline" />
         </div>
     </div>
+    <div class="coverRightBorder fl"></div>
 </div>
 <textarea cols="" rows="3" class="xushu" ng-model="articleStep2.pledge">
 	
 </textarea>
-<div class="loadlie" id="upload_pledgeImg">
-	<div ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
-		<ul class="img-list"></ul>
-	    <a class="loadjia"></a>
-	</div>
-	<a id="pickPledgeImg" class="loadjia"></a>
+<div class="loadlie clear" id="upload_pledgeImg">
+	<div class="img-list fl" ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
+        <img src="" alt="" style="border: 0">
+        <div class="redPoint">
+            <div class="redPointInner"></div>
+        </div>
+    </div>
+	<img id="pickPledgeImg" class="loadjia fl">
 </div>
 
 <div class=" required" style="margin-top: 86px;">
