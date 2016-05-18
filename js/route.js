@@ -41,7 +41,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep1.html',
             controller: 'ArticleCreateStep1Ctrl'
         })
-        .when('/article/update/step1/:id', {//创建第一步
+        .when('/article/update/step1/:id', {//更新第一步
             templateUrl: templates_root + 'article/createStep1.html',
             controller: 'ArticleUpdateStep1Ctrl'
         })
@@ -53,7 +53,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/createStep2.html',
             controller: 'ArticleCreateStep2Ctrl'
         })
-        .when('/article/update/step2/:id', {//创建第二步
+        .when('/article/update/step2/:id', {//更新第二步
             templateUrl: templates_root + 'article/createStep2.html',
             controller: 'ArticleUpdateStep2Ctrl'
         })
@@ -78,7 +78,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/details.html',
             controller: 'DetailsCtrl'
         })
-        .when('/article/putquestions', {//问答界面
+        .when('/article/questions/:id', {//问答界面
             templateUrl: templates_root + 'article/putquestions.html',
             controller: 'PutquestionsCtrl'
         })

@@ -13,7 +13,7 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
         }).success(function (d) {
         	console.log(d);
             if (d.returnCode == 0) {
-                $scope.article_list = d.result;
+                $scope.result_list = d.result;
             }
             else {
                 console.log(d);
@@ -50,6 +50,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
             if (d.returnCode == 0) {
                 $scope.article = d.result.article;
                 $scope.operate = d.result.operate;
+                $scope.batting = d.result.batting;
             }
             else {
                 console.log(d);
@@ -62,6 +63,17 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
     
     $scope.init();
     
+    $scope.next_op = function(op){
+    	var obj = {
+	      "update" : "/article/update/step1/"+$routeParams.id,
+	      "release" : "/article/update/step1/"+$routeParams.id,
+	      "bid":"/article/bid/"+$routeParams.id,
+	      "ask":"/article/questions/"+$routeParams.id
+	    };
+	    alert(obj[op]);
+//	    $location.href = "";
+    };
+
 });
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
