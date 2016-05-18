@@ -45,3 +45,4 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
 .clear:after {content: '';display: block;clear: both;}
 .fl {float: left;}
 .fr {float: right;}
+.clearBackground{background: none}
