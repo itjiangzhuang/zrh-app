@@ -482,11 +482,11 @@ body{
 }
 .loadjia{
     display: inline-block;
-    width:68px;
-    height:42px;
+    width:40px;
+    height:40px;
     /*border:1px solid red;*/
-    background: url('../img/icon/upload.png') no-repeat center  center;
-    background-size: 60%;
+    background: url('../img/icon/upload.png');
+    background-size: 100%;
     opacity: 0.7;
 }
 .sureslecte{
