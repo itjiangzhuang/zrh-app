@@ -418,6 +418,19 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	 	if(!$scope.articleStep2.pledge){
 	 		$scope.articleStep2.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
 	 	}
+        
+        if(!$scope.articleStep2.pledgeImgs){
+	 		$scope.articleStep2.pledgeImgs = [];
+	 		$scope.articleStep2.pledgeImgNames = [];
+	 	}
+        if(!$scope.articleStep2.financialImgs){
+	 		$scope.articleStep2.financialImgs = [];
+	 		$scope.articleStep2.financialImgNames = [];
+	 	}
+        if(!$scope.articleStep2.advantagesImgs){
+	 		$scope.articleStep2.advantagesImgs = [];
+	 		$scope.articleStep2.advantagesImgNames = [];
+	 	}
 
 		 $http({
 			 url: api_uri + "api/qiniu/getUpToken",
