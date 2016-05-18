@@ -79,7 +79,7 @@ myApp.config(function ($routeProvider) {
             controller: 'DetailsCtrl'
         })
         .when('/article/questions/:id', {//问答界面
-            templateUrl: templates_root + 'article/putquestions.html',
+            templateUrl: templates_root + 'article/questions.html',
             controller: 'PutquestionsCtrl'
         })
         .when('/article/bidalert1', {//未竞标alert

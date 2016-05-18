@@ -221,8 +221,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     		params.regFunds = $scope.createArticle.license.regFunds;
     	}
         if(!isNullOrEmpty($scope.createArticle.license.licenseImgs)){
-    		params.licenseImgs = $scope.createArticle.license.licenseImgs;   		
-    		params.licenseImgNames = $scope.createArticle.license.licenseImgNames;
+    		params.licenseImgs = $scope.createArticle.license.licenseImgs.join(",");  		
+    		params.licenseImgNames = $scope.createArticle.license.licenseImgNames.join(",");
     	}
     	if(!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)){
     		params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
@@ -639,7 +639,7 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	  
 	 $scope.removeAdvantagesImg = function(index){
 	 	$scope.articleStep2.advantagesImgNames.splice(index,1);
-		$scope.articleStep2.advantagesImgs.splice(index,1);
+		$scope.articleStep2.advantagesImgs.splice(index,1); 
 	 };
 	 
 	 $scope.init();
@@ -663,15 +663,15 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	    	params.pledge = $scope.articleStep2.pledge;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.pledgeImgs)){
-	    	params.pledgeImgs = $scope.articleStep2.pledgeImgs;
-	    	params.pledgeImgNames = $scope.articleStep2.pledgeImgNames;
+	    	params.pledgeImgs = $scope.articleStep2.pledgeImgs.join(",");
+	    	params.pledgeImgNames = $scope.articleStep2.pledgeImgNames.join(",");
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialInfo)){
 	    	params.financialInfo = $scope.articleStep2.financialInfo;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialImgs)){
-	    	params.financialImgs = $scope.articleStep2.financialImgs;
-	    	params.financialImgNames = $scope.articleStep2.financialImgNames;
+	    	params.financialImgs = $scope.articleStep2.financialImgs.join(",");
+	    	params.financialImgNames = $scope.articleStep2.financialImgNames.join(",");
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.continualOperateYear)){
 	    	params.continualOperateYear = $scope.articleStep2.continualOperateYear;
@@ -689,8 +689,8 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	    	params.advantages = $scope.articleStep2.advantages;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.advantagesImgs)){
-	    	params.advantagesImgs = $scope.articleStep2.advantagesImgs;
-	    	params.advantagesImgNames = $scope.articleStep2.advantagesImgNames;
+	    	params.advantagesImgs = $scope.articleStep2.advantagesImgs.join(",");
+	    	params.advantagesImgNames = $scope.articleStep2.advantagesImgNames.join(",");
 	    }
 
 		$.post(api_uri+"api/article/createStep2",params,

@@ -6,24 +6,31 @@ canvas{width: 100%;border: 1px solid #000000;}
 #upload{
     width:40px;
     height: 40px;
-    margin-left: 16px;
     cursor: pointer;
-    background: url('../img/icon/upload1.png') no-repeat center  center;
+    background: url('../img/icon/upload.png') no-repeat center  center;
     background-size: 100%;
     opacity: 0.7;
+    margin-left: 50px;
 }
 .touch{background-color: #ddd;}
 .img-list{
-    margin-left: 7px;
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    z-index: -2;
+    margin-right: 15px;
 
 }
 .img-list img{
+    border: 0;
+    z-index: -1;
     display: inline-block;
     width: 40px;
     height: 40px;
-    margin-left: 8px;
-    background: #fff no-repeat center;
-    background-size: cover;
+
+    /*background: #fff no-repeat center;*/
+    /*background-size: cover;*/
+    /*border: 1px solid red;*/
 }
 .progress{width: 90%;
     height: 10px;
@@ -35,4 +42,5 @@ canvas{width: 100%;border: 1px solid #000000;}
 .size{position: absolute;width: 100%;height: 15px;line-height: 15px;bottom: -18px;text-align: center;font-size: 13px;color: #666;}
 .loadlie{
     position:relative;
+    padding-left: 15px;
 }
