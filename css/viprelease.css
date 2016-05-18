@@ -31,6 +31,10 @@ body{
     color:#888888;
     position:relative;
 }
+.showInformation{
+    height: calc(100% - 210px);
+    overflow: scroll;
+}
 .viprelease1Header{
     width:100%;
     height:100px;
