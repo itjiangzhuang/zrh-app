@@ -52,10 +52,14 @@
     <input type="text" placeholder="点击加号添加财务报表图片" ng-model="articleStep2.financialInfo"/>
 </div>
 
-<div class="loadlie">
-    <input type="file" id="choose"  multiple>
-    <ul class="img-list"></ul>
-    <a id="upload" class="loadjia"></a>
+<div class="loadlie" id="upload_financialImg">
+	<div class="img-list fl" ng-repeat="financialImg in articleStep2.financialImgs" ng-click="removeFinancialImg($index)">
+        <img src="{{financialImg}}" alt="" style="border: 0">
+        <div class="redPoint">
+            <div class="redPointInner"></div>
+        </div>
+	</div>
+    <a class="loadjia fl" id="pickFinancialImg"></a>
 </div>
 <div class="norequired" style="margin-top: 86px;">
     <div class="noreqname">业务往来</div>
@@ -69,10 +73,15 @@
     <div class="noreqname">公司优势</div>
     <input type="text" placeholder="请输入公司的其他贷款优势" ng-model="articleStep2.advantages" />
 </div>
-<div class="loadlie">
-    <input type="file" id="choose"  multiple>
-    <ul class="img-list"></ul>
-    <a id="upload" class="loadjia"></a>
+<div class="loadlie" id="upload_advantagesImg">
+	<div class="img-list fl" ng-repeat="advantagesImg in articleStep2.advantagesImgs" ng-click="removeAdvantagesImg($index)">
+        <img src="{{advantagesImg}}" alt="" style="border: 0">
+        <div class="redPoint">
+            <div class="redPointInner"></div>
+        </div>
+	</div>
+
+    <a class="loadjia fl" id="pickAdvantagesImg"></a>
 </div>
 <div  class="loadlast"></div>
 
