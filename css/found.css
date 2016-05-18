@@ -27,6 +27,8 @@ body{
     margin-bottom:6px;
     background: #fff;
     border:1px solid transparent;
+    border-top: none;
+    border-right: none;
     position:relative;
 }
 .tittle{
@@ -36,7 +38,9 @@ body{
     text-align: center;
     line-height:36px;
     background-color:#868EE3;
-    border-radius:0 0 0 20px;
+    border-radius: 0 0 0 20px;
+    border-top: none;
+    border-right: none;
     color:#fff;
     margin-left:75%;
 }

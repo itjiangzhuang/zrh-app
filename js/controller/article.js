@@ -65,7 +65,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 });
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
-	 
+
 	 $scope.createArticle = $rootScope.getSessionObject("create_article");
 	 console.log($scope.createArticle);
 	 
@@ -77,7 +77,16 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 	 		$scope.createArticle.license = {};
 	 	}
 	 }
-	  
+	/*添加选取金额的布局*/
+	$scope.add= function(){
+		var txt1 = '<li><span></span><ul><li>万</li><li>十万</li><li>百万</li><li>千万</li><li>亿</li></ul></li>'
+		for(var i = 0; i<10; i++){
+			$("#treelist").append(txt1);
+			$("#treelist span").eq(i).text(i+1);
+		}
+	}
+	$scope.add();
+
 	 $scope.getFormToken = function () {
         $http({
             url: api_uri+"api/article/formToken",
@@ -223,7 +232,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 		  },
 		"json");
     };
-    
+
 });
 
 articleCtrl.controller('ArticleCreateLicenseCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
