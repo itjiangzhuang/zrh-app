@@ -19,10 +19,16 @@
 <textarea cols="" rows="3" class="xushu" ng-model="articleStep2.pledge">
 	
 </textarea>
-<div class="loadlie">
-    <input type="file" id="choose"  multiple>
-    <ul class="img-list"></ul>
-    <a id="upload" class="loadjia"></a>
+<div class="loadlie" id="upload_pledgeImg">
+	<div ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
+		<ul class="img-list"></ul>
+	    <a class="loadjia"></a>
+	</div>
+	
+	<div>	
+	    <ul class="img-list"></ul>
+	    <a id="pickPledgeImg" class="loadjia"></a>
+    </div>
 </div>
 
 <div class=" required" style="margin-top: 86px;">
@@ -47,10 +53,15 @@
     <input type="text" placeholder="点击加号添加财务报表图片" ng-model="articleStep2.financialInfo"/>
 </div>
 
-<div class="loadlie">
-    <input type="file" id="choose"  multiple>
+<div class="loadlie" id="upload_financialImg">
+	<div ng-repeat="financialImg in articleStep2.financialImgs" ng-click="removeFinancialImg($index)">
+		<ul class="img-list"></ul>
+	    <a class="loadjia"></a>
+	</div>
+    <div>
     <ul class="img-list"></ul>
-    <a id="upload" class="loadjia"></a>
+    <a id="upload" class="loadjia" id="pickFinancialImg"></a>
+    </div>
 </div>
 <div class="norequired" style="margin-top: 86px;">
     <div class="noreqname">业务往来</div>
@@ -64,10 +75,15 @@
     <div class="noreqname">公司优势</div>
     <input type="text" placeholder="请输入公司的其他贷款优势" ng-model="articleStep2.advantages" />
 </div>
-<div class="loadlie">
-    <input type="file" id="choose"  multiple>
+<div class="loadlie" id="upload_advantagesImg">
+	<div ng-repeat="advantagesImg in articleStep2.advantagesImgs" ng-click="removeAdvantagesImg($index)">
+		<ul class="img-list"></ul>
+	    <a class="loadjia"></a>
+	</div>
+    <div>
     <ul class="img-list"></ul>
-    <a id="upload" class="loadjia"></a>
+    <a id="upload" class="loadjia" id="pickAdvantagesImg"></a>
+    </div>
 </div>
 <div  class="loadlast"></div>
 

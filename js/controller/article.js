@@ -639,12 +639,14 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.pledgeImgs)){
 	    	params.pledgeImgs = $scope.articleStep2.pledgeImgs;
+	    	params.pledgeImgNames = $scope.articleStep2.pledgeImgNames;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialInfo)){
 	    	params.financialInfo = $scope.articleStep2.financialInfo;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.financialImgs)){
 	    	params.financialImgs = $scope.articleStep2.financialImgs;
+	    	params.financialImgNames = $scope.articleStep2.financialImgNames;
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.continualOperateYear)){
 	    	params.continualOperateYear = $scope.articleStep2.continualOperateYear;
@@ -663,6 +665,7 @@ articleCtrl.controller('ArticleCreateStep2Ctrl', function ($http, $scope, $rootS
 	    }
 		if(!isNullOrEmpty($scope.articleStep2.advantagesImgs)){
 	    	params.advantagesImgs = $scope.articleStep2.advantagesImgs;
+	    	params.advantagesImgNames = $scope.articleStep2.advantagesImgNames;
 	    }
 
 		$.post(api_uri+"api/article/createStep2",params,
