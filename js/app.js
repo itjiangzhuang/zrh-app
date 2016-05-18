@@ -6,13 +6,14 @@ api_uri = "http://zrh.supeiyunjing.com/";
 templates_root = "/project/zrh-app/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
+
 var myApp = angular.module('myApp', [
     'ng', 'ngRoute', 'ngAnimate', 'loginCtrl', 'registerCtrl', 'articleCtrl'
 ], function ($httpProvider) {
     // Use x-www-form-urlencoded Content-Type
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-
+    
 });
 
 
@@ -111,8 +112,6 @@ myApp.run(['$location', '$rootScope', '$http',
 
         $rootScope.check_user = function () {
         	
-        	$rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
-        	
             $rootScope.login_user = $rootScope.getObject("login_user");
             //console.log($rootScope.login_user);
             if (!$rootScope.login_user) {
@@ -154,5 +153,5 @@ myApp.run(['$location', '$rootScope', '$http',
 
         $rootScope.check_user();
 
-
+        $rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
     }]);

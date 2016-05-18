@@ -19,14 +19,12 @@
 <textarea cols="" rows="3" class="xushu" ng-model="articleStep2.pledge">
 	
 </textarea>
-<div class="loadlie clear">
-    <input type="file" id="choose"  multiple>
-    <div class="img-list fl">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-    </div>
-    <img id="upload" class="loadjia fl">
+<div class="loadlie" id="upload_pledgeImg">
+	<div ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
+		<ul class="img-list"></ul>
+	    <a class="loadjia"></a>
+	</div>
+	<a id="pickPledgeImg" class="loadjia"></a>
 </div>
 
 <div class=" required" style="margin-top: 86px;">

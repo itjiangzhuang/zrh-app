@@ -42,10 +42,11 @@
         <div class="noreqname">年实际经营流水（万元）</div>
         <div class="watchdiv">{{article.continualOperateYear}}</div>
     </div>
-    <div class="moneymsg">
+    <div class="moneymsg" ng-show="article.financialImg">
         <p class="fimation">财务信息</p>
-        <img class="fimationimg1" src="img/icon/checked.png" alt="">
-        <img class="fimationimg2" src="img/icon/checked.png" alt="">
+        <div ng-repeat="fi in article.financialImg">
+        	<img class="fimationimg1" src="{{fi}}" alt="" />
+        </div>
     </div>
     <div class="norequired">
         <div class="noreqname">业务往来</div>
@@ -60,8 +61,10 @@
                 <div>{{article.advantages}}</div>
             </div>
             <div class="sureslecte">
-                <span class="sureslecte1">保存</span>
-                <span class="sureslecte2">发布</span>
+                <span class="sureslecte1">完善信息</span>
+                <span class="sureslecte2">我要发布</span>
+                <span class="sureslecte1">我要竞标</span>
+                <span class="sureslecte2">我要提问</span>
             </div>
         </div>
     </div>
