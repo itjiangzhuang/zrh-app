@@ -94,9 +94,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/vipusercenter.html',
             controller: 'VipusercenterCtrl'
         })
-        .when('/article/investmentproblem', {//vip投资问题
-            templateUrl: templates_root + 'article/investmentproblem.html',
-            controller: 'InvestmentproblemCtrl'
+        .when('/user/questions', {//vip投资问题
+            templateUrl: templates_root + 'user/myquestions.html',
+            controller: 'MyQuestionsCtrl'
         })
         .when('/article/vipmymessage', {//vip我的消息
             templateUrl: templates_root + 'article/vipmymessage.html',

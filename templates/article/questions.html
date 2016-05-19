@@ -40,6 +40,6 @@
       </div>
   </div>
 <form novalidate class="speakForm" >
-    <textarea type="text" class="speak">{{content}}</textarea>
-    <input type="submit" class="speakBtn" ng-submit="sendMessage()"/>
+    <textarea type="text" class="speak" ng-model="content"></textarea>
+    <input type="submit" class="speakBtn" ng-click="sendMessage()"/>
 </form>

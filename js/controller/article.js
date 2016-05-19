@@ -37,7 +37,7 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 		$location.path("/article/create/step1");
 	}
 
-})
+});
 
 articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location,$routeParams) {
 	 
@@ -145,9 +145,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     	if(!$scope.createArticle.id||isNullOrEmpty($scope.createArticle.id)){
 	    		$scope.getFormToken();
 	    }
-    	
 	    $("#treelist").aomuntmoney();
-
     	
     	$('#rate').daterate();//利率选择
     	$('#term').dateterm();//期限选择
@@ -1111,14 +1109,16 @@ articleCtrl.controller('QuestionsCtrl',function($http, $scope, $rootScope, $loca
         //保存最后时间戳
     	if($scope.message_list && $scope.message_list.length >0){
     		$rootScope.putObject("lt_"+$routeParams.id+"_"+$routeParams.userId,$scope.message_list[$scope.message_list.length-1].createTime);
-    	}    	
+    	}else{
+    		$scope.message_list = [];
+    	}
 //  	//定时执行消息获取
 	    var promise = $interval(function(){
 			$scope.otherList();
 		},1000);
 		$scope.$on('$destroy',function(){
 			$interval.cancel(promise);
-		})
+		});
 //		$timeout(function() {  
 //            $scope.otherList();
 //      }, 1000);
@@ -1150,27 +1150,32 @@ articleCtrl.controller('QuestionsCtrl',function($http, $scope, $rootScope, $loca
         });
     };
     
-    $scope.submit = function(){
+    $scope.sendMessage = function(){
+    	var content = $scope.content;
+    	$scope.content = "";
+    	
+    	params = {
+    		"userId": $rootScope.login_user.userId,
+			"token": $rootScope.login_user.token,
+			"content":content
+    	};
     	//提交评论,并且添加进入列表
-    	$http({
-            url: api_uri+"api/articleComments/leave/"+$routeParams.id+"/"+$routeParams.userId,
-            method: "POST",
-            params:{
-            	"userId": $rootScope.login_user.userId,
-				"token": $rootScope.login_user.token
-            }
-        }).success(function (d) {
-        	console.log(d);
-            if (d.returnCode == 0) {
-                console("发送成功");
+    	$.post(api_uri+"api/articleComments/leave/"+$routeParams.id+"/"+$routeParams.userId,
+    	  params,function(data){
+            if (data.returnCode == 0) {
+                console.log("发送成功");
             }
             else {
-            	console("发送失败");
-                console.log(d);
+            	console.log("发送失败");
+                console.log(data);
             }
-        }).error(function (d) {
-            console.log("send message error");
-        });
+		  },
+		"json");
+		contentObj = {
+			"self":true,
+			"comment":content		
+		}
+        $scope.message_list.push(contentObj);
     };
     
     $scope.init();
