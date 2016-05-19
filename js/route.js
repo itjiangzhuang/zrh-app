@@ -94,22 +94,15 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/center.html',
             controller: 'UserCenterCtrl'
         })
-        .when('/user/question', {//问题中心
-            templateUrl: templates_root + 'user/user_question.html',
-            controller: 'UserQuestionCtrl'
-        })
-        .when('/user/questionDetail/:id', {
-            templateUrl: templates_root + 'user/question_detail.html',
-            controller: 'QuestionDetailCtrl'
-        })
         .when('/user/messages', {
             templateUrl: templates_root + 'user/my_messages.html',
             controller: 'MyMessages'
         })
-        /*.when('/user/questions', {//vip投资问题
+        .when('/user/questions', {//问题中心
             templateUrl: templates_root + 'user/myquestions.html',
             controller: 'MyQuestionsCtrl'
         })
+        /*
         .when('/article/vipmymessage', {//vip我的消息
             templateUrl: templates_root + 'article/vipmymessage.html',
             controller: 'VipmymessageCtrl'
