@@ -831,3 +831,27 @@ hr{
     margin-bottom:100%;
 }
 
+
+/*reset money select css*/
+.mbsc-android-holo .dwhl{
+    padding:1px 0;
+}
+.mbsc-android-holo .dwwol{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    left: 0;
+    width: 100%;
+}
+.mbsc-android-holo-light .dw-li.dw-sel{
+    color: #4c4c4c;
+}
+.mbsc-android-holo-light .dw-li{
+    color: #888;
+}
+
+.mbsc-android-holo-light .dwbc{
+    position: absolute;
+    right:5%;
+    top:0;
+    text-align: right;
+}
