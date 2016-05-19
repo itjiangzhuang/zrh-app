@@ -44,7 +44,8 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 	 $scope.init = function () {
         $http({
             url: api_uri+"api/article/show/"+$routeParams.id,
-            method: "GET"
+            method: "GET",
+            params: $rootScope.login_user
         }).success(function (d) {
         	console.log(d);
             if (d.returnCode == 0) {
@@ -64,14 +65,15 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
     $scope.init();
     
     $scope.next_op = function(op){
+    	alert(op);
     	var obj = {
 	      "update" : "/article/update/step1/"+$routeParams.id,
 	      "release" : "/article/update/step1/"+$routeParams.id,
 	      "bid":"/article/bid/"+$routeParams.id,
-	      "ask":"/article/questions/"+$routeParams.id
+	      "ask":"/article/questions/"+$routeParams.id+"/"+$rootScope.login_user.userId
 	    };
-	    alert(obj[op]);
-//	    $location.href = "";
+//	    alert(obj[op]);
+	    $location.path(obj[op]);
     };
 
 });
@@ -1060,8 +1062,119 @@ articleCtrl.controller('ArticleUpdateStep2Ctrl', function ($http, $scope, $rootS
 articleCtrl.controller('DetailsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
 
 });
-articleCtrl.controller('PutquestionsCtrl',function($http, $scope, $rootScope, $location,$routeParams){
-
+articleCtrl.controller('QuestionsCtrl',function($http, $scope, $rootScope, $location,$routeParams,$timeout,$interval){
+    
+    $scope.init = function(){
+    	//初始化消息时间
+    	var lastTime = $rootScope.getObject("lt_"+$routeParams.id+"_"+$routeParams.userId);
+    	if(!lastTime){
+    		$rootScope.putObject("lt_"+$routeParams.id+"_"+$routeParams.userId,0);
+    	}
+    	
+    	//获取项目信息
+    	$http({
+            url: api_uri+"api/article/showTitle/"+$routeParams.id,
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                $scope.article = d.result.article;
+                $scope.batting = d.result.batting;
+            }
+            else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log("login error");
+        });
+        //获取全部消息列表
+        $http({
+            url: api_uri+"api/articleComments/list/"+$routeParams.id+"/"+$routeParams.userId,
+            method: "GET",
+            params:{
+				"userId": $rootScope.login_user.userId,
+				"token": $rootScope.login_user.token,
+				"lastTime":$rootScope.getObject("lt_"+$routeParams.id+"_"+$routeParams.userId)
+            }
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                $scope.message_list = d.result;
+            }
+            else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        }); 
+        //保存最后时间戳
+    	if($scope.message_list && $scope.message_list.length >0){
+    		$rootScope.putObject("lt_"+$routeParams.id+"_"+$routeParams.userId,$scope.message_list[$scope.message_list.length-1].createTime);
+    	}    	
+//  	//定时执行消息获取
+	    var promise = $interval(function(){
+			$scope.otherList();
+		},1000);
+		$scope.$on('$destroy',function(){
+			$interval.cancel(promise);
+		})
+//		$timeout(function() {  
+//            $scope.otherList();
+//      }, 1000);
+        
+    };
+    
+    
+    $scope.otherList = function(){
+    	//获取别人消息的列表 加入数组
+    	$http({
+            url: api_uri+"api/articleComments/otherList/"+$routeParams.id+"/"+$routeParams.userId,
+            method: "GET",
+            params:{
+				"userId": $rootScope.login_user.userId,
+				"token": $rootScope.login_user.token,
+				"lastTime":$rootScope.getObject("lt_"+$routeParams.id+"_"+$routeParams.userId)
+            }
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                $scope.other_list = d.result;
+                $scope.message_list.push($scope.other_list);
+            }
+            else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });
+    };
+    
+    $scope.submit = function(){
+    	//提交评论,并且添加进入列表
+    	$http({
+            url: api_uri+"api/articleComments/leave/"+$routeParams.id+"/"+$routeParams.userId,
+            method: "POST",
+            params:{
+            	"userId": $rootScope.login_user.userId,
+				"token": $rootScope.login_user.token
+            }
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                console("发送成功");
+            }
+            else {
+            	console("发送失败");
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log("send message error");
+        });
+    };
+    
+    $scope.init();
+    
 });
 articleCtrl.controller('Bidalert1Ctrl',function($http, $scope, $rootScope, $location,$routeParams){
 
