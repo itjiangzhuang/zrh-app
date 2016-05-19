@@ -1,22 +1,22 @@
 
 <div class="found-step1">
-    <div class="tittle">生活消费</div>
+    <div class="tittle">{{article.classification}}</div>
     <lable class="amount">
         <div>融资金额</div>
-        <div class="countdiv"> 800<span>万</span></div>
+        <div class="countdiv"> {{article.loanValue}}<span>万</span></div>
     </lable>
     <div class="expect">
         <div class="expect_border">
             <p>营业执照</p>
-            <span >2013.10.10</span>
+            <span >{{article.regTime}}</span>
         </div>
         <div class="expect_border">
             <p>融资期限</p>
-            <span class="term">24个月</span>
+            <span class="term">{{article.loanLife}}个月</span>
         </div>
-        <div>
+        <div class="expect_border">
             <p>接受利率</p>
-            <span class="rate">4%-10%</span>
+            <span class="rate">{{article.rateCap}}%-{{article.rateFloor}}%</span>
         </div>
     </div>
     <div style="clear:both"></div>
@@ -24,59 +24,22 @@
     <ul class="message">
         <li class="img"></li>
         <li class="messageli2">推荐人成交率</li>
-        <li class="messageli3">10/12</li>
+        <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
     </ul>
 </div>
-  <div class="displayframe">
+  <div class="displayframe ">
 
-      <div class="mycon">
-      <div class="myframe">
-          <span class="spanimg"></span>
-          <span class="my">请问您有什么可以提供？</span>
-          <span class="mytriangle"></span>
-      </div>
-      <div style="clear:both;"></div>
-   </div>
-      <div class="othercon">
-        <div class="otherframe">
-          <span class="spanimgother"></span>
-          <span class="others">一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。</span>
-          <span class="othertriangle"></span>
-       </div>
-       <div style="clear:both;"></div>
-     </div>
-      <div class="mycon">
-          <div class="myframe">
-              <span class="spanimg"></span>
-              <span class="my">请问您有什么可以提供？请问您有什么可以提供？请问您有什么可以提供？请问您有什么可以提供？请问您有什么可以提供？请问您有什么可以提供？</span>
-              <span class="mytriangle"></span>
+      <div ng-repeat="message in message_list">
+          <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]" >
+              <div ng-class="{true:'myframe',false:'otherframe'}[message.self]">
+                  <span ng-class="{true:'spanimg',false:'spanimgother'}[message.self]"></span>
+                  <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
+                  <span ng-class="{true:'mytriangle',false:'othertriangle'}[message.self]"></span>
+              </div>
           </div>
-          <div style="clear:both;"></div>
       </div>
-      <div class="othercon">
-          <div class="otherframe">
-              <span class="spanimgother"></span>
-              <span class="others">一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。</span>
-              <span class="othertriangle"></span>
-          </div>
-          <div style="clear:both;"></div>
-      </div>
-      <div class="othercon">
-          <div class="otherframe">
-              <span class="spanimgother"></span>
-              <span class="others">一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。一座大厦可以抵押。</span>
-              <span class="othertriangle"></span>
-          </div>
-          <div style="clear:both;"></div>
-      </div>
-      <div class="mycon">
-          <div class="myframe">
-              <span class="spanimg"></span>
-              <span class="my">请问您有什么可以提供？</span>
-              <span class="mytriangle"></span>
-          </div>
-          <div style="clear:both;"></div>
-      </div>
-
   </div>
-<input type="text" class="speak">
+<form novalidate class="speakForm" >
+    <textarea type="text" class="speak">{{content}}</textarea>
+    <input type="submit" class="speakBtn" ng-submit="sendMessage()"/>
+</form>
