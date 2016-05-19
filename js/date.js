@@ -203,7 +203,7 @@
                 '<div id="dateshadow"></div>'+
                 '<div id="datePage" class="page">'+
                     '<section>'+
-                        '<div id="datetitle"><h1>请选择日期</h1></div>'+
+                        '<div id="datetitle" style="display: none;"><h1>请选择日期</h1></div>'+
                         '<div id="datemark"><a id="markyear"></a><a id="markmonth"></a><a id="markday"></a></div>'+
                         '<div id="timemark"><a id="markhour"></a><a id="markminut"></a><a id="marksecond"></a></div>'+
                         '<div id="datescroll">'+
@@ -233,7 +233,7 @@
                         '<div id="setcancle">'+
                             '<ul>'+
                                 '<li id="dateconfirm">确定</li>'+
-                                '<li id="datecancle">取消</li>'+
+                                '<li style="display: none;" id="datecancle">取消</li>'+
                             '</ul>'+
                         '</div>'+
                     '</footer>'+

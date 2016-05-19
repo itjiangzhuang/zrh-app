@@ -50,7 +50,7 @@ body{
 
 }
 .reqname{
-    padding-top: 10px;
+    padding-top: 14px;
 }
 .reqnamespan1,.reqnamespan2{
     display: inline-block;
@@ -97,11 +97,11 @@ body{
 
 .required input,.norequired input{
     width:80%;
-    height:28px;
-    margin-top: 8px;
+    /*height:28px;*/
+    margin-top: 12px;
     margin-left:15px;
     border:none;
-    font-size: 1.4rem;
+    font-size: 14px;
     color:#888888;
 }
 .setupimg{

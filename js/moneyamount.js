@@ -13,10 +13,12 @@ $(function(){
 	    $("#treelist").mobiscroll().treelist({
 	        theme:"android-ics light",
 	        lang:"zh",
+			display:'bottom',
 	        defaultValue:[i,j],
 	        cancelText:null,
 	//            placeholder:"借款金额",
-	        headerText:function(valueText){return "借款金额";},
+	//        headerText:function(valueText){return "借款金额";},
+			headerText:null,
 	        formatResult:function(array){
 	            var text = $('#treelist>li').eq(array[0]).find('ul li').eq(array[1]).text().trim(' ');
 	            console.log(text);
