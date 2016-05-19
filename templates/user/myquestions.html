@@ -1,31 +1,16 @@
 
 <div style="height:100%;background: #f0f0f0;overflow-y: auto">
-<div class="answer" ng-click="questionDetail(message.id)">
+<div class="answer" ng-repeat="obj in obj_list" ng-click="show(obj.articleId,obj.toUser)">
    <div class="usercontent">
-    <span class="contentname bgask"></span>
-       <span class="askdisable">请问您有什么抵押物可以提供。</span>
+    <span ng-class="{true:'contentname bgask',false:'contentname bgask'}[obj.hasRead]"></span>
+       <span class="askdisable">{{obj.comment}}</span>
     <span class="moneyicon"></span>
    </div>
     <div class="answertime">
-        <span class="anstimespan1">房地产</span>
-        <span class="anstimespan2">200万</span>
-        <span class="anstimespan3">2016.3.12</span>
+        <span class="anstimespan1">{{obj.classification}}</span>
+        <span class="anstimespan2">{{obj.loanValue}}万</span>
+        <span class="anstimespan3">{{obj.time}}</span>
     </div>
-
-
 </div>
-<div class="answer">
-    <div class="usercontent">
-        <span class="contentname bgask"></span>
-        <span class="askdisable">请问您有什么抵押物可以提供。请问您有什么抵押物可以提供</span>
-        <span class="moneyicon"></span>
-    </div>
-    <div class="answertime">
-        <span class="anstimespan1">房地产</span>
-        <span class="anstimespan2">2000万</span>
-        <span class="anstimespan3">2016.3.12</span>
-    </div>
 
-
-</div>
 </div>
