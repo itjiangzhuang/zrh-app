@@ -31,10 +31,10 @@
             /*curdate:false,*/                   //打开日期是否定位到当前日期
             theme:"date",                    //控件样式（1：日期，2：日期+时间）
             mode:null,                       //操作模式（滑动模式）
-            event:"click",                    //打开日期插件默认方式为点击后后弹出日期 
+            event:"click",                    //打开日期插件默认方式为点击后后弹出日期
             show:true
         }
-        //用户选项覆盖插件默认选项   
+        //用户选项覆盖插件默认选项
         var opts = $.extend( true, {}, $.fn.dateterm.defaultOptions, options );
         if(opts.theme === "datetime"){datetime = true;}
         if(!opts.show){
@@ -54,7 +54,7 @@
                 }
                 refreshDate();
                 bindButton();
-            })  
+            })
         };
         function refreshDate(){
             // yearScroll.refresh();
@@ -75,7 +75,7 @@
                  initH=initH-12-1;
             }
             HourScroll.scrollTo(0, initH*40, 100, true);
-            MinuteScroll.scrollTo(0, initI*40, 100, true);   
+            MinuteScroll.scrollTo(0, initI*40, 100, true);
             initH=parseInt(nowdate.getHours());
         }
 	function resetIndex(){
@@ -92,13 +92,13 @@
         }
         function bindButton(){
             resetIndex();
-            $("#dateconfirm").unbind('click').click(function () {	
+            $("#dateconfirm").unbind('click').click(function () {
                 var datestr = $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)+"个月";
                 //设置隐藏的input的value
                 $('#loanLife').val( $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1));
                 $('#loanLife').change();
 //              console.log( $('#loanLife').val());
-                
+
 
                if(datetime){
                      if(Math.round(indexS)===1){//下午
@@ -116,21 +116,23 @@
                 // }else{
                 //                     Ycallback(datestr);
                 // }
-                $("#datePage").hide(); 
+                $("#datePage").hide();
                 $("#dateshadow").hide();
+                $('body').css('overflow','auto');
             });
             $("#datecancle").click(function () {
-                $("#datePage").hide(); 
+                $("#datePage").hide();
+                $('body').css('overflow','auto');
 		$("#dateshadow").hide();
                 Ncallback(false);
             });
-        }		
+        }
         function extendOptions(){
-            $("#datePage").show(); 
+            $("#datePage").show();
             $("#dateshadow").show();
         }
         //日期滑动
-        function init_iScrll() { 
+        function init_iScrll() {
             var strY = $("#yearwrapper ul li:eq("+indexY+")").html().substr(0,$("#yearwrapper ul li:eq("+indexY+")").html().length-1);
             var strM = $("#monthwrapper ul li:eq("+indexM+")").html().substr(0,$("#monthwrapper ul li:eq("+indexM+")").html().length-1)
               monthScroll = new iScroll("monthwrapper",{snap:"li",vScrollbar:false,
@@ -145,7 +147,7 @@
         function showdatetime(){
             init_iScroll_datetime();
             addTimeStyle();
-            $("#datescroll_datetime").show(); 
+            $("#datescroll_datetime").show();
             $("#Hourwrapper ul").html(createHOURS_UL());
             $("#Minutewrapper ul").html(createMINUTE_UL());
             $("#Secondwrapper ul").html(createSECOND_UL());
@@ -168,17 +170,17 @@
                     indexS = Math.round((this.y/40)*(-1));
                     HourScroll.refresh();
             }})
-        } 
+        }
         function checkdays (year,month){
-            var new_year = year;    //取当前的年份        
-            var new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）        
-            if(month>12)            //如果当前大于12月，则年份转到下一年        
-            {        
-                new_month -=12;        //月份减        
-                new_year++;            //年份增        
-            }        
-            var new_date = new Date(new_year,new_month,1);                //取当年当月中的第一天        
-            return (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期    
+            var new_year = year;    //取当前的年份
+            var new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）
+            if(month>12)            //如果当前大于12月，则年份转到下一年
+            {
+                new_month -=12;        //月份减
+                new_year++;            //年份增
+            }
+            var new_date = new Date(new_year,new_month,1);                //取当年当月中的第一天
+            return (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期
         }
         function  createUL(){
             CreateDateUI();
@@ -221,7 +223,7 @@
                         '<div id="setcancle">'+
                             '<ul>'+
                                 '<li id="dateconfirm">确定</li>'+
-                                '<li id="datecancle">取消</li>'+
+                                '<li id="datecancle" style="display: none;">取消</li>'+
                             '</ul>'+
                         '</div>'+
                     '</footer>'+
@@ -253,7 +255,7 @@
 
                 str+='<li>'+i+'月</li>'
             }
-            return str+"<li>&nbsp;</li>";;
+            return str+"<li>&nbsp;</li>";
         }
        //创建 --日-- 列表
         function createDAY_UL(){
