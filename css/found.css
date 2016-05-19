@@ -195,7 +195,7 @@ body {
     color: #868ee3;
 }
 
-.cart {
+/*.cart {
     width: 130px;
     height: 130px;
     background: url('../img/icon/cart.png') no-repeat;
@@ -205,7 +205,7 @@ body {
     z-index: 2;
     background-size: 52%;
     borderShadow: 2px 2px 2px 2px;
-}
+}*/
 
 /*foundStep2.html样式*/
 /*.foundStep2right{
