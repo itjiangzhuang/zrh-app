@@ -1,61 +1,67 @@
-
-
-<div class="usercontainer1">
+<div class="userContainer">
     <input type="checkbox" id="tm" />
-    <ul class="foundStep2left">
-        <li class="img stepleftli1"></li>
-        <li class="stepleftli4">找项目</li>
-        <!--<li class="stepleftli3">发布风控标准</li>-->
-        <li class="stepleftli4">发布项目</li>
-        <li class="stepleftli5 stepleftli2">个人中心</li>
+    <ul class="asideHide">
+        <li class="img asideLi1"></li>
+        <li class="asideLi2">找项目</li>
+        <li class="asideLi3">发布项目</li>
+        <li class="asideLi4"class="vipNone" style="display: none">发布风控标准</li>
+        <li class="asideLi5">个人中心</li>
     </ul>
-    <label for="tm" class="step21cart"></label>
+    <label for="tm" class="cartBack"></label>
     <div class="af">
-        <label for="tm" class="step2cart"></label>
+        <label for="tm" class="cart"></label>
     </div>
-   <div class="userheader">
-       <div class="userlogo">
-           <div class="userlogo1"></div>
-           <div class="userlogo2">白羊<img src="/zrh-app/img/icon/arrow1v.png" alt=""></div>
-       </div>
+    <div class="containerDisplay">
+        <div class="userHeader">
+            <div class="userLogo">
+                <div class="userLogoPic"></div>
+                <div class="userLogoName">王筝<img class="vipHave" src="img/arrow1v.png" alt=""></div>
+            </div>
 
-       <div class="headerfooter">
-           <div class="hfdiv">
-               <p class="hfdivp1">10</p>
-               <p class="hfdivp2">投资问题</p>
-           </div>
-           <div class="hfdiv">
-               <p class="hfdivp1">99</p>
-               <p class="hfdivp2">消息中心</p>
-           </div>
-           <div class="hfdiv" style="border:none">
-               <p class="hfdivp1">10/12</p>
-               <p class="hfdivp2">成功率</p>
-           </div>
-       </div>
-   </div>
-   <div style="clear: both"></div>
-   <div class="usercontent">
-       <span class="contentname">我的钱包</span>
-       <span class="moneyicon"></span>
-   </div>
+            <div class="headerContents">
+                <div class="headerContent">
+                    <p class="headerContentNum">10</p>
+                    <p class="headerContentTittle" ng-click="userQuestion()">投资问题</p>
+                </div>
+                <div class="headerContent borderLine">
+                    <p class="headerContentNum">99</p>
+                    <p class="headerContentTittle" ng-click="messageCenter()">消息中心</p>
+                </div>
+                <div class="headerContent">
+                    <p class="headerContentNum">10/12</p>
+                    <p class="headerContentTittle">成功率</p>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
 
-    <div class="usercontent">
-        <span class="contentname">投资项目</span>
-        <span class="moneyicon"></span>
+        <div class="userContent">
+            <span class="userContentName" ng-click="myWallet()">我的钱包</span>
+            <span class="userContentIcon"></span>
+        </div>
+
+        <div class="userContent">
+            <span class="userContentName" ng-click="investProjects()">投资项目</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContent">
+            <span class="userContentName">我的项目</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContent" class="vipHave" >
+            <span class="userContentName" ng-click="foundControl()">发布风控标准</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContent" class="vipNone" style="display: none">
+            <span class="userContentName">申请投资资质</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContent">
+            <span class="userContentName" ng-click="setting()">设置</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContents">
+        </div>
     </div>
-    <div class="usercontent">
-        <span class="contentname">我的项目</span>
-        <span class="moneyicon"></span>
-    </div>
-    <div class="usercontent">
-        <span class="contentname">发布风控标准</span>
-        <span class="moneyicon"></span>
-    </div>
-   <div class="usercontent">
-       <span class="contentname">设置</span>
-       <span class="moneyicon"></span>
-   </div>
 
 </div>
-

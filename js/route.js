@@ -90,9 +90,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/bidalert2.html',
             controller: 'Bidalert2Ctrl'
         })
-        .when('/article/vipusercenter', {//vip个人中心
-            templateUrl: templates_root + 'article/vipusercenter.html',
-            controller: 'VipusercenterCtrl'
+        .when('/user/center', {//vip个人中心
+            templateUrl: templates_root + 'user/center.html',
+            controller: 'centerCtrl'
         })
         .when('/user/questions', {//vip投资问题
             templateUrl: templates_root + 'user/myquestions.html',
