@@ -1,4 +1,4 @@
-/*全局样式*/
+/*!*全局样式*!
 *{
     margin:0;
     padding:0;
@@ -19,7 +19,7 @@ body{
 }
 
 
-/*清除浮动*/
+!*清除浮动*!
 .clear {
     zoom: 1;
 }
@@ -38,7 +38,7 @@ body{
     float: right;
 }
 
-/*userCenter样式开始*/
+!*userCenter样式开始*!
 .userContainer{
     width:100%;
     height:100%;
@@ -91,7 +91,7 @@ body{
 .headerContents{
     border:1px solid transparent;
     width:100%;
-    /*margin-top: 40.8px;*/
+    !*margin-top: 40.8px;*!
     height:91.4px;
 
 }
@@ -157,7 +157,7 @@ body{
     top:11px;
 }
 
-/*侧边框设置*/
+!*侧边框设置*!
 .asideHide {
     z-index: 2;
     width: 40%;
@@ -228,7 +228,7 @@ body{
     background-size: 20%;
 }
 
-/*弹出左边栏*/
+!*弹出左边栏*!
 #tm {
     display: none;
 }
@@ -252,8 +252,8 @@ body{
     transform: translateX(100%);
 }
 
-/*vipuser1样式结束*/
-/*vipuser2样式开始*/
+!*vipuser1样式结束*!
+!*vipuser2样式开始*!
 .question_list{
     height: 95px;
     width:100%;
@@ -276,7 +276,7 @@ body{
     overflow: hidden;
     border:none;
     height: 50px;
-}
+}*/
 .questionBorderLine{
     height: 0;
     border: none;
@@ -309,18 +309,18 @@ body{
 /*vipuser3样式开始*/
 /*vipuser3样式结束*/
 
-/*vipuser4样式开始*/
+/*!*vipuser4样式开始*!
 .msgtishi{
     width:100%;
     height:70px;
     background:#ffffff;
     position:relative;
     margin-bottom: 8px;
-    /*border:1px solid red;*/
+    !*border:1px solid red;*!
 
 }
 .tishiimg{
-    /*vertical-align: middle;*/
+    !*vertical-align: middle;*!
     padding-top: 10px;
     font-size: 14px;
     color:#f97383;
@@ -359,8 +359,8 @@ body{
     font-size: 1.5rem;
 }
 
-/*vipuser4样式结束*/
-/*vipuser6的样式开始*/
+!*vipuser4样式结束*!
+!*vipuser6的样式开始*!
 .industry{
     width:100%;
     background: #ffffff;
@@ -373,7 +373,7 @@ body{
     border-bottom: none;
     border-left:none;
     border-right:none;
-    /*margin-top: 2px;*/
+    !*margin-top: 2px;*!
     border-top:1px solid #f0f0f0;
 }
 .ok{
@@ -398,7 +398,7 @@ body{
     position:absolute;
     top:0;
     left:86%;
-}
+}*/
 /*vipuser6的样式结束*/
 /*设置页面样式开始*/
 .userSet{
