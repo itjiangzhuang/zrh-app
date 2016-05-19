@@ -1,0 +1,13 @@
+<div class="question_list" ng-repeat="message in message_list" ng-click="questionDetail(message.id)">
+    <div class="question_content">
+        <div class="userContent borderBottom">
+            <span class="userContentName bg_ask">{{message.content}}</span>
+            <span class="userContentIcon"></span>
+        </div>
+        <div class="userContent1">
+            <span class="questionUserSpan1 questionUser">{{message.classification}}</span>
+            <span class="questionUserSpan2 questionUser">{{message.loanValue}}</span>
+            <span class="questionUserSpan3 questionUser">{{message.license}}</span>
+        </div>
+    </div>
+</div>
