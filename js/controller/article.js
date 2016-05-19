@@ -36,6 +36,10 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 
         $location.path("/article/create/step1");
     }
+    $scope.goto_center = function () {
+
+        $location.path("/user/center");
+    }
 
 });
 
