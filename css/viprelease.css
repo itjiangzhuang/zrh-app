@@ -23,7 +23,7 @@ body{
 .information{
     width:100%;
     height:50px;
-    font-size: 1.7rem;
+    font-size: 16px;
     /*border:1px solid red;*/
     line-height: 48px;
     background:#F0F0F0;
@@ -43,18 +43,18 @@ body{
 }
 .required{
     width:100%;
-    height:62px;
+    height:68px;
     position:relative;
     border-bottom:1px solid #f0f0f0;
     box-sizing: border-box;
 
 }
 .reqname{
-    margin-top: 10px;
+    padding-top: 10px;
 }
 .reqnamespan1,.reqnamespan2{
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 14px;
     color:#4c4c4c;
 }
 .setafter{
@@ -108,13 +108,13 @@ body{
     position:absolute;
     display: inline-block;
     /*border:1px solid red;*/
-    width:28px;
-    height:28px;
-    margin-left: 3%;
+    width:22px;
+    height:22px;
+    /*margin-left: 3%;*/
     background:url("../img/icon/setup.png") no-repeat;
-    background-size:72%;
-    top:15px;
-    right:12px;
+    background-size:100%;
+    top:23px;
+    right:15px;
 
 }
 .divinput{
@@ -127,14 +127,14 @@ body{
     color: #4c4c4c;
 }
 .viprelease1Headerp1{
-    font-size: 1.8rem;
+    font-size: 16px;
     color:#ffffff;
     padding-top: 30px;
     padding-left:5%;
     padding-bottom: 5px;
 }
 .viprelease1Headerp2{
-    font-size: 16px;
+    font-size: 14px;
     color:#ffffff;
     margin-left:5%;
 }
@@ -144,7 +144,7 @@ body{
     background:#f0f0f0;
     border:none;
     border-radius:20px;
-    font-size: 1.8rem;
+    font-size: 18px;
     position:fixed;
     bottom:2%;
     right:15%;
@@ -314,9 +314,9 @@ body{
 /*release2和3样式开始*/
  .upload{
      width:100%;
-     height:68px;
+     height:73px;
      border-bottom:1px solid #f0f0f0;
-     line-height: 66px;
+     line-height: 73px;
      position:relative;
      background: #f97383;
  }
@@ -325,7 +325,7 @@ body{
  }
  .uploadtext{
      width:66%;
-     font-size:1.7rem;
+     font-size:16px;
      color:#ffffff;
      /*border:1px solid red;*/
      margin-left:56px;
@@ -333,13 +333,9 @@ body{
  .uploadimg{
      width:40px;
      height:40px;
-     /*border:1px solid red;*/
-     /*background: url('../img/icon/upload.png') no-repeat center  center;*/
-     /*background-size: 60%;*/
-     right:9px;
+     right:15px;
      position:absolute;
-     top:13px;
-     /*opacity: 0.7;*/
+     top:16px;
      display: block;
 
 
@@ -347,12 +343,11 @@ body{
  .uploadup{
      width:28px;
      height:28px;
-     /*border:1px solid blue;*/
      background: url("../img/icon/up.png");
      background-size: 100%;
      position:absolute;
      left:15px;
-     top:20px;
+     top:22px;
  }
 .portrait{
     width:42px;

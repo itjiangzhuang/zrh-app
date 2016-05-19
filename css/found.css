@@ -32,7 +32,7 @@ body{
     position:relative;
 }
 .tittle{
-    font-size:18px;
+    font-size:16px;
     width:25%;
     height:36px;
     text-align: center;
@@ -55,7 +55,7 @@ body{
 
 }
 .amount .countdiv{
-    font-size: 35px;
+    font-size: 24px;
     color:#f97383;
     margin-top: 5px;
     margin-left: 9px;
@@ -68,7 +68,7 @@ body{
     margin-left: 9px;
 }
 .amount .countdiv span{
-    font-size:14px; ;
+    font-size:12px;
     display:inline-block;
     margin-left: 5px;
 
@@ -84,7 +84,7 @@ body{
 }
 .amount div{
     width:89%;
-    font-size:13px;
+    font-size:12px;
     text-align: center;
 
 }
@@ -113,7 +113,7 @@ body{
     margin-left: 20%;
     width:88px;
     margin-top: 8px;
-    font-size:16px;
+    font-size:12px;
     /*border:1px solid red;*/
     /*text-align: center;*/
 }
