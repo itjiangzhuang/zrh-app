@@ -1,0 +1,30 @@
+<div style=" width:100%; background:#ffffff;height:667px;">
+     <div class="zizhiheader">
+         <p class="zizhiheaderp1">温馨提示</p>
+         <p class="zizhiheaderp2">如果您在申请前，有发不过项目，或是填写过风控标准，审核通过率会大幅度提高！</p>
+     </div>
+      <div class="moneyStep1top2">
+          <p class="moneyStep1top2_p">真实姓名</p>
+          <input type="text" placeholder="" class="moneyStep1top2_input" ng-model="userApplyInvest.name">
+          <span class="moneyicon"></span>
+      </div>
+      <div class="moneyStep1top2">
+          <p class="moneyStep1top2_p">投资机构名称</p>
+          <input type="text" placeholder="" class="moneyStep1top2_input" ng-model="userApplyInvest.orgName">
+          <span class="moneyicon"></span>
+      </div>
+      <div class="moneyStep1top2">
+          <p class="moneyStep1top2_p">职位</p>
+          <input type="text" placeholder="" class="moneyStep1top2_input" ng-model="userApplyInvest.position">
+          <span class="moneyicon"></span>
+      </div>
+      <div class="namecard" id="upload_container">
+          <p class="namecard_pone">上传名片</p>
+          <p class="namecard_ptwo">上传名片有助于提升审核速度，支持小于5兆的JPG和PNG格式，仅供认证使用</p>
+          <div class="imgbackground" id="pickfiles">
+              <img ng-src="{{userApplyInvest.cardImg || 'img/icon/examine.png'}}" alt="">
+              <p>仅供审核使用</p>
+          </div>
+      </div>
+      <input  type='submit'class="release" value="提交申请" ng-click="apply()"/>
+  </div>
