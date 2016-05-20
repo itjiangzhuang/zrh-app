@@ -26,7 +26,7 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
             }
         }).error(function (d) {
             console.log(d);
-        });
+        });      
     };
 
     $scope.next_op = function (op) {
@@ -34,7 +34,7 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
             "questions": "/user/questions",//打开问题中心
             "messages": "/user/messages",//打开消息中心
             "projectManage": "/article/projectManage",//打开发布项目管理
-            "investProject": "/article/investProject",//打开投资项目管理
+            "projectInvest": "/article/projectInvest",//打开投资项目管理
             "applyInvest":"/user/applyInvest",//打开申请投资资质
             "windControl":"/user/wind_control",//打开风控
             "myWallet":"/user/wallet",//打开我的钱包
@@ -168,11 +168,128 @@ userCtrl.controller('ProjectInvestCtrl', //项目投资
 userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $location) {
 
 	$scope.init = function(){
+		 $http({
+            url: api_uri + "api/user/showIq",
+            method: "GET",
+            params: {
+                "userId": $rootScope.login_user.userId,
+                "token": $rootScope.login_user.token
+            }
+        }).success(function (d) {
+        	console.log(d);
+            if (d.returnCode == 0) {
+                $scope.userApplyInvest = d.result;
+                if(!$scope.userApplyInvest){
+                	$scope.userApplyInvest = {};
+                }
+            }else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });
+        
+        $http({
+            url: api_uri + "api/qiniu/getUpToken",
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.qiniu_token = d.result.uptoken;
+                var uploader = Qiniu.uploader({
+                    runtimes: 'html5,flash,html4',    //上传模式,依次退化
+                    browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
+                    //	        uptoken_url: api_uri+"api/qiniu/getUpToken",
+                    uptoken: $scope.qiniu_token,
+                    //	        get_new_uptoken: true,
+                    //save_key: true,
+                    domain: $rootScope.qiniu_bucket_domain, //bucket 域名，下载资源时用到，**必需**
+                    container: 'upload_container',           //上传区域DOM ID，默认是browser_button的父元素，
+                    max_file_size: '10mb',           //最大文件体积限制
+                    flash_swf_url: '../../framework/plupload/Moxie.swf',  //引入flash,相对路径
+                    max_retries: 3,                   //上传失败最大重试次数
+                    dragdrop: false,                   //开启可拖曳上传
+                    drop_element: '',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+                    chunk_size: '4mb',                //分块上传时，每片的体积
+                    auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
+                    init: {
+                        'FilesAdded': function (up, files) {
+                            //                    plupload.each(files, function(file) {
+                            //                        // 文件添加进队列后,处理相关的事情
+                            //                    });
+                        },
+                        'BeforeUpload': function (up, file) {
+//                          $rootScope.uploading = true;
+//                          $scope.upload_percent = file.percent;
+//                          $rootScope.$apply();
+                        },
+                        'UploadProgress': function (up, file) {
+                            // 每个文件上传时,处理相关的事情
+//                          $scope.upload_percent = file.percent;
+//                          $scope.$apply();
+                        },
+                        'FileUploaded': function (up, file, info) {
+                            var res = $.parseJSON(info);
 
+                            var file_url = "http://" + $rootScope.qiniu_bucket_domain + "/" + res.key;
+//                          $scope.userApplyInvest.cardImg = file.name;
+                            $scope.userApplyInvest.cardImg = file_url;
+                            $scope.$apply();
+                        },
+                        'Error': function (up, err, errTip) {
+                            console.log(err);
+                            $rootScope.alert("身份证上传失败！");
+                        },
+                        'UploadComplete': function () {
+                            //队列文件处理完毕后,处理相关的事情
+                        },
+                        'Key': function (up, file) {
+                            var time = new Date().getTime();
+                            var k = 'user/card/' + $rootScope.login_user.userId + '/' + time;
+                            return k;
+                        }
+                    }
+                });
+            } else {
+                console.log(d);
+            }
+
+        }).error(function (d) {
+            console.log(d);
+        });
 	};
 
 	$scope.init();
 
+    $scope.apply = function(){
+    	var params = {
+    		"userId": $rootScope.login_user.userId,
+            "token": $rootScope.login_user.token
+    	};
+    	if (!isNullOrEmpty($scope.userApplyInvest.name)) {
+            params.name = $scope.userApplyInvest.name;
+        }
+    	if (!isNullOrEmpty($scope.userApplyInvest.orgName)) {
+            params.orgName = $scope.userApplyInvest.orgName;
+        }
+    	if (!isNullOrEmpty($scope.userApplyInvest.position)) {
+            params.position = $scope.userApplyInvest.position;
+        }
+    	if (!isNullOrEmpty($scope.userApplyInvest.cardImg)) {
+            params.cardImg = $scope.userApplyInvest.cardImg;
+        }
+    	
+    	$.post(api_uri + "api/user/applyIq", params,
+            function (data) {
+                if (data.returnCode == 0) {                    
+                    $location.path("/user/center");
+                } else {
+                    console.log(data);
+                }
+            },
+        "json");
+    };
 
 });
 

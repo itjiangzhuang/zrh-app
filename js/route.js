@@ -107,7 +107,7 @@ myApp.config(function ($routeProvider) {
             controller: 'SettingCtrl'
         })
         .when('/user/applyInvest', {//申请投资资质
-            templateUrl: templates_root + 'article/apply_invest.html',
+            templateUrl: templates_root + 'user/apply_invest.html',
             controller: 'ApplyInvestCtrl'
         })
         .when('/article/projectManage', {//项目管理
