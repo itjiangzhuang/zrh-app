@@ -82,14 +82,6 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/questions.html',
             controller: 'QuestionsCtrl'
         })
-        .when('/article/bidalert1', {//未竞标alert
-            templateUrl: templates_root + 'article/bidalert1.html',
-            controller: 'Bidalert1Ctrl'
-        })
-        .when('/article/bidalert2', {//已竞标alert
-            templateUrl: templates_root + 'article/bidalert2.html',
-            controller: 'Bidalert2Ctrl'
-        })
         .when('/user/center', {//个人中心
             templateUrl: templates_root + 'user/center.html',
             controller: 'UserCenterCtrl'
@@ -97,10 +89,6 @@ myApp.config(function ($routeProvider) {
         .when('/user/questions', {//vip投资问题
             templateUrl: templates_root + 'user/myquestions.html',
             controller: 'MyQuestionsCtrl'
-        })
-        .when('/user/questionDetail/:id', {
-            templateUrl: templates_root + 'user/question_detail.html',
-            controller: 'QuestionDetailCtrl'
         })
         .when('/user/messages', {
             templateUrl: templates_root + 'user/my_message.html',
@@ -118,6 +106,6 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/setting.html',
             controller: 'SettingCtrl'
         })
-       
+
         .otherwise({redirectTo: '/article/list'})
 });
