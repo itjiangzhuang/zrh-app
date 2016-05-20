@@ -401,7 +401,7 @@ p span {
     top:13px;
     right:55px;
 }
-.speak{
+/*.speak{
     width:92%;
     position:fixed;
     bottom: 15px;
@@ -410,7 +410,7 @@ p span {
     border:none;
     padding-left:2%;
     border-radius: 10px;
-}
+}*/
 .otherframe{
     width:100%;
     min-height: 45px;
