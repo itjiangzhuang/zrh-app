@@ -22,8 +22,9 @@
           <p class="namecard_pone">上传名片</p>
           <p class="namecard_ptwo">上传名片有助于提升审核速度，支持小于5兆的JPG和PNG格式，仅供认证使用</p>
           <div class="imgbackground" id="pickfiles">
-              <img ng-src="{{userApplyInvest.cardImg || 'img/icon/examine.png'}}" alt="">
-              <p>仅供审核使用</p>
+              <img src="img/icon/examine.png" alt="" ng-hide="userApplyInvest.cardImg"/>
+              <p ng-hide="userApplyInvest.cardImg">仅供审核使用</p>
+              <img ng-src="{{userApplyInvest.cardImg}}" ng-show="userApplyInvest.cardImg">
           </div>
       </div>
       <input  type='submit'class="release" value="提交申请" ng-show="isApply"/>
