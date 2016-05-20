@@ -93,3 +93,29 @@
 }
 
 /*投资项目样式结束*/
+
+
+
+/*项目管理  button*/
+.bottomButton{
+    position: fixed;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    padding-top: 5px;
+}
+.bottomButton input{
+    width: 50%;
+    height:45px;
+    line-height: 40px;
+    background: #fff;
+}
+.postEmail {
+    border: none;
+    border-right: 1px solid #f0f0f0;
+
+}
+.deleteProject{
+    border: none;
+    width: 50%;
+}
