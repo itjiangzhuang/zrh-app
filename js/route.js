@@ -94,17 +94,29 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/center.html',
             controller: 'UserCenterCtrl'
         })
-        .when('/user/question', {//问题中心
-            templateUrl: templates_root + 'user/user_question.html',
-            controller: 'UserQuestionCtrl'
+        .when('/user/questions', {//vip投资问题
+            templateUrl: templates_root + 'user/myquestions.html',
+            controller: 'MyQuestionsCtrl'
         })
         .when('/user/questionDetail/:id', {
             templateUrl: templates_root + 'user/question_detail.html',
             controller: 'QuestionDetailCtrl'
         })
         .when('/user/messages', {
-            templateUrl: templates_root + 'user/my_messages.html',
+            templateUrl: templates_root + 'user/my_message.html',
             controller: 'MyMessages'
+        })
+        .when('/user/wind_control', {//风控标准
+            templateUrl: templates_root + 'user/wind_control.html',
+            controller: 'WindControlCtrl'
+        })
+        .when('/user/wallet', {//我的钱包
+            templateUrl: templates_root + 'user/wallet.html',
+            controller: 'WalletCtrl'
+        })
+        .when('/user/setting', {//设置
+            templateUrl: templates_root + 'user/setting.html',
+            controller: 'SettingCtrl'
         })
         /*.when('/user/questions', {//vip投资问题
             templateUrl: templates_root + 'user/myquestions.html',
@@ -114,14 +126,8 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/vipmymessage.html',
             controller: 'VipmymessageCtrl'
         })
-        .when('/article/wallet', {//我的钱包
-            templateUrl: templates_root + 'article/wallet.html',
-            controller: 'WalletCtrl'
-        })
-        .when('/article/windcontrol', {//风控标准
-            templateUrl: templates_root + 'article/windcontrol.html',
-            controller: 'WindcontrolCtrl'
-        })
+
+
         .when('/article/guarantee', {//信用担保选择
             templateUrl: templates_root + 'article/guarantee.html',
             controller: 'GuaranteeCtrl'
