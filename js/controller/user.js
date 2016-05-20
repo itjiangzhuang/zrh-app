@@ -35,14 +35,15 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
 
     $scope.show = function(articleId,toUser){
     	$location.path("/article/questions/" + articleId+ "/" + toUser);
-    /*切换普通用户和vip*/
-    $scope.names = 2;
-$scope.vipToCommon = function(){
-    if ($scope.names == 1) {
-        $('.vipHave').css('display', 'none');
-        $('.vipNone').css('display', 'block');
-    }
-}
+	    /*切换普通用户和vip*/
+	    $scope.names = 2;
+		$scope.vipToCommon = function(){
+		    if ($scope.names == 1) {
+		        $('.vipHave').css('display', 'none');
+		        $('.vipNone').css('display', 'block');
+		    }
+		}
+	}
 });
 
 userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $location) {

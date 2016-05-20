@@ -402,59 +402,57 @@ body{
     line-height: 40px;
 
 }
-.mortgagewu{
-    margin-top: 8px;
+.collateral{
     width:100%;
     overflow: hidden;
     /*border-bottom: 1px solid #f0f0f0;*/
 }
-.mortgagewu1{
-    width:100%;
+.collateral1,.collateral2{
+    height: 22px;
+    margin: 11px 0 0px;
+    padding-bottom: 11px;
 }
-
-.coverRightBorder {
-    position: absolute;
-    right: 0px;
-    z-index: 20;
-    width: 2%;
-    height: 100px;
-    /*background-color: red;*/
-    /*margin-left: 1%;*/
+.collateral1 div{
+    float:left;
 }
-
-.mortgagewu1 span{
-    /*display:inline-block;*/
+.collateralLine{
+    display: inline-block;
+    width:90%;
+    height:1px;
+    float: left;
+    background: #f0f0f0;
+    margin-right: 11px;
+    margin-top: -2px;
 }
-.mortgagewuline{
-    /*width:95%;*/
-    margin:10px 10px 0 0;
-    border: none;
-    border-bottom: 1px solid #f0f0f0;
-    /*margin-top: 10px;*/
-}
-
-.mortgagewudiv{
-    display:inline-block;
-    height: 20px;
+.collateralDiv{
+    height: 22px;
+    line-height: 22px;
     position:relative;
-    margin-top: 11px;
-    margin-bottom: 12px;
-    width:33%;
-    border-right: 1px solid #f0f0f0;
-   padding-left: 15px;
+    width:calc(33% - 16px);
+    border-right:1px solid #f0f0f0;
+    margin-left: 15px;
     /*border-bottom:1px solid #f0f0f0;*/
 }
-.checkwenzi{
+.borderNoRight{
+    border-right: none;
+}
+.checkText{
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 13px;
     position:absolute;
-    top:4px;
+
 }
 .lineclear{
     border-right: 1px solid #ffffff;
 }
-
-
+.collateral2{
+    width:100%;
+    /*border-bottom:1px solid #f0f0f0;*/
+    /*overflow: hidden;*/
+}
+.collateral2 div{
+    float:left;
+}
 .bottomline{
     width:90%;
     border-bottom:1px solid #f0f0f0;
