@@ -977,3 +977,9 @@ hr {
 .mbsc-android-holo .dwb-a {
     background: transparent;
 }
+.mbsc-android-holo-light .dwwr{
+    background: #f0f0f0;
+}
+.mbsc-android-holo-light .dwbw:first-child .dwb{
+    background: #f0f0f0;
+}
