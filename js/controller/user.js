@@ -7,26 +7,7 @@ var userCtrl = angular.module('userCtrl', []);
 userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $location) {
 
     $scope.init = function () {
-        $http({
-            url: api_uri + "api/articleComments/lastList",
-            method: "GET",
-            params: {
-                "userId": $rootScope.login_user.userId,
-                "token": $rootScope.login_user.token
-            }
-        }).success(function (d) {
-        	console.log(d);
-            if (d.returnCode == 0) {
-                $scope.obj_list = d.result;
-                for(var i=0;i<$scope.obj_list.length;i++){
-                	$scope.obj_list[i].time = moment.unix($scope.obj_list[i].lastUpdateTime/1000).format('YYYY.MM.DD');
-                }
-            }else {
-                console.log(d);
-            }
-        }).error(function (d) {
-            console.log(d);
-        });      
+        //TODO 获取个人信息 以及各种列表数量  
     };
 
     $scope.next_op = function (op) {
@@ -263,6 +244,9 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 	$scope.init();
 
     $scope.apply = function(){
+    	
+    	$scope.isApply = true;
+    	
     	var params = {
     		"userId": $rootScope.login_user.userId,
             "token": $rootScope.login_user.token
@@ -282,13 +266,18 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
     	
     	$.post(api_uri + "api/user/applyIq", params,
             function (data) {
-                if (data.returnCode == 0) {                    
-                    $location.path("/user/center");
+                if (data.returnCode == 0) {  
+                	alert("提交成功,请等待审核...");
+                	$scope.next = true;
+                	$location.path("/user/center");
+                	$scope.$apply();
                 } else {
                     console.log(data);
                 }
+                $scope.isApply = false;
+                console.log(" isApply :" +  $scope.isApply);
             },
-        "json");
+        "json");    
     };
 
 });

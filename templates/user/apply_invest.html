@@ -26,5 +26,6 @@
               <p>仅供审核使用</p>
           </div>
       </div>
-      <input  type='submit'class="release" value="提交申请" ng-click="apply()"/>
+      <input  type='submit'class="release" value="提交申请" ng-show="isApply"/>
+      <input  type='submit'class="release" value="提交申请" ng-hide="isApply" ng-click="apply()"/>
   </div>
