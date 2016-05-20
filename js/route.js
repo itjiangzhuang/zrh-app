@@ -106,6 +106,17 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/setting.html',
             controller: 'SettingCtrl'
         })
-
+        .when('/article/applyInvest', {//产品详情
+            templateUrl: templates_root + 'article/apply_invest.html',
+            controller: 'ApplyInvestCtrl'
+        })
+        .when('/article/projectManage', {//项目管理
+            templateUrl: templates_root + 'article/project_manage.html',
+            controller: 'ProjectManageCtrl'
+        })
+        .when('/article/investProject', {//项目管理
+            templateUrl: templates_root + 'article/invest_project.html',
+            controller: 'InvestProjectCtrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 });

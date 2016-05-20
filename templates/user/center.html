@@ -3,7 +3,7 @@
     <ul class="asideHide">
         <li class="img asideLi1"></li>
         <li class="asideLi2">找项目</li>
-        <li class="asideLi4"class="vipNone" >发布风控标准</li>
+       <!-- <li class="asideLi4"class="vipNone" >发布风控标准</li>-->
         <li class="asideLi3" ng-click="goto_create()">发布项目</li>
         <li class="asideLi5">个人中心</li>
     </ul>
@@ -36,12 +36,12 @@
         <div style="clear: both"></div>
 
         <div class="userContent">
-            <span class="userContentName">项目管理</span>
+            <span class="userContentName" ng-click="projectManage()">项目管理</span>
             <span class="userContentIcon"></span>
         </div>
 
         <div class="userContent">
-            <span class="userContentName" ng-click="investProjects()">项目投资</span>
+            <span class="userContentName" ng-click="investProject()">项目投资</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent" class="vipHave" >
@@ -49,7 +49,7 @@
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent" class="vipNone" >
-            <span class="userContentName">申请投资资质</span>
+            <span class="userContentName" ng-click="applyInvest()">申请投资资质</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent">

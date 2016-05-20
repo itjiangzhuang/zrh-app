@@ -12,20 +12,26 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
     $scope.messageCenter = function () {//打开消息中心
         $location.path('/user/messages');
     };
+    $scope.projectManage = function () {//打开项目管理
+        $location.path('/article/projectManage');
+    };
+    $scope.investProject = function () {//打开项目管理
+        $location.path('/article/investProject');
+    };
+    $scope.applyInvest = function () {//打开申请投资资质
+        $location.path('/article/applyInvest');
+    };
+    $scope.windControl = function () {//打开风控
+        $location.path('/user/wind_control');
+    };
     $scope.myWallet = function () {//打开我的钱包
         $location.path('/user/wallet');
     };
-    $scope.windControl = function () {//打开？？
-        $location.path('/user/wind_control');
-    };
-    $scope.setting = function () {
+    $scope.setting = function () { //打开设置
         $location.path('/user/setting');
     };
-    $scope.investProjects = function () {
-        $location.path('/invest_projects');
-    };
-    $scope.goto_create = function () {
 
+    $scope.goto_create = function () {
         $location.path("/article/create/step1");
     }
 
@@ -98,5 +104,77 @@ userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $loc
 
 });
 
+/*投资项目*/
+userCtrl.controller('ProjectManageCtrl',
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+        $scope.release = function () {
+            $scope.invest_list=[{"company": "山西少爷孜然咸菜有限公司","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"30%","jindutext":"等待联系","license":"2013.06.5"},
+                {"company": "速配云景科技有限公司","classification":"房地产","money":'2',"date":"房地产","lilv":"200万","jindu":"60%","license":"2013.06.5"},
+                {"company": "山东大煎饼集团","classification":"放羊的","money":'3',"date":"房地产","lilv":"200万","jindu":"90%","license":"2013.06.5"}];
+                    angular.forEach($scope.invest_list, function(data){
+                        console.log(data);
+                        console.log(data.jindu);
+                        if(data.jindu == "30%"){
+                            $scope.jindushow = "正在联系"
+                        }else if (data.jindu == "60%"){
+                            $scope.jindushow = "跟进中"
+                        }
+                        else if (data.jindu == "100%"){
+                            $scope.jindushow = "签约成功"
+                        }
+                        else{
+                            $scope.jindushow = "未发布"
+                        }
+                })
 
+        };
+        $scope.release();
+
+
+        $scope.messageDetail =  function(id){
+            if(!$rootScope.isNullOrEmpty(id)){
+                $location.path("/questionDetail/"+id);
+            }
+        };
+        $scope.unRelease = function () {
+                    $scope.invest_list =[{"company": "hahahaha","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"0","license":"2013.06.5"},
+                        ]
+        };
+    }]);
+userCtrl.controller('InvestProjectCtrl',
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+        $scope.release = function () {
+            $scope.invest_list=[{"company": "山西少爷孜然咸菜有限公司","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"30%","jindutext":"等待联系","license":"2013.06.5"},
+                {"company": "速配云景科技有限公司","classification":"房地产","money":'2',"date":"房地产","lilv":"200万","jindu":"60%","license":"2013.06.5"},
+                {"company": "山东大煎饼集团","classification":"放羊的","money":'3',"date":"房地产","lilv":"200万","jindu":"90%","license":"2013.06.5"}];
+            angular.forEach($scope.invest_list, function(data){
+                console.log(data);
+                console.log(data.jindu);
+                if(data.jindu == "30%"){
+                    $scope.jindushow = "正在联系"
+                }else if (data.jindu == "60%"){
+                    $scope.jindushow = "跟进中"
+                }
+                else if (data.jindu == "100%"){
+                    $scope.jindushow = "签约成功"
+                }
+                else{
+                    $scope.jindushow = "未发布"
+                }
+            })
+
+        };
+        $scope.release();
+
+
+        $scope.messageDetail =  function(id){
+            if(!$rootScope.isNullOrEmpty(id)){
+                $location.path("/questionDetail/"+id);
+            }
+        };
+        $scope.unRelease = function () {
+            $scope.invest_list =[{"company": "hahahaha","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"0","license":"2013.06.5"},
+            ]
+        };
+    }]);
 

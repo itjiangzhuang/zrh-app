@@ -1,0 +1,95 @@
+/*投资项目样式开始*/
+.projectHeader{
+    width:100%;
+    height:46px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #ffffff;
+    line-height: 46px;
+}
+.projectHeader span{
+    display: inline-block;
+    width:calc(50% - 3px);
+    font-size:1.5rem;
+    height:44px;
+    text-align: center;
+    color:#888888;
+
+}
+
+
+
+.projectContent{
+    width:100%;
+    background:#ffffff;
+    position:relative;
+    height:158px;
+    margin-bottom: 10px;
+}
+.projectContentShow {
+    width: 90%;
+    margin: 0 auto;
+}
+.projectContentShow span{
+    display: inline-block;
+    font-size:1.4rem;
+    line-height:46px;
+    height:46px;
+}
+.projectContentName{
+    height:46px;
+    width:100%;
+    border-bottom: 1px solid #f0f0f0;
+}
+.companyName{
+    width:calc(70% - 3px);
+}
+.companyClassification{
+    text-align: end;
+    width:calc(30% - 3px);
+}
+
+
+.projectMessage {
+    /*height: 80px;*/
+    padding: 15px 0 15px;
+}
+.messageContent {
+    margin-top: 10px;
+    width: 33%;
+    text-align: center;
+    font-size:1.4rem;
+    /*border-width: 10px;*/
+    height: 20px;
+}
+.messageContentName {
+    margin-top: -10px;
+}
+
+.messageContent p{
+    line-height: 20px;
+}
+
+
+.progress{
+    width:90%;
+    height:10px;
+    border-radius: 10px;
+    background:#f0f0f0;
+    margin: 10px auto;
+
+}
+.progressChild{
+    width:90%;
+    height:10px;
+    background: #f97383;
+    border-radius: 10px;
+}
+.progressTittle{
+    height: 20px;
+    font-size:14px;
+    color:#f97383;
+    text-align: center;
+
+}
+
+/*投资项目样式结束*/

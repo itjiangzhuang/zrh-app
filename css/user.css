@@ -18,6 +18,7 @@ body{
     overflow-x: hidden;
 }
 
+
 /*清除浮动*/
 .clear {
     zoom: 1;
@@ -537,6 +538,7 @@ body{
     top:15px;
     z-index: 1;
 
+    /*border-width:7px 2px 7px 28px;*/
 }
 
 .speakForm{
