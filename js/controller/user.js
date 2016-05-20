@@ -15,8 +15,8 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
     $scope.projectManage = function () {//打开项目管理
         $location.path('/article/projectManage');
     };
-    $scope.investProject = function () {//打开项目管理
-        $location.path('/article/investProject');
+    $scope.projectInvest = function () {//打开项目管理
+        $location.path('/article/projectInvest');
     };
     $scope.applyInvest = function () {//打开申请投资资质
         $location.path('/article/applyInvest');
@@ -104,8 +104,7 @@ userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $loc
 
 });
 
-/*投资项目*/
-userCtrl.controller('ProjectManageCtrl',
+userCtrl.controller('ProjectManageCtrl', //项目管理
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.release = function () {
             $scope.invest_list=[{"company": "山西少爷孜然咸菜有限公司","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"30%","jindutext":"等待联系","license":"2013.06.5"},
@@ -141,7 +140,7 @@ userCtrl.controller('ProjectManageCtrl',
                         ]
         };
     }]);
-userCtrl.controller('InvestProjectCtrl',
+userCtrl.controller('ProjectInvestCtrl', //项目投资
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.release = function () {
             $scope.invest_list=[{"company": "山西少爷孜然咸菜有限公司","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"30%","jindutext":"等待联系","license":"2013.06.5"},

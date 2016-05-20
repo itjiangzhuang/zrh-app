@@ -114,9 +114,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/project_manage.html',
             controller: 'ProjectManageCtrl'
         })
-        .when('/article/investProject', {//项目管理
-            templateUrl: templates_root + 'article/invest_project.html',
-            controller: 'InvestProjectCtrl'
+        .when('/article/projectInvest', {//项目投资
+            templateUrl: templates_root + 'article/project_invest.html',
+            controller: 'ProjectInvestCtrl'
         })
         .otherwise({redirectTo: '/article/list'})
 });
