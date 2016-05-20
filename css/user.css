@@ -510,7 +510,7 @@ body{
     bottom: 0px;*/
 }
 .speak{
-    position: relative;
+    position: absolute;
     bottom: 15px;
     width: calc(100% - 110px);
     line-height: 20px;
