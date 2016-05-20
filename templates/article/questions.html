@@ -27,12 +27,12 @@
         <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
     </ul>
 </div>
-  <div class="displayframe ">
+  <div class="displayFrame">
 
       <div ng-repeat="message in message_list">
           <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]" >
-              <div ng-class="{true:'myframe',false:'otherframe'}[message.self]">
-                  <span ng-class="{true:'spanimg',false:'spanimgother'}[message.self]"></span>
+              <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
+                  <span ng-class="{true:'spanImg',false:'spanImgOther'}[message.self]"></span>
                   <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
                   <span ng-class="{true:'mytriangle',false:'othertriangle'}[message.self]"></span>
               </div>

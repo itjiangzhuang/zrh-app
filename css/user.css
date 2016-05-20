@@ -446,7 +446,7 @@ body{
 }
 /*设置页面样式结束*/
 /*聊天室样式开始*/
-.displayframe{
+.displayFrame{
     width:100%;
     height:calc(100% - 235px);
     /*border:1px solid red;*/
@@ -456,42 +456,62 @@ body{
 
     /*min-height:45px;*/
 }
-.myframe{
+
+.myFrame{
     width:100%;
-    min-height: 45px;
-    margin-top:13px;
+    min-height: 40px;
+    margin-top:20px;
     position:relative;
 
 }
-.myframe span{
+.otherFrame{
+    width:100%;
+    min-height: 40px;
+    margin-top:20px;
+    position:relative;
+}
+
+.myFrame span{
     float: right;
 }
-.spanimg{
-    display: inline-block;
+.otherFrame span{
+    display:inline-block ;
+    float: left;
+}
+
+.spanImg{
     width:40px;
     height:40px;
     border-radius:50%;
     background: #d8d8d8;
-    margin-left: 2%;
     position:absolute;
-    top:2px;
+    top:0;
     right:15px;
+}
+.spanImgOther{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background: #d8d8d8;
+    position:absolute;
+    top:0;
+    left:15px;
 }
 .my{
     display: inline-block;
     max-width:70%;
-    min-width:20%;
-    min-height:30px;
+    min-width:50px;
+    min-height:40px;
     background:#868ee3;
-    border-radius: 22px;
+    border-radius: 18px;
     text-align: left;
     line-height: 26px;
-    font-size: 1.4rem;
+    font-size: 14px;
     color:#ffffff;
-    padding:1% 3% 1% 3%;
-    margin-right:81px;
+    padding:7px 14px;
+    margin-right:70px;
 }
-.mytriangle{
+.myTriangle{
     display: inline-block;
     width:0;
     height:0;
@@ -541,16 +561,7 @@ body{
 }
 
 
-.otherframe{
-    width:100%;
-    min-height: 45px;
-    margin-top:13px;
-    position:relative;
-}
-.otherframe span{
-    display:inline-block ;
-    float: left;
-}
+
 
 .othertriangle{
     width:0;
@@ -567,16 +578,7 @@ body{
 
     /*border-width:7px 2px 7px 28px;*/
 }
-.spanimgother{
 
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background: #d8d8d8;
-    position:absolute;
-    top:2px;
-    left:15px;
-}
 .others{
     max-width:70%;
     min-width:20%;
