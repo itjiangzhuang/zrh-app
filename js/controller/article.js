@@ -1157,9 +1157,8 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     };
     
     $scope.sendMessage = function(){
-    	var content = $scope.content;
-    	$scope.content = "";
-
+    	var content = $("#content").html();
+        $("#content").html("");
     	params = {
     		"userId": $rootScope.login_user.userId,
 			"token": $rootScope.login_user.token,
