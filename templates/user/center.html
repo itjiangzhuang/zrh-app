@@ -4,7 +4,7 @@
         <li class="img asideLi1"></li>
         <li class="asideLi2">找项目</li>
        <!-- <li class="asideLi4"class="vipNone" >发布风控标准</li>-->
-        <li class="asideLi3" ng-click="goto_create()">发布项目</li>
+        <li class="asideLi3" ng-click="next_op('goto_create')">发布项目</li>
         <li class="asideLi5">个人中心</li>
     </ul>
     <label for="tm" class="cartBack"></label>
@@ -21,11 +21,11 @@
             <div class="headerContents">
                 <div class="headerContent">
                     <p class="headerContentNum">10</p>
-                    <p class="headerContentTittle" ng-click="userQuestion()">投资问题</p>
+                    <p class="headerContentTittle" ng-click="next_op('userQuestion')">投资问题</p>
                 </div>
                 <div class="headerContent borderLine">
                     <p class="headerContentNum">99</p>
-                    <p class="headerContentTittle" ng-click="messageCenter()">消息中心</p>
+                    <p class="headerContentTittle" ng-click="next_op('messageCenter')">消息中心</p>
                 </div>
                 <div class="headerContent">
                     <p class="headerContentNum">10/12</p>
@@ -36,28 +36,28 @@
         <div style="clear: both"></div>
 
         <div class="userContent">
-            <span class="userContentName" ng-click="projectManage()">项目管理</span>
+            <span class="userContentName" ng-click="next_op('projectManage')">项目管理</span>
             <span class="userContentIcon"></span>
         </div>
 
         <div class="userContent">
-            <span class="userContentName" ng-click="investProject()">项目投资</span>
+            <span class="userContentName" ng-click="next_op('investProject')">项目投资</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent" class="vipHave" >
-            <span class="userContentName" ng-click="windControl()">发布风控标准</span>
+            <span class="userContentName" ng-click="next_op('windControl')">发布风控标准</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent" class="vipNone" >
-            <span class="userContentName" ng-click="applyInvest()">申请投资资质</span>
+            <span class="userContentName" ng-click="next_op('applyInvest')">申请投资资质</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent">
-            <span class="userContentName" ng-click="myWallet()">我的钱包</span>
+            <span class="userContentName" ng-click="next_op('myWallet')">我的钱包</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContent">
-            <span class="userContentName" ng-click="setting()">设置</span>
+            <span class="userContentName" ng-click="next_op('setting')">设置</span>
             <span class="userContentIcon"></span>
         </div>
         <div class="userContents">
