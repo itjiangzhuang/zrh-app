@@ -69,7 +69,6 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
     $scope.init();
 
     $scope.next_op = function (op) {
-        alert(op);
         var obj = {
             "update": "/article/update/step1/" + $routeParams.id,
             "release": "/article/update/step1/" + $routeParams.id,
@@ -1062,10 +1061,6 @@ articleCtrl.controller('ArticleUpdateStep2Ctrl', function ($http, $scope, $rootS
 
 });
 
-
-articleCtrl.controller('DetailsCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
-
-});
 articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $location, $routeParams, $timeout, $interval) {
 
     $scope.init = function () {

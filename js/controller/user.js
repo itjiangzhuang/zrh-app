@@ -6,35 +6,6 @@ var userCtrl = angular.module('userCtrl', []);
 /*个人中心*/
 userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $location) {
 
-    $scope.userQuestion = function () {//打开问题中心
-        $location.path('/user/questions');
-    };
-    $scope.messageCenter = function () {//打开消息中心
-        $location.path('/user/messages');
-    };
-    $scope.projectManage = function () {//打开项目管理
-        $location.path('/article/projectManage');
-    };
-    $scope.projectInvest = function () {//打开项目管理
-        $location.path('/article/projectInvest');
-    };
-    $scope.applyInvest = function () {//打开申请投资资质
-        $location.path('/article/applyInvest');
-    };
-    $scope.windControl = function () {//打开风控
-        $location.path('/user/wind_control');
-    };
-    $scope.myWallet = function () {//打开我的钱包
-        $location.path('/user/wallet');
-    };
-    $scope.setting = function () { //打开设置
-        $location.path('/user/setting');
-    };
-
-    $scope.goto_create = function () {
-        $location.path("/article/create/step1");
-    }
-
     $scope.init = function () {
         $http({
             url: api_uri + "api/articleComments/lastList",
@@ -58,6 +29,21 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
         });
     };
 
+    $scope.next_op = function (op) {
+        var obj = {
+            "questions": "/user/questions",//打开问题中心
+            "messages": "/user/messages",//打开消息中心
+            "projectManage": "/article/projectManage",//打开发布项目管理
+            "investProject": "/article/investProject",//打开投资项目管理
+            "applyInvest":"/user/applyInvest",//打开申请投资资质
+            "windControl":"/user/wind_control",//打开风控
+            "myWallet":"/user/wallet",//打开我的钱包
+            "setting":"/user/setting",//打开设置
+            "goto_create":"/article/create/step1" //创建项目
+        };
+        $location.path(obj[op]);
+    };
+
     $scope.show = function(articleId,toUser) {
         $location.path("/article/questions/" + articleId + "/" + toUser);
         /*切换普通用户和vip*/
@@ -68,7 +54,9 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
                 $('.vipNone').css('display', 'block');
             }
         }
-    }
+    };
+
+    $scope.init();
 });
 
 userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $location) {
@@ -181,5 +169,16 @@ $scope.checkDetail =function(){
             $scope.invest_list =[{"company": "hahahaha","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"0","license":"2013.06.5"},
             ]
         };
-    }]);
+}]);
+
+userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $location) {
+
+	$scope.init = function(){
+
+	};
+
+	$scope.init();
+
+
+});
 
