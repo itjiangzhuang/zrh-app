@@ -493,6 +493,7 @@ body{
     height:40px;
     border-radius:50%;
     background: #d8d8d8;
+    margin-left: 7px;
     position:absolute;
     top:0;
     left:15px;
@@ -524,6 +525,21 @@ body{
     top:13px;
     right:55px;
 }
+.otherTriangle{
+    width:0;
+    height:0;
+    border-width:12px 6px 12px 36px;
+    border-style:solid;
+    border-color:#ffffff transparent  transparent  transparent ;
+    font-size:0;
+    line-height:0;
+    position:absolute;
+    left:55px;
+    top:15px;
+    z-index: 1;
+
+}
+
 .speakForm{
     width:100%;
    /* position:fixed;
@@ -563,21 +579,6 @@ body{
 
 
 
-.othertriangle{
-    width:0;
-    height:0;
-    border-width:12px 6px 12px 36px;
-    border-style:solid;
-    border-color:#ffffff transparent  transparent  transparent ;
-    font-size:0;
-    line-height:0;
-    position:absolute;
-    left:55px;
-    top:15px;
-    z-index: 1;
-
-    /*border-width:7px 2px 7px 28px;*/
-}
 
 .others{
     max-width:70%;
