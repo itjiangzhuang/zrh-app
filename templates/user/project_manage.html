@@ -2,9 +2,10 @@
     <span class="fl" ng-click="release()">已发布</span>
     <span class="fr" ng-click="unRelease()">未发布</span>
 </div>
-<div class="projectContent" ng-repeat="invest in invest_list">
+<div class="projectContent"ng-click="checkDetail()" ng-repeat="invest in invest_list">
     <div class="projectContentShow">
         <p class="projectContentName clear">
+            <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
             <span class="companyName fl">{{invest.company}}</span>
             <span class="companyClassification fl">{{invest.classification}}</span>
         </p>
@@ -27,5 +28,8 @@
         <div class="progressChild" style="width:{{invest.jindu}};"></div>
     </div>
     <p class="progressTittle">{{jindushow}}</p>
-
+</div>
+<div class="bottomButton clear">
+    <input type="button" value="发送邮箱" class="postEmail fl">
+    <input type="button" value="删除" class="deleteProject fl">
 </div>
