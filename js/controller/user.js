@@ -129,7 +129,9 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
         };
         $scope.release();
 
-
+        $scope.checkDetail =function(){
+            $location.path('/article/projectDetail')
+        }
         $scope.messageDetail =  function(id){
             if(!$rootScope.isNullOrEmpty(id)){
                 $location.path("/questionDetail/"+id);
@@ -140,6 +142,8 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
                         ]
         };
     }]);
+
+
 userCtrl.controller('ProjectInvestCtrl', //项目投资
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.release = function () {
@@ -164,7 +168,9 @@ userCtrl.controller('ProjectInvestCtrl', //项目投资
 
         };
         $scope.release();
-
+$scope.checkDetail =function(){
+    $location.path('/article/projectDetail')
+}
 
         $scope.messageDetail =  function(id){
             if(!$rootScope.isNullOrEmpty(id)){

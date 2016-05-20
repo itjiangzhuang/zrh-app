@@ -111,12 +111,16 @@ myApp.config(function ($routeProvider) {
             controller: 'ApplyInvestCtrl'
         })
         .when('/article/projectManage', {//项目管理
-            templateUrl: templates_root + 'article/project_manage.html',
+            templateUrl: templates_root + 'user/project_manage.html',
             controller: 'ProjectManageCtrl'
         })
         .when('/article/projectInvest', {//项目投资
-            templateUrl: templates_root + 'article/project_invest.html',
+            templateUrl: templates_root + 'user/project_invest.html',
             controller: 'ProjectInvestCtrl'
+        })
+        .when('/article/projectDetail', {//项目详情
+            templateUrl: templates_root + 'user/project_detail.html',
+            controller: 'projectDetailCtrl'
         })
         .otherwise({redirectTo: '/article/list'})
 });
