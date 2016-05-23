@@ -415,6 +415,11 @@ body{
     vertical-align:middle;
 
 }
+.userSet span{
+    display: inline-block;
+    margin-left:15px;
+}
+
 .userSet img{
    margin-top: 8px;
     width:40px;
@@ -631,7 +636,8 @@ body{
 }
 .moneyStepTopP{
     padding-top: 10px;
-    margin-left: 5%;
+    margin-left: 15px;
+    font-size: 14px;
     color:#888888;
 }
 .moneyStepTopInput {
@@ -658,14 +664,14 @@ body{
 .nameCardP1{
     width:100%;
     margin-left: 5%;
-    font-size: 1.3rem;
+    font-size: 14px;
     margin-top: 10px;
     color:#888888;
 }
 .nameCardP2{
     width:90%;
     margin: 10px auto;
-    font-size: 1.3rem;
+    font-size: 14px;
 }
 .imgBox{
     width:166px;
