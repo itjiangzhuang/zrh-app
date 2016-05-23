@@ -53,7 +53,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/step2.html',
             controller: 'ArticleStep2Ctrl'
         })
-        .when('/article/credit/:op', {//贷款方式
+        .when('/article/credit', {//贷款方式
             templateUrl: templates_root + 'article/select.html',
             controller: 'CreditCtrl'
         })

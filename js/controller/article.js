@@ -733,15 +733,9 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
-    if ($routeParams.op == "create") {
-        $scope.article = $rootScope.getSessionObject("articleStep2");
-    } else if ($routeParams.op == "update") {
-        $scope.article = $rootScope.getSessionObject("article");
-    } else {
-        alert("error op");
-        $location.path("/article/list");
-    }
 
+    $scope.article = $rootScope.getSessionObject("article");
+    
     if (!$scope.article) {
         $scope.article = {};
     }
@@ -779,15 +773,10 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
                 $scope.article.credit = obj.name;
             }
         }
-        if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("articleStep2", $scope.article);
-            $location.path("/article/create/step2");
-        } else if ($routeParams.op == "update") {
-            $rootScope.putSessionObject("article", $scope.article);
-            $location.path("/article/update/step2/" + $scope.article.id);
-        }
+         $rootScope.putSessionObject("article", $scope.article);
+            $location.path("/article/step2/" + $scope.article.id);
 
-    }
+    };
 });
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
