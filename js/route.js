@@ -42,20 +42,16 @@ myApp.config(function ($routeProvider) {
             controller: 'ArticleCreateStep1Ctrl'
         })
         .when('/article/update/step1/:id', {//更新第一步
-            templateUrl: templates_root + 'article/createStep1.html',
+            templateUrl: templates_root + 'article/step1.html',
             controller: 'ArticleUpdateStep1Ctrl'
         })
-        .when('/article/create/license/:op', {//选择营业执照
+        .when('/article/license/:op', {//选择营业执照
             templateUrl: templates_root + 'article/license.html',
-            controller: 'ArticleCreateLicenseCtrl'
+            controller: 'ArticleLicenseCtrl'
         })
-        .when('/article/create/step2', {//创建第二步
-            templateUrl: templates_root + 'article/createStep2.html',
-            controller: 'ArticleCreateStep2Ctrl'
-        })
-        .when('/article/update/step2/:id', {//更新第二步
-            templateUrl: templates_root + 'article/createStep2.html',
-            controller: 'ArticleUpdateStep2Ctrl'
+        .when('/article/step2/:id', {//创建第二步
+            templateUrl: templates_root + 'article/step2.html',
+            controller: 'ArticleStep2Ctrl'
         })
         .when('/article/credit/:op', {//贷款方式
             templateUrl: templates_root + 'article/select.html',
