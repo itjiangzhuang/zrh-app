@@ -7,6 +7,9 @@
     line-height: 46px;
 }
 .projectHeader span{
+
+}
+.blueBorder{
     display: inline-block;
     width:calc(50% - 3px);
     font-size:16px;
@@ -14,11 +17,16 @@
     text-align: center;
     color:#888888;
     float: left;
-}
-.blueBorder{
     border-bottom:2.5px solid #868ee3;
 }
 .noBorder{
+    display: inline-block;
+    width:calc(50% - 3px);
+    font-size:16px;
+    height:44px;
+    text-align: center;
+    color:#888888;
+    float: left;
     border-bottom:none;
 }
 
