@@ -179,7 +179,7 @@ body{
     width:33px;
     height:33px;
     /*background: url('../img/icon/recommendl.png') no-repeat;*/
-    background-size:100%;
+    /*background-size:100%;*/
 
 }
 
@@ -187,7 +187,10 @@ body{
     margin-top: 10%;
     margin-left: 14%;
 }
-
+.asideLi1 img{
+    width:33px;
+    height:33px;
+}
 .asideLi5{
     border-left:2px solid #fff;
 }

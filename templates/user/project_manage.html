@@ -1,6 +1,7 @@
 <div class="projectHeader">
-    <span class="fl" ng-click="release()">已发布</span>
-    <span class="fr" ng-click="unRelease()">未发布</span>
+    <span  ng-class="{false: 'noBorder', true: 'blueBorder'}[border]" ng-click="release()">已发布</span>
+    <span  ng-class="{false: 'noBorder', true: 'blueBorder'}[noBorder]" ng-click="unRelease()">未发布</span>
+
 </div>
 <div class="projectContent" ng-click="article_show(obj.id)" ng-repeat="obj in obj_list">
     <div class="projectContentShow">
