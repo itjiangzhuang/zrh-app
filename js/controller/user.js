@@ -8,6 +8,28 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
 
     $scope.init = function () {
         //TODO 获取个人信息 以及各种列表数量  
+         $http({
+            url: api_uri + "api/user/center",
+            method: "GET",
+            params: {
+                "userId": $rootScope.login_user.userId,
+                "token": $rootScope.login_user.token
+            }
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.nickname = d.result.nickname;
+                $scope.isVip = d.result.isVip;
+                $scope.batting = d.result.batting;
+                $scope.ms = d.result.ms;
+                $scope.cs = d.result.cs;
+            }else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });
+        
     };
 
     $scope.next_op = function (op) {
@@ -269,13 +291,13 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
                 if (data.returnCode == 0) {  
                 	alert("提交成功,请等待审核...");
                 	$scope.next = true;
-                	$location.path("/user/center");
-                	$scope.$apply();
+                	$location.path("/user/center");                	
                 } else {
                     console.log(data);
                 }
                 $scope.isApply = false;
                 console.log(" isApply :" +  $scope.isApply);
+                $scope.$apply();
             },
         "json");    
     };
