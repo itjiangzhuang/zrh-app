@@ -404,7 +404,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
                     obj.check = false;
                 } else {
                     obj.check = true;
-                    $scope.articleStep2.pledgeType = obj.name;
+                    $scope.article.pledgeType = obj.name;
                 }
             } else {
                 obj.check = false;
@@ -442,6 +442,25 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
                     $scope.article.advantages = data.result.advantages;
 
                     console.log($scope.article);
+                    
+                    $scope.check($scope.article.pledgeType);
+    	
+					if (!$scope.article.pledge) {
+					    $scope.article.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
+					}
+					
+					if (!$scope.article.pledgeImgs) {
+					    $scope.article.pledgeImgs = [];
+					    $scope.article.pledgeImgNames = [];
+					}
+					if (!$scope.article.financialImgs) {
+					    $scope.article.financialImgs = [];
+					    $scope.article.financialImgNames = [];
+					}
+					if (!$scope.article.advantagesImgs) {
+					    $scope.article.advantagesImgs = [];
+					    $scope.article.advantagesImgNames = [];
+					}
 	            }else {
 	                console.log(data);
 	            }
@@ -449,28 +468,9 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 	        }).error(function (d) {
 	            console.log("login error");
 	        });
-    	}
-    	
-    	$scope.check($scope.article.pledgeType);
-
-        if (!$scope.article.pledge) {
-            $scope.article.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
-        }
-
-        if (!$scope.article.pledgeImgs) {
-            $scope.article.pledgeImgs = [];
-            $scope.article.pledgeImgNames = [];
-        }
-        if (!$scope.article.financialImgs) {
-            $scope.article.financialImgs = [];
-            $scope.article.financialImgNames = [];
-        }
-        if (!$scope.article.advantagesImgs) {
-            $scope.article.advantagesImgs = [];
-            $scope.article.advantagesImgNames = [];
-        }
-        
-
+	        
+	        
+    	};
         $http({
             url: api_uri + "api/qiniu/getUpToken",
             method: "GET",
@@ -725,6 +725,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     };
 
     $scope.release = function () {
+    	console.log($scope.article);
         alert("发布项目");
     };
 });
