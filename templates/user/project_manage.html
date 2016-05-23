@@ -2,32 +2,32 @@
     <span class="fl" ng-click="release()">已发布</span>
     <span class="fr" ng-click="unRelease()">未发布</span>
 </div>
-<div class="projectContent"ng-click="checkDetail()" ng-repeat="invest in invest_list">
+<div class="projectContent" ng-click="article_show(obj.id)" ng-repeat="obj in obj_list">
     <div class="projectContentShow">
         <p class="projectContentName clear">
             <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
-            <span class="companyName fl">{{invest.company}}</span>
-            <span class="companyClassification fl">{{invest.classification}}</span>
+            <span class="companyName fl">{{obj.businessName}}</span>
+            <span class="companyClassification fl">{{obj.classification}}</span>
         </p>
     </div>
     <div class="projectMessage clear">
         <div class="messageContent fl">
             <p class="messageContentName">融资金额</p>
-            <p class="">{{invest.money}}</p>
+            <p class="">{{obj.loanValue}}万元</p>
         </div>
         <div class="messageContent fl borderLine">
             <p class="messageContentName">融资期限</p>
-            <p class="">{{invest.date}}</p>
+            <p class="">{{obj.loanLife}}个月</p>
         </div>
         <div class="messageContent fl">
             <p class="messageContentName">接受利率</p>
-            <p class="">{{invest.lilv}}</p>
+            <p class="">{{obj.rateCap}}-{{obj.rateFloor}}</p>
         </div>
     </div>
     <div class="progress">
-        <div class="progressChild" style="width:{{invest.jindu}};"></div>
+        <div class="progressChild" style="width:{{obj.jindu}};"></div>
     </div>
-    <p class="progressTittle">{{jindushow}}</p>
+    <p class="progressTittle">{{obj.jindushow}}</p>
 </div>
 <div class="bottomButton clear">
     <input type="button" value="发送邮箱" class="postEmail fl">

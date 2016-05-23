@@ -1,8 +1,8 @@
 <div class="userContainer">
     <input type="checkbox" id="tm" />
     <ul class="asideHide">
-        <li class=" asideLi1">
-            <img class="img" src="img/icon/recommendl.png" alt="">
+        <li class="img asideLi1">
+        	<img src="img/icon/recommend.png"/>
         </li>
         <li class="asideLi2">找项目</li>
        <!-- <li class="asideLi4"class="vipNone" >发布风控标准</li>-->
@@ -16,6 +16,10 @@
     <div class="containerDisplay">
         <div class="userHeader">
             <div class="userLogo">
+                <div class="userLogoPic">
+                	<img src="img/icon/recommend.png"/>
+                </div>
+                <div class="userLogoName">{{nickname || '默认'}}<img class="vipHave" src="img/icon/arrow1v.png" alt="" ng-show="isVip"></div>
                 <div class="userLogoPic">
                     <img class="userLogoPic" src="img/icon/recommendl.png" alt="">
                 </div>
