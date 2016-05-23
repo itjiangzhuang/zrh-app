@@ -69,9 +69,6 @@ body{
     margin: 0 auto;
     width:48px;
     height:48px;
-    background: url('../img/icon/recommendl.png') no-repeat center center;
-    background-size: 86%;
-
 }
 .userLogoName{
     width:100%;
@@ -181,7 +178,7 @@ body{
 .img{
     width:33px;
     height:33px;
-    background: url('../img/icon/recommendl.png') no-repeat;
+    /*background: url('../img/icon/recommendl.png') no-repeat;*/
     background-size:100%;
 
 }
@@ -699,7 +696,6 @@ body{
     width:100%;
     font-size: 1.4rem;
     color:#4c4c4c;
-    /*margin: 0 auto;*/
     text-align: center;
     margin-top: 80px;
 }
