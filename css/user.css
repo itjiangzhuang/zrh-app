@@ -69,9 +69,6 @@ body{
     margin: 0 auto;
     width:48px;
     height:48px;
-    background: url('../img/icon/recommendl.png') no-repeat center center;
-    background-size: 86%;
-
 }
 .userLogoName{
     width:100%;
@@ -181,8 +178,8 @@ body{
 .img{
     width:33px;
     height:33px;
-    background: url('../img/icon/recommendl.png') no-repeat;
-    background-size:100%;
+    /*background: url('../img/icon/recommendl.png') no-repeat;*/
+    /*background-size:100%;*/
 
 }
 
@@ -190,7 +187,10 @@ body{
     margin-top: 10%;
     margin-left: 14%;
 }
-
+.asideLi1 img{
+    width:33px;
+    height:33px;
+}
 .asideLi5{
     border-left:2px solid #fff;
 }
@@ -415,6 +415,11 @@ body{
     vertical-align:middle;
 
 }
+.userSet span{
+    display: inline-block;
+    margin-left:15px;
+}
+
 .userSet img{
    margin-top: 8px;
     width:40px;
@@ -631,7 +636,8 @@ body{
 }
 .moneyStepTopP{
     padding-top: 10px;
-    margin-left: 5%;
+    margin-left: 15px;
+    font-size: 14px;
     color:#888888;
 }
 .moneyStepTopInput {
@@ -658,14 +664,14 @@ body{
 .nameCardP1{
     width:100%;
     margin-left: 5%;
-    font-size: 1.3rem;
+    font-size: 14px;
     margin-top: 10px;
     color:#888888;
 }
 .nameCardP2{
     width:90%;
     margin: 10px auto;
-    font-size: 1.3rem;
+    font-size: 14px;
 }
 .imgBox{
     width:166px;
@@ -693,7 +699,6 @@ body{
     width:100%;
     font-size: 1.4rem;
     color:#4c4c4c;
-    /*margin: 0 auto;*/
     text-align: center;
     margin-top: 80px;
 }

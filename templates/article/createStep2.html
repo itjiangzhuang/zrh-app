@@ -1,25 +1,26 @@
+<div style="background: #ffffff;width:100%">
 <div class="viprelease1Header">
     <p class="viprelease1Headerp1">温馨提示：</p>
     <p class="viprelease1Headerp2">信息越完整，成功率越高!</p>
 </div>
 <div class="information">精准信息</div>
-<div  class="mortgage">
+<div  class="informationContent">
     <span class="reqnamespan1"></span>
     <span class="reqnamespan2">抵押物</span>
 </div>
-<div class="mortgagewu">
-    <div class="mortgagewu1">
-        <div class="mortgagewudiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
+<div class="collateral">
+    <div class="collateral1">
+        <div class="collateralDiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
             <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
-            <span class="checkwenzi">{{pt.name}}</span>
-            <p class="mortgagewuline"></p>
+            <span class="checkText">{{pt.name}}</span>
+            <span class="checkLine">|</span>
+            <p class="collateralLine"></p>
         </div>
+        <p class="clearRightBorder"></p>
+        <!--<div class="coverBottomBorder"></div>-->
     </div>
-    <div class="coverRightBorder fl"></div>
 </div>
-<textarea cols="" rows="3" class="xushu" ng-model="articleStep2.pledge">
-
-</textarea>
+<div class="xushu" contenteditable="true" ng-model="articleStep2.pledge">{{articleStep2.pledge}}</div>
 <div class="loadlie clear" id="upload_pledgeImg">
 	<div class="img-list fl" ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
         <img src="{{pledgeImg}}" alt="" style="border: 0">
@@ -27,10 +28,10 @@
             <div class="redPointInner"></div>
         </div>
     </div>
-	<img id="pickPledgeImg" class="loadjia fl">
+	<img id="pickPledgeImg" src="img/icon/upload1.png" class="loadjia fl">
 </div>
 
-<div class=" required" style="margin-top: 86px;">
+<div class=" required" style="margin-top: 20px;">
     <div ng-class="setStyle_div(articleStep2.continualOperateYear)">
         <span class="reqnamespan1" ng-hide="articleStep2.continualOperateYear"></span>
         <span class="reqnamespan2">年实际经营流水（万元）</span>
@@ -59,9 +60,9 @@
             <div class="redPointInner"></div>
         </div>
 	</div>
-    <a class="loadjia fl" id="pickFinancialImg"></a>
+    <img src="img/icon/upload1.png" class="loadjia fl" id="pickFinancialImg">
 </div>
-<div class="norequired" style="margin-top: 86px;">
+<div class="norequired" style="margin-top: 26px;">
     <div class="noreqname">业务往来</div>
     <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="articleStep2.businessContact"/>
 </div>
@@ -81,11 +82,12 @@
         </div>
 	</div>
 
-    <a class="loadjia fl" id="pickAdvantagesImg"></a>
+    <img src="img/icon/upload1.png" class="loadjia fl"id="pickAdvantagesImg">
 </div>
 <div  class="loadlast"></div>
 
 <div class="sureslecte">
     <span class="sureslecte1" ng-click="save()">保存</span>
     <span class="sureslecte2" ng-click="release()">发布</span>
+</div>
 </div>
