@@ -252,8 +252,9 @@ body{
     transform: translateX(100%);
 }
 
-/*vipuser1样式结束*/
-/*vipuser2样式开始*/
+
+
+
 .question_list{
     height: 95px;
     width:100%;
@@ -445,6 +446,10 @@ body{
     color:#888888;
 }
 /*设置页面样式结束*/
+
+
+
+
 /*聊天室样式开始*/
 .displayFrame{
     width:100%;
@@ -578,9 +583,6 @@ body{
 }
 
 
-
-
-
 .others{
     max-width:70%;
     min-width:20%;
@@ -595,118 +597,103 @@ body{
     margin-left:82px;
 }
 /*聊天室样式结束*/
-/*普通用户申请投资资质页面样式开始*/
-/*.zizhiheader{
+
+
+
+/*apply_invest页面设置*/
+.applyHeader{
     height:100px;
     width:100%;
     background:#868ee3;
     border:1px solid transparent;
 
 }
-.zizhiheader p{
+.applyHeader p{
     color:#ffffff;
     margin-left: 5%;
 
 
 }
-.zizhiheaderp1{
+.applyHeaderP1{
     font-size:1.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
 }
-.zizhiheaderp2{
+.applyHeaderP2{
     font-size: 1.4rem;
 }
-.moneyStep1top2 {
+.moneyStepTop {
     position: relative;
     background: #fff;
     width: 100%;
     height: 58px;
     border-bottom: 1px solid #f0f0f0;
 }
-.moneyStep1top2_p {
+.moneyStepTopP{
     padding-top: 10px;
     margin-left: 5%;
     color:#888888;
 }
-.moneyStep1top2_input {
+.moneyStepTopInput {
     margin-top: 8px;
     margin-left: 5%;
     border: none;
     width:66%;
 }
-.namecard{
+.moneyIcon{
+    display:inline-block;
+    width:22px;
+    height:22px;
+    background: url('../img/icon/arrow1.png') no-repeat ;
+    -moz-background-size:70%;
+    background-size:100%;
+    position:absolute;
+    right:15px;
+    top:14px;
+}
+
+.nameCard{
     width:100%;
 }
-.namecard_pone{
+.nameCardP1{
     width:100%;
     margin-left: 5%;
     font-size: 1.3rem;
     margin-top: 10px;
     color:#888888;
 }
-.namecard_ptwo{
+.nameCardP2{
     width:90%;
     margin: 10px auto;
     font-size: 1.3rem;
 }
-.imgbackground{
-    width:50%;
-    height:120px;
-    margin:0 auto;
+.imgBox{
+    width:166px;
+    height:112px;
+    margin:28px auto 0;
     background: #f0f0f0;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     position:relative;
     border:1px solid transparent;
 
 }
-.imgbackground img{
+.imgBox .img1{
 
     max-width: 28%;
     position:absolute;
     top:20px;
     left:37%;
 }
-.imgbackground p{
+.imgBox .img2{
+
+    width:166px;
+    height:112px;
+}
+.imgBox p{
     width:100%;
     font-size: 1.4rem;
     color:#4c4c4c;
-    !*margin: 0 auto;*!
+    /*margin: 0 auto;*/
     text-align: center;
     margin-top: 80px;
 }
-!*普通用户申请投资资质页面样式结束*!
-!*普通用户项目完整度样式开始*!
-.complete{
-    width:100%;
-    height:60px;
-    background:#868ee3;
-}
-.complete span{
-    display: inline-block;
-    color:#ffffff;
-
-}
-.completespan1{
-    font-size: 1.5rem;
-    !*width:20%;*!
-    !*border:1px solid red;*!
-    margin-top: 20px;
-    margin-left: 5%;
-}
-.completespan2{
-    width:58%;
-    height:12px;
-    background: #ffffff;
-    border-radius: 12px;
-}
-.completepro{
-    height:12px;
-    background: #f97383;
-    border-radius: 12px;
-}
-.completespan3{
-    font-size: 1.5rem;
-    margin-left: 1%;
-}
-!*普通用户项目完整度样式结束*!*/
