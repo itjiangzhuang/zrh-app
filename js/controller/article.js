@@ -173,7 +173,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.create_license = function () {
         $rootScope.putSessionObject("create_article", $scope.createArticle);
-        $location.path("/article/create/license/create");
+        $location.path("/article/license/create");
     };
 
     params = {
@@ -217,8 +217,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             params.regFunds = $scope.createArticle.license.regFunds;
         }
         if (!isNullOrEmpty($scope.createArticle.license.licenseImgs)) {
-            params.licenseImgs = $scope.createArticle.license.licenseImgs.join(",");
-            params.licenseImgNames = $scope.createArticle.license.licenseImgNames.join(",");
+            params.licenseImgs = $scope.createArticle.license.licenseImgs;
+            params.licenseImgNames = $scope.createArticle.license.licenseImgNames;
         }
         if (!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)) {
             params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
@@ -229,6 +229,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("create_article");          
                     $location.path("/article/step2/"+data.result);
+                    $scope.$apply();
                 } else {
                     $rootScope.removeObject("create_article");
                     console.log(data);
