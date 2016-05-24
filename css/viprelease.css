@@ -163,8 +163,8 @@ body{
     border:none;
     border-radius:20px;
     font-size: 18px;
-    position:fixed;
-    bottom:2%;
+    position:absolute;
+    bottom:15px;
     right:15%;
     color:#888888;
     letter-spacing: 2px;
