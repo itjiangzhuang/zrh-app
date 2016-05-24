@@ -33,7 +33,8 @@ body{
 }
 .showInformation{
     height: calc(100% - 210px);
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .viprelease1Header{
     width:100%;

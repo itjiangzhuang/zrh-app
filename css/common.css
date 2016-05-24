@@ -10,6 +10,7 @@ ul,li{ list-style: none;list-style-type:none;}
 #Hourwrapper{position: absolute;left: 0;top:195px;bottom: 68px;width:80%;}
 #Minutewrapper{position: absolute;left: 26%;top:195px;bottom: 68px;width:80%;}
 #Secondwrapper{position: absolute;left: 50%;top:195px;bottom: 68px;width:80%;}
+#monthwrapper li{font-size: 18px!important;}
 /*!*增加q*/
 #Hourwrapper ul li{color: #898989;font-size: 12px;}
 #Minutewrapper ul li{color: #898989;font-size: 12px;}
