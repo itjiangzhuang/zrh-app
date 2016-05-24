@@ -160,8 +160,7 @@ body {
 .message {
     overflow: hidden;
     position: relative;
-    margin-top: 6px;
-    margin-left: 14px;
+    margin: 6px 0 6px 14px;
 }
 
 .message li {
@@ -180,7 +179,6 @@ body {
 .messageli2, .messageli3 {
     position: absolute;
     font-size: 14px;
-
 }
 
 .messageli2 {
