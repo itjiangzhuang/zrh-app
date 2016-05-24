@@ -99,6 +99,7 @@ userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $loc
 userCtrl.controller('ProjectManageCtrl', //项目管理
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.init = function () {
+        	$scope.border = true;
         	if(!$scope.type){
         		$scope.type = "1";
         	}
@@ -147,50 +148,54 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
         $scope.unRelease = function () {
               $scope.type = "0";
               $scope.init();
+              $scope.border = false;
         };
         $scope.release = function () {
               $scope.type = "1";
               $scope.init();
+              $scope.border = true;
         };
 }]);
 userCtrl.controller('ProjectInvestCtrl', //项目投资
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
-        $scope.release = function () {
-            $scope.border = true;
-            $scope.noBorder = false;
-            $scope.invest_list=[{"company": "山西少爷孜然咸菜有限公司","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"30%","jindutext":"等待联系","license":"2013.06.5"},
-                {"company": "速配云景科技有限公司","classification":"房地产","money":'2',"date":"房地产","lilv":"200万","jindu":"50%","license":"2013.06.5"},
-                {"company": "山东大煎饼集团","classification":"放羊的","money":'3',"date":"房地产","lilv":"200万","jindu":"100%","license":"2013.06.5"}];
-            angular.forEach($scope.invest_list, function(data){
-                console.log(data);
-                console.log(data.jindu);
-                if(data.jindu == "30%"){
-                    $scope.jindushow = "正在联系"
-                }else if (data.jindu == "60%"){
-                    $scope.jindushow = "跟进中"
-                }
-                else if (data.jindu == "100%"){
-                    $scope.jindushow = "签约成功"
-                }
-                else{
-                    $scope.jindushow = "未发布"
-                }
-            })
+        $scope.init = function () {
 
+	        $http({
+	            url: api_uri + "api/article/investList",
+	            method: "GET",
+	            params: $rootScope.login_user
+	        }).success(function (d) {
+	            console.log(d);
+	            if (d.returnCode == 0) {
+	                $scope.obj_list = d.result;
+	                angular.forEach($scope.obj_list, function(data){
+
+                        if(data.jindu == "30%"){
+                            data.jindushow = "正在联系"
+                        }else if (data.jindu == "60%"){
+                            data.jindushow = "跟进中"
+                        }
+                        else if (data.jindu == "100%"){
+                            data.jindushow = "签约成功"
+                        }
+                        else{
+                            data.jindushow = "未发布"
+                        }
+                    });
+	            }else {
+	                console.log(d);
+	            }
+	        }).error(function (d) {
+	            console.log(d);
+	        });
         };
-        $scope.release();
+        $scope.init();
 
 
-        $scope.messageDetail =  function(id){
-            if(!$rootScope.isNullOrEmpty(id)){
-                $location.path("/questionDetail/"+id);
+        $scope.article_show =  function(id){
+            if (!isNullOrEmpty(id)) {
+               $location.path("/article/show/" + id);
             }
-        };
-        $scope.unRelease = function () {
-            $scope.border = false;
-            $scope.noBorder = true;
-            $scope.invest_list =[{"company": "hahahaha","classification":"生活消费","money":"1","date":"房地产","lilv":"200万","jindu":"0","license":"2013.06.5"},
-            ]
         };
 }]);
 
