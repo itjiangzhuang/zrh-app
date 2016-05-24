@@ -42,68 +42,85 @@ body{
     background: url('../img/icon/header.png') no-repeat center center;
     background-size: cover;
 }
+
+
 .required{
     width:100%;
     height:68px;
+    padding-top: 10px;
+    padding-left: 15px;
     position:relative;
     border-bottom:1px solid #f0f0f0;
     box-sizing: border-box;
 
 }
-.reqname{
-    padding-top: 14px;
+.required1{
+    width:100%;
+    padding-top: 10px;
+    padding-left: 15px;
+    position:relative;
+    border-bottom:1px solid #f0f0f0;
+    box-sizing: border-box;
+
 }
-.reqnamespan1,.reqnamespan2{
-    display: inline-block;
-    font-size: 14px;
-    color:#4c4c4c;
+.noRequired{
+    border-bottom:1px solid #f0f0f0;
+    width:100%;
+    height:68px;
+    padding-top: 10px;
+    padding-left: 15px;
+    position:relative;
 }
-.setafter{
-    display: inline-block;
-    font-size: 1.5rem;
-    margin-left: 15px;
-    color:#888888;
-    margin-top:10px;
-}
-.reqtishiafter{
-    color:#4c4c4c;
-    width: 80%;
-    height: 30px;
-    margin-top: 4px;
-    margin-left: 15px;
-    /*border: none;*/
-    /*border:1px solid red;*/
-    line-height: 30px;
-    font-size: 1.5rem;
-}
-.reqnamespan1{
+.reqNameSpan1{
     width:8px;
     height:8px;
     background:#f97383;
     border-radius: 50%;
-    margin-left:15px;
+    vertical-align: middle;
 
 }
-.reqtishi{
+.reqNameSpan1,.reqNameSpan2{
+    line-height: 25px;
+    display: inline-block;
+    font-size: 14px;
+}
+.reqName{
+    height: 25px;
+    isplay: inline-block;
+    font-size: 14px;
+   color:#4c4c4c;
+}
+.setafter{
+    height: 25px;
+    display: inline-block;
+    font-size: 14px;
+    color:#888888;
+}
+.reqTipsafter{
+    color:#4c4c4c;
     width: 80%;
     height: 30px;
-    margin-top: 4px;
-    margin-left: 15px;
+    /*border: none;*/
+    /*border:1px solid red;*/
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.reqTips{
+    width: 80%;
+    height: 30px;
     /*border: none;*/
     /*border:1px solid red;*/
    line-height: 30px;
-    font-size: 1.5rem;
+    font-size: 14px;
     color:#888888;
 }
 
-.required input,.norequired input{
-    width:80%;
-    /*height:28px;*/
-    margin-top: 12px;
-    margin-left:15px;
+.required input,.noRequired input{
+    width:90%;
+    height:28px;
     border:none;
     font-size: 14px;
-    color:#888888;
 }
 .setupimg{
     position:absolute;
@@ -363,27 +380,28 @@ body{
     border-radius: 6px;
 }
  .noreqname{
-     font-size:1.45rem;
-     margin-left: 15px;
+     font-size:14px;
      margin-top: 10px;
      color:#888888;
  }
- .norequired{
-     border-bottom:1px solid #f0f0f0;
-     width:100%;
-     height:68px;
-     position:relative;
-     border-left: 1px solid transparent;
-     border-right: 1px solid transparent;
-     border-top: 1px solid transparent;
- }
+
+/*.noRequired{
+    border-bottom:1px solid #f0f0f0;
+    width:100%;
+    !*height:68px;*!
+    position:relative;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+
+}*/
 .release{
     width:60%;
     height:40px;
     font-size:2rem;
     background:linear-gradient(to right,#8898EB,#6045BB);
-    position:fixed;
-    bottom: 20px;
+    position:absolute;
+    bottom: 15px;
     margin-left: 20%;
     border-radius: 26px;
     text-align: center;
@@ -407,6 +425,7 @@ body{
 }
 .informationContent{
     height: 45px;
+    margin-left: 15px;
     background: #ffffff;
     line-height: 45px;
 }
@@ -491,7 +510,6 @@ body{
 }
 .xushu{
     width:92%;
-    margin-left:15px;
     font-size:14px;
     line-height: 18px;
     margin-top: 15px;
@@ -507,9 +525,9 @@ body{
 }
 .loadlast{
     width:100%;
-    margin-top: 86px;
-    height:10px;
-    margin-bottom: 60px;
+    margin-top: 20px;
+    height:60px;
+    margin-bottom: 0px;
 }
 .loadimg{
     display: inline-block;

@@ -5,8 +5,8 @@
 </div>
 <div class="information">精准信息</div>
 <div  class="informationContent">
-    <span class="reqnamespan1"></span>
-    <span class="reqnamespan2">抵押物</span>
+    <span class="reqNameSpan1"></span>
+    <span class="reqNameSpan2">抵押物</span>
 </div>
 <div class="collateral">
     <div class="collateral1">
@@ -23,7 +23,7 @@
 <div class="xushu" contenteditable="true" ng-model="articleStep2.pledge">{{articleStep2.pledge}}</div>
 <div class="loadlie clear" id="upload_pledgeImg">
 	<div class="img-list fl" ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
-        <img src="{{pledgeImg}}" alt="" style="border: 0">
+        <img src="{{pledgeImg}}" alt="" style="z-index: 100">
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
@@ -33,23 +33,23 @@
 
 <div class=" required" style="margin-top: 20px;">
     <div ng-class="setStyle_div(articleStep2.continualOperateYear)">
-        <span class="reqnamespan1" ng-hide="articleStep2.continualOperateYear"></span>
-        <span class="reqnamespan2">年实际经营流水（万元）</span>
+        <span class="reqNameSpan1" ng-hide="articleStep2.continualOperateYear"></span>
+        <span class="reqNameSpan2">年实际经营流水（万元）</span>
     </div>
     <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualOperateYear"/>
 </div>
-<div class="norequired">
-    <div class="noreqname">对公账户流水（万元）</div>
+<div class="noRequired">
+    <div class="noreqName">对公账户流水（万元）</div>
     <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualPublicYear"/>
 </div>
-<div class="norequired" ng-click="choose_credit()">
-    <div class="noreqname">贷款方式</div>
-    <div class="reqtishi">{{articleStep2.credit || '请选择贷款方式'}}</div>
+<div class="noRequired" ng-click="choose_credit()">
+    <div class="noreqName">贷款方式</div>
+    <div class="reqTips">{{articleStep2.credit || '请选择贷款方式'}}</div>
     <span class="setupimg"></span>
 </div>
 
-<div class="norequired">
-    <div class="noreqname">财务信息（应收 资产规模）</div>
+<div class="noRequired">
+    <div class="noreqName">财务信息（应收 资产规模）</div>
     <input type="text" placeholder="点击加号添加财务报表图片" ng-model="articleStep2.financialInfo"/>
 </div>
 
@@ -62,16 +62,16 @@
 	</div>
     <img src="img/icon/upload1.png" class="loadjia fl" id="pickFinancialImg">
 </div>
-<div class="norequired" style="margin-top: 26px;">
-    <div class="noreqname">业务往来</div>
+<div class="noRequired" style="margin-top: 66px;">
+    <div class="noreqName">业务往来</div>
     <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="articleStep2.businessContact"/>
 </div>
-<div class="norequired">
-    <div class="noreqname">法人户籍</div>
+<div class="noRequired">
+    <div class="noreqName">法人户籍</div>
     <input type="text" placeholder="请输入法人户籍" ng-model="articleStep2.corporateResidence"/>
 </div>
-<div class="norequired">
-    <div class="noreqname">公司优势</div>
+<div class="noRequired">
+    <div class="noreqName">公司优势</div>
     <input type="text" placeholder="请输入公司的其他贷款优势" ng-model="articleStep2.advantages" />
 </div>
 <div class="loadlie" id="upload_advantagesImg">

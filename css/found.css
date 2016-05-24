@@ -363,15 +363,12 @@ hr {
     margin-left: 14px;
 }
 
-.watchdiv {
-    width: 80%;
-    height: 30px;
-    margin-top: 6px;
-    margin-left: 15px;
-    /*border: none;*/
-    font-size: 1.45rem;
-    /*border:1px solid red;*/
+.watchDiv {
     line-height: 30px;
+    width:90%;
+    height:28px;
+    border:none;
+    font-size: 14px;
 }
 
 /*found3样式结束*/

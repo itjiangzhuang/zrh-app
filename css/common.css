@@ -54,3 +54,95 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
 .fl {float: left;}
 .fr {float: right;}
 #clearBackground{background-color: #ffffff;}
+
+
+/*按钮样式*/
+.singleButton{
+    width:60%;
+    height:45px;
+    font-size:18px;
+    background:linear-gradient(45deg,#8898EB,#6045BB);
+    position:absolute;
+    bottom: 15px;
+    margin-left: 20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}
+.singleButtonGrew{
+    width:60%;
+    height:45px;
+    font-size:18px;
+    position:absolute;
+    bottom: 15px;
+    margin-left: 20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    cursor:pointer;
+    border:none;
+}
+.singleButtonFixed{
+    width:60%;
+    height:45px;
+    font-size:18px;
+    background:linear-gradient(45deg,#8898EB,#6045BB);
+    position:fixed;
+    bottom: 15px;
+    margin-left: 20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}
+.doubleButtonFixed{
+    width:86%;
+    height:45px;
+    position:fixed;
+    bottom:15px;
+    left:7%;
+    font-size:18px
+
+}
+.doubleButton{
+    width:86%;
+    height:45px;
+    position:absolute;
+    bottom:15px;
+    left:7%;
+    font-size:18px;
+
+}
+.doubleButtonLeft{
+    /*border:1px solid #f0f0f0;*/
+    border-top:1px solid #f0f0f0;
+    color: #6045BB;
+    background:#ffffff;
+    border-radius: 25px 0 0 25px;
+}
+.doubleButtonLeft,.doubleButtonRight{
+    display:inline-block;
+    width:49.9%;
+    height:45px;
+    line-height: 48px;
+    text-align: center;
+    box-shadow: 0 6px 6px #ccc;
+}
+.doubleButtonRight{
+    margin-left:-4% ;
+    background:linear-gradient(45deg,#8898EB,#6045BB);
+    color:#fff;
+    box-shadow: 0 6px 6px #ccc;
+    border-radius:  0 25px 25px 0;
+}
