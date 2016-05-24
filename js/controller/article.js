@@ -1081,7 +1081,8 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
             params: {
                 "userId": $rootScope.login_user.userId,
                 "token": $rootScope.login_user.token,
-                "lastTime": $rootScope.getObject("lt_" + $routeParams.id + "_" + $routeParams.userId)
+//              "lastTime": $rootScope.getObject("lt_" + $routeParams.id + "_" + $routeParams.userId)
+                "lastTime": 0
             }
         }).success(function (d) {
             console.log(d);
@@ -1115,6 +1116,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
 
 
     $scope.otherList = function () {
+    	console.log($rootScope.getObject("lt_" + $routeParams.id + "_" + $routeParams.userId));
         //获取别人消息的列表 加入数组
         $http({
             url: api_uri + "api/articleComments/otherList/" + $routeParams.id + "/" + $routeParams.userId,
@@ -1125,11 +1127,14 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
                 "lastTime": $rootScope.getObject("lt_" + $routeParams.id + "_" + $routeParams.userId)
             }
         }).success(function (d) {
-            console.log(d);
             if (d.returnCode == 0) {
-                $scope.other_list = d.result;
-                $scope.message_list.push($scope.other_list);
-               
+                $scope.other_list = d.result;               
+                if($scope.other_list && $scope.other_list.length >0){
+		    		$rootScope.putObject("lt_"+$routeParams.id+"_"+$routeParams.userId,$scope.other_list[$scope.other_list.length-1].createTime);
+		    	    for(var i=0;i<$scope.other_list.length;i++){
+		    	    	$scope.message_list.push($scope.other_list[i]);
+		    	    }
+                }
             }
             else {
                 console.log(d);
@@ -1137,7 +1142,6 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
         }).error(function (d) {
             console.log(d);
         });
-         
     };
     
     $scope.sendMessage = function(){
