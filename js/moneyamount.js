@@ -3,6 +3,12 @@
  */
 $(function(){
 	$.fn.aomuntmoney = function(){
+        /*添加选取金额的布局*/  
+        var txt1 = '<li><span></span><ul><li>万</li><li>十万</li><li>百万</li><li>千万</li><li>亿</li></ul></li>'
+        for (var i = 0; i < 10; i++) {
+            $("#treelist").append(txt1);
+            $("#treelist span").eq(i).text(i + 1);
+        }
 		
 		$('#aomuntmoney').click( function(){
 	        $('#treelist_dummy').focus()
