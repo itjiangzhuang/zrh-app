@@ -42,7 +42,8 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
             "windControl":"/user/wind_control",//打开风控
             "myWallet":"/user/wallet",//打开我的钱包
             "setting":"/user/setting",//打开设置
-            "goto_create":"/article/create/step1" //创建项目
+            "goto_create":"/article/create/step1", //创建项目
+            "goto_list":"/article/list" //找项目
         };
         $location.path(obj[op]);
     };

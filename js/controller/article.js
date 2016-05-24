@@ -445,10 +445,6 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
                     console.log($scope.article);
                     
                     $scope.check($scope.article.pledgeType);
-    	
-					if (!$scope.article.pledge) {
-					    $scope.article.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
-					}
 					
 					if (!$scope.article.pledgeImgs) {
 					    $scope.article.pledgeImgs = [];
@@ -674,11 +670,14 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 	        "userId": $rootScope.login_user.userId,
 	        "token": $rootScope.login_user.token
 	    };
+	    $scope.article.pledge = $("#pledge").text();
+    	$scope.article.financialInfo = $("#financialInfo").text();
+    	$scope.article.advantages = $("#advantages").text();
     	
         if (!isNullOrEmpty($scope.article.pledgeType)) {
             params.pledgeType = $scope.article.pledgeType;
         }
-        if (!isNullOrEmpty($scope.article.pledge)) {
+        if (!isNullOrEmpty($scope.article.pledge)) {        	
             params.pledge = $scope.article.pledge;
         }
         if (!isNullOrEmpty($scope.article.pledgeImgs)) {
@@ -711,7 +710,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
             params.advantagesImgs = $scope.article.advantagesImgs.join(",");
             params.advantagesImgNames = $scope.article.advantagesImgNames.join(",");
         }
-
+        console.log(params);
         $.post(api_uri + "api/article/createStep2", params,
             function (data) {
                 if (data.returnCode == 0) {
@@ -1169,10 +1168,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     $scope.init();
 
 });
-articleCtrl.controller('Bidalert1Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
-
-});
-articleCtrl.controller('Bidalert2Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
+articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
 });
 
