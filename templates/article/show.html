@@ -1,4 +1,11 @@
 <div style="width:100%;background:#ffffff; overflow: scroll">
+	<div class="complete" ng-show="operate.admin">
+          <span class="completespan1">信息完整度</span>
+           <span class="completespan2">
+               <span class="completepro"  style="width:60%;"></span>
+           </span>
+           <span class="completespan3">60%</span>
+    </div>
     <div class="found-step1">
         <div class="tittle " id="clearBackground"></div>
         <lable class="amount">
@@ -21,11 +28,17 @@
         </div>
         <div style="clear:both"></div>
         <div class="line"></div>
-        <ul class="message">
+        <ul class="message" ng-hide="operate.admin">
             <li class="img"></li>
             <li class="messageli2">推荐人成交率</li>
             <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
         </ul>
+        <div ng-show="operate.admin"> 
+	        <div class="progressdetail">
+	            <div class="detailchild" style="width:50%;"></div>
+	        </div>
+	        <p class="detailtittle2" >跟进中</p>
+        </div>
     </div>
     <div class="required" ng-show="article.classification">
         <div class="reqNameSpan2">行业分类</div>
@@ -63,12 +76,20 @@
         <div>{{article.advantages}}</div>
     </div>
     <div style="height: 70px"></div>
-    <div class="doubleButtonFixed">
+    <div class="doubleButtonFixed" ng-show="bt_show_1">
         <span class="doubleButtonLeft" ng-show="operate.update" ng-click="next_op('update')">完善信息</span>
-        <span class="doubleButtonRight" ng-show="operate.release" ng-click="next_op('release')">我要发布</span>
-        <span class="doubleButtonLeft" ng-show="operate.bid" ng-click="next_op('bid')">我要竞标</span>
-        <span class="doubleButtonRight" ng-show="operate.ask" ng-click="next_op('ask')">我要提问</span>
-        <!--<input  type='submit' class="singleButtonFixed" value="发布" />-->
+        <span class="doubleButtonRight" ng-show="operate.release" ng-click="next_op('release')">我要发布</span>    
     </div>
+    <input  type='submit' class="singleButtonFixed" value="完善信息" ng-click="next_op('update')" ng-show="bt_show_2"/>
+    <div class="doubleButtonFixed" ng-show="bt_show_3">
+        <span class="doubleButtonLeft" ng-show="operate.bid" ng-click="next_op('bid')">我要竞标</span>
+        <span class="doubleButtonRight" ng-show="operate.ask" ng-click="next_op('ask')">我要提问</span>  
+    </div>
+    <div class="doubleButtonFixed" ng-show="bt_show_4">
+        <span class="doubleButtonLeft" ng-show="operate.update" ng-click="next_op('update')">完善信息</span>
+        <span class="doubleButtonRight" ng-show="operate.ask" ng-click="next_op('bank')">待约见银行</span>  
+    </div>
+    <input  type='submit' class="singleButtonFixed" value="审核中" ng-show="bt_show_2"/>
+    <input  type='submit' class="singleButtonFixed" value="约见信息" ng-click="next_op('mobile')" ng-show="bt_show_2"/>
 
 </div>

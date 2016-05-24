@@ -73,7 +73,9 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
             "update": "/article/update/step1/" + $routeParams.id,
             "release": "/article/update/step1/" + $routeParams.id,
             "bid": "/article/bid/" + $routeParams.id,
-            "ask": "/article/questions/" + $routeParams.id + "/" + $rootScope.login_user.userId
+            "ask": "/article/questions/" + $routeParams.id + "/" + $rootScope.login_user.userId,
+            "bank":"/article/bank/"+$routeParams.id,//待约见银行
+            "mobile":"/article/mobile/"+$routeParams.id//约见信息
         };
 //	    alert(obj[op]);
         $location.path(obj[op]);
