@@ -458,9 +458,10 @@ body{
 /*聊天室样式开始*/
 .displayFrame{
     width:100%;
-    height:calc(100% - 235px);
+    height:calc(100% - 255px);
     /*border:1px solid red;*/
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     position:fixed;
     top:195px;
 
@@ -558,14 +559,14 @@ body{
 }
 .speak{
     position: absolute;
-    bottom: 15px;
+    bottom: 8px;
     width: calc(100% - 110px);
     line-height: 20px;
     min-height: 40px;
     max-height: 200px;
     _height: 120px;
     margin-left: 15px;
-    padding: 13px;
+    padding: 10px;
     outline: 0;
     border: 1px solid #f0f0f0;
     font-size: 16px;
@@ -574,12 +575,12 @@ body{
     overflow-y: auto;
     _overflow-y: visible;
     background: #fff;
-
+    z-index:9999;
 }
 .speakBtn{
     width:65px;
     position: fixed;
-    bottom: 15px;
+    bottom: 10px;
     right: 15px;
     height:40px;
     border:none;

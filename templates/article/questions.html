@@ -28,7 +28,6 @@
     </ul>
 </div>
   <div class="displayFrame">
-
       <div ng-repeat="message in message_list">
           <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]" >
               <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
@@ -43,3 +42,26 @@
     <div class="speak fl" contenteditable="true" id="content"></div>
     <input type="submit" class="speakBtn fr" ng-click="sendMessage()"/>
 </form>
+
+<script>
+    $(function () {
+        $('#content').focus(function () {
+            var now = $(window).height()/2;
+            var vt = now-80;
+            var _scroll =  $('.displayFrame')[0].scrollHeight;
+            $('.found-step1').hide();
+            $('.displayFrame').animate({scrollTop:_scroll},500);
+            $('.displayFrame').height(vt);
+            $('.displayFrame').css('top',0);
+        });
+        $('#content').blur(function () {
+            var now = $(window).height()/2+100;
+            $('.displayFrame').height(now);
+            $('.found-step1').show();
+            $('.displayFrame').css('top',195);
+            var _scroll =  $('.displayFrame')[0].scrollHeight;
+            $('.displayFrame').animate({scrollTop:_scroll},500);
+        });
+    });
+
+</script>
