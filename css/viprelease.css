@@ -117,7 +117,7 @@ body{
 }
 
 .required input,.noRequired input{
-    width:80%;
+    width:90%;
     height:28px;
     border:none;
     font-size: 14px;

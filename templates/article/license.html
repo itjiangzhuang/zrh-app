@@ -9,16 +9,15 @@
    </div>
 </form>
 
-    <div class=" required">
+    <div class="required">
        <div ng-class="setStyle_div(license.businessName)">
            <span class="reqNameSpan1" ng-hide="license.businessName"></span>
            <span class="reqNameSpan2">公司名称</span>
        </div>
-	   
        <input type="text" placeholder="请输入公司名称" ng-model="license.businessName" />
     <!--<span class="setupimg"></span>-->
    </div>
-   <div class=" required">
+   <div class="required">
        <div ng-class="setStyle_div(license.regTime)">
            <span class="reqNameSpan1" ng-hide="license.regTime"></span>
            <span class="reqNameSpan2 ">注册时间</span>
@@ -28,13 +27,13 @@
        <span class="setupimg"></span>
    </div>
 
-    <div class="noRequired">
-       <div class="noreqName">法人代表</div>
+    <div class="required">
+       <div class="reqNameSpan2">法人代表</div>
        <input type="text" placeholder="请输入法人代表姓名" ng-model="license.corporateRepresentative"/>
     </div>
     
-    <div class="noRequired" ng-click="choose_type()">
-       <div class="noreqName">类型</div>
+    <div class="required" ng-click="choose_type()">
+       <div class="reqNameSpan2">类型</div>
        <div class="reqTips" ng-hide="license.businessType">请选择您的公司类型</div>
        <div class="reqTips" ng-show="license.businessType">{{license.businessType}}</div>
 
@@ -42,8 +41,8 @@
        <span class="setupimg"></span>
     </div>
     
-    <div class="noRequired">
-       <div class="noreqName">注册资本</div>
+    <div class="required">
+       <div class="reqNameSpan2">注册资本</div>
        <input type="text" placeholder="请输入注册资本金额" ng-model="license.regFunds" />
     </div>
     <input type="submit" value="确定" class='next' ng-click="sure()">
