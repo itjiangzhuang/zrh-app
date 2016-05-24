@@ -1129,6 +1129,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
             if (d.returnCode == 0) {
                 $scope.other_list = d.result;
                 $scope.message_list.push($scope.other_list);
+               
             }
             else {
                 console.log(d);
@@ -1136,6 +1137,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
         }).error(function (d) {
             console.log(d);
         });
+         
     };
     
     $scope.sendMessage = function(){
@@ -1158,11 +1160,11 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
             }
 		  },
 		"json");
-		contentObj = {
+		var contentObj = {
 			"self":true,
 			"comment":content
-		}
-        $scope.message_list.push(contentObj);
+		};
+        $scope.message_list.push(contentObj);        
     };
 
     $scope.init();
