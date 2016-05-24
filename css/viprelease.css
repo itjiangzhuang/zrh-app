@@ -67,10 +67,14 @@ body{
     font-size: 14px;
     color:#4c4c4c;
 }
-.reqname{
+.reqName{
     padding-top: 14px;
+    isplay: inline-block;
+    font-size: 14px;
+    color:#888888;
 }
 .setafter{
+    padding-top: 14px;
     display: inline-block;
     font-size: 14px;
     color:#888888;
@@ -99,14 +103,13 @@ body{
     color:#888888;
 }
 
-.required input,.norequired,.noRequired, input{
-    /*width:80%;*/
-    /*height:28px;*/
-    /*margin-top: 12px;*/
-    /*margin-left:15px;*/
-    /*border:none;*/
-    /*font-size: 14px;*/
-    /*color:#888888;*/
+.required input,.norequired, input{
+    width:80%;
+    height:28px;
+
+    border:none;
+    font-size: 14px;
+    color:#888888;
 }
 .setupimg{
     position:absolute;
@@ -366,30 +369,30 @@ body{
     border-radius: 6px;
 }
  .noreqname{
-     font-size:1.45rem;
-     margin-left: 15px;
+     font-size:14px;
      margin-top: 10px;
      color:#888888;
  }
  .norequired{
      border-bottom:1px solid #f0f0f0;
      width:100%;
-     /*height:68px;*/
+     height:68px;
+     padding-left: 15px;
      position:relative;
-     border-left: 1px solid transparent;
+    /* border-left: 1px solid transparent;
      border-right: 1px solid transparent;
-     border-top: 1px solid transparent;
+     border-top: 1px solid transparent;*/
  }
-.noRequired{
+/*.noRequired{
     border-bottom:1px solid #f0f0f0;
     width:100%;
-    /*height:68px;*/
+    !*height:68px;*!
     position:relative;
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
     border-top: 1px solid transparent;
 
-}
+}*/
 .release{
     width:60%;
     height:40px;
