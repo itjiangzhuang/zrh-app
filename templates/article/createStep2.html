@@ -23,7 +23,7 @@
 <div class="xushu" contenteditable="true" ng-model="articleStep2.pledge">{{articleStep2.pledge}}</div>
 <div class="loadlie clear" id="upload_pledgeImg">
 	<div class="img-list fl" ng-repeat="pledgeImg in articleStep2.pledgeImgs" ng-click="removePledgeImg($index)">
-        <img src="{{pledgeImg}}" alt="" style="border: 0">
+        <img src="{{pledgeImg}}" alt="" style="z-index: 100">
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
@@ -62,7 +62,7 @@
 	</div>
     <img src="img/icon/upload1.png" class="loadjia fl" id="pickFinancialImg">
 </div>
-<div class="norequired" style="margin-top: 26px;">
+<div class="norequired" style="margin-top: 66px;">
     <div class="noreqname">业务往来</div>
     <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="articleStep2.businessContact"/>
 </div>
