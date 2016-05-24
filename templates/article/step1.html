@@ -8,8 +8,8 @@
          <div class=" required" id="aomuntmoney">
              <!--<div class=" required" ng-click="choose_loanValue()" id="aomuntmoney">    -->
              <div ng-class="setStyle_div(article.loanValue)">
-                 <span class="reqnamespan1" ng-hide="article.loanValue"></span>
-                 <span class="reqnamespan2">融资金额</span>
+                 <span class="reqNameSpan1" ng-hide="article.loanValue"></span>
+                 <span class="reqNameSpan2">融资金额</span>
              </div>
              <div class="reqtishi" ng-hide="article.loanValue">请选择您要融资的金额</div>
              <div class="reqtishiafter" ng-show="article.loanValue">{{article.loanValue}}万</div>
@@ -18,8 +18,8 @@
          </div>
          <div class=" required" id="term">
              <div ng-class="setStyle_div(article.loanLife)" >
-                 <span class="reqnamespan1" ng-hide="article.loanLife"></span>
-                 <span class="reqnamespan2">融资期限</span>
+                 <span class="reqNameSpan1" ng-hide="article.loanLife"></span>
+                 <span class="reqNameSpan2">融资期限</span>
              </div>
              <div class="reqtishi" ng-hide="article.loanLife">请选择您要融资的期限</div>
              <div class="reqtishiafter" ng-show="article.loanLife">{{article.loanLife}}个月</div>
@@ -28,8 +28,8 @@
          </div>
          <div class=" required" id="rate">
              <div ng-class="setStyle_div(article.rateCap)">
-                 <span class="reqnamespan1" ng-hide="article.rateCap"></span>
-                 <span class="reqnamespan2">接受利率</span>
+                 <span class="reqNameSpan1" ng-hide="article.rateCap"></span>
+                 <span class="reqNameSpan2">接受利率</span>
 
              </div>
              <div class="reqtishi" ng-hide="article.rateCap">请选择您要融资的金额</div>
@@ -40,16 +40,16 @@
          </div>
          <div class=" required" ng-click="choose_classification()">
              <div ng-class="setStyle_div(article.classification)">
-                 <span class="reqnamespan1" ng-hide="article.classification"></span>
-                 <span class="reqnamespan2">行业分类</span>
+                 <span class="reqNameSpan1" ng-hide="article.classification"></span>
+                 <span class="reqNameSpan2">行业分类</span>
              </div>
              <div class="reqtishi" >{{article.classification || '请选择您的行业'}}</div>
              <span class="setupimg"></span>
          </div>
          <div class=" required" ng-click="create_license()">
              <div ng-class="setStyle_div2(article.license.regTime,article.license.businessName)">
-                 <span class="reqnamespan1" ng-hide="article.license.regTime && article.license.businessName"></span>
-                 <span class="reqnamespan2" >营业执照</span>
+                 <span class="reqNameSpan1" ng-hide="article.license.regTime && article.license.businessName"></span>
+                 <span class="reqNameSpan2" >营业执照</span>
              </div>
              <div class="reqtishi">{{article.license.regTime || '请上传您公司的营业执照'}}</div>
              <span class="setupimg"></span>

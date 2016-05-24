@@ -41,28 +41,38 @@ body{
     background: url('../img/icon/header.png') no-repeat center center;
     background-size: cover;
 }
+
+
+
 .required{
     width:100%;
     height:68px;
+    padding-left: 15px;
     position:relative;
     border-bottom:1px solid #f0f0f0;
     box-sizing: border-box;
 
 }
-.reqname{
-    padding-top: 14px;
+.reqNameSpan1{
+    width:8px;
+    height:8px;
+    background:#f97383;
+    border-radius: 50%;
+    vertical-align: middle;
+
 }
-.reqnamespan1,.reqnamespan2{
+.reqNameSpan1,.reqNameSpan2{
     display: inline-block;
     font-size: 14px;
     color:#4c4c4c;
 }
+.reqname{
+    padding-top: 14px;
+}
 .setafter{
     display: inline-block;
-    font-size: 1.5rem;
-    margin-left: 15px;
+    font-size: 14px;
     color:#888888;
-    margin-top:10px;
 }
 .reqtishiafter{
     color:#4c4c4c;
@@ -75,14 +85,7 @@ body{
     line-height: 30px;
     font-size: 1.5rem;
 }
-.reqnamespan1{
-    width:8px;
-    height:8px;
-    background:#f97383;
-    border-radius: 50%;
-    margin-left:15px;
 
-}
 .reqtishi{
     width: 80%;
     height: 30px;
@@ -95,14 +98,14 @@ body{
     color:#888888;
 }
 
-.required input,.norequired input{
-    width:80%;
+.required input,.norequired,.noRequired, input{
+    /*width:80%;*/
     /*height:28px;*/
-    margin-top: 12px;
-    margin-left:15px;
-    border:none;
-    font-size: 14px;
-    color:#888888;
+    /*margin-top: 12px;*/
+    /*margin-left:15px;*/
+    /*border:none;*/
+    /*font-size: 14px;*/
+    /*color:#888888;*/
 }
 .setupimg{
     position:absolute;
@@ -370,19 +373,29 @@ body{
  .norequired{
      border-bottom:1px solid #f0f0f0;
      width:100%;
-     height:68px;
+     /*height:68px;*/
      position:relative;
      border-left: 1px solid transparent;
      border-right: 1px solid transparent;
      border-top: 1px solid transparent;
  }
+.noRequired{
+    border-bottom:1px solid #f0f0f0;
+    width:100%;
+    /*height:68px;*/
+    position:relative;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+
+}
 .release{
     width:60%;
     height:40px;
     font-size:2rem;
     background:linear-gradient(to right,#8898EB,#6045BB);
-    position:fixed;
-    bottom: 20px;
+    position:absolute;
+    bottom: 15px;
     margin-left: 20%;
     border-radius: 26px;
     text-align: center;
@@ -406,6 +419,7 @@ body{
 }
 .informationContent{
     height: 45px;
+    margin-left: 15px;
     background: #ffffff;
     line-height: 45px;
 }

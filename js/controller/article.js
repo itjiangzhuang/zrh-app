@@ -153,7 +153,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         if (args) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     }
 
@@ -161,7 +161,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         if (arg1 && arg2) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     };
     $scope.init();
@@ -343,7 +343,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
         if (args) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     };
 
@@ -392,7 +392,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
         if (args) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     };
 
@@ -950,7 +950,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         if (args) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     };
     
@@ -978,7 +978,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         if (arg1 && arg2) {
             return "setafter";
         } else {
-            return "reqname";
+            return "reqName";
         }
     };
 

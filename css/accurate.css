@@ -14,7 +14,3 @@ canvas{width: 100%;border: 1px solid #000000;}
 .progress{position: absolute;width: 100%;height: 20px;line-height: 20px;bottom: 0;left: 0;}
 .progress span{display: block;width: 0;height: 100%;text-align: center;color: #FFF;font-size: 13px;}
 .size{position: absolute;width: 100%;height: 15px;line-height: 15px;bottom: -18px;text-align: center;font-size: 13px;color: #666;}
-
-.loadlie{
-    position:relative;
-}
