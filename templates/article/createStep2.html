@@ -38,17 +38,17 @@
     </div>
     <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualOperateYear"/>
 </div>
-<div class="norequired">
+<div class="noRequired">
     <div class="noreqName">对公账户流水（万元）</div>
     <input type="text" placeholder="请输入对公账户流水" ng-model="articleStep2.continualPublicYear"/>
 </div>
-<div class="norequired" ng-click="choose_credit()">
+<div class="noRequired" ng-click="choose_credit()">
     <div class="noreqName">贷款方式</div>
-    <div class="reqtishi">{{articleStep2.credit || '请选择贷款方式'}}</div>
+    <div class="reqTips">{{articleStep2.credit || '请选择贷款方式'}}</div>
     <span class="setupimg"></span>
 </div>
 
-<div class="norequired">
+<div class="noRequired">
     <div class="noreqName">财务信息（应收 资产规模）</div>
     <input type="text" placeholder="点击加号添加财务报表图片" ng-model="articleStep2.financialInfo"/>
 </div>
@@ -62,15 +62,15 @@
 	</div>
     <img src="img/icon/upload1.png" class="loadjia fl" id="pickFinancialImg">
 </div>
-<div class="norequired" style="margin-top: 66px;">
+<div class="noRequired" style="margin-top: 66px;">
     <div class="noreqName">业务往来</div>
     <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="articleStep2.businessContact"/>
 </div>
-<div class="norequired">
+<div class="noRequired">
     <div class="noreqName">法人户籍</div>
     <input type="text" placeholder="请输入法人户籍" ng-model="articleStep2.corporateResidence"/>
 </div>
-<div class="norequired">
+<div class="noRequired">
     <div class="noreqName">公司优势</div>
     <input type="text" placeholder="请输入公司的其他贷款优势" ng-model="articleStep2.advantages" />
 </div>
