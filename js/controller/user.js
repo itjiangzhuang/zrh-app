@@ -99,6 +99,7 @@ userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $loc
 userCtrl.controller('ProjectManageCtrl', //项目管理
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.init = function () {
+        	$scope.border = true;
         	if(!$scope.type){
         		$scope.type = "1";
         	}
@@ -147,10 +148,12 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
         $scope.unRelease = function () {
               $scope.type = "0";
               $scope.init();
+              $scope.border = false;
         };
         $scope.release = function () {
               $scope.type = "1";
               $scope.init();
+              $scope.border = true;
         };
 }]);
 userCtrl.controller('ProjectInvestCtrl', //项目投资
