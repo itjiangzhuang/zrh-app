@@ -4,7 +4,7 @@
         <li class="asideLi1">
         	<img src="img/icon/recommendl.png"/>
         </li>
-        <li class="asideLi2">找项目</li>
+        <li class="asideLi2" ng-click="next_op('goto_list')">找项目</li>
        <!-- <li class="asideLi4"class="vipNone" >发布风控标准</li>-->
         <li class="asideLi3" ng-click="next_op('goto_create')">发布项目</li>
         <li class="asideLi5">个人中心</li>
@@ -15,25 +15,24 @@
     </div>
     <div class="containerDisplay">
         <div class="userHeader">
-            <div class="userLogo">
-                <div class="userLogoName">{{nickname || '默认'}}<img class="vipHave" src="img/icon/arrow1v.png" alt="" ng-show="isVip"></div>
+            <div class="userLogo">                
                 <div class="userLogoPic">
                     <img class="userLogoPic" src="img/icon/recommendl.png" alt="">
                 </div>
-                <div class="userLogoName">王筝<img class="vipHave" src="img/icon/arrow1v.png" alt=""></div>
+                <div class="userLogoName">{{nickname || '默认'}}<img class="vipHave" src="img/icon/arrow1v.png" alt="" ng-show="isVip"></div>
             </div>
 
             <div class="headerContents">
                 <div class="headerContent">
-                    <p class="headerContentNum">{{}}</p>
+                    <p class="headerContentNum">{{cs}}</p>
                     <p class="headerContentTittle" ng-click="next_op('questions')">投资问题</p>
                 </div>
                 <div class="headerContent borderLine">
-                    <p class="headerContentNum">99</p>
+                    <p class="headerContentNum">{{ms}}</p>
                     <p class="headerContentTittle" ng-click="next_op('messages')">消息中心</p>
                 </div>
                 <div class="headerContent">
-                    <p class="headerContentNum">10/12</p>
+                    <p class="headerContentNum">{{batting.success}}/{{batting.total}}</p>
                     <p class="headerContentTittle">成功率</p>
                 </div>
             </div>

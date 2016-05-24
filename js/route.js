@@ -53,7 +53,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/step2.html',
             controller: 'ArticleStep2Ctrl'
         })
-        .when('/article/credit/:op', {//贷款方式
+        .when('/article/credit', {//贷款方式
             templateUrl: templates_root + 'article/select.html',
             controller: 'CreditCtrl'
         })
@@ -114,9 +114,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/project_invest.html',
             controller: 'ProjectInvestCtrl'
         })
-        .when('/article/projectDetail', {//项目详情
-            templateUrl: templates_root + 'user/project_detail.html',
-            controller: 'projectDetailCtrl'
+        .when('/article/bid/:id', {//项目详情
+            templateUrl: templates_root + 'article/alert.html',
+            controller: 'ArticleBidCtrl'
         })
         .otherwise({redirectTo: '/article/list'})
 });

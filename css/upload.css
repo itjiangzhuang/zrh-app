@@ -17,7 +17,7 @@ canvas{width: 100%;border: 1px solid #000000;}
     position: relative;
     display: inline-block;
     margin-top: 8px;
-    z-index: -2;
+    /*z-index: -2;*/
     margin-right: 15px;
 
 }

@@ -173,7 +173,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.create_license = function () {
         $rootScope.putSessionObject("create_article", $scope.createArticle);
-        $location.path("/article/create/license/create");
+        $location.path("/article/license/create");
     };
 
     params = {
@@ -217,8 +217,8 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
             params.regFunds = $scope.createArticle.license.regFunds;
         }
         if (!isNullOrEmpty($scope.createArticle.license.licenseImgs)) {
-            params.licenseImgs = $scope.createArticle.license.licenseImgs.join(",");
-            params.licenseImgNames = $scope.createArticle.license.licenseImgNames.join(",");
+            params.licenseImgs = $scope.createArticle.license.licenseImgs;
+            params.licenseImgNames = $scope.createArticle.license.licenseImgNames;
         }
         if (!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)) {
             params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
@@ -229,6 +229,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("create_article");          
                     $location.path("/article/step2/"+data.result);
+                    $scope.$apply();
                 } else {
                     $rootScope.removeObject("create_article");
                     console.log(data);
@@ -444,10 +445,6 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
                     console.log($scope.article);
                     
                     $scope.check($scope.article.pledgeType);
-    	
-					if (!$scope.article.pledge) {
-					    $scope.article.pledge = "请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本、车本、股票号等数据图片。";
-					}
 					
 					if (!$scope.article.pledgeImgs) {
 					    $scope.article.pledgeImgs = [];
@@ -673,11 +670,14 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 	        "userId": $rootScope.login_user.userId,
 	        "token": $rootScope.login_user.token
 	    };
+	    $scope.article.pledge = $("#pledge").text();
+    	$scope.article.financialInfo = $("#financialInfo").text();
+    	$scope.article.advantages = $("#advantages").text();
     	
         if (!isNullOrEmpty($scope.article.pledgeType)) {
             params.pledgeType = $scope.article.pledgeType;
         }
-        if (!isNullOrEmpty($scope.article.pledge)) {
+        if (!isNullOrEmpty($scope.article.pledge)) {        	
             params.pledge = $scope.article.pledge;
         }
         if (!isNullOrEmpty($scope.article.pledgeImgs)) {
@@ -710,7 +710,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
             params.advantagesImgs = $scope.article.advantagesImgs.join(",");
             params.advantagesImgNames = $scope.article.advantagesImgNames.join(",");
         }
-
+        console.log(params);
         $.post(api_uri + "api/article/createStep2", params,
             function (data) {
                 if (data.returnCode == 0) {
@@ -732,15 +732,9 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
 articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
-    if ($routeParams.op == "create") {
-        $scope.article = $rootScope.getSessionObject("articleStep2");
-    } else if ($routeParams.op == "update") {
-        $scope.article = $rootScope.getSessionObject("article");
-    } else {
-        alert("error op");
-        $location.path("/article/list");
-    }
 
+    $scope.article = $rootScope.getSessionObject("article");
+    
     if (!$scope.article) {
         $scope.article = {};
     }
@@ -778,15 +772,10 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
                 $scope.article.credit = obj.name;
             }
         }
-        if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("articleStep2", $scope.article);
-            $location.path("/article/create/step2");
-        } else if ($routeParams.op == "update") {
-            $rootScope.putSessionObject("article", $scope.article);
-            $location.path("/article/update/step2/" + $scope.article.id);
-        }
+         $rootScope.putSessionObject("article", $scope.article);
+            $location.path("/article/step2/" + $scope.article.id);
 
-    }
+    };
 });
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
@@ -1179,11 +1168,36 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     $scope.init();
 
 });
-articleCtrl.controller('Bidalert1Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
-
-});
-articleCtrl.controller('Bidalert2Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
-
+articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
+     
+     $scope.init= function(){ 
+     	$scope.title = "提示";
+		$scope.content = "申请中,请稍后......";
+     	$scope.return_url = "/article/show/"+$routeParams.id;
+     	$http({
+            url: api_uri+"api/articleUser/bid/"+$routeParams.id,
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.title = "已竞标";
+				$scope.content = "竞标申请成功,等待项目方确认";
+            }else {
+            	$scope.title = "已竞标";
+				$scope.content = d.result;
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });    	
+     	$scope.$apply();
+     	
+     };
+     $scope.init();
+     $scope.sure = function(){
+     	$location.path($scope.return_url);
+     };  
 });
 
 
