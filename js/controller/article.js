@@ -1169,7 +1169,35 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
 
 });
 articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
-
+     
+     $scope.init= function(){ 
+     	$scope.title = "提示";
+		$scope.content = "申请中,请稍后......";
+     	$scope.return_url = "/article/show/"+$routeParams.id;
+     	$http({
+            url: api_uri+"api/articleUser/bid/"+$routeParams.id,
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.title = "已竞标";
+				$scope.content = "竞标申请成功,等待项目方确认";
+            }else {
+            	$scope.title = "已竞标";
+				$scope.content = d.result;
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });    	
+     	$scope.$apply();
+     	
+     };
+     $scope.init();
+     $scope.sure = function(){
+     	$location.path($scope.return_url);
+     };  
 });
 
 
