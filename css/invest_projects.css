@@ -6,28 +6,28 @@
     background: #ffffff;
     line-height: 46px;
 }
-.projectHeader span{
-
+.projectHeader p{
+    float: left;
+    width:calc(50% - 3px);
+    text-align: center;
 }
 .blueBorder{
-    display: inline-block;
-    width:calc(50% - 3px);
+    margin: 0 auto;
+    width: 70px;
     font-size:16px;
     height:44px;
     text-align: center;
     color:#888888;
-    float: left;
     border-bottom:2.5px solid #868ee3;
 }
 .noBorder{
-    display: inline-block;
-    width:calc(50% - 3px);
+    margin: 0 auto;
+    width: 70px;
     font-size:16px;
     height:44px;
     text-align: center;
     color:#888888;
-    float: left;
-    border-bottom:none;
+    border-bottom:2.5px solid #fff;
 }
 
 .projectContent{
