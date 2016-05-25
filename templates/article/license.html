@@ -28,26 +28,32 @@
    </div>
 
     <div class="required">
-       <div class="reqNameSpan2">法人代表</div>
+       <div ng-class="setStyle_div(license.corporateRepresentative)">
+           <span class="reqNameSpan2">法人代表</span>
+       </div>
        <input type="text" placeholder="请输入法人代表姓名" ng-model="license.corporateRepresentative"/>
     </div>
     
     <div class="required" ng-click="choose_type()">
-       <div class="reqNameSpan2">类型</div>
+        <div ng-class="setStyle_div(license.businessType)">
+            <span class="reqNameSpan2">类型</span>
+        </div>
        <div class="reqTips" ng-hide="license.businessType">请选择您的公司类型</div>
-       <div class="reqTips" ng-show="license.businessType">{{license.businessType}}</div>
+       <div class="reqTipsafter" ng-show="license.businessType">{{license.businessType}}</div>
 
        <!--<input type="text" placeholder="请选择您的公司类型" ng-model="license.businessType"/>-->
        <span class="setupimg"></span>
     </div>
     
     <div class="required">
-       <div class="reqNameSpan2">注册资本</div>
+        <div ng-class="setStyle_div(license.regFunds)">
+            <span class="reqNameSpan2">注册资本</span>
+        </div>
        <input type="text" placeholder="请输入注册资本金额" ng-model="license.regFunds" />
     </div>
     <!--插件中加的div-->
     <div id="datePlugin"></div>
-<!--   <div style="position: relative;height: calc(100% - 413px)">
-   </div>-->
+   <div style="position: relative;height: calc(100% - 413px)">
     <input type="button" value="确定" class='next' ng-click="sure()">
+   </div>
 </div>
