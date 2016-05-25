@@ -158,12 +158,15 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
               $scope.type = "0";
               $scope.init();
               $scope.border = false;
+              $scope.noBorder = true;
         };
         $scope.release = function () {
               $scope.type = "1";
               $scope.init();
               $scope.border = true;
+            $scope.noBorder = false;
         };
+        $scope.release();
 }]);
 userCtrl.controller('ProjectInvestCtrl', //项目投资
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
