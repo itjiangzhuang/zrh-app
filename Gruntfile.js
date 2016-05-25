@@ -2,17 +2,40 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
         concat: {
             options: {
                 separator: ';'
             },
-            /*js: {
-                src: ['src/users.js',
-                        'src/index.js',
-                        'src/nodejs-grunt.js'],
+            js: {
+                src: [
+                        'framework/jquery/jquery-1.9.1.js',
+                        'framework/angular-1.3.0.14/angular.min.js',
+                        'framework/angular-1.3.0.14/angular-animate.min.js',
+                        'framework/angular-1.3.0.14/angular-route.min.js',
+                        'framework/ajaxfileupload.js',
+                        'js/iscroll.js',
+                        'js/date.js',
+                        'js/daterate.js',
+                        'js/dateterm.js',
+                        'js/common.js',
+                        'framework/moment/moment.js',
+                        'framework/qiniu/qiniu.js',
+                        'framework/plupload/plupload.full.min.js',
+                        'js/mobiscroll.2.13.2.js',
+                        'js/mobiscroll.list.js',
+                        'js/moneyamount.js',
+                        'js/security/core.js',
+                        'js/security/tripledes3.js',
+                        'js/security/mode-ecb.js',
+                        'js/controller/login.js',
+                        'js/controller/register.js',
+                        'js/controller/article.js',
+                        'js/controller/user.js',
+                        'js/app.js',
+                        'js/route.js'
+                ],
                 dest: 'dist/<%= pkg.name %>.js'
-            },*/
+            },
             css: {
                 src: [
                     'css/viprelease.css',
@@ -35,26 +58,24 @@ module.exports = function(grunt) {
                 src:'dist/<%= pkg.name %>.<%= pkg.version %>.css',
                 dest:'dist/<%= pkg.name %>.min.<%= pkg.version %>.css'
             }
-        }
-        /*uglify: {
+        },
+        uglify: {
             options: {
-                banner: '/!*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> *!/\n'
+                mangle: false, //不混淆变量名
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                    'dist/<%= pkg.name %>.min.<%= pkg.version %>.js': ['<%= concat.js.dest %>']
                 }
             }
-        }*/
+        }
     });
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
-    /*grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-watch');*/
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-css');
 
     //grunt.registerTask('test', ['jshint', 'qunit']);
 
-    grunt.registerTask('default', [ 'concat','cssmin']);
+    grunt.registerTask('default', [ 'concat','uglify','cssmin']);
 };

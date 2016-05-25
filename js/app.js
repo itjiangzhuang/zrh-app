@@ -3,7 +3,7 @@
  */
 
 api_uri = "http://zrh.supeiyunjing.com/";
-templates_root = "/app/templates/";
+templates_root = "app/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
