@@ -492,7 +492,7 @@ body{
 }
 .clearRightBorder{
     position: absolute;
-    left: 98%;
+    right: 0;
     background: #fff;
     height: 100px;
     width: 20px;
