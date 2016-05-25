@@ -117,18 +117,27 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
 	            if (d.returnCode == 0) {
 	                $scope.obj_list = d.result;
 	                angular.forEach($scope.obj_list, function(data){
-
-                        if(data.jindu == "30%"){
-                            data.jindushow = "正在联系"
-                        }else if (data.jindu == "60%"){
-                            data.jindushow = "跟进中"
-                        }
-                        else if (data.jindu == "100%"){
-                            data.jindushow = "签约成功"
-                        }
-                        else{
-                            data.jindushow = "未发布"
-                        }
+                        if($scope.type == 0){
+                        	data.jindu == "0%";
+                        	data.jindushow = "未发布";
+                        }else if($scope.type == 1){
+                        	if(data.jd = 0){
+                        		data.jindu == "10%";
+                        	    data.jindushow = "已经发布";
+                        	}else if(data.jd = 1){
+                        		data.jindu == "30%";
+                        	    data.jindushow = "等待联系";
+                        	}else if(data.jd = 2){
+                        		data.jindu == "50%";
+                        	    data.jindushow = "跟进中";
+                        	}else if(data.jd = 3){
+                        		data.jindu == "100%";
+                        	    data.jindushow = "签约成功";
+                        	}else if(data.jd = -2){
+                        		data.jindu == "0%";
+                        	    data.jindushow = "签约失败";
+                        	}
+                        }                        
                     });
 	            }else {
 	                console.log(d);
@@ -169,18 +178,25 @@ userCtrl.controller('ProjectInvestCtrl', //项目投资
 	            if (d.returnCode == 0) {
 	                $scope.obj_list = d.result;
 	                angular.forEach($scope.obj_list, function(data){
-
-                        if(data.jindu == "30%"){
-                            data.jindushow = "正在联系"
-                        }else if (data.jindu == "60%"){
-                            data.jindushow = "跟进中"
-                        }
-                        else if (data.jindu == "100%"){
-                            data.jindushow = "签约成功"
-                        }
-                        else{
-                            data.jindushow = "未发布"
-                        }
+                            if(data.jd = 0){
+                        		data.jindu == "10%";
+                        	    data.jindushow = "竞标中";
+                        	}else if(data.jd = 1){
+                        		data.jindu == "30%";
+                        	    data.jindushow = "约见信息";
+                        	}else if(data.jd = 2){
+                        		data.jindu == "50%";
+                        	    data.jindushow = "跟进中";
+                        	}else if(data.jd = 3){
+                        		data.jindu == "100%";
+                        	    data.jindushow = "签约成功";
+                        	}else if(data.jd = -1){
+                        		data.jindu == "0%";
+                        	    data.jindushow = "竞标失败";
+                        	}else if(data.jd = -2){
+                        		data.jindu == "0%";
+                        	    data.jindushow = "签约失败";
+                        	}
                     });
 	            }else {
 	                console.log(d);
@@ -335,3 +351,27 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 
 });
 
+userCtrl.controller('SettingCtrl', //用户设置
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+        $scope.init = function () {
+
+	       
+        };
+        $scope.init();
+
+
+        $scope.logout =  function(){
+            $http({
+	            url: api_uri + "api/auth/logout",
+	            method: "GET",
+	            params: $rootScope.login_user
+	        }).success(function (d) {
+	        	console.log(d);
+	        }).error(function (d) {
+	            console.log(d);
+	        });
+	         $rootScope.removeObject("login_user", $rootScope.login_user);
+	         $rootScope.login_user = {};
+	         $location.path("/login");
+        };
+}]);

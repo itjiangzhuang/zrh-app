@@ -65,15 +65,6 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/select.html',
             controller: 'BusinessTypeCtrl'
         })
-
-         .when('/article/details', {//产品详情
-            templateUrl: templates_root + 'article/details.html',
-            controller: 'DetailsCtrl'
-        })
-        .when('/article/details', {//产品详情
-            templateUrl: templates_root + 'article/details.html',
-            controller: 'DetailsCtrl'
-        })
         .when('/article/questions/:id/:userId', {//问答界面
             templateUrl: templates_root + 'article/questions.html',
             controller: 'QuestionsCtrl'
@@ -117,6 +108,14 @@ myApp.config(function ($routeProvider) {
         .when('/article/bid/:id', {//项目详情
             templateUrl: templates_root + 'article/alert.html',
             controller: 'ArticleBidCtrl'
+        })
+        .when('/article/mobile/:id', {//联系人
+            templateUrl: templates_root + 'article/mobile.html',
+            controller: 'ArticleMobileCtrl'
+        })
+        .when('/article/bank/:id', {//银行列表
+            templateUrl: templates_root + 'article/bank.html',
+            controller: 'ArticleBankCtrl'
         })
         .otherwise({redirectTo: '/article/list'})
 });

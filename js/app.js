@@ -3,7 +3,7 @@
  */
 
 api_uri = "http://zrh.supeiyunjing.com/";
-templates_root = "/zrh-app/templates/";
+templates_root = "/app/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
@@ -27,15 +27,10 @@ myApp.run(['$location', '$rootScope', '$http',
         // 页面跳转前
         $rootScope.$on('$routeChangeStart', function (event, current, previous) {
             var current_route = $location.$$path; //获取当前路由
-            //console.log("current_route", current_route);
-            //if(current_route in [
-            //        "/article/create/step1",
-            //    ]){
-            //          if (!$rootScope.check_user()) {
-            //              $location.path("/login");
-            //          }
-            //}
-
+            if (!$rootScope.login_user) {
+                $rootScope.removeObject("login_user");
+                $location.path("/login");
+            }
         });
 
         /*********************************** 全局方法区 e***************************************/

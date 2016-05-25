@@ -46,6 +46,7 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
     $scope.init = function () {
+    	$scope.bt_show = 0;
         $http({
             url: api_uri + "api/article/show/" + $routeParams.id,
             method: "GET",
@@ -56,16 +57,44 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
                 $scope.article = d.result.article;
                 $scope.operate = d.result.operate;
                 $scope.batting = d.result.batting;
-            }
-            else {
+                $scope.step = d.result.step;
+                if($scope.step == 0){//未发布
+                	if($scope.operate.admin){
+                		$scope.bt_show = 1;
+                	}
+                }else if($scope.step == 1){//已经发布
+                	if($scope.operate.admin){
+                		$scope.bt_show = 2;
+                	}else{
+                		$scope.bt_show = 3;
+                	}      	
+                }else if($scope.step == 2){//竞标中
+                	if($scope.operate.admin){
+                		$scope.bt_show = 4;
+                	}else{
+                		$scope.bt_show = 5;
+                	}       	
+                }else if($scope.step == 3){//等待联系
+                	if($scope.operate.admin){
+                		$scope.bt_show = 4;
+                	}else{
+                		$scope.bt_show = 7;
+                	}       	
+                }else if($scope.step == 4){//跟进中
+                	if($scope.operate.admin){
+                		$scope.bt_show = 4;
+                	}else{
+                		$scope.bt_show = 6;
+                	} 
+                }
+                
+            }else {
                 console.log(d);
             }
-
         }).error(function (d) {
             console.log("login error");
-        })
+        });        
     };
-
     $scope.init();
 
     $scope.next_op = function (op) {
@@ -73,7 +102,9 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
             "update": "/article/update/step1/" + $routeParams.id,
             "release": "/article/update/step1/" + $routeParams.id,
             "bid": "/article/bid/" + $routeParams.id,
-            "ask": "/article/questions/" + $routeParams.id + "/" + $rootScope.login_user.userId
+            "ask": "/article/questions/" + $routeParams.id + "/" + $rootScope.login_user.userId,
+            "bank":"/article/bank/"+$routeParams.id,//待约见银行
+            "mobile":"/article/mobile/"+$routeParams.id//约见信息
         };
 //	    alert(obj[op]);
         $location.path(obj[op]);
@@ -1197,8 +1228,6 @@ articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $l
         }).error(function (d) {
             console.log(d);
         });    	
-     	$scope.$apply();
-     	
      };
      $scope.init();
      $scope.sure = function(){
@@ -1206,4 +1235,51 @@ articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $l
      };  
 });
 
+articleCtrl.controller('ArticleMobileCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
+     
+     $scope.init= function(){ 
+     	$http({
+            url: api_uri+"api/article/mobile/"+$routeParams.id,
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.linkman = d.result;				
+            }else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });
+     };
+     $scope.init();
+     $scope.sure = function(){
+     	//
+     };  
+});
+
+articleCtrl.controller('ArticleBankCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
+     
+     $scope.init= function(){ 
+     	$http({
+            url: api_uri+"api/article/bank/"+$routeParams.id,
+            method: "GET",
+            params: $rootScope.login_user
+        }).success(function (d) {
+            console.log(d);
+            if (d.returnCode == 0) {
+                $scope.bank_list = d.result;				
+            }else {
+                console.log(d);
+            }
+        }).error(function (d) {
+            console.log(d);
+        });
+     };
+     $scope.init();
+     $scope.sure = function(){
+     	//
+     };  
+});
 

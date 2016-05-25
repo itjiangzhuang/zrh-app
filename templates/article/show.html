@@ -1,31 +1,44 @@
-<div style="width:100%;background:#ffffff; overflow: scroll">
+<div style="width:100%;background:#ffffff; overflow: scroll" ng-switch="bt_show">
+	<div class="complete" ng-show="operate.admin">
+          <span class="completespan1">信息完整度</span>
+           <span class="completespan2">
+               <span class="completepro"  style="width:60%;"></span>
+           </span>
+           <span class="completespan3">60%</span>
+    </div>
     <div class="found-step1">
         <div class="tittle " id="clearBackground"></div>
         <lable class="amount">
             <div>融资金额</div>
-            <div class="countdiv">{{article.loanValue}}<span>万</span></div>
+            <div class="countdiv">{{article.loanValue || '请完善'}}<span>万</span></div>
         </lable>
         <div class="expect">
             <div class="expect_border">
                 <p>营业执照</p>
-                <span>{{article.license.regTime}}</span>
+                <span>{{article.license.regTime || '请完善'}}</span>
             </div>
             <div class="expect_border">
                 <p>融资期限</p>
-                <span class="term">{{article.loanLife}}个月</span>
+                <span class="term">{{article.loanLife || '请完善'}}个月</span>
             </div>
             <div>
                 <p>接受利率</p>
-                <span class="rate">{{article.rateCap}}%-{{article.rateFloor}}%</span>
+                <span class="rate">{{article.rateCap || '请完善'}}%-{{article.rateFloor || '请完善'}}%</span>
             </div>
         </div>
         <div style="clear:both"></div>
         <div class="line"></div>
-        <ul class="message">
+        <ul class="message" ng-hide="operate.admin">
             <li class="img"></li>
             <li class="messageli2">推荐人成交率</li>
             <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
         </ul>
+        <div ng-show="operate.admin"> 
+	        <div class="progressdetail">
+	            <div class="detailchild" style="width:50%;"></div>
+	        </div>
+	        <p class="detailtittle2" >跟进中</p>
+        </div>
     </div>
     <div class="required" ng-show="article.classification">
         <div class="reqNameSpan2">行业分类</div>
@@ -63,12 +76,26 @@
         <div>{{article.advantages}}</div>
     </div>
     <div style="height: 70px"></div>
-    <div class="doubleButtonFixed">
-        <span class="doubleButtonLeft" ng-show="operate.update" ng-click="next_op('update')">完善信息</span>
-        <span class="doubleButtonRight" ng-show="operate.release" ng-click="next_op('release')">我要发布</span>
-        <span class="doubleButtonLeft" ng-show="operate.bid" ng-click="next_op('bid')">我要竞标</span>
-        <span class="doubleButtonRight" ng-show="operate.ask" ng-click="next_op('ask')">我要提问</span>
-        <!--<input  type='submit' class="singleButtonFixed" value="发布" />-->
-    </div>
-
+	    <div class="doubleButtonFixed" ng-switch-when="1">
+	        <span class="doubleButtonLeft"  ng-click="next_op('update')">完善信息</span>
+	        <span class="doubleButtonRight"  ng-click="next_op('release')">我要发布</span>    
+	    </div>
+	    <input  type='submit' class="singleButtonFixed" value="完善信息" ng-click="next_op('update')" ng-switch-when="2"/>
+	    <div class="doubleButtonFixed" ng-switch-when="3">
+	        <span class="doubleButtonLeft"  ng-click="next_op('ask')">我要提问</span>
+	        <span class="doubleButtonRight" ng-click="next_op('bid')">我要竞标</span>  
+	    </div>
+	    <div class="doubleButtonFixed" ng-switch-when="4">
+	        <span class="doubleButtonLeft"  ng-click="next_op('update')">完善信息</span>
+	        <span class="doubleButtonRight" ng-click="next_op('bank')">待约见银行</span>  
+	    </div>
+	    <div class="doubleButtonFixed" ng-switch-when="5">
+	        <span class="doubleButtonLeft" ng-click="next_op('ask')">我要提问</span>
+	        <span class="doubleButtonRight">竞标中</span>  
+	    </div>
+	    <div class="doubleButtonFixed" ng-switch-when="7">
+	        <span class="doubleButtonLeft" ng-click="next_op('ask')">我要提问</span>
+	        <span class="doubleButtonRight" ng-click="next_op('mobile')">约见信息</span>  
+	    </div>
+	    <input  type="submit" class="singleButtonFixed" value="约见信息" ng-click="next_op('mobile')" ng-switch-when="6"/>
 </div>
