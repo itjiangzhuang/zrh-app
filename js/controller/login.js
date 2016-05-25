@@ -4,7 +4,7 @@
 
 var loginCtrl = angular.module('loginCtrl', []);
 
-loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location) {
+loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location,$timeout) {
 	$scope.loginUser = {
         "mobile": "",
         "password": ""
@@ -45,6 +45,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             }
 
         }).error(function (d) {
+        	$scope.changeErrorMsg("网络故障请稍后再试......");
             console.log("login error");
             $location.path("/login");
         })
