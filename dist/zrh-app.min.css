@@ -1,18 +1,14 @@
 /*全局样式开始*/
-
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     list-style: none;
     font-family: 黑体;
-
-
 }
 html,body{height:100%;
     font-size:62.5%}
 body{
-
     color:#4C4C4C;
     font-size:1.2rem;
     height:100%;

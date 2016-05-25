@@ -22,18 +22,18 @@ module.exports = function(grunt) {
                     'css/upload.css',
                     'css/user.css',
                     'css/common.css',
-                    'css/mobiscroll.2.13.2.css',
+                    //'css/mobiscroll.2.13.2.css',
                     'css/found.css',
                     'css/invest_projects.css',
                     'css/me.min.css'
                 ],
-                dest: 'dist/<%= pkg.name %>.min.css'
+                dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.css'
             }
         },
         cssmin: {
             css: {
-                src:'dist/all.css',
-                dest:'dist/all-min.css'
+                src:'dist/<%= pkg.name %>.<%= pkg.version %>.css',
+                dest:'dist/<%= pkg.name %>.min.<%= pkg.version %>.css'
             }
         }
         /*uglify: {
