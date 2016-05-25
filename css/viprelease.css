@@ -181,6 +181,7 @@ body{
     right:15%;
     color:#888888;
     letter-spacing: 2px;
+    z-index:0;
 
 }
 
