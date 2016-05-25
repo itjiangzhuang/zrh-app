@@ -16,15 +16,18 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         }
         return true;
     };
+    $scope.changeErrorMsg = function(msg){
+		$scope.error_msg = msg;
+		$timeout(function() {  
+	              $scope.changeErrorMsg(""); 
+	        }, 5000);
+	}
     $scope.login = function () {
         var m_params = $scope.loginUser;
         if (!check_params(m_params)) return;
         $http({
             url: api_uri+"api/auth/web",
             method: "POST",
-//          headers: {
-//			      'Content-Type': 'application/x-www-form-urlencoded'
-//			},
             params: m_params           
         }).success(function (d) {
             if (d.returnCode == 0) {
@@ -37,6 +40,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             	$location.path("/article/list");
             }
             else {
+            	$scope.changeErrorMsg("登录失败:"+d.result);
                 console.log(d);
             }
 

@@ -351,3 +351,27 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 
 });
 
+userCtrl.controller('SettingCtrl', //用户设置
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+        $scope.init = function () {
+
+	       
+        };
+        $scope.init();
+
+
+        $scope.logout =  function(){
+            $http({
+	            url: api_uri + "api/auth/logout",
+	            method: "GET",
+	            params: $rootScope.login_user
+	        }).success(function (d) {
+	        	console.log(d);
+	        }).error(function (d) {
+	            console.log(d);
+	        });
+	         $rootScope.removeObject("login_user", $rootScope.login_user);
+	         $rootScope.login_user = {};
+	         $location.path("/login");
+        };
+}]);
