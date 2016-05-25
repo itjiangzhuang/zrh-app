@@ -1,0 +1,9 @@
+<div class="bankcheck" ng-repeat=" bank in bank_list ">
+    <span class="backcheckleft">
+    	<img src="img/logo/{{bank.name}}.png" alt="">
+    </span>
+    <span class="backcheckright">
+             <p class="backcheckrightp1">{{bank.name}}</p>
+             <p class="backcheckrightp2">{{bank.summary || '等候银行和您联系'}}</p>
+    </span>
+</div>
