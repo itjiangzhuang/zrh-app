@@ -90,6 +90,12 @@ body{
     font-size: 14px;
    color:#4c4c4c;
 }
+.afterSet{
+    line-height: 25px;
+    display: inline-block;
+    font-size: 14px;
+    color: #888888;
+}
 .setafter{
     height: 25px;
     display: inline-block;
@@ -121,6 +127,13 @@ body{
     height:28px;
     border:none;
     font-size: 14px;
+}
+.requiredDivInput{
+    width:90%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 14px;
+    line-height: 16px;
 }
 .setupimg{
     position:absolute;
@@ -163,11 +176,12 @@ body{
     border:none;
     border-radius:20px;
     font-size: 18px;
-    position:fixed;
-    bottom:2%;
+    position:absolute;
+    bottom:15px;
     right:15%;
     color:#888888;
     letter-spacing: 2px;
+    z-index:0;
 
 }
 
