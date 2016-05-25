@@ -21,20 +21,34 @@ myApp.run(['$location', '$rootScope', '$http',
 
         // 页面跳转后
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-            var present_route = $location.$$path; //获取当前路由
-
+//          var present_route = $location.$$path; //获取当前路由
+//          var routes = ["/login","/article/list"];
+//          if (!$rootScope.login_user) {
+//          	var register_reg = /\/register.*/;
+//          	if(register_reg.test(present_route) || routes.indexOf(present_route)>-1){
+//          		
+//          	}else{
+////          		$rootScope.removeObject("login_user");
+//                  $location.path("/login");
+//          	}    
+//          }
         });
         // 页面跳转前
         $rootScope.$on('$routeChangeStart', function (event, current, previous) {
+           
+            var present_route = $location.$$path; //获取当前路由
             var routes = ["/login","/article/list"];
-            var current_route = $location.$$path; //获取当前路由
             if (!$rootScope.login_user) {
-            	if("/register.*".test(current_route) || current_route.indexOf(current_route)>-1){
+            	var register_reg = /\/register.*/;
+            	if(register_reg.test(present_route) || routes.indexOf(present_route)>-1){
             		
-            	}
-                $rootScope.removeObject("login_user");
-                $location.path("/login");
+            	}else{
+//          		$rootScope.removeObject("login_user");
+                    $location.path("/login");
+            	}    
             }
+            
+            
         });
 
         /*********************************** 全局方法区 e***************************************/
