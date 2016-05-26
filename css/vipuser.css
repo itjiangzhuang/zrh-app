@@ -106,18 +106,7 @@ vertical-align: middle;
     /*margin-left: -18px;*/
     /*margin-top: 3px;*/
 }
-.moneyicon{
-    display:inline-block;
-    width:22px;
-    height:22px;
-    background: url('../img/icon/arrow1.png') no-repeat ;
-    -moz-background-size:70%;
-    background-size:100%;
-    position:absolute;
-   right:15px;
-    top:14px;
 
-}
 .megcount{
     display:inline-block;
     width:24px;
@@ -137,23 +126,7 @@ vertical-align: middle;
 
 
 /*vipuser1样式结束*/
-/*vipuser2样式开始*/
-.answer{
-    width:100%;
-    background: #ffffff;
-    margin-bottom: 8px;
-}
-.portrait{
 
-    width: 66%;
-    height:68px;
-    position:absolute;
-    top:0;
-    left:0;
-    border:none;
-    margin-left: 15px;
-    display:none;
-}
 .bgask{
     vertical-align: top;
     display:inline-block;
@@ -163,31 +136,7 @@ vertical-align: middle;
     background-size: 100%;
     margin-top: 14px;
 }
-.answertime{
-    width:100%;
-    height:50px;
-    border-top:1px solid #f0f0f0;
-    line-height: 48px;
-}
-.answertime span{
-    display: inline-block;
-    font-size:14px;
-    color:#888888;
-    height:48px;
-}
-.anstimespan1{
-     width:21%;
-     border-right: 1px solid #f0f0f0;
-     text-align: center;
- }
-.anstimespan2{
-    width:18%;
-    text-align: center;
-}
-.anstimespan3{
-    margin-right: 15px;
-}
-/*vipuser2样式结束*/
+
 
 /*vipuser3样式开始*/
 .questioncon{
@@ -254,28 +203,9 @@ p span {
 
 /*vipuser4样式结束*/
 /*vipuser6的样式开始*/
-.industry{
-    width:100%;
-    background: #ffffff;
-}
-.otherindustry{
-    width:100%;
-    height:40px;
-    padding-left:15px;
-    font-size: 1.4rem;
-    border-bottom: none;
-    border-left:none;
-    border-right:none;
-    /*margin-top: 2px;*/
-    border-top:1px solid #f0f0f0;
-}
-.ok{
-    width:12.5px;
-    height:8.5px;
-    position:absolute;
-    top:20px;
-    right:19px;
-}
+
+
+
 .policy{
     width:100%;
     padding-left: 15px;

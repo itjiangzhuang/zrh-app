@@ -1,15 +1,16 @@
-<div class="mobile">
+<div class="asideContainer">
     <input type="checkbox" id="tm" />
-    <ul class="foundStep2left">
-    <li class="img stepleftli1"></li>
-    <li class="stepleftli2">找项目</li>
-    <!--<li class="stepleftli3">发布风控标准</li>-->
-        <li class="stepleftli4" ng-click="goto_create()">发布项目</li>
-    <li class="stepleftli5" ng-click="goto_center()">个人中心</li>
-</ul>
-    <label for="tm" class="step21cart"></label>
+    <ul class="asideHide">
+        <li class="asideLi1">
+            <img src="img/icon/recommendl.png"/>
+        </li>
+        <li class="asideLi5" >找项目</li>
+        <li class="asideLi3" ng-click="goto_create()">发布项目</li>
+        <li class="asideLi2" ng-click="goto_center()">个人中心</li>
+    </ul>
+    <label for="tm" class="cartBack"></label>
     <div class="af">
-        <label for="tm" class="step2cart"></label>
+        <label for="tm" class="cart"></label>
     </div>
     <div class="foundStep2right">
         <div class="found-step1" ng-repeat="resultObj in result_list" ng-click="article_show(resultObj.article.id)">

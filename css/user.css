@@ -5,41 +5,36 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 黑体;
-
 }
-html,body{height:100%;
-    font-size:62.5%}
+html,body{
+    height:100%;
+    font-size:62.5%;
+}
 body{
-
     background:#F0F0F0;
     color:#4C4C4C;
     font-size:1.2rem;
     height:100%;
     overflow-x: hidden;
 }
-
-
 /*清除浮动*/
 .clear {
     zoom: 1;
 }
-
 .clear:after {
     content: '';
     display: block;
     clear: both;
 }
-
 .fl {
     float: left;
 }
-
 .fr {
     float: right;
 }
-
-/*userCenter样式开始*/
-.userContainer{
+/*全局样式结束*/
+/*个人中心样式开始*/
+.asideContainer{
     width:100%;
     height:100%;
     background: #ffffff;
@@ -84,13 +79,10 @@ body{
     vertical-align:top;
     margin-left: 5px;
 }
-
 .headerContents{
     border:1px solid transparent;
     width:100%;
-    /*margin-top: 40.8px;*/
     height:91.4px;
-
 }
 .headerContent{
     width:33%;
@@ -132,7 +124,6 @@ body{
     border-bottom: 1px solid #f0f0f0;
 }
 .userContentName{
-
     display: inline-block;
     width:100%;
     height:45px;
@@ -141,7 +132,6 @@ body{
     line-height: 48px;
     padding-left: 5%;
 }
-
 .userContentIcon{
     display:inline-block;
     width:25px;
@@ -153,7 +143,6 @@ body{
     right:0%;
     top:11px;
 }
-
 /*侧边框设置*/
 .asideHide {
     z-index: 2;
@@ -165,22 +154,17 @@ body{
     padding-top: 40px;
     transition: all 0.05s;
     left: -40%;
-    background:#868EE3
+    background:#868EE3;
 }
-
 .asideHide li{
     color:#fff;
     font-size: 13px;
     font-family: 黑体;
     margin-bottom: 12%;
 }
-
 .img{
     width:33px;
     height:33px;
-    /*background: url('../img/icon/recommendl.png') no-repeat;*/
-    /*background-size:100%;*/
-
 }
 
 .asideLi1{
@@ -194,17 +178,11 @@ body{
 .asideLi5{
     border-left:2px solid #fff;
 }
-
 .asideLi2,.asideLi3,.asideLi4,.asideLi5
 {
     margin-left:8%;
     padding-left:8%;
 }
-
-.asideHide .asideLi5{
-    margin-bottom:100%;
-}
-
 .cart{
     display: block;
     z-index:6;
@@ -214,9 +192,7 @@ body{
     position:absolute;
     bottom: -10px;
     background-size: 100%;
-
 }
-
 .cartBack{
     display: none;
     z-index:5;
@@ -227,12 +203,10 @@ body{
     bottom: 0%;
     background-size: 20%;
 }
-
 /*弹出左边栏*/
 #tm {
     display: none;
 }
-
 #tm:checked ~ .containerDisplay {
     background:#ffffff;
     filter: alpha(Opacity=50);
@@ -247,14 +221,10 @@ body{
     display: block;
     transform: translateX(40%);
 }
-
 #tm:checked ~ .asideHide {
     transform: translateX(100%);
 }
-
-
-
-
+/*问题中心*/
 .question_list{
     height: 95px;
     width:100%;
@@ -262,40 +232,41 @@ body{
     margin-bottom: 5px;
 }
 .question_content{
-    width:90%;
-    margin:0 auto;
-    border-bottom: 1px;
+    margin: 0 15px;
+    border-bottom: 1px solid #f0f0f0;
+    height:50px;
+    background:#ffffff;
 }
-
-.bg_ask{
-    background: url('../img/icon/ask.png') no-repeat  0 10px ;
-    background-size: 25px;
-    text-indent: 15px;
+.askDisable {
+    display: inline-block;
+    height: 50px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-right: 50px;
     overflow: hidden;
-    border:none;
-    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
 }
-.questionBorderLine{
-    height: 0;
-    border: none;
-    border-top:1px solid #f0f0f0 ;
-
+.bg_ask{
+    vertical-align: top;
+    display:inline-block;
+    height:22px;
+    width:22px;
+    background: url('../img/icon/ask.png') no-repeat;
+    background-size: 100%;
+    margin-top: 14px;
 }
 .questionUser{
-    display: inline-block;
-    font-size:13px;
+    width: 100%;
+    padding: 0 15px;
+    font-size:12px;
     color:#888888;
     margin-top:15px ;
+    height: 40px;
 }
 .questionUserSpan1{
-    width:60px;
+    padding-right: 15px;
     border-right: 1px solid #f0f0f0;
     text-align: left;
-    /*margin-left: -5% ;*/
-    /*padding: 0 5% 0;*/
 }
 .questionUserSpan2{
     width:60px;
@@ -305,7 +276,7 @@ body{
     width:calc(95% - 119px);
     text-align: right;
 }
-/*vipuser2样式结束*/
+/*问题中心结束*/
 
 
 /*设置页面样式开始*/
@@ -510,7 +481,110 @@ body{
     margin-left:82px;
 }
 /*聊天室样式结束*/
+/*发布风控样式*/
+.information{
+    width:100%;
+    height:50px;
+    font-size: 16px;
+    line-height: 48px;
+    background:#F0F0F0;
+    text-indent: 15px;
+    color:#888888;
+    position:relative;
+}
+.ok{
+    width:12.5px;
+    height:8.5px;
+    position:absolute;
+    top:20px;
+    right:19px;
+}
+.industry{
+    width:100%;
+    background: #ffffff;
+}
+.collateral{
+    width:100%;
+    overflow: hidden;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+.collateral2{
+    width:100%;
+}
 
+.collateral1 div ,.collateral2 div{
+    float:left;
+}
+.collateralLine{
+    display: inline-block;
+    width:90%;
+    height:1px;
+    float: left;
+    background: #f0f0f0;
+    margin-right: 11px;
+}
+.collateralDiv{
+    height: 50px;
+    line-height: 50px;
+    position:relative;
+    width:calc(33% - 16px);
+    margin-left: 15px;
+}
+.borderNoRight{
+    border-right: none;
+}
+.check{
+    display: inline-block;
+    /*border:1px solid red;*/
+    width:20px;
+    height:20px;
+    background:url("../img/icon/check.png") no-repeat;
+    vertical-align: middle;
+    background-size:100%;
+
+}
+.checkText{
+    padding-left: 5px;
+    display: inline-block;
+    font-size: 14px;
+    position:absolute;
+}
+.otherIndustry{
+    width:100%;
+    height:40px;
+    padding-left:15px;
+    font-size: 14px;
+    border: none;
+}
+.describe{
+    width: 100%;
+}
+.describe p {
+    padding-left: 15px;
+    color: #888888;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    font-size: 1.6rem;
+}
+.describe textarea {
+    width: 100%;
+    border: none;
+    padding-left: 15px;
+}
+.describe div {
+    width: 95%;
+    margin-left: 15px;
+    font-size: 1.4rem;
+}
+.policyCount{
+    display: inline-block;
+    color:#8898EB;
+    position:absolute;
+    top:0;
+    right:15px;
+}
+/*发布风控样式结束*/
 
 
 /*apply_invest页面设置*/

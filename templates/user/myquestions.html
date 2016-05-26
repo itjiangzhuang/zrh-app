@@ -1,15 +1,15 @@
 
 <div style="height:100%;background: #f0f0f0;overflow-y: auto">
-<div class="answer" ng-repeat="obj in obj_list" ng-click="show(obj.articleId,obj.toUser)">
-   <div class="usercontent">
-    <span ng-class="{true:'contentname bgask',false:'contentname bgask'}[obj.hasRead]"></span>
-    <span class="askdisable">{{obj.comment}}</span>
-    <span class="moneyicon"></span>
+<div class="question_list" ng-repeat="obj in obj_list" ng-click="show(obj.articleId,obj.toUser)">
+   <div class="question_content">
+    <span ng-class="{true:'bg_ask',false:'bg_ask'}[obj.hasRead]"></span>
+    <span class="askDisable">{{obj.comment}}</span>
+    <span class="moneyIcon"></span>
    </div>
-    <div class="answertime clear">
-        <span class="anstimespan1">{{obj.classification}}</span>
-        <span class="anstimespan2">{{obj.loanValue}}万</span>
-        <span class="anstimespan3 fr">{{obj.time}}</span>
+    <div class="questionUser clear">
+        <span class="questionUserSpan1">{{obj.classification}}</span>
+        <span class="questionUserSpan2">{{obj.loanValue}}万</span>
+        <span class="questionUserSpan3 fr">{{obj.time}}</span>
     </div>
 </div>
 
