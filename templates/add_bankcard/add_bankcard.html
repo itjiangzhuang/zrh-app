@@ -1,0 +1,16 @@
+<div id="passwordPost" ng-click="getSRF()">
+    <p class="passwordTips" ng-click="getSRF()">请输入支付密码，以验证身份</p>
+    <div class="passwordText" ng-click="getSRF()">{{cardPassword}}</div>
+    <input class="passwordInput"
+           type="text"
+           name="demo"
+           maxlength="6"
+           ng-required="true"
+           onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"
+           ng-model="cardPassword"
+           autofocus="autofocus"
+           checked="checked"
+           ng-change="change()"
+           ng-trim="false"
+    >
+</div>

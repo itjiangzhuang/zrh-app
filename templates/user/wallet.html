@@ -1,65 +1,25 @@
 
-<body>
-<div style="height:100%;background:#f0f0f0;overflow-y: auto">
-   <div class="walletheader">
-       <div class="walheadertittle">我的资产</div>
-       <div class="moneycount">￥<span>88888.00</span></div>
-   </div>
-   <div class="binding">
-       <span class="bindingtittle">绑定银行卡</span>
-       <span class="bindingimg">+</span>
-   </div>
-   <div class="bankcard">
-       <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-       <div class="bankcardright">
-           <p class="bankcardrightname">平安银行</p>
-            <p class="bankcardrightcard">储蓄卡</p>
-            <p class="bankcardrightnum">1234567899876543219</p>
-       </div>
-   </div>
-   <div class="bankcard">
-       <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-       <div class="bankcardright">
-           <p class="bankcardrightname">平安银行</p>
-           <p class="bankcardrightcard">储蓄卡</p>
-           <p class="bankcardrightnum">1234567899876543219</p>
-       </div>
-   </div>
-    <div class="bankcard">
-        <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-        <div class="bankcardright">
-            <p class="bankcardrightname">平安银行</p>
-            <p class="bankcardrightcard">储蓄卡</p>
-            <p class="bankcardrightnum">1234567899876543219</p>
-        </div>
-    </div>
-    <div class="bankcard">
-        <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-        <div class="bankcardright">
-            <p class="bankcardrightname">平安银行</p>
-            <p class="bankcardrightcard">储蓄卡</p>
-            <p class="bankcardrightnum">1234567899876543219</p>
-        </div>
-    </div>
-    <div class="bankcard">
-        <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-        <div class="bankcardright">
-            <p class="bankcardrightname">平安银行</p>
-            <p class="bankcardrightcard">储蓄卡</p>
-            <p class="bankcardrightnum">1234567899876543219</p>
-        </div>
-    </div>
-    <div class="bankcard">
-        <div class="bankcardleft"><img src="img/icon/merchants.jpg" alt=""></div>
-        <div class="bankcardright">
-            <p class="bankcardrightname">平安银行</p>
-            <p class="bankcardrightcard">储蓄卡</p>
-            <p class="bankcardrightnum">1234567899876543219</p>
-        </div>
-    </div>
-    <div style="margin-bottom: 91px;"></div>
-   <input  type='submit'class="release" value="我要提现" />
+<div class="walletHeader">
+    <p class="walletTittle">我的资产</p>
+    <p class="moneyCount">￥<span>88888.00</span></p>
 </div>
+<div class="cardBinding">
+    <span class="bindingTittle">绑定银行卡</span>
+    <span class="bindingBtn" ng-click="addCard()">+</span>
+</div>
+<div class="cardShow">
+    <div class="bankcard clear" ng-repeat="wallet in wallet_list" >
+        <div class="bankcardLeft fl">
+            <img src="img/icon/merchants.jpg" alt="">
+        </div>
+        <div class="bankcardRight fl">
+            <p class="bankName">{{wallet.className}}</p>
+            <p class="bankcardClass">{{wallet.classification}}</p>
+            <p class="bankcardNum">{{wallet.cardId}}</p>
+        </div>
+    </div>
+</div>
+<input  type='submit'class="singleButtonFixed" value="我要提现" />
    <script>
        window.onload=function(){
            var bankcardrightnum=document.getElementsByClassName('bankcardrightnum')[0];

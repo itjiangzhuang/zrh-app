@@ -611,3 +611,219 @@ body{
     text-align: center;
     margin-top: 80px;
 }
+
+/*我的钱包样式开始*/
+.walletHeader{
+    width:100%;
+    height:108px;
+    background:#55555d;
+    border:1px solid transparent;
+    padding-top: 30px;
+}
+.walletTittle{
+    height:20px;
+    text-align: center;
+    font-size:12px;
+    color:#ffffff;
+}
+.moneyCount{
+    line-height: 50px;
+    font-size: 12px;
+    color:#ffffff;
+    text-align: center;
+}
+.moneyCount span{
+    margin-left: 10px;
+    display:inline-block;
+    font-size: 24px;
+}
+.cardBinding{
+    width:100%;
+    height:45px;
+    background:#ffffff;
+    position:relative;
+    padding-left: 15px;
+}
+.bindingTittle{
+    font-size: 14px;
+    line-height: 50px;
+}
+.bindingBtn{
+    width:18px;
+    height:18px;
+    background: #eaeaea;
+    border-radius: 50%;
+    color:#ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 18px;
+    font-weight: bold;
+    position:absolute;
+    top:14px;
+    right:15px;
+}
+.cardShow {
+    padding: 0 15px 15px;
+    height: calc(100% - 153px);
+    overflow: scroll;
+}
+.bankcard{
+    height:95px;
+    background: linear-gradient(to right,#f97383,#e78989);
+    margin:15px auto 0;
+    border-radius: 12px 12px 0 0;
+}
+
+.bankcard div{
+}
+.bankcardLeft img{
+    width:30px;
+    height:30px;
+    margin: 15px;
+    border-radius: 50%;
+}
+.bankcardRight{
+    padding-top: 15px;
+    color:#ffffff;
+
+
+}
+.bankName{
+    font-size: 14px;
+    font-family: "Arial Black";
+
+}
+.bankcardClass{
+    font-family: "Arial Black";
+    font-size: 12px;
+    line-height: 16px;
+}
+.bankcardNum{
+    font-size: 16px;
+    line-height: 38px;
+    font-family: "microsoft yahei";
+    letter-spacing: 1px;
+}
+/*我的钱包样式结束*/
+/*添加银行卡*/
+#passwordPost{
+    width: 100%;
+    height: 100%;
+    padding-top: 123px;
+}
+.passwordTips {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.passwordText {
+    width: 270px;
+    height: 47px;
+    line-height: 47px;
+    margin: 0 auto;
+    padding-left: 20px;
+    letter-spacing:38px;
+    background: url("../img/icon/password_bg.png");
+    background-size: 100%;
+}
+
+.passwordInput:hover{
+    border: none;
+}
+.passwordInput:focus{
+    outline: none;
+    border: none;
+}
+
+.passwordInput{
+    outline: none;
+    border: none;
+    position: absolute;
+    z-index: -1;
+    left: 45%;
+    margin-top: -18px;
+}
+.addCardDiv{
+    height: 45px;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+.addCardSpan{
+    display: inline-block;
+    width: 50px
+}
+.alertCard{
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: #f00;
+    margin-right: 15px;
+    margin-top: 13px;
+}
+
+.addCardInput{
+    border: none;
+    height: 44px;
+}
+.coverAlert{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #888888;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.7;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.alertTip{
+    /* position: absolute;
+     top: 100px;*/
+    margin: 100px auto 0;
+    width: 275px;
+    height: 183px;
+    background: #ffffff;
+    border-radius:12px ;
+}
+.alertTipTittle {
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+}
+.alertTipContent{
+    padding: 0 15px 0;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.exitAlert{
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    background: linear-gradient(to right, #8898EB, #6045BB);
+    margin-top:30px;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor: pointer;
+    border: none;
+}
+.next{
+    width:70%;
+    height:40px;
+    background:#f0f0f0;
+    border:none;
+    border-radius:20px;
+    font-size: 18px;
+    position:fixed;
+    bottom:2%;
+    right:15%;
+    color:#888888;
+    letter-spacing: 2px;
+
+}

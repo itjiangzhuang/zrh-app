@@ -48,11 +48,7 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
 #yearwrapper ul,#monthwrapper ul,#daywrapper ul{width:40%;}
 #Hourwrapper ul,#Minutewrapper ul,#Secondwrapper ul{width:40%;}
 #dateFooter{width:100%;background: #fff;height: 50px;top: 3px;position: absolute;}
-/*清除浮动*/
-.clear{zoom: 1;}
-.clear:after {content: '';display: block;clear: both;}
-.fl {float: left;}
-.fr {float: right;}
+/*清除背景颜色*/
 #clearBackground{background-color: #ffffff;}
 
 
@@ -105,6 +101,7 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
     box-shadow: 0 8px 8px #ccc;
     cursor:pointer;
     border:none;
+    opacity: 0.95;
 }
 .doubleButtonFixed{
     width:86%;

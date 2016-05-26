@@ -378,3 +378,16 @@ userCtrl.controller('SettingCtrl', //用户设置
 	         $location.path("/login");
         };
 }]);
+
+/*我的钱包*/
+userCtrl.controller('WalletCtrl',
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+
+        $scope.wallet_list = [{"className": "平安银行","cardId":"1234567899876543219","classification":"储蓄卡"},
+            {"className": "平安银行","cardId":"1234567899876543219","classification":"储蓄卡"},
+            {"className": "平安银行","cardId":"1234567899876543219","classification":"储蓄卡"}];
+
+        $scope.addCard = function(){
+            $location.path("/user/bankCard");
+        }
+    }]);

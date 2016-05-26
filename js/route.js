@@ -89,6 +89,14 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/wallet.html',
             controller: 'WalletCtrl'
         })
+        .when('/user/bankCard', {//我的钱包
+            templateUrl: templates_root + 'add_bankcard/add_bankcard.html',
+            controller: 'addBankCardCtrl'
+        })
+        .when('/user/bankCard2', {//我的钱包
+            templateUrl: templates_root + 'add_bankcard/add_bankcard2.html',
+            controller: 'addBankCard2Ctrl'
+        })
         .when('/user/setting', {//设置
             templateUrl: templates_root + 'user/setting.html',
             controller: 'SettingCtrl'
