@@ -1,4 +1,5 @@
-/*全局样式*/
+/*
+!*全局样式*!
 *{
     margin:0;
     padding:0;
@@ -14,34 +15,35 @@ body{
     height:100%;
     overflow-x: hidden;
 }
+*/
 
 /*vipuser1样式开始*/
-.usercontainer1{
+/*.usercontainer1{
     width:100%;
     height:100%;
     background: #ffffff;
-}
-.userheader{
+}*/
+/*.userheader{
     width:100%;
     height:220px;
     background:linear-gradient(to bottom,#8898EB,#6045BB);
     border:1px solid transparent;
-}
-.userlogo{
+}*/
+/*.userlogo{
  width:40%;
     height:70px;
     margin: 30px auto;
     margin-top: 30px;
-}
-.userlogo1{
+}*/
+/*.userlogo1{
     margin: 0 auto;
     width:66px;
     height:66px;
     background: url('../img/icon/recommendl.png') no-repeat center center;
     background-size: 86%;
 
-}
-.userlogo2{
+}*/
+/*.userlogo2{
     width:100%;
     font-size: 1.4rem;
     margin: 0 auto;
@@ -55,13 +57,13 @@ body{
     height:15px;
     vertical-align:middle;
   margin-left:5px;
-}
-.headerfooter{
+}*/
+/*.headerfooter{
     border:1px solid transparent;
     width:100%;
     margin-top: 30px;
-}
-.hfdiv{
+}*/
+/*.hfdiv{
     width:33%;
     font-size: 1.3rem;
     color:#ffffff;
@@ -69,11 +71,11 @@ body{
     border-right:1px solid #f0f0f0;
     margin-top: 30px;
     float:left;
-}
-.hfdivp2{
+}*/
+/*.hfdivp2{
     margin-top: 8px;
-}
-.usercontent{
+}*/
+/*.usercontent{
     width:100%;
     height:50px;
     background:#ffffff;
@@ -82,8 +84,8 @@ body{
     line-height: 50px;
     padding-left:15px;
 
-}
-.contentname{
+}*/
+/*.contentname{
 vertical-align: middle;
     display: inline-block;
     width:100%;
@@ -91,10 +93,10 @@ vertical-align: middle;
     border-bottom: 1px solid #f0f0f0;
     font-size: 16px;
     line-height: 48px;
-    /*padding-left: 15px;*/
+    !*padding-left: 15px;*!
 
-}
-.askdisable {
+}*/
+/*.askdisable {
     display: inline-block;
     width: 60%;
     height: 50px;
@@ -103,8 +105,8 @@ vertical-align: middle;
     overflow: hidden;
     font-size: 16px;
     line-height: 50px;
-    /*margin-left: -18px;*/
-    /*margin-top: 3px;*/
+    !*margin-left: -18px;*!
+    !*margin-top: 3px;*!
 }
 
 .megcount{
@@ -121,12 +123,13 @@ vertical-align: middle;
     text-align: center;
     line-height:24px;
 
-}
+}*/
 
 
 
 /*vipuser1样式结束*/
 
+/*
 .bgask{
     vertical-align: top;
     display:inline-block;
@@ -136,59 +139,30 @@ vertical-align: middle;
     background-size: 100%;
     margin-top: 14px;
 }
+*/
 
 
 /*vipuser3样式开始*/
-.questioncon{
+/*.questioncon{
     height:100%;
     background:#f0f0f0;
     overflow-y: auto;
-}
+}*/
 /*vipuser3样式结束*/
 
 /*vipuser4样式开始*/
-.msgtishi{
-    width:100%;
-    /*height:76px;*/
-    background:#ffffff;
-    position:relative;
-    margin-bottom: 8px;
-    /*border:1px solid red;*/
 
-}
-.tishiimg{
-    /*vertical-align: middle;*/
-    padding-top: 10px;
-    font-size: 1.6rem;
-    color:#f97383;
-    padding-left: 5%;
-}
-.tishiimg span{
-vertical-align: middle;
-}
-.tishiimg img{
-    vertical-align: middle;
-    max-width: 8.5%;
-    font-size: 1.6rem;
-    color:#f97383;
-}
-.msgtishi p{
-    width:88%;
-    padding-left:15%;
-    font-size: 1.4rem;
-    padding-bottom: 12px;
-}
-p span {
+/*p span {
     display: inline-block;
     margin-left: -5px;
     font-size: 1.5rem;
 
-}
+}*/
 
-.msgtishiicon{
+/*.msgtishiicon{
     top:21px;
-}
-.guarantee{
+}*/
+/*.guarantee{
     width:76%;
     background: #fff;
     padding-top:5%;
@@ -199,14 +173,14 @@ p span {
     font-size: 1.5rem;
     position:relative;
 
-}
+}*/
 
 /*vipuser4样式结束*/
 /*vipuser6的样式开始*/
 
 
 
-.policy{
+/*.policy{
     width:100%;
     padding-left: 15px;
     margin-top: 6px;
@@ -223,7 +197,7 @@ p span {
    position:absolute;
     top:0;
    right:15px;
-}
+}*/
 /*vipuser6的样式结束*/
 /*设置页面样式开始*/
 /*.userset{
@@ -276,42 +250,9 @@ p span {
 }*/
 /*设置页面样式结束*/
 
-/*普通用户项目完整度样式开始*/
-  .complete{
-      width:100%;
-      height:60px;
-      background:#868ee3;
-  }
-.complete span{
-    display: inline-block;
-    color:#ffffff;
 
-}
-.completespan1{
-    font-size: 1.5rem;
-    /*width:20%;*/
-    /*border:1px solid red;*/
-    margin-top: 20px;
-    margin-left: 5%;
-}
-.completespan2{
-    width:58%;
-    height:12px;
-    background: #ffffff;
-    border-radius: 12px;
-}
-.completepro{
-    height:12px;
-    background: #f97383;
-    border-radius: 12px;
-}
-.completespan3{
-    font-size: 1.5rem;
-    margin-left: 1%;
-}
-/*普通用户项目完整度样式结束*/
 /*普通用户选择银行样式开始*/
-.bankcheck{
+/*.bankcheck{
     width:100%;
     height:80px;
     background: #ffffff;
@@ -342,11 +283,11 @@ p span {
 .backcheckrightp2{
     margin-top: 8px;
     color:#888888;
-}
+}*/
 /*普通用户选择银行样式结束*/
 
 /*项目管理增加的按钮样式开始*/
-.selbtn{
+/*.selbtn{
     width:100%;
     height:60px;
     background: #ffffff;
@@ -386,7 +327,7 @@ p span {
     background: url("../img/icon/check.png") no-repeat 0 13px;
     background-size: 72%;
     margin-left: 15px;
-    /*border:1px solid red;*/
+    !*border:1px solid red;*!
 }
 .checkednext{
     display: inline-block;
@@ -395,5 +336,5 @@ p span {
     background: url("../img/icon/checked.png") no-repeat 0 13px;
     background-size: 72% !important;
     margin-left: 15px;
-}
+}*/
 /*项目管理增加的按钮样式结束*/

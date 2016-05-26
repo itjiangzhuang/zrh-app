@@ -12,28 +12,27 @@
     <div class="af">
         <label for="tm" class="cart"></label>
     </div>
-    <div class="foundStep2right">
+    <div class="containerDisplay">
         <div class="found-step1" ng-repeat="resultObj in result_list" ng-click="article_show(resultObj.article.id)">
             <div class="tittle">{{resultObj.article.classification}}</div>
             <lable class="amount">
                 <div>融资金额</div>
-                <div class="countdiv">{{resultObj.article.loanValue}}<span>万</span></div>
+                <div class="countDiv">{{resultObj.article.loanValue}}<span>万</span></div>
             </lable>
-            <div class="expect">
+            <div class="expect clear">
                 <div class="expect_border">
                     <p>营业执照</p>
                     <span>{{resultObj.article.license.regTime}}</span>
                 </div>
-                <div class="expect_border">
+                <div class="expect_border borderLine">
                     <p>融资期限</p>
                     <span class="term" >{{resultObj.article.loanLife}}个月</span>
                 </div>
-                <div>
+                <div class="expect_border">
                     <p>接受利率</p>
                     <span class="rate">{{resultObj.article.rateCap}}%-{{resultObj.article.rateFloor}}%</span>
                 </div>
             </div>
-            <div style="clear:both"></div>
             <div class="line"></div>
             <ul class="message">
                 <li class="img"></li>

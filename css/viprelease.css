@@ -33,7 +33,26 @@ body{
     background-size: cover;
 }
 
+.loadLie{
+    position:relative;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+.img-list{
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    z-index: 2;
+    margin-right: 15px;
 
+}
+.img-list img{
+    border: 0;
+    z-index: -1;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
 .required{
     width:100%;
     height:68px;
@@ -192,6 +211,7 @@ body{
     /*border:1px solid red;*/
 
 }
+/*弹出框样式 约见信息 */
 .mask{
     position:absolute;
     left:0;
@@ -601,3 +621,41 @@ body{
     z-index:11;
     margin-top: 276px;
 }
+
+
+/*show页面样式*/
+/*普通用户项目完整度样式开始*/
+.complete{
+    width:100%;
+    height:60px;
+    background:#868ee3;
+}
+.complete span{
+    display: inline-block;
+    color:#ffffff;
+
+}
+.completespan1{
+    font-size: 1.5rem;
+    /*width:20%;*/
+    /*border:1px solid red;*/
+    margin-top: 20px;
+    margin-left: 5%;
+}
+.completespan2{
+    width:58%;
+    height:12px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+.completepro{
+    height:12px;
+    background: #f97383;
+    border-radius: 12px;
+}
+.completespan3{
+    font-size: 1.5rem;
+    margin-left: 1%;
+}
+/*普通用户项目完整度样式结束*/
+/*show页面样式*/

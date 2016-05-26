@@ -23,7 +23,7 @@
 <div class="required1">
     <div class="xushu" contenteditable="true">{{article.pledge}}</div>
 </div>
-<div class="loadlie clear" >
+<div class="loadLie clear" >
 	<div class="img-list fl" ng-repeat="pledgeImg in article.pledgeImgs" ng-click="removePledgeImg($index)">
         <img src="{{pledgeImg}}" alt="" style="border: 0">
         <div class="redPoint">
@@ -64,7 +64,7 @@
     <div class="requiredDivInput" contenteditable="true">{{article.financialInfo || '点击加号添加财务报表图片'}}</div>
 </div>
 
-<div class="loadlie clear" >
+<div class="loadLie clear" >
 	<div class="img-list fl" ng-repeat="financialImg in article.financialImgs" ng-click="removeFinancialImg($index)">
         <img src="{{financialImg}}" alt="" style="border: 0">
         <div class="redPoint">
@@ -94,7 +94,7 @@
     <!--<input type="text" placeholder="请输入公司的其他贷款优势" ng-model="article.advantages" />-->
     <div class="requiredDivInput" contenteditable="true">{{article.advantages}}</div>
 </div>
-<div class="loadlie clear" id="upload_advantagesImg">
+<div class="loadLie clear" id="upload_advantagesImg">
 	<div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs" ng-click="removeAdvantagesImg($index)">
         <img src="{{advantagesImg}}" alt="" style="border: 0">
         <div class="redPoint">

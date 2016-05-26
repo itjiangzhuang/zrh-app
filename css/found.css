@@ -1,4 +1,4 @@
-.found-step1 {
+.found-step1 {//公用
     width: 100%;
     margin-bottom: 6px;
     background: #fff;
@@ -22,40 +22,42 @@
     margin-left: 75%;
 }
 
+/*
 .amountcon {
     margin-top: 36px;
 }
-
+*/
 .amount {
     display: block;
-    width: 36%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     text-align: center;
-
+}
+.amount div {
+    /*font-size: 12px;*/
+    text-align: center;
 }
 
-.amount .countdiv {
+.countDiv {
     font-size: 24px;
     color: #f97383;
-    margin-top: 5px;
-    margin-left: 9px;
+    margin-top: 8px;
+    /*margin-left: 9px;*/
 
 }
 
-.amount .failed {
+/*.amount {
     font-size: 35px;
     color: #4c4c4c;
     margin-top: 5px;
     margin-left: 9px;
-}
+}*/
 
-.amount .countdiv span {
+.countDiv span {
     font-size: 12px;
     display: inline-block;
     margin-left: 5px;
 
 }
-
 .amount input {
     width: 65%;
     height: 40px;
@@ -65,46 +67,59 @@
     margin-left: 15%;
     text-align: center;
 }
-
-.amount div {
-    width: 89%;
-    font-size: 12px;
-    text-align: center;
-
-}
-
 .amount span {
     color: #F97383;
 }
-
 .expect {
-    overflow: hidden;
-    width: 98%;
-    margin: 6px auto;
-    /*border:1px solid red;*/
     font-size: 14px;
+    margin-top: 5px;
+    width:100%;
+    height: 40px;
 }
+.expect_border {
+    width:33%;
+    height: 20px;
+    font-size: 14px;
+    color:#ffffff;
+    text-align: center;
+    float:left;
 
-.expect div {
+}
+.expect_border p{
+    margin-top: -10px;
+    line-height: 20px;
+    color: #888888;
+}
+.expect_border span{
+    line-height: 28px;
+    font-size: 14px;
+    color: #888888;
+    display: inline-block;
+}
+/*.expect div {
     float: left;
-    /*border:1px solid blue;*/
+    !*border:1px solid blue;*!
     width: 33%;
-}
+}*/
 
+/*
 .expect div p {
     padding-left: 25%;
     color: #888888;
 }
+*/
 
+/*
 .expect span {
     display: inline-block;
     margin-left: 20%;
     width: 88px;
     margin-top: 8px;
     font-size: 12px;
-    /*border:1px solid red;*/
-    /*text-align: center;*/
+    !*border:1px solid red;*!
+    !*text-align: center;*!
 }
+*/
 
 /*.expect input{*/
 /*margin-left: 14.5%;*/
@@ -113,10 +128,9 @@
 /*font-size:16px;*/
 /*border:none;*/
 /*}*/
-.expect_border {
-    border-right: 1px solid #f0f0f0;
-}
 
+
+/*
 .expect .term {
     padding-left: 6%;
 }
@@ -124,6 +138,7 @@
 .expect .rate {
     padding-left: 6%;
 }
+*/
 
 .line {
     width: 98%;
@@ -521,17 +536,16 @@ hr {
 /*项目管理未发布样式开始*/
 
 
-/*项目进度详情1样式开始*/
-.progressdetail {
+/*项目进度详情样式开始*/
+.progressDetail {
     width: 90%;
     height: 10px;
     border-radius: 10px;
     background: #f0f0f0;
-    margin: 10px auto;
-    margin-bottom: 28px;
+    margin: 10px auto 28px;
 }
 
-.detailchild {
+.detailChild{
     /*width:90%;*/
     height: 10px;
     background: #f97383;
@@ -603,6 +617,8 @@ hr {
 }
 
 /*项目进度详情2样式结束*/
+
+
 /*约见信息样式开始*/
 .meeting {
     width: 72%;
@@ -610,14 +626,14 @@ hr {
     border-radius: 12px;
 }
 
-.meetlogo {
+.meetLogo {
     width: 61px;
     height: 47.5px;
     margin-top: 38px;
     margin-left: calc(50% - 30px);
 }
 
-.meetname {
+.meetingDIv {
     width: 100%;
     height: 58px;
     border-bottom: 1px solid #f0f0f0;
@@ -626,56 +642,57 @@ hr {
     padding-left: 15px;
 }
 
-.meetnamep1 {
-    font-size: 1.6rem;
+.meetingP1 {
+    font-size: 14px;
     color: #888888;
 }
 
-.meetnamep2 {
-    font-size: 1.8rem;
+.meetingP2 {
+    font-size: 16px;
     color: #4c4c4c;
     font-family: "Arial Black";
 }
 
-.meetphone {
+.meetPhone {
     width: 100px;
     height: 100px;
     margin-left: calc(50% - 50px);
     margin-top: 20px;
 }
-
 /*约见信息样式结束*/
+/*
+
 
 .mobile {
     float: left;
     position: relative;
     width: 100%;
-    /*box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);*/
+    !*box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);*!
     height: 100%;
-    /*background-color: #4C4C4C;*/
+    !*background-color: #4C4C4C;*!
 }
 
 .foundStep2right {
     z-index: 3;
     width: 100%;
-    /*position:absolute;*/
+    !*position:absolute;*!
     background-color: #f0f0f0;
-    /*left:40%;*/
+    !*left:40%;*!
     top: 0;
     position: relative;
     transition: all 0.05s;
-    /*transform: translateX(150px);*/
+    !*transform: translateX(150px);*!
     overflow: hidden;
 }
 
-/*.foundStep2left{
+!*.foundStep2left{
     !*position:fixed;*!
     width:40%;
     background:#868EE3;
     height:100%;
     !*overflow: hidden;*!
 
-}*/
+}*!
 .foundStep2left {
     z-index: 2;
     width: 40%;
@@ -683,9 +700,9 @@ hr {
     position: fixed;
     left: 0;
     top: 0;
-    /*bottom: 0;*/
+    !*bottom: 0;*!
     padding-top: 40px;
-    /*position: fixed;*/
+    !*position: fixed;*!
     transition: all 0.05s;
     left: -40%;
     background: #868EE3
@@ -734,8 +751,8 @@ hr {
     height: 60px;
     background: url('../img/icon/cart.png') no-repeat;
     position: absolute;
-    /*right:50%;*/
-    /*bottom:100px;*/
+    !*right:50%;*!
+    !*bottom:100px;*!
 
     background-size: 100%;
 
@@ -748,7 +765,7 @@ hr {
     height: 100%;
     position: fixed;
     transition: all .05s;
-    /*right:50%;*/
+    !*right:50%;*!
     bottom: 0%;
 
     background-size: 20%;
@@ -779,6 +796,7 @@ hr {
 .foundStep2left .stepleftli5 {
     margin-bottom: 100%;
 }
+*/
 
 /*reset money select css*/
 .mbsc-android-holo .dwhl {
