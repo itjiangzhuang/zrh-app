@@ -127,7 +127,10 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
-    
+    $scope.create_license = function () {
+        $rootScope.putSessionObject("article", $scope.article);
+        $location.path("/article/license/create");
+    };
 
     $scope.getFormToken = function () {
         $http({
@@ -214,12 +217,6 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         $location.path("/article/classification/create");
     };
 
-
-    $scope.create_license = function () {
-        $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/license/create");
-    };
-
     $scope.next_step = function () {
         
 
@@ -243,18 +240,18 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
     }
 
 
-    $scope.license = $scope.article.license;
-    if (!$scope.license) {
-        $scope.license = {}
-    }
+    
 
     $scope.changeRegTime = function () {
         $scope.license.regTime = $("#regTime").val();
         $scope.$apply();
-        console.log($scope.license);
     }
 
-    $scope.init = function () {
+    $scope.init = function () {    	
+    	$scope.license = $scope.article.license;
+		if (!$scope.license) {
+		    $scope.license = {}
+		}
         $http({
             url: api_uri + "api/qiniu/getUpToken",
             method: "GET",
@@ -621,6 +618,13 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     	$scope.article.advantages = $("#advantages").text();
     };
     
+    
+
+    $scope.create_license = function () {
+        $rootScope.putSessionObject("article", $scope.article);
+        $location.path("/article/license/create");
+    };
+    
     $scope.validate_params = function(){
     	var params = {
 	        "id": $scope.article.id,
@@ -711,12 +715,11 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
     $scope.save = function () {
 	    var params = $scope.validate_params();
-        console.log(params);
         $.post(api_uri + "api/article/save", params,
             function (data) {
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("article");
-                    $location.path("/article/show/"+params.id);
+                    $location.path("/article/show/"+data.result);
                     $scope.$apply();
                 } else {
                     console.log(data);
