@@ -844,16 +844,19 @@ canvas{
     left: 45%;
     margin-top: -18px;
 }
-.addCardDiv{
+
+.addCardDiv {
     height: 45px;
     background: white;
     border-bottom: 1px solid #f0f0f0;
 }
-.addCardSpan{
+
+.addCardSpan {
     display: inline-block;
     width: 50px
 }
-.alertCard{
+
+.alertCard {
     float: right;
     width: 20px;
     height: 20px;
@@ -862,11 +865,12 @@ canvas{
     margin-top: 13px;
 }
 
-.addCardInput{
+.addCardInput {
     border: none;
     height: 44px;
 }
-.coverAlert{
+
+.coverAlert {
     display: none;
     width: 100%;
     height: 100%;
@@ -880,31 +884,35 @@ canvas{
     padding-left: 15px;
     padding-right: 15px;
 }
-.alertTip{
+
+.alertTip {
     /* position: absolute;
      top: 100px;*/
     margin: 100px auto 0;
     width: 275px;
     height: 183px;
     background: #ffffff;
-    border-radius:12px ;
+    border-radius: 12px;
 }
+
 .alertTipTittle {
     height: 45px;
     line-height: 45px;
     font-size: 18px;
 }
-.alertTipContent{
+
+.alertTipContent {
     padding: 0 15px 0;
     font-size: 14px;
     margin-top: 10px;
 }
-.exitAlert{
+
+.exitAlert {
     width: 80%;
     height: 40px;
     font-size: 18px;
     background: linear-gradient(to right, #8898EB, #6045BB);
-    margin-top:30px;
+    margin-top: 30px;
     border-radius: 26px;
     text-align: center;
     color: #fff;
@@ -914,13 +922,18 @@ canvas{
     cursor: pointer;
     border: none;
 }
-.next{
-    width:70%;
-    height:40px;
-    background:#f0f0f0;
-    border:none;
-    border-radius:20px;
+
+.next {
+    width: 70%;
+    height: 40px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
     font-size: 18px;
+    /*position: fixed;*/
+    /*bottom: 2%;*/
+    /*right: 15%;*/
+    /*color: #888888;*/
     position:absolute;
     bottom:15px;
     right:15%;
@@ -929,38 +942,41 @@ canvas{
 
 }
 
-
-
 /*我的消息*/
-.msgtishi{
-    width:100%;
+.msgtishi {
+    width: 100%;
     /*height:76px;*/
-    background:#ffffff;
-    position:relative;
+    background: #ffffff;
+    position: relative;
     margin-bottom: 8px;
     /*border:1px solid red;*/
 
 }
-.tishiimg{
+
+.tishiimg {
     /*vertical-align: middle;*/
     padding-top: 10px;
     font-size: 1.6rem;
-    color:#f97383;
+    color: #f97383;
     padding-left: 5%;
 }
-.tishiimg span{
+
+.tishiimg span {
     vertical-align: middle;
 }
-.tishiimg img{
+
+.tishiimg img {
     vertical-align: middle;
     max-width: 8.5%;
     font-size: 1.6rem;
-    color:#f97383;
+    color: #f97383;
 }
-.msgtishi p{
-    width:88%;
-    padding-left:15%;
+
+.msgtishi p {
+    width: 88%;
+    padding-left: 15%;
     font-size: 1.4rem;
     padding-bottom: 12px;
 }
+
 /*我的消息*/
