@@ -94,15 +94,15 @@
     <!--<input type="text" placeholder="请输入公司的其他贷款优势" ng-model="article.advantages" />-->
     <div class="requiredDivInput" contenteditable="true">{{article.advantages || '请输入公司的其他贷款优势。'}}</div>
 </div>
-<div class="loadLie clear" id="upload_advantagesImg">
+<div class="loadLie clear">
 	<div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs" ng-click="removeAdvantagesImg($index)">
         <img src="{{advantagesImg}}" alt="" style="border: 0">
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
 	</div>
-    <div id="upload_financialImg">
-        <img src="img/icon/upload1.png" class="loadjia fl"id="pickAdvantagesImg">
+    <div id="upload_advantagesImg">
+        <img src="img/icon/upload1.png" class="loadjia fl" id="pickAdvantagesImg">
     </div>
 </div>
 <div  class="loadlast">

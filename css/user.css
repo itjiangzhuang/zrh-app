@@ -325,8 +325,8 @@ canvas{
    margin-top: 8px;
     width:40px;
     height:40px;
-    border-radius:100%;
-    border: 1px solid black;
+    /*border-radius:100%;*/
+    /*border: 1px solid black;*/
    float: right;
 }
 .userSetIcon{
@@ -624,7 +624,7 @@ canvas{
 }
 .applyHeader p{
     color:#ffffff;
-    margin-left: 5%;
+    padding-left: 15px;
 
 
 }
@@ -645,13 +645,13 @@ canvas{
 }
 .moneyStepTopP{
     padding-top: 10px;
-    margin-left: 15px;
+    padding-left: 15px;
     font-size: 14px;
     color:#888888;
 }
 .moneyStepTopInput {
     margin-top: 8px;
-    margin-left: 5%;
+    padding-left: 15px;
     border: none;
     width:66%;
 }
@@ -673,7 +673,7 @@ canvas{
 }
 .nameCardP1{
     width:100%;
-    margin-left: 5%;
+    padding-left: 15px;
     font-size: 14px;
     margin-top: 10px;
     color:#888888;

@@ -643,7 +643,7 @@ body{
     /*width:20%;*/
     /*border:1px solid red;*/
     margin-top: 20px;
-    margin-left: 5%;
+    padding-left: 15px;
 }
 .completespan2{
     width:58%;
@@ -657,8 +657,8 @@ body{
     border-radius: 12px;
 }
 .completespan3{
-    font-size: 1.5rem;
-    margin-left: 1%;
+    font-size: 14px;
+    padding-left: 1%;
 }
 /*普通用户项目完整度样式结束*/
 /*show页面样式*/
