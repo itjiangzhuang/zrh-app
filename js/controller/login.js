@@ -9,6 +9,12 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         "mobile": "",
         "password": ""
     };
+    $scope.getSRF = function(){
+        $(document).ready(function(){  $("input[name=demo]").focus();});
+    };
+    $scope.getFocus = function(){
+        $(document).ready(function(){  $("input[name=demo1]").focus();});
+    };
     var check_params = function (params) {
         if (params.mobile == "" || params.password == "") {
             console.log("username or password is empty")
