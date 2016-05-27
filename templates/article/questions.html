@@ -1,5 +1,4 @@
-
-<div class="found-step1">
+<div class="found-step1" style="margin-bottom: 0">
     <div class="tittle">{{article.classification}}</div>
     <lable class="amount">
         <div>融资金额</div>
@@ -8,7 +7,7 @@
     <div class="expect">
         <div class="expect_border">
             <p>营业执照</p>
-            <span >{{article.regTime}}</span>
+            <span>{{article.regTime}}</span>
         </div>
         <div class="expect_border">
             <p>融资期限</p>
@@ -27,41 +26,48 @@
         <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
     </ul>
 </div>
-  <div class="displayFrame">
-      <div ng-repeat="message in message_list">
-          <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]" >
-              <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
-                  <span ng-class="{true:'spanImg',false:'spanImgOther'}[message.self]"></span>
-                  <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
-                  <span ng-class="{true:'myTriangle',false:'otherTriangle'}[message.self]"></span>
-              </div>
-          </div>
-      </div>
-  </div>
-<form novalidate class="speakForm clear" >
-    <div class="speak fl" contenteditable="true" id="content"></div>
-    <input type="submit" class="speakBtn fr" ng-click="sendMessage()"/>
+<div class="displayFrame">
+    <div ng-repeat="message in message_list">
+        <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]">
+            <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
+                <span ng-class="{true:'spanImg',false:'spanImgOther'}[message.self]"></span>
+                <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
+                <span ng-class="{true:'myTriangle',false:'otherTriangle'}[message.self]"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<form novalidate class="speakForm clear">
+    <div class="fixed-box">
+        <div class="speak fl" contenteditable="true" id="content"></div>
+        <input type="submit" class="speakBtn fr" ng-click="sendMessage()"/>
+    </div>
 </form>
 
 <script>
     $(function () {
-        $('.displayFrame').animate({scrollTop:5000},500);
+        setTimeout(function () {
+            $('.displayFrame').animate({scrollTop: $('.displayFrame')[0].scrollHeight}, 500);
+        }, 500)
         $('#content').focus(function () {
-            var now = $(window).height()/2;
-            var vt = now-80;
-            var _scroll =  $('.displayFrame')[0].scrollHeight;
+            var now = $('.displayFrame').height();
+            var _top = $('.found-step1').height();
+            var vt = now - 80;
+            var _scroll = $('.displayFrame')[0].scrollHeight;
             $('.found-step1').hide();
-            $('.displayFrame').animate({scrollTop:_scroll},500);
+            $('.displayFrame').animate({scrollTop: _scroll}, 500);
             $('.displayFrame').height(vt);
-            $('.displayFrame').css('top',0);
+            $('.displayFrame').css('top', 0);
         });
         $('#content').blur(function () {
-            var now = $(window).height()/2+100;
-            $('.displayFrame').height(now);
+            var now = $('.displayFrame').height();
+            var _top = $('.found-step1').height();
+            var vt = now + 80;
+            $('.displayFrame').height(vt);
             $('.found-step1').show();
-            $('.displayFrame').css('top',195);
-            var _scroll =  $('.displayFrame')[0].scrollHeight;
-            $('.displayFrame').animate({scrollTop:_scroll},500);
+            $('.displayFrame').css('top', 0);
+            var _scroll = $('.displayFrame')[0].scrollHeight;
+            $('.displayFrame').animate({scrollTop: _scroll}, 500);
         });
     });
 
