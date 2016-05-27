@@ -66,6 +66,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	}
 
 	$scope.send_code = function(){
+		$scope.validate_mobile();
 		if($scope.enableMobile){			
 			$scope.times();			
 			$http({

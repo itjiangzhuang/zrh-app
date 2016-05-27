@@ -96,11 +96,24 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
         });        
     };
     $scope.init();
+    
+    $scope.release = function(){
+    	$.get(api_uri + "api/article/release/"+$routeParams.id, $rootScope.login_user,
+            function (d) {
+                if (d.returnCode == 0) {		                    
+                    $location.path("/article/show/"+d.result);
+                    $scope.$apply();
+                } else {
+                	alert("发布失败,请完善必填项");
+                    console.log(d);
+                }
+            },
+		"json");
+    };
 
     $scope.next_op = function (op) {
         var obj = {
-            "update": "/article/update/step1/" + $routeParams.id,
-            "release": "/article/update/step1/" + $routeParams.id,
+            "update": "/article/update/step1/" + $routeParams.id,         
             "bid": "/article/bid/" + $routeParams.id,
             "ask": "/article/questions/" + $routeParams.id + "/" + $rootScope.login_user.userId,
             "bank":"/article/bank/"+$routeParams.id,//待约见银行
@@ -273,14 +286,14 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
                             //                    });
                         },
                         'BeforeUpload': function (up, file) {
-                            $rootScope.uploading = true;
-                            $scope.upload_percent = file.percent;
-                            $rootScope.$apply();
+//                          $rootScope.uploading = true;
+//                          $scope.upload_percent = file.percent;
+//                          $rootScope.$apply();
                         },
                         'UploadProgress': function (up, file) {
                             // 每个文件上传时,处理相关的事情
-                            $scope.upload_percent = file.percent;
-                            $scope.$apply();
+//                          $scope.upload_percent = file.percent;
+//                          $scope.$apply();
                         },
                         'FileUploaded': function (up, file, info) {
                             var res = $.parseJSON(info);
@@ -610,7 +623,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     
     $scope.validate_params = function(){
     	var params = {
-	        "id": "",
+	        "id": $scope.article.id,
 	        "userId": $rootScope.login_user.userId,
 	        "token": $rootScope.login_user.token,
 	        "formToken":$scope.article.formToken
@@ -721,12 +734,13 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("article");
  
-                    $.post(api_uri + "api/article/release/"+data.result, $rootScope.login_user,
+                    $.get(api_uri + "api/article/release/"+data.result, $rootScope.login_user,
 			            function (d) {
 			                if (data.returnCode == 0) {		                    
 			                    $location.path("/article/show/"+data.result);
 			                    $scope.$apply();
 			                } else {
+			                	alert("发布失败,请完善必填项");
 			                    console.log(d);
 			                }
 			            },
@@ -912,21 +926,32 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         if (!$scope.article) {
         	params.id = $routeParams.id
         	$http({
-	            url: api_uri + "api/article/updateStep1",
+	            url: api_uri + "api/article/update",
 	            method: "GET",
 	            params: params
 	        }).success(function (data) {
 	            if (data.returnCode == 0) {
-	                $scope.article = {};
-                    $scope.article.id = $routeParams.id;
-                    $scope.article.loanValue = data.result.loanValue;
-                    $scope.article.loanLife = data.result.loanLife;
-                    $scope.article.rateCap = data.result.rateCap;
-                    $scope.article.rateFloor = data.result.rateFloor;
-                    $scope.article.classification = data.result.classification;
-                    $scope.article.license = data.result.license;
+	                
+                    $scope.article = data.result;
+                    if($scope.article.licenseImg){
+                    	$scope.article.license.licenseImgs = $scope.article.licenseImg;
+                        $scope.article.license.licenseImgNames = $scope.article.licenseImgName;
+                    }
                     
-                    console.log($scope.article);
+                    if($scope.article.financialImg){
+		                $scope.article.financialImgs = $scope.article.financialImg;
+		                $scope.article.financialImgNames = $scope.article.financialImgName;
+                    }
+                    
+                    if($scope.article.pledgeImg){
+                    	$scope.article.pledgeImgs = $scope.article.pledgeImg;
+                        $scope.article.pledgeImgNames = $scope.article.pledgeImgName;
+                    }
+                    
+                    if($scope.article.advantagesImg){
+	                    $scope.article.advantagesImgs = $scope.article.advantagesImg;
+	                    $scope.article.advantagesImgNames = $scope.article.advantagesImgName;
+                    }
 	            }
 	            else {
 	                console.log(data);
