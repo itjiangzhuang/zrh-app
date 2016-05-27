@@ -58,7 +58,7 @@ canvas{
     background-color: #f0f0f0;
     top:0;
     position: relative; transition: all 0.05s;
-    overflow: hidden;
+    overflow: visible;
 }
 .userHeader{
     width:100%;
@@ -206,7 +206,7 @@ canvas{
     width:65px;
     height:65px;
     background:url('../img/icon/cart.png') no-repeat;
-    position:absolute;
+    position:fixed;
     bottom: -10px;
     background-size: 100%;
 }
