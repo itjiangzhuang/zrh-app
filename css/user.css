@@ -325,8 +325,6 @@ canvas{
    margin-top: 8px;
     width:40px;
     height:40px;
-    border-radius:100%;
-    border: 1px solid black;
    float: right;
 }
 .userSetIcon{
