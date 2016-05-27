@@ -6,7 +6,7 @@
 	    	ng-model="loginUser.password"/>
     </div>
     <p class="forget" ng-click="reset()">忘记密码</p>
-    <input  type="submit" class="regRelease" value="登录" ng-focus="login()"/>
+    <input  type="submit" class="regRelease" value="登录" ng-click="login()"/>
     <div class="newUser" ng-click="register()">注册新用户</div>
     <div class="prompt">
     	{{error_msg}}
