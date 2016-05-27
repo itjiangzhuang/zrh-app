@@ -9,9 +9,16 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         "mobile": "",
         "password": ""
     };
+    
+    $scope.error_code_msg = {
+    	    1003:"该用户不存在",
+    	    2001:"用户名密码错误",
+    	    1002:"该用户异常",
+    	    1:"服务器异常,请稍后再试"
+    };
+    
     var check_params = function (params) {
         if (params.mobile == "" || params.password == "") {
-            console.log("username or password is empty")
             return false;
         }
         return true;
@@ -21,7 +28,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
 		$timeout(function() {  
 	              $scope.changeErrorMsg(""); 
 	        }, 5000);
-	}
+	};
     $scope.login = function () {
         var m_params = $scope.loginUser;
         if (!check_params(m_params)) return;
@@ -31,22 +38,23 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             params: m_params           
         }).success(function (d) {
             if (d.returnCode == 0) {
-                console.log(d);
                 $rootScope.login_user = {
             		"userId":d.result.split("_")[0],
             		"token":d.result.split("_")[1]
             	}
                 $rootScope.putObject("login_user", $rootScope.login_user);
             	$location.path("/article/list");
-            }
-            else {
-            	$scope.changeErrorMsg("登录失败:"+d.result);
-                console.log(d);
+            }else {
+            	
+            	var msg = $scope.error_code_msg[d.returnCode];  
+            	if(!msg){
+            		msg = "登录失败";
+            	}
+            	$scope.changeErrorMsg(msg);
             }
 
         }).error(function (d) {
         	$scope.changeErrorMsg("网络故障请稍后再试......");
-            console.log("login error");
             $location.path("/login");
         })
     };
