@@ -90,7 +90,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 		}else{
 			$scope.isVerify= false;
 		}	   
-	}
+	};
 	
 	
 	$scope.validateCode = function(){
@@ -110,59 +110,76 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	            console.log("login error");
 	        })	
 		}		
-	}
+	};
 	
 });
 
-registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams,$timeout) {
 
 	$scope.registerUser = {
 		"mobile":$routeParams.mobile,
 		"password":"",
 		"validatePwd":"",
 		"token":$routeParams.token
-	}
+	};
+	
+	$scope.changeErrorMsg = function(msg){
+		$scope.error_msg = msg;
+		$timeout(function() {  
+	              $scope.changeErrorMsg(""); 
+	        }, 5000);
+	};
 	
 	$scope.user_register = function(){
-		$http({
-            url: api_uri+"api/reg/regist",
-            method: "POST",
-            params: $scope.registerUser
-        }).success(function (d) {
-            if (d.returnCode == 0) {
-            	alert("注册成功");
-            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
-                $http({
-		            url: api_uri+"api/auth/web",
-		            method: "POST",
-		            params: {
-		            	"mobile":$scope.registerUser.mobile,
-		            	"password":$scope.registerUser.password
-		            }
-		        }).success(function (d) {
-		            if (d.returnCode == 0) {
-						$rootScope.login_user = {
-		            		"userId":d.result.split("_")[0],
-		            		"token":d.result.split("_")[1]
-		            	}
-						$rootScope.putObject("login_user", $rootScope.login_user);
-		            	$location.path("/article/list");
-		            }
-		            else {
-		            	$scope.changeErrorMsg(d.result);
-		                console.log(d);
-		            }
-		        }).error(function (d) {
-		            console.log("login error");
-		        })	 
-            }
-            else {
-                console.log(d);
-            }
-        }).error(function (d) {
-            console.log("login error");
-        })	
-	}
+		
+		var reg_str = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,12}$/;
+		if($scope.registerUser.password==$scope.registerUser.validatePwd &&reg_str.test($scope.registerUser.password)){
+			$http({
+	            url: api_uri+"api/reg/regist",
+	            method: "POST",
+	            params: $scope.registerUser
+	        }).success(function (d) {
+	            if (d.returnCode == 0) {
+	            	alert("注册成功");
+	            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
+	                $http({
+			            url: api_uri+"api/auth/web",
+			            method: "POST",
+			            params: {
+			            	"mobile":$scope.registerUser.mobile,
+			            	"password":$scope.registerUser.password
+			            }
+			        }).success(function (d) {
+			            if (d.returnCode == 0) {
+							$rootScope.login_user = {
+			            		"userId":d.result.split("_")[0],
+			            		"token":d.result.split("_")[1]
+			            	}
+							$rootScope.putObject("login_user", $rootScope.login_user);
+			            	$location.path("/article/list");
+			            }
+			            else {
+			            	$scope.changeErrorMsg(d.result);
+			                console.log(d);
+			            }
+			        }).error(function (d) {
+			            console.log("login error");
+			        })	 
+	            }
+	            else {
+	                console.log(d);
+	            }
+	        }).error(function (d) {
+	            console.log("login error");
+	        })	
+		}else{
+			if($scope.registerUser.password!=$scope.registerUser.validatePwd){
+				$scope.changeErrorMsg("两次密码输入的不一致");
+			}else if(!reg_str.test($scope.registerUser.password)){
+				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母");
+			}
+		}	
+	};
 	
 });
 
@@ -182,7 +199,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 		$timeout(function() {  
 	              $scope.changeErrorMsg(""); 
 	        }, 5000);
-	}
+	};
 
 	//发送短信 倒计时
 	$scope.sms_second = 60;
@@ -251,7 +268,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 		}else{
 			$scope.isVerify= false;
 		}	   
-	}
+	};
 	
 	
 	$scope.validateCode = function(){
@@ -271,7 +288,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	            console.log("login error");
 	        })	
 		}		
-	}
+	};
 	
 });
 
@@ -282,7 +299,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 		"password":"",
 		"validatePwd":"",
 		"token":$routeParams.token
-	}
+	};
 	
 	$scope.user_reset = function(){
 		$http({
@@ -322,7 +339,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
         }).error(function (d) {
             console.log("login error");
         })	
-	}
+	};
 	
 });
 
