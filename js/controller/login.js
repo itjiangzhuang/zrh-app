@@ -9,14 +9,14 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         "mobile": "",
         "password": ""
     };
-    
+
     $scope.error_code_msg = {
     	    1003:"该用户不存在",
     	    2001:"用户名密码错误",
     	    1002:"该用户异常",
     	    1:"服务器异常,请稍后再试"
     };
-    
+
     var check_params = function (params) {
         if (params.mobile == "" || params.password == "") {
             return false;
@@ -38,6 +38,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             params: m_params           
         }).success(function (d) {
             if (d.returnCode == 0) {
+                console.log(d);
                 $rootScope.login_user = {
             		"userId":d.result.split("_")[0],
             		"token":d.result.split("_")[1]
@@ -45,8 +46,8 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
                 $rootScope.putObject("login_user", $rootScope.login_user);
             	$location.path("/article/list");
             }else {
-            	
-            	var msg = $scope.error_code_msg[d.returnCode];  
+
+            	var msg = $scope.error_code_msg[d.returnCode];
             	if(!msg){
             		msg = "登录失败";
             	}
@@ -61,9 +62,9 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
     
     $scope.register = function(){
     	$location.path("/register/step1");
-    }
+    };
     
     $scope.reset = function(){
     	$location.path("/register/reset1");
-    }
+    };
 });

@@ -1139,6 +1139,8 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     	  params,function(data){
             if (data.returnCode == 0) {
                 console.log("发送成功");
+                var _scroll =  $('.displayFrame')[0].scrollHeight;
+                $('.displayFrame').animate({scrollTop:_scroll},500);
             }
             else {
             	console.log("发送失败");
