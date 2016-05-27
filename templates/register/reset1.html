@@ -1,4 +1,7 @@
 <div class="regForm1">
+    <div class="prompt">
+        <div> {{error_msg}}</div>
+    </div>
 	<div style="background: #ffffff">
     <input type="text" placeholder="请输入手机号" class="phoneCode" id="mobile"
     	maxlength="11" size="11" ng-model="resetUser.mobile"
@@ -10,9 +13,6 @@
         <span class="verBtn fr" ng-click="send_code()" ng-show="send_sms">发送验证码</span>
         <span class="verBtn fr" ng-hide="send_sms">{{sms_second}}s</span>
     </div>
-    </div>
-    <div class="prompt">
-    	{{error_msg}}
     </div>
     <input type="button" value="下一步" class="regRelease" ng-click="validateCode()" ng-show="isVerify"/>
     <input type="button" value="下一步" class="hideClass" ng-hide="isVerify"/>

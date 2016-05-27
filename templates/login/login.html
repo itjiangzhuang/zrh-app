@@ -1,4 +1,9 @@
 <div class="regForm1">
+    <div class="prompt">
+        <div  ng-show="error_msg">
+            {{error_msg}}
+        </div>
+    </div>
 	<div style="background: #ffffff">
 		<input type="text" placeholder="请输入手机号" class="phoneCode"
 			ng-model="loginUser.mobile" onkeyup="value=value.replace(/[^\d{1,}\d{1,}|\d{1,}]/g,'')"/>
@@ -8,8 +13,6 @@
     <p class="forget" ng-click="reset()">忘记密码</p>
     <input  type="submit" class="regRelease" value="登录" ng-click="login()"/>
     <div class="newUser" ng-click="register()">注册新用户</div>
-    <div class="prompt" ng-show="error_msg">
-    	{{error_msg}}
-    </div>
+
 
 </div>
