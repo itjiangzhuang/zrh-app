@@ -130,7 +130,7 @@ myApp.run(['$location', '$rootScope', '$http',
             //console.log($rootScope.login_user);
             if (!$rootScope.login_user) {
                 $rootScope.removeObject("login_user");
-                $location.path("/login");
+                //$location.path("/login");
                 return false;
             }
             $http({
@@ -144,14 +144,14 @@ myApp.run(['$location', '$rootScope', '$http',
                     return true;
                 } else {
                     $rootScope.removeObject("login_user");
-                    $location.path("/login");
+                    //$location.path("/login");
                     return false;
                 }
 
             }).error(function (d) {
                 console.log(d);
                 $rootScope.removeObject("login_user");
-                $location.path("/login");
+                //$location.path("/login");
                 return false;
             });
         };
