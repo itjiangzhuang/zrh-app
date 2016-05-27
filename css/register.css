@@ -50,11 +50,12 @@
     font-size:14px;
     line-height: 20px;
     padding-left: 15px;
-    padding-top: 15px;
+    margin-top: 15px;
     border:none;
     color:#8898EB;
     display: inline-block;
     text-align: center;
+    border-left: 1px solid #f0f0f0;
 }
  .regRelease{
      width:60%;
