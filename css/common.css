@@ -1,65 +1,317 @@
 ﻿/*body, div, ul, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding:0;margin:0; }*/
 /*ul,li{ list-style: none;}*/
-.page {display: none;position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;height: 100%;overflow: hidden;}
+.page {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 /*素材家园 - www.sucaijiayuan.com*/
-#datescroll div{float: left;margin-left: 10%;margin-top: 15px;padding-right: 22px;}
-#datescroll_datetime div{float: left;margin-left: 10%;padding-right: 22px;}
-#yearwrapper{position: absolute;left: 0;top:45px;bottom: 60px;width:80%;}
-#monthwrapper{position: absolute;left: 26%;top:45px;bottom: 60px;width:80%;}
-#daywrapper{position: absolute;left: 50%;top:45px;bottom: 60px;width:80%;}
-#Hourwrapper{position: absolute;left: 0;top:195px;bottom: 68px;width:80%;}
-#Minutewrapper{position: absolute;left: 26%;top:195px;bottom: 68px;width:80%;}
-#Secondwrapper{position: absolute;left: 50%;top:195px;bottom: 68px;width:80%;}
-#monthwrapper li{font-size: 18px!important;}
+#datescroll div {
+    float: left;
+    margin-left: 10%;
+    margin-top: 15px;
+    padding-right: 22px;
+}
+
+#datescroll_datetime div {
+    float: left;
+    margin-left: 10%;
+    padding-right: 22px;
+}
+
+#yearwrapper {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    bottom: 60px;
+    width: 80%;
+}
+
+#monthwrapper {
+    position: absolute;
+    left: 26%;
+    top: 45px;
+    bottom: 60px;
+    width: 80%;
+}
+
+#daywrapper {
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    bottom: 60px;
+    width: 80%;
+}
+
+#Hourwrapper {
+    position: absolute;
+    left: 0;
+    top: 195px;
+    bottom: 68px;
+    width: 80%;
+}
+
+#Minutewrapper {
+    position: absolute;
+    left: 26%;
+    top: 195px;
+    bottom: 68px;
+    width: 80%;
+}
+
+#Secondwrapper {
+    position: absolute;
+    left: 50%;
+    top: 195px;
+    bottom: 68px;
+    width: 80%;
+}
+
+#monthwrapper li {
+    font-size: 18px !important;
+}
+
 /*!*增加q*/
-#Hourwrapper ul li{color: #898989;font-size: 18px;}
-#Minutewrapper ul li{color: #898989;font-size: 18px;}
-#Secondwrapper ul li{color: #898989;font-size: 18px;}
-#yearwrapper ul li{color: #898989;font-size: 18px;}
-#monthwrapper ul li{color: #898989;font-size: 18px;}
-#daywrapper ul li{color: #898989;font-size: 18px;}
-#markyear{position:relative; margin-left: 76px;top:-2px;}
-#markmonth{position:relative; margin-left: 40px;top:-2px;}
-#markday{position:relative; margin-left: 42px;top:-2px;}
-#markhour{position:relative; margin-left: 62px;top:-2px;}
-#markminut{position:relative; margin-left: 58px;top:-2px;}
-#marksecond{position:relative; margin-left: 68px;top:-2px;}
-#dateheader{width: 100%;height: 50px;background: #79C12F;text-align: center;color: #fff;line-height: 50px;font-size: 20px;}
-#setcancle ul{text-align: center;line-height: 30px; margin:1px auto;font-size: 20px;}
-#setcancle ul li{border-radius:16px;float: left;width: 40%;height: 30px;list-style-type: none;font-size:14px;}
+#Hourwrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#Minutewrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#Secondwrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#yearwrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#monthwrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#daywrapper ul li {
+    color: #898989;
+    font-size: 18px;
+}
+
+#markyear {
+    position: relative;
+    margin-left: 76px;
+    top: -2px;
+}
+
+#markmonth {
+    position: relative;
+    margin-left: 40px;
+    top: -2px;
+}
+
+#markday {
+    position: relative;
+    margin-left: 42px;
+    top: -2px;
+}
+
+#markhour {
+    position: relative;
+    margin-left: 62px;
+    top: -2px;
+}
+
+#markminut {
+    position: relative;
+    margin-left: 58px;
+    top: -2px;
+}
+
+#marksecond {
+    position: relative;
+    margin-left: 68px;
+    top: -2px;
+}
+
+#dateheader {
+    width: 100%;
+    height: 50px;
+    background: #79C12F;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+#setcancle ul {
+    text-align: center;
+    line-height: 30px;
+    margin: 1px auto;
+    font-size: 20px;
+}
+
+#setcancle ul li {
+    border-radius: 16px;
+    float: left;
+    width: 40%;
+    height: 30px;
+    list-style-type: none;
+    font-size: 14px;
+}
+
 /*#dateconfirm{position: absolute;    background: linear-gradient(to right,#8898EB,#6045BB);left:20px;color:#fff;}*/
-#dateconfirm{position: absolute;color:#4C4C4C; right: 5%; text-align: right;}
-#datecancle{position: absolute;background:  #dcdddd;right:20px;width: 40%;color:#666;
-    display: none;}
-#dateshadow{display: none;position: absolute;width: 100%;height: 65%;top:0;left:0;background: #000; filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5;}
-#datePage{font-size: 22px; border-radius: 6px; position:absolute;top:65%;MARGIN-RIGHT: auto;vertical-align:middle;
-MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999;}
-#datetitle{width: 100%;height:50px;text-align: center;color: #888888;line-height: 50px;font-size: 14px;font-family:'microsoft yahei';}
-#datetitle h1{font-weight:normal;}
-#datemark{font-size: 18px;left:0;width: 100%;height: 40px;position:absolute;top:98px;border:1px solid #eee;}
-#timemark{font-size: 18px;left:0;width: 100%;height: 40px;position:absolute;top:232px;border:1px solid #eee;}
-#datescroll{width:100%; margin:10px 0;border-radius: 4px;height: 120px;text-align: center;line-height: 40px;
+#dateconfirm {
+    position: absolute;
+    color: #4C4C4C;
+    right: 5%;
+    text-align: right;
+}
+
+#datecancle {
+    position: absolute;
+    background: #dcdddd;
+    right: 20px;
+    width: 40%;
+    color: #666;
+    display: none;
+}
+
+#dateshadow {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    filter: alpha(Opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-action: none;
+    user-select: none;
+    touch-action: none;
+}
+
+#datePage {
+    font-size: 22px;
+    border-radius: 6px;
+    position: absolute;
+    top: 65%;
+    MARGIN-RIGHT: auto;
+    vertical-align: middle;
+    MARGIN-LEFT: auto;
+    width: 100%;;
+    height: 240px;
+    background: #FFFFFF;
+    z-index: 9999999;
+}
+
+#datetitle {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #888888;
+    line-height: 50px;
+    font-size: 14px;
+    font-family: 'microsoft yahei';
+}
+
+#datetitle h1 {
+    font-weight: normal;
+}
+
+#datemark {
+    font-size: 18px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 98px;
+    border: 1px solid #eee;
+}
+
+#timemark {
+    font-size: 18px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 232px;
+    border: 1px solid #eee;
+}
+
+#datescroll {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 4px;
+    height: 120px;
+    text-align: center;
+    line-height: 40px;
     /*
     background: #F8F8F8;
     border: 1px solid #E0E0E0;
     */
 }
-#datescroll_datetime{display: none;background:#F8F8F8;width:94%; margin:10px 0;border: 1px solid #E0E0E0;border-radius: 4px;height: 120px;text-align: center;line-height: 40px;}
-#yearwrapper ul,#monthwrapper ul,#daywrapper ul{width:40%;}
-#Hourwrapper ul,#Minutewrapper ul,#Secondwrapper ul{width:40%;}
-#dateFooter{width:100%;background: #fff;height: 50px;top: 3px;position: absolute;}
-/*清除背景颜色*/
-#clearBackground{background-color: #ffffff;}
-.clearBackground{background-color: #ffffff;}
 
+#datescroll_datetime {
+    display: none;
+    background: #F8F8F8;
+    width: 94%;
+    margin: 10px 0;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    height: 120px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#yearwrapper ul, #monthwrapper ul, #daywrapper ul {
+    width: 40%;
+}
+
+#Hourwrapper ul, #Minutewrapper ul, #Secondwrapper ul {
+    width: 40%;
+}
+
+#dateFooter {
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    top: 3px;
+    position: absolute;
+}
+
+/*清除背景颜色*/
+#clearBackground {
+    background-color: #ffffff;
+}
+
+.clearBackground {
+    background-color: #ffffff;
+}
 
 /*按钮样式*/
-.singleButton{
-    width:60%;
-    height:45px;
-    font-size:18px;
-    background:linear-gradient(45deg,#8898EB,#6045BB);
-    position:absolute;
+.singleButton {
+    width: 60%;
+    height: 45px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #8898EB, #6045BB);
+    position: absolute;
     bottom: 15px;
     margin-left: 20%;
     border-radius: 26px;
@@ -68,14 +320,15 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
     line-height: 38px;
     letter-spacing: 2px;
     box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
+    cursor: pointer;
+    border: none;
 }
-.singleButtonGrew{
-    width:60%;
-    height:45px;
-    font-size:18px;
-    position:absolute;
+
+.singleButtonGrew {
+    width: 60%;
+    height: 45px;
+    font-size: 18px;
+    position: absolute;
     bottom: 15px;
     margin-left: 20%;
     border-radius: 26px;
@@ -83,15 +336,16 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
     color: #fff;
     line-height: 38px;
     letter-spacing: 2px;
-    cursor:pointer;
-    border:none;
+    cursor: pointer;
+    border: none;
 }
-.singleButtonFixed{
-    width:60%;
-    height:45px;
-    font-size:18px;
-    background:linear-gradient(45deg,#8898EB,#6045BB);
-    position:fixed;
+
+.singleButtonFixed {
+    width: 60%;
+    height: 45px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #8898EB, #6045BB);
+    position: fixed;
     bottom: 15px;
     margin-left: 20%;
     border-radius: 26px;
@@ -100,47 +354,52 @@ MARGIN-LEFT: auto;width: 100%;;height: 240px;background: #FFFFFF;z-index:9999999
     line-height: 38px;
     letter-spacing: 2px;
     box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
+    cursor: pointer;
+    border: none;
     opacity: 0.95;
 }
-.doubleButtonFixed{
-    width:86%;
-    height:45px;
-    position:fixed;
-    bottom:15px;
-    left:7%;
-    font-size:18px
+
+.doubleButtonFixed {
+    width: 86%;
+    height: 45px;
+    position: fixed;
+    bottom: 15px;
+    left: 7%;
+    font-size: 18px
 
 }
-.doubleButton{
-    width:86%;
-    height:45px;
-    position:absolute;
-    bottom:15px;
-    left:7%;
-    font-size:18px;
+
+.doubleButton {
+    width: 86%;
+    height: 45px;
+    position: absolute;
+    bottom: 15px;
+    left: 7%;
+    font-size: 18px;
 
 }
-.doubleButtonLeft{
+
+.doubleButtonLeft {
     /*border:1px solid #f0f0f0;*/
-    border-top:1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
     color: #6045BB;
-    background:#ffffff;
+    background: #ffffff;
     border-radius: 25px 0 0 25px;
 }
-.doubleButtonLeft,.doubleButtonRight{
-    display:inline-block;
-    width:49.9%;
-    height:45px;
+
+.doubleButtonLeft, .doubleButtonRight {
+    display: inline-block;
+    width: 49.9%;
+    height: 45px;
     line-height: 48px;
     text-align: center;
     box-shadow: 0 6px 6px #ccc;
 }
-.doubleButtonRight{
-    margin-left:-4% ;
-    background:linear-gradient(45deg,#8898EB,#6045BB);
-    color:#fff;
+
+.doubleButtonRight {
+    margin-left: -4%;
+    background: linear-gradient(45deg, #8898EB, #6045BB);
+    color: #fff;
     box-shadow: 0 6px 6px #ccc;
-    border-radius:  0 25px 25px 0;
+    border-radius: 0 25px 25px 0;
 }
