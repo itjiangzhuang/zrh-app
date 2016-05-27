@@ -81,10 +81,10 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/my_message.html',
             controller: 'MyMessages'
         })
-        .when('/user/wind_control', {//风控标准
-            templateUrl: templates_root + 'user/wind_control.html',
-            controller: 'WindControlCtrl'
-        })
+        //.when('/user/wind_control', {//风控标准
+        //    templateUrl: templates_root + 'user/wind_control.html',
+        //    controller: 'WindControlCtrl'
+        //})
         .when('/user/wallet', {//我的钱包
             templateUrl: templates_root + 'user/wallet.html',
             controller: 'WalletCtrl'
