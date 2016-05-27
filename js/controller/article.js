@@ -114,28 +114,16 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
 
 articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
-    $scope.createArticle = $rootScope.getSessionObject("create_article");
-
-    if (!$scope.createArticle) {
-        $scope.createArticle = {};
-        $scope.createArticle.license = {};
-    } else {
-        if (!$scope.createArticle.license) {
-            $scope.createArticle.license = {};
-        }
-    }
+    
 
     $scope.getFormToken = function () {
         $http({
             url: api_uri + "api/article/formToken",
             method: "GET",
-            params: {
-                "userId": $rootScope.login_user.userId,
-                "token": $rootScope.login_user.token
-            }
+            params: $rootScope.login_user
         }).success(function (d) {
             if (d.returnCode == 0) {
-                $scope.createArticle.formToken = d.result;
+                $scope.article.formToken = d.result;
             }
             else {
                 console.log(d);
@@ -146,27 +134,39 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         })
     };
     $scope.changeLoanValue = function () {
-        $scope.createArticle.loanValue = $("#loanValue").val();
+        $scope.article.loanValue = $("#loanValue").val();
         $scope.$apply();
     };
 
     $scope.changeLoanLife = function () {
-        $scope.createArticle.loanLife = $("#loanLife").val();
+        $scope.article.loanLife = $("#loanLife").val();
         $scope.$apply();
     };
 
     $scope.changeRateCap = function () {
-        $scope.createArticle.rateCap = $("#rateCap").val();
+        $scope.article.rateCap = $("#rateCap").val();
         $scope.$apply();
     };
 
     $scope.changeRateFloor = function () {
-        $scope.createArticle.rateFloor = $("#rateFloor").val();
+        $scope.article.rateFloor = $("#rateFloor").val();
         $scope.$apply();
     };
 
     $scope.init = function () {
-        if (!$scope.createArticle.id || isNullOrEmpty($scope.createArticle.id)) {
+    	
+    	$scope.article = $rootScope.getSessionObject("article");
+
+		if (!$scope.article) {
+		    $scope.article = {};
+		    $scope.article.license = {};
+		} else {
+		    if (!$scope.article.license) {
+		    	$scope.article.license = {};
+		    }
+		}
+    	
+        if (!$scope.article.formToken) {
             $scope.getFormToken();
         }
 
@@ -197,76 +197,23 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     };
     $scope.init();
     $scope.choose_classification = function () {
-        $rootScope.putSessionObject("create_article", $scope.createArticle);
+        $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/classification/create");
     };
 
 
     $scope.create_license = function () {
-        $rootScope.putSessionObject("create_article", $scope.createArticle);
+        $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/license/create");
     };
 
-    params = {
-        "id": $scope.createArticle.id,
-        "userId": $rootScope.login_user.userId,
-        "token": $rootScope.login_user.token,
-        "formToken": $scope.createArticle.formToken
-    };
-
-
     $scope.next_step = function () {
-        if (!isNullOrEmpty($scope.createArticle.loanValue)) {
-            params.loanValue = $scope.createArticle.loanValue;
-        }
-        if (!isNullOrEmpty($scope.createArticle.loanLife)) {
-            params.loanLife = $scope.createArticle.loanLife;
-        }
-        if (!isNullOrEmpty($scope.createArticle.rateCap)) {
-            params.rateCap = $scope.createArticle.rateCap;
-        }
-        if (!isNullOrEmpty($scope.createArticle.rateFloor)) {
-            params.rateFloor = $scope.createArticle.rateFloor;
-        }
-        if (!isNullOrEmpty($scope.createArticle.classification)) {
-            params.classification = $scope.createArticle.classification;
-        }
+        
 
-        if (!isNullOrEmpty($scope.createArticle.license.businessName)) {
-            params.businessName = $scope.createArticle.license.businessName;
-        } else {
-            alert("请完善公司名称");
-            $scope.create_license();
-        }
-        if (!isNullOrEmpty($scope.createArticle.license.regTime)) {
-            params.regTime = $scope.createArticle.license.regTime;
-        }
-        if (!isNullOrEmpty($scope.createArticle.license.businessType)) {
-            params.businessType = $scope.createArticle.license.businessType;
-        }
-        if (!isNullOrEmpty($scope.createArticle.license.regFunds)) {
-            params.regFunds = $scope.createArticle.license.regFunds;
-        }
-        if (!isNullOrEmpty($scope.createArticle.license.licenseImgs)) {
-            params.licenseImgs = $scope.createArticle.license.licenseImgs;
-            params.licenseImgNames = $scope.createArticle.license.licenseImgNames;
-        }
-        if (!isNullOrEmpty($scope.createArticle.license.corporateRepresentative)) {
-            params.corporateRepresentative = $scope.createArticle.license.corporateRepresentative;
-        }
+        $rootScope.putSessionObject("article", $scope.article);
+        $location.path("/article/step2");
+//      $scope.$apply();
 
-        $.post(api_uri + "api/article/createStep1", params,
-            function (data) {
-                if (data.returnCode == 0) {
-                    $rootScope.removeSessionObject("create_article");          
-                    $location.path("/article/step2/"+data.result);
-                    $scope.$apply();
-                } else {
-                    $rootScope.removeObject("create_article");
-                    console.log(data);
-                }
-            },
-            "json");
     };
 
 });
@@ -274,7 +221,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
     if ($routeParams.op == "create") {
-        $scope.article = $rootScope.getSessionObject("create_article");
+        $scope.article = $rootScope.getSessionObject("article");
     } else if ($routeParams.op == "update") {
         $scope.article = $rootScope.getSessionObject("article");
     } else {
@@ -382,7 +329,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
     $scope.choose_type = function () {
         $scope.article.license = $scope.license;
         if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("create_article", $scope.article);
+            $rootScope.putSessionObject("article", $scope.article);
             $location.path("/article/businessType/create");
         } else if ($routeParams.op == "update") {
             $rootScope.putSessionObject("article", $scope.article);
@@ -446,59 +393,19 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
     $scope.init = function () {
     	$scope.article = $rootScope.getSessionObject("article");
-    	if(!$scope.article){
-    		
-        	$http({
-	            url: api_uri + "api/article/updateStep2",
-	            method: "GET",
-	            params: {
-	            	"id": $routeParams.id,
-			        "userId": $rootScope.login_user.userId,
-			        "token": $rootScope.login_user.token
-	            }
-	        }).success(function (data) {
-	            if (data.returnCode == 0) {
-	                $scope.article = {};
-                    $scope.article.id = $routeParams.id;
-                    $scope.article.pledgeType = data.result.pledgeType;
-                    $scope.article.pledge = data.result.pledge;
-                    $scope.article.pledgeImgs = data.result.pledgeImg;
-                    $scope.article.financialInfo = data.result.financialInfo;
-                    $scope.article.financialImgs = data.result.financialImg;
-                    $scope.article.credit = data.result.credit;
-                    $scope.article.continualOperateYear = data.result.continualOperateYear;
-                    $scope.article.continualPublicYear = data.result.continualPublicYear;
-                    $scope.article.businessContact = data.result.businessContact;
-                    $scope.article.corporateResidence = data.result.corporateResidence;
-                    $scope.article.advantagesImgs = data.result.advantagesImg;
-                    $scope.article.advantages = data.result.advantages;
-
-                    console.log($scope.article);
-                    
-                    $scope.check($scope.article.pledgeType);
-					
-					if (!$scope.article.pledgeImgs) {
-					    $scope.article.pledgeImgs = [];
-					    $scope.article.pledgeImgNames = [];
-					}
-					if (!$scope.article.financialImgs) {
-					    $scope.article.financialImgs = [];
-					    $scope.article.financialImgNames = [];
-					}
-					if (!$scope.article.advantagesImgs) {
-					    $scope.article.advantagesImgs = [];
-					    $scope.article.advantagesImgNames = [];
-					}
-	            }else {
-	                console.log(data);
-	            }
-	
-	        }).error(function (d) {
-	            console.log("login error");
-	        });
-	        
-	        
-    	};
+    	if(!$scope.article.pledgeImgs){
+    		$scope.article.pledgeImgs = [];
+    		$scope.article.pledgeImgNames = [];
+    	}
+    	if(!$scope.article.financialImgs){
+    		$scope.article.financialImgs = [];
+    		$scope.article.financialImgNames = [];
+    	}
+    	if(!$scope.article.advantagesImgs){
+    		$scope.article.advantagesImgs = [];
+    		$scope.article.advantagesImgNames = [];
+    	}
+    	$scope.check($scope.article.pledgeType);
         $http({
             url: api_uri + "api/qiniu/getUpToken",
             method: "GET",
@@ -694,16 +601,61 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
         $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/credit");
     };
-
-    $scope.save = function () {
-	    var params = {
-	        "id": $routeParams.id,
-	        "userId": $rootScope.login_user.userId,
-	        "token": $rootScope.login_user.token
-	    };
-	    $scope.article.pledge = $("#pledge").text();
+    
+    $scope.save_div = function(){
+    	$scope.article.pledge = $("#pledge").text();
     	$scope.article.financialInfo = $("#financialInfo").text();
     	$scope.article.advantages = $("#advantages").text();
+    };
+    
+    $scope.validate_params = function(){
+    	var params = {
+	        "id": "",
+	        "userId": $rootScope.login_user.userId,
+	        "token": $rootScope.login_user.token,
+	        "formToken":$scope.article.formToken
+	    };
+	    
+	    if (!isNullOrEmpty($scope.article.loanValue)) {
+            params.loanValue = $scope.article.loanValue;
+        }
+        if (!isNullOrEmpty($scope.article.loanLife)) {
+            params.loanLife = $scope.article.loanLife;
+        }
+        if (!isNullOrEmpty($scope.article.rateCap)) {
+            params.rateCap = $scope.article.rateCap;
+        }
+        if (!isNullOrEmpty($scope.article.rateFloor)) {
+            params.rateFloor = $scope.article.rateFloor;
+        }
+        if (!isNullOrEmpty($scope.article.classification)) {
+            params.classification = $scope.article.classification;
+        }
+
+        if (!isNullOrEmpty($scope.article.license.businessName)) {
+            params.businessName = $scope.article.license.businessName;
+        } else {
+            alert("请完善公司名称");
+            $scope.create_license();
+        }
+        if (!isNullOrEmpty($scope.article.license.regTime)) {
+            params.regTime = $scope.article.license.regTime;
+        }
+        if (!isNullOrEmpty($scope.article.license.businessType)) {
+            params.businessType = $scope.article.license.businessType;
+        }
+        if (!isNullOrEmpty($scope.article.license.regFunds)) {
+            params.regFunds = $scope.article.license.regFunds;
+        }
+        if (!isNullOrEmpty($scope.article.license.licenseImgs)) {
+            params.licenseImgs = $scope.article.license.licenseImgs;
+            params.licenseImgNames = $scope.article.license.licenseImgNames;
+        }
+        if (!isNullOrEmpty($scope.article.license.corporateRepresentative)) {
+            params.corporateRepresentative = $scope.article.license.corporateRepresentative;
+        }
+	    
+	    $scope.save_div();
     	
         if (!isNullOrEmpty($scope.article.pledgeType)) {
             params.pledgeType = $scope.article.pledgeType;
@@ -741,8 +693,13 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
             params.advantagesImgs = $scope.article.advantagesImgs.join(",");
             params.advantagesImgNames = $scope.article.advantagesImgNames.join(",");
         }
+        return params;
+    };
+
+    $scope.save = function () {
+	    var params = $scope.validate_params();
         console.log(params);
-        $.post(api_uri + "api/article/createStep2", params,
+        $.post(api_uri + "api/article/save", params,
             function (data) {
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("article");
@@ -756,8 +713,29 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     };
 
     $scope.release = function () {
-    	console.log($scope.article);
-        alert("发布项目");
+    	
+    	var params = $scope.validate_params();
+        console.log(params);
+        $.post(api_uri + "api/article/save", params,
+            function (data) {
+                if (data.returnCode == 0) {
+                    $rootScope.removeSessionObject("article");
+ 
+                    $.post(api_uri + "api/article/release/"+data.result, $rootScope.login_user,
+			            function (d) {
+			                if (data.returnCode == 0) {		                    
+			                    $location.path("/article/show/"+data.result);
+			                    $scope.$apply();
+			                } else {
+			                    console.log(d);
+			                }
+			            },
+		            "json");
+                } else {
+                    console.log(data);
+                }
+            },
+            "json");
     };
 });
 
@@ -803,15 +781,15 @@ articleCtrl.controller('CreditCtrl', function ($http, $scope, $rootScope, $locat
                 $scope.article.credit = obj.name;
             }
         }
-         $rootScope.putSessionObject("article", $scope.article);
-            $location.path("/article/step2/" + $scope.article.id);
+        $rootScope.putSessionObject("article", $scope.article);
+        $location.path("/article/step2");
 
     };
 });
 
 articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
     if ($routeParams.op == "create") {
-        $scope.article = $rootScope.getSessionObject("create_article");
+        $scope.article = $rootScope.getSessionObject("article");
     } else if ($routeParams.op == "update") {
         $scope.article = $rootScope.getSessionObject("article");
     } else {
@@ -856,7 +834,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
             }
         }
         if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("create_article", $scope.article);
+            $rootScope.putSessionObject("article", $scope.article);
             $location.path("/article/create/step1");
         } else if ($routeParams.op == "update") {
             $rootScope.putSessionObject("article", $scope.article);
@@ -867,7 +845,7 @@ articleCtrl.controller('ClassificationCtrl', function ($http, $scope, $rootScope
 
 articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, $location, $routeParams) {
     if ($routeParams.op == "create") {
-        $scope.article = $rootScope.getSessionObject("create_article");
+        $scope.article = $rootScope.getSessionObject("article");
     } else if ($routeParams.op == "update") {
         $scope.article = $rootScope.getSessionObject("article");
     } else {
@@ -909,7 +887,7 @@ articleCtrl.controller('BusinessTypeCtrl', function ($http, $scope, $rootScope, 
             }
         }
         if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("create_article", $scope.article);
+            $rootScope.putSessionObject("article", $scope.article);
             $location.path("/article/license/create");
         } else if ($routeParams.op == "update") {
             $rootScope.putSessionObject("article", $scope.article);
@@ -928,9 +906,9 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
     $scope.init = function () {
         if (!$routeParams.id || isNullOrEmpty($routeParams.id)) {
             $location.path("/article/list");
-        }
-
-        $scope.article = $rootScope.getSessionObject("article");
+        }        
+        $scope.article = $rootScope.getSessionObject("article");       
+        
         if (!$scope.article) {
         	params.id = $routeParams.id
         	$http({
@@ -946,13 +924,8 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
                     $scope.article.rateCap = data.result.rateCap;
                     $scope.article.rateFloor = data.result.rateFloor;
                     $scope.article.classification = data.result.classification;
-                    $scope.article.license = {};
-                    $scope.article.license.businessName = data.result.businessName;
-                    $scope.article.license.regTime = data.result.regTime;
-                    $scope.article.license.businessType = data.result.businessType;
-                    $scope.article.license.regFunds = data.result.regFunds;
-                    $scope.article.license.licenseImgs = data.result.licenseImgs;
-                    $scope.article.license.corporateRepresentative = data.result.corporateRepresentative;
+                    $scope.article.license = data.result.license;
+                    
                     console.log($scope.article);
 	            }
 	            else {
@@ -965,9 +938,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         } else {
             $rootScope.removeSessionObject("article");
         }
-
-         $("#treelist").aomuntmoney();
-
+        $("#treelist").aomuntmoney();
 
         $('#rate').daterate();//利率选择
         $('#term').dateterm();//期限选择
@@ -976,14 +947,6 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         });
     };
 
-    $scope.setStyle_div = function (args) {
-        if (args) {
-            return "setafter";
-        } else {
-            return "reqName";
-        }
-    };
-    
     $scope.changeLoanValue = function () {
         $scope.article.loanValue = $("#loanValue").val();
         $scope.$apply();
@@ -1004,6 +967,14 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         $scope.$apply();
     };
 
+    $scope.setStyle_div = function (args) {
+        if (args) {
+            return "setafter";
+        } else {
+            return "reqName";
+        }
+    }
+
     $scope.setStyle_div2 = function (arg1, arg2) {
         if (arg1 && arg2) {
             return "setafter";
@@ -1011,70 +982,25 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
             return "reqName";
         }
     };
-
     $scope.init();
-
     $scope.choose_classification = function () {
         $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/classification/update");
+        $location.path("/article/classification/create");
     };
+
 
     $scope.create_license = function () {
         $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/license/update");
+        $location.path("/article/license/create");
     };
 
     $scope.next_step = function () {
-         if (!isNullOrEmpty($scope.article.loanValue)) {
-            params.loanValue = $scope.article.loanValue;
-        }
-        if (!isNullOrEmpty($scope.article.loanLife)) {
-            params.loanLife = $scope.article.loanLife;
-        }
-        if (!isNullOrEmpty($scope.article.rateCap)) {
-            params.rateCap = $scope.article.rateCap;
-        }
-        if (!isNullOrEmpty($scope.article.rateFloor)) {
-            params.rateFloor = $scope.article.rateFloor;
-        }
-        if (!isNullOrEmpty($scope.article.classification)) {
-            params.classification = $scope.article.classification;
-        }
+        
 
-        if (!isNullOrEmpty($scope.article.license.businessName)) {
-            params.businessName = $scope.article.license.businessName;
-        } else {
-            alert("请完善公司名称");
-            $scope.create_license();
-        }
-        if (!isNullOrEmpty($scope.article.license.regTime)) {
-            params.regTime = $scope.article.license.regTime;
-        }
-        if (!isNullOrEmpty($scope.article.license.businessType)) {
-            params.businessType = $scope.article.license.businessType;
-        }
-        if (!isNullOrEmpty($scope.article.license.regFunds)) {
-            params.regFunds = $scope.article.license.regFunds;
-        }
-        if (!isNullOrEmpty($scope.article.license.licenseImgs)) {
-            params.licenseImgs = $scope.article.license.licenseImgs.join(",");
-            params.licenseImgNames = $scope.article.license.licenseImgNames.join(",");
-        }
-        if (!isNullOrEmpty($scope.article.license.corporateRepresentative)) {
-            params.corporateRepresentative = $scope.article.license.corporateRepresentative;
-        }
+        $rootScope.putSessionObject("article", $scope.article);
+        $location.path("/article/step2");
+//      $scope.$apply();
 
-        $.post(api_uri + "api/article/createStep1", params,
-            function (data) {
-                if (data.returnCode == 0) {
-                    $location.path("/article/update/step2/" + $scope.article.id);
-                    $scope.$apply();
-                } else {
-                    console.log(data);
-                }
-            },
-            "json");
-//       $location.path("/article/update/step2");
     };
 
 });

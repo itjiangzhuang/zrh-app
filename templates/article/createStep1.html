@@ -5,14 +5,6 @@
     </div>
     <div class="information">基本信息</div>
     <div class="showInformation">
-        <div class=" required" ng-click="create_license()">
-            <div ng-class="setStyle_div2(createArticle.license.regTime,createArticle.license.businessName)">
-                <span class="reqNameSpan1" ng-hide="createArticle.license.regTime && createArticle.license.businessName"></span>
-                <span class="reqNameSpan2" >营业执照</span>
-            </div>
-            <div class="reqTips">{{createArticle.license.regTime || '请上传您公司的营业执照'}}</div>
-            <span class="setupimg"></span>
-        </div>
          <div class=" required" id="aomuntmoney">
              <!--<div class=" required" ng-click="choose_loanValue()" id="aomuntmoney">    -->
              <div ng-class="setStyle_div(createArticle.loanValue)">
@@ -54,7 +46,14 @@
              <div class="reqTips" >{{createArticle.classification || '请选择您的行业'}}</div>
              <span class="setupimg"></span>
          </div>
-
+         <div class=" required" ng-click="create_license()">
+             <div ng-class="setStyle_div2(createArticle.license.regTime,createArticle.license.businessName)">
+                 <span class="reqNameSpan1" ng-hide="createArticle.license.regTime && createArticle.license.businessName"></span>
+                 <span class="reqNameSpan2" >营业执照</span>
+             </div>
+             <div class="reqTips">{{createArticle.license.regTime || '请上传您公司的营业执照'}}</div>
+             <span class="setupimg"></span>
+         </div>
          <input type="submit" value="下一步" class="next" ng-click="next_step()"/>
          <!--插件中加的div-->
          <div id="datePlugin"></div>
