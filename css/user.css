@@ -954,7 +954,7 @@ canvas {
     outline: none;
     border: none;
     position: absolute;
-    z-index: -1;
+    z-index: -100;
     left: 45%;
     margin-top: -18px;
 }
@@ -1044,10 +1044,14 @@ canvas {
     border: none;
     border-radius: 20px;
     font-size: 18px;
-    position: fixed;
-    bottom: 2%;
-    right: 15%;
-    color: #888888;
+    /*position: fixed;*/
+    /*bottom: 2%;*/
+    /*right: 15%;*/
+    /*color: #888888;*/
+    position:absolute;
+    bottom:15px;
+    right:15%;
+    color:#888888;
     letter-spacing: 2px;
 
 }

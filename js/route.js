@@ -38,7 +38,7 @@ myApp.config(function ($routeProvider) {
             controller: 'ArticleShowCtrl'
         })
         .when('/article/create/step1', {//创建第一步
-            templateUrl: templates_root + 'article/createStep1.html',
+            templateUrl: templates_root + 'article/step1.html',
             controller: 'ArticleCreateStep1Ctrl'
         })
         .when('/article/update/step1/:id', {//更新第一步
@@ -49,7 +49,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/license.html',
             controller: 'ArticleLicenseCtrl'
         })
-        .when('/article/step2/:id', {//创建第二步
+        .when('/article/step2', {//创建第二步
             templateUrl: templates_root + 'article/step2.html',
             controller: 'ArticleStep2Ctrl'
         })
