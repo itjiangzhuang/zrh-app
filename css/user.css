@@ -166,6 +166,12 @@ canvas{
     transition: all 0.05s;
     left: -40%;
     background:#868EE3;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-action: none;
+    user-select: none;
+    touch-action: none;
 }
 .asideHide li{
     color:#fff;
@@ -213,6 +219,12 @@ canvas{
     transition: all .05s;
     bottom: 0%;
     background-size: 20%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-touch-action: none;
+    user-select: none;
+    touch-action: none;
 }
 /*弹出左边栏*/
 #tm {
