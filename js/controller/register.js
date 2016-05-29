@@ -23,31 +23,6 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	              $scope.changeErrorMsg(""); 
 	        }, 5000);
 	}
-	
-	$scope.validate_mobile = function(){
-		if(isNullOrEmpty($scope.registerUser.mobile)){
-			$scope.changeErrorMsg("手机号码不能为空");
-			$("#mobile").focus();
-		}else{
-			$http({
-	            url: api_uri+"api/reg/validateMobile",
-	            method: "GET",
-	            params: {"mobile":$scope.registerUser.mobile}           
-	        }).success(function (d) {
-	            if (d.returnCode == 0) {
-	                $scope.enableMobile = true;
-	                $("#send_sms").focus();
-	            }
-	            else {
-	            	$scope.enableMobile =false;
-	            	$scope.changeErrorMsg(d.result);
-	            }
-	
-	        }).error(function (d) {
-	            console.log("login error");
-	        })
-		}  
-	}
 
 	//发送短信 倒计时
 	$scope.sms_second = 60;
@@ -66,29 +41,47 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	}
 
 	$scope.send_code = function(){
-		$scope.validate_mobile();
-		if($scope.enableMobile){			
-			$scope.times();			
+		if(isNullOrEmpty($scope.registerUser.mobile)){
+			$scope.changeErrorMsg("手机号码不能为空");
+			$("#mobile").focus();
+		}else{
 			$http({
-	            url: api_uri+"api/reg/sendSms",
+	            url: api_uri+"api/reg/validateMobile",
 	            method: "GET",
-	            params: {
-	            	"mobile":$scope.registerUser.mobile,
-	            	"token":$rootScope.encryptByDES($scope.registerUser.mobile),
-	            	"timestamp":moment().format('X')
-	            }
+	            params: {"mobile":$scope.registerUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
-                    $scope.changeErrorMsg("短信验证码已经发送到你的手机");
+	                $scope.enableMobile = true;
+	                $scope.times();			
+					$http({
+			            url: api_uri+"api/reg/sendSms",
+			            method: "GET",
+			            params: {
+			            	"mobile":$scope.registerUser.mobile,
+			            	"token":$rootScope.encryptByDES($scope.registerUser.mobile),
+			            	"timestamp":moment().format('X')
+			            }
+			        }).success(function (d) {
+			            if (d.returnCode == 0) {
+			                $scope.changeErrorMsg("短信验证码已经发送到你的手机");
+			            }
+			            else {
+			                 $scope.changeErrorMsg(d.returnCode);
+			            }
+			
+			        }).error(function (d) {
+			            console.log("login error");
+			        })
 	            }
 	            else {
-	                 $scope.changeErrorMsg(d.returnCode);
+	            	$scope.enableMobile =false;
+	            	$scope.changeErrorMsg("手机号错误");
 	            }
 	
 	        }).error(function (d) {
 	            console.log("login error");
 	        })
-		}		
+		}  		
 	}
 	
 	$scope.changeCode = function(){
@@ -97,7 +90,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 		}else{
 			$scope.isVerify= false;
 		}	   
-	}
+	};
 	
 	
 	$scope.validateCode = function(){
@@ -117,59 +110,76 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	            console.log("login error");
 	        })	
 		}		
-	}
+	};
 	
 });
 
-registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams,$timeout) {
 
 	$scope.registerUser = {
 		"mobile":$routeParams.mobile,
 		"password":"",
 		"validatePwd":"",
 		"token":$routeParams.token
-	}
+	};
+	
+	$scope.changeErrorMsg = function(msg){
+		$scope.error_msg = msg;
+		$timeout(function() {  
+	              $scope.changeErrorMsg(""); 
+	        }, 5000);
+	};
 	
 	$scope.user_register = function(){
-		$http({
-            url: api_uri+"api/reg/regist",
-            method: "POST",
-            params: $scope.registerUser
-        }).success(function (d) {
-            if (d.returnCode == 0) {
-            	alert("注册成功");
-            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
-                $http({
-		            url: api_uri+"api/auth/web",
-		            method: "POST",
-		            params: {
-		            	"mobile":$scope.registerUser.mobile,
-		            	"password":$scope.registerUser.password
-		            }
-		        }).success(function (d) {
-		            if (d.returnCode == 0) {
-						$rootScope.login_user = {
-		            		"userId":d.result.split("_")[0],
-		            		"token":d.result.split("_")[1]
-		            	}
-						$rootScope.putObject("login_user", $rootScope.login_user);
-		            	$location.path("/article/list");
-		            }
-		            else {
-		            	$scope.changeErrorMsg(d.result);
-		                console.log(d);
-		            }
-		        }).error(function (d) {
-		            console.log("login error");
-		        })	 
-            }
-            else {
-                console.log(d);
-            }
-        }).error(function (d) {
-            console.log("login error");
-        })	
-	}
+		
+		var reg_str = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,12}$/;
+		if($scope.registerUser.password==$scope.registerUser.validatePwd &&reg_str.test($scope.registerUser.password)){
+			$http({
+	            url: api_uri+"api/reg/regist",
+	            method: "POST",
+	            params: $scope.registerUser
+	        }).success(function (d) {
+	            if (d.returnCode == 0) {
+	            	alert("注册成功");
+	            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
+	                $http({
+			            url: api_uri+"api/auth/web",
+			            method: "POST",
+			            params: {
+			            	"mobile":$scope.registerUser.mobile,
+			            	"password":$scope.registerUser.password
+			            }
+			        }).success(function (d) {
+			            if (d.returnCode == 0) {
+							$rootScope.login_user = {
+			            		"userId":d.result.split("_")[0],
+			            		"token":d.result.split("_")[1]
+			            	}
+							$rootScope.putObject("login_user", $rootScope.login_user);
+			            	$location.path("/article/list");
+			            }
+			            else {
+			            	$scope.changeErrorMsg(d.result);
+			                console.log(d);
+			            }
+			        }).error(function (d) {
+			            console.log("login error");
+			        })	 
+	            }
+	            else {
+	                console.log(d);
+	            }
+	        }).error(function (d) {
+	            console.log("login error");
+	        })	
+		}else{
+			if($scope.registerUser.password!=$scope.registerUser.validatePwd){
+				$scope.changeErrorMsg("两次密码输入的不一致");
+			}else if(!reg_str.test($scope.registerUser.password)){
+				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母");
+			}
+		}	
+	};
 	
 });
 
@@ -177,7 +187,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	$scope.resetUser = {
 		"mobile":"",
 		"code":""
-	}	
+	};	
 	$scope.isVerify = false;//是否允许下一步
 	
 	$scope.enableMobile = false;//手机号码是否可用
@@ -189,32 +199,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 		$timeout(function() {  
 	              $scope.changeErrorMsg(""); 
 	        }, 5000);
-	}
-	
-	$scope.validate_mobile = function(){
-		if(isNullOrEmpty($scope.resetUser.mobile)){
-			$scope.changeErrorMsg("手机号码不能为空");
-			$("#mobile").focus();
-		}else{
-			$http({
-	            url: api_uri+"api/reg/validateMobile",
-	            method: "GET",
-	            params: {"mobile":$scope.resetUser.mobile}           
-	        }).success(function (d) {
-	            if (d.returnCode == 1001) {
-	                $scope.enableMobile = true;
-	            }
-	            else {
-	            	$scope.enableMobile =false;
-	            	$scope.changeErrorMsg(d.returnCode);
-	                console.log(d);
-	            }
-	
-	        }).error(function (d) {
-	            console.log("login error");
-	        })
-		}  
-	}
+	};
 
 	//发送短信 倒计时
 	$scope.sms_second = 60;
@@ -230,33 +215,52 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 			 $scope.send_sms = true;
 			 $scope.sms_second = 60;
 		}
-	}
+	};
 
 	$scope.send_code = function(){
-		if($scope.enableMobile){			
-			$scope.times();			
+		if(isNullOrEmpty($scope.resetUser.mobile)){
+			$scope.changeErrorMsg("手机号码不能为空");
+			$("#mobile").focus();
+		}else{
 			$http({
-	            url: api_uri+"api/reg/sendSms2",
+	            url: api_uri+"api/reg/validateMobile",
 	            method: "GET",
-	            params: {
-	            	"mobile":$scope.resetUser.mobile,
-	            	"token":$rootScope.encryptByDES($scope.registerUser.mobile),
-	            	"timestamp":moment().format('X')
-	            }
+	            params: {"mobile":$scope.resetUser.mobile}           
 	        }).success(function (d) {
-	            if (d.returnCode == 0) {
-	            	$("#code").focus();
-                    alert("短信验证码已经发送到你的手机");
+	            if (d.returnCode == 1001) {
+	            	$scope.enableMobile = true;
+	                $scope.times();	
+					$http({
+			            url: api_uri+"api/reg/sendSms2",
+			            method: "GET",
+			            params: {
+			            	"mobile":$scope.resetUser.mobile,
+			            	"token":$rootScope.encryptByDES($scope.resetUser.mobile),
+			            	"timestamp":moment().format('X')
+			            }
+			        }).success(function (d) {
+			            if (d.returnCode == 0) {
+			            	$("#code").focus();
+		                    $scope.changeErrorMsg("短信验证码已经发送到你的手机");
+			            }
+			            else {
+			                $scope.changeErrorMsg(d.result);
+			            }
+			
+			        }).error(function (d) {
+			            console.log("login error");
+			        })
 	            }
 	            else {
-	                $scope.changeErrorMsg(d.result);
+	            	$scope.enableMobile =false;
+	            	$scope.changeErrorMsg("手机号错误");
 	            }
 	
 	        }).error(function (d) {
 	            console.log("login error");
 	        })
-		}		
-	}
+		}  
+	};
 	
 	$scope.changeCode = function(){
 		if($scope.enableMobile && !isNullOrEmpty($scope.resetUser.code)){
@@ -264,7 +268,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 		}else{
 			$scope.isVerify= false;
 		}	   
-	}
+	};
 	
 	
 	$scope.validateCode = function(){
@@ -284,7 +288,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	            console.log("login error");
 	        })	
 		}		
-	}
+	};
 	
 });
 
@@ -295,7 +299,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 		"password":"",
 		"validatePwd":"",
 		"token":$routeParams.token
-	}
+	};
 	
 	$scope.user_reset = function(){
 		$http({
@@ -335,7 +339,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
         }).error(function (d) {
             console.log("login error");
         })	
-	}
+	};
 	
 });
 
