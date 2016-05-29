@@ -1,10 +1,10 @@
-<div class="found-step1" style="margin-bottom: 0">
+<div class="found-step1">
     <div class="tittle">{{article.classification}}</div>
     <lable class="amount">
         <div>融资金额</div>
         <div class="countDiv"> {{article.loanValue}}<span>万</span></div>
     </lable>
-    <div class="expect">
+    <div class="expect clear">
         <div class="expect_border">
             <p>营业执照</p>
             <span>{{article.regTime}}</span>
@@ -18,17 +18,16 @@
             <span class="rate">{{article.rateCap}}%-{{article.rateFloor}}%</span>
         </div>
     </div>
-    <div style="clear:both"></div>
     <div class="line"></div>
     <ul class="message">
         <li class="img"></li>
         <li class="messageli2">推荐人成交率</li>
         <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
     </ul>
-</div>
+
 <div class="displayFrame">
     <div ng-repeat="message in message_list">
-        <div ng-class="{true:'mycon clear',false:'othercon clear'}[message.self]">
+        <div ng-class="{true:'mycon',false:'othercon'}[message.self]">
             <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
                 <span ng-class="{true:'spanImg',false:'spanImgOther'}[message.self]"></span>
                 <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
@@ -37,14 +36,43 @@
         </div>
     </div>
 </div>
-<form novalidate class="speakForm clear">
-    <div class="fixed-box">
-        <div class="speak fl" contenteditable="true" id="content"></div>
-        <input type="submit" class="speakBtn fr" ng-click="sendMessage()"/>
-    </div>
-</form>
+    <div class="speak" contenteditable="true" id="content">
+         </div>
+   <!-- <textarea class="speak fl" id="content" rows=1 cols=40 style='overflow:scroll;
+    overflow-y:hidden;;overflow-x:hidden' onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onblur="clearInterval(this.clock);">
+    </textarea>-->
+    <!--<hr class="textBottomLine" />-->
+    <input type="submit" class="speakBtn fr" ng-click="sendMessage()"/>
+<!--<form novalidate class="speakForm clear"></form>-->
+  <!--  <div class="fixed-box">1231313
+    </div>-->
 
+</div>
 <script>
+    $(function () {
+//        alert($(window).height());
+        var ibc = $(window).height() - 223;
+//        alert(ibc);
+       $(".displayFrame").css("height",ibc+"px");
+//        $(".found-step1").scrollTop = $(".found-step1").scrollHeight;
+        $(".speak").keydown(function(){
+//            $("div").html("Key: " + event.which);
+//            $('.found-step1').scrollTop( $('.found-step1').scrollHeight );
+            $('.found-step1').scrollTop($('.found-step1')[0].scrollHeight);
+            $('.ng-scope').scrollTop( $('.ng-scope')[0].scrollHeight );
+//            $("#div1").animate({ scrollTop: $('#div1')[0].scrollHeight}, 1000);
+        });
+        $('#content').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                $(".speakBtn").click();
+                $("#content").text("");
+            }
+        });
+    });
+
+</script>
+<!--<script>
     $(function () {
         setTimeout(function () {
             $('.displayFrame').animate({scrollTop: $('.displayFrame')[0].scrollHeight}, 500);
@@ -71,4 +99,4 @@
         });
     });
 
-</script>
+</script>-->

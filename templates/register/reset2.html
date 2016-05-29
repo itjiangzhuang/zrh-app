@@ -3,7 +3,7 @@
         <div> {{error_msg}}</div>
     </div>
 	<div style="background: #ffffff">
-		<input type="password" placeholder="请输入密码" class="phoneCode" ng-model="resetUser.password">
+		<input type="password" placeholder="请输入密码(数字+字母)" class="phoneCode" ng-model="resetUser.password">
 	    <input type="password" placeholder="请再次输入密码" class="phoneCode" ng-model="resetUser.validatePwd">
     </div>
     <input type='button'class="regRelease" value="重置" ng-click="user_reset()"/>

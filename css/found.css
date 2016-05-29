@@ -1,17 +1,18 @@
 .found-step1 {//公用
     width: 100%;
-    margin-bottom: 6px;
+    /*margin-bottom: 6px;*/
     background: #fff;
-    border: 1px solid transparent;
+    /*border: 1px solid transparent;*/
     border-top: none;
     border-right: none;
-    position: relative;
+    /*position: relative;*/
     /*-webkit-user-select: none;*/
     /*-moz-user-select: none;*/
     /*-ms-user-select: none;*/
     /*-ms-touch-action: none;*/
     /*user-select: none;*/
     /*touch-action: none;*/
+    overflow: auto;
 }
 
 .tittle {

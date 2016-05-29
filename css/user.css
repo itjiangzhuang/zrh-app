@@ -325,8 +325,6 @@ canvas{
    margin-top: 8px;
     width:40px;
     height:40px;
-    /*border-radius:100%;*/
-    /*border: 1px solid black;*/
    float: right;
 }
 .userSetIcon{
@@ -358,18 +356,33 @@ canvas{
 
 /*聊天室样式开始*/
 .displayFrame{
-    width:100%;
-    height:calc(100% - 255px);
+    /*width:100%;*/
+    /*height:calc(100% - 255px);*/
+    /*height:200px;*/
     /*border:1px solid red;*/
+    border: none;
+    background: #f0f0f0;
     overflow-x: hidden;
-    overflow-y: auto;
-    position:fixed;
-    top:195px;
+    overflow-y: scroll;
+    position: relative;
+    /*position:fixed;*/
+    /*top:195px;*/
 
     /*min-height:45px;*/
 }
+.fixed-box{
+    height: 15px;
+    width: 100%;
+    /*z-index: 100;*/
+    position: relative;
+}
+.mycon{
+    overflow-x: hidden;
+    width: 100%;
+}
 
 .myFrame{
+    /*background: url("../img/icon/setup.png") no-repeat;*/
     width:100%;
     min-height: 40px;
     margin-top:20px;
@@ -387,7 +400,7 @@ canvas{
     float: right;
 }
 .otherFrame span{
-    display:inline-block ;
+    /*display:inline-block ;*/
     float: left;
 }
 
@@ -457,34 +470,55 @@ canvas{
 }
 
 .speakForm{
+    padding-top: 10px;
     width:100%;
+    background: #f0f0f0;
+    /*margin-bottom: 15px;*/
    /* position:fixed;
     bottom: 0px;*/
 }
 .speak{
-    position: absolute;
-    bottom: 8px;
-    width: calc(100% - 110px);
+    vertical-align: center;
+  /*  position: relative;
+    bottom: 10px;*/
+    border: none;
+  /*  position: fixed;
+    bottom: 8px;*/
+    /*margin-bottom: 15px;*/
+    /*width: calc(100% - 110px);*/
+    width: 100%;
+    background: #f0f0f0;
     line-height: 20px;
-    min-height: 40px;
-    max-height: 200px;
+    min-height: 42px;
+    max-height: 120px;
     _height: 120px;
-    margin-left: 15px;
-    padding: 10px;
+    /*margin-left: 15px;*/
+    padding-top: 22px;
+    padding-left: 15px;
+    padding-right: 70px;
     outline: 0;
-    border: 1px solid #f0f0f0;
+    /*border: 1px solid #f0f0f0;*/
     font-size: 16px;
-    word-wrap: break-word;
+    /*word-wrap: break-word;*/
     overflow-x: hidden;
-    overflow-y: auto;
-    _overflow-y: visible;
+    overflow-y: visible;
+    _overflow-y: hidden;
     background: #fff;
-    z-index:9999;
+    overflow-wrap: break-word;
+    /*z-index:9999;*/
+}
+.textBottomLine{
+    position: fixed;
+    bottom: 15px;
+    width: 80%;
+    background: blue;
+    height: 1px;
 }
 .speakBtn{
     width:65px;
     position: fixed;
-    bottom: 10px;
+    /*bottom: 15px;*/
+    bottom: 0px;
     right: 15px;
     height:40px;
     border:none;
