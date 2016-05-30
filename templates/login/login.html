@@ -1,9 +1,4 @@
 <div class="regForm1">
-    <div class="prompt">
-        <div  ng-show="error_msg">
-            {{error_msg}}
-        </div>
-    </div>
 	<div style="background: #ffffff">
 		<input type="text" placeholder="请输入手机号" class="phoneCode"
 			ng-model="loginUser.mobile" maxlength="11"
@@ -11,9 +6,19 @@
 	    <input type="password" placeholder="请输入密码" class="phoneCode" maxlength="12"
 	    	ng-model="loginUser.password"/>
     </div>
-    <p class="forget" ng-click="reset()">忘记密码</p>
+    <div class="clear">
+        <div class="prompt fl">
+            <div  ng-show="error_msg">
+                {{error_msg}}
+            </div>
+        </div>
+        <p class="forget fr" ng-click="reset()">忘记密码</p>
+    </div>
     <input  type="submit" class="regRelease" value="登录" ng-click="login()"/>
-    <div class="newUser" ng-click="register()">注册新用户</div>
+    <div style="text-align: center">
+        <div class="newUser">未注册的用户，请点击</div>
+        <div class="newUser" style="color: #868ee3" ng-click="register()">注册新用户</div>
+    </div>
 
 
 </div>
