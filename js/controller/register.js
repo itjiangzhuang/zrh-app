@@ -342,7 +342,11 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })
 	    }else{
-	    	
+	    	if($scope.registerUser.password!=$scope.registerUser.validatePwd){
+				$scope.changeErrorMsg("两次密码输入的不一致");
+			}else if(!reg_str.test($scope.registerUser.password)){
+				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母(6-12位)");
+			}
 	    }
 	};
 	
