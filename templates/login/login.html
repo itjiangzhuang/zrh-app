@@ -6,8 +6,9 @@
     </div>
 	<div style="background: #ffffff">
 		<input type="text" placeholder="请输入手机号" class="phoneCode"
-			ng-model="loginUser.mobile" onkeyup="value=value.replace(/[^\d{1,}\d{1,}|\d{1,}]/g,'')"/>
-	    <input type="password" placeholder="请输入密码" class="phoneCode"
+			ng-model="loginUser.mobile" maxlength="11"
+               onkeyup="if(event.keyCode !=37 && event.keyCode != 39){if (! /^\d+$/ig.test(this.value)){this.value=this.value.replace(/[^\d]/ig,'')}}"/>
+	    <input type="password" placeholder="请输入密码" class="phoneCode" maxlength="12"
 	    	ng-model="loginUser.password"/>
     </div>
     <p class="forget" ng-click="reset()">忘记密码</p>
