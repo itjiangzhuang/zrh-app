@@ -454,6 +454,13 @@ userCtrl.controller('SettingCtrl', //用户设置
         };
         $scope.init();
 
+        $scope.update = function(key,value){
+        	if(!isNullOrEmpty(key) ){    
+        		if(isNullOrEmpty(value)) value = "";
+        	   $rootScope.putSessionObject("user_update",key+"="+value);
+        	   $location.path("/user/update");
+        	}
+        };
 
         $scope.logout =  function(){
             $http({
@@ -483,3 +490,42 @@ userCtrl.controller('WalletCtrl',
             $location.path("/user/bankCard");
         }
     }]);
+
+
+userCtrl.controller('UserUpdateCtrl',
+    ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+        
+        $scope.init = function(){
+        	var user_update = $rootScope.getSessionObject("user_update");
+	        if(user_update && user_update.indexOf("=")){
+	        	$rootScope.removeObject("user_update");
+	        	$scope.update_user = {};
+	        	$scope.update_user.key = user_update.split("=")[0];
+	        	$scope.update_user.value = user_update.split("=")[1];
+	        }
+        };
+       
+        $scope.init();
+        
+        $scope.sure = function(){
+        	var params = $rootScope.login_user;
+        	params.key = $scope.update_user.key;
+        	params.value = $scope.update_user.value;
+        	console.log(params);
+        	var keys = ["name","email"];
+        	if($.inArray(params.key, keys)>=0){
+        		$.post(api_uri + "api/user/update", params,
+			    function (data) {
+			        if (data.returnCode == 0) {
+			            
+			        } else {
+			            console.log(data);
+			        }
+		  	    },
+			   "json");
+        	}
+        	$location.path("/user/setting");
+        };
+        
+        
+}]);

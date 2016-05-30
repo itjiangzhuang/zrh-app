@@ -125,5 +125,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'article/bank.html',
             controller: 'ArticleBankCtrl'
         })
+        .when('/user/update', {//用户更改参数
+            templateUrl: templates_root + 'user/update.html',
+            controller: 'UserUpdateCtrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 });
