@@ -361,11 +361,9 @@ userCtrl.controller('SettingCtrl', //用户设置
             $http({
 		        url: api_uri + "api/user/setting",
 		        method: "GET",
-		        params: {
-		            "userId": $rootScope.login_user.userId,
-		            "token": $rootScope.login_user.token
-		        }
+		        params: $rootScope.login_user
 		    }).success(function (d) {
+		    	console.log(d);
 		        if (d.returnCode == 0) {
 		            $scope.user = d.result;		          
 		        }else {
@@ -374,7 +372,6 @@ userCtrl.controller('SettingCtrl', //用户设置
 		    }).error(function (d) {
 		        console.log(d);
 		    });        	
-        	
         	
 			$http({
 		        url: api_uri + "api/qiniu/getUpToken",
