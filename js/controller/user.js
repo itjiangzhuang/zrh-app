@@ -357,9 +357,23 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 userCtrl.controller('SettingCtrl', //用户设置
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.init = function () {
-            //TODO 获取用户信息
-        	$scope.user = {};
-        	
+            //获取用户信息
+            $http({
+		        url: api_uri + "api/user/setting",
+		        method: "GET",
+		        params: {
+		            "userId": $rootScope.login_user.userId,
+		            "token": $rootScope.login_user.token
+		        }
+		    }).success(function (d) {
+		        if (d.returnCode == 0) {
+		            $scope.user = d.result;		          
+		        }else {
+		            console.log(d);
+		        }
+		    }).error(function (d) {
+		        console.log(d);
+		    });        	
         	
         	
 			$http({
