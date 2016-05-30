@@ -119,7 +119,6 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
             "bank":"/article/bank/"+$routeParams.id,//待约见银行
             "mobile":"/article/mobile/"+$routeParams.id//约见信息
         };
-//	    alert(obj[op]);
         $location.path(obj[op]);
     };
 
@@ -172,11 +171,12 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
     $scope.init = function () {
     	
     	$scope.article = $rootScope.getSessionObject("article");
-
+		
 		if (!$scope.article) {
 		    $scope.article = {};
 		    $scope.article.license = {};
 		} else {
+			$rootScope.removeSessionObject("article");
 		    if (!$scope.article.license) {
 		    	$scope.article.license = {};
 		    }
@@ -202,7 +202,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
         } else {
             return "reqName";
         }
-    }
+    };
 
     $scope.setStyle_div2 = function (arg1, arg2) {
         if (arg1 && arg2) {
@@ -245,7 +245,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
     $scope.changeRegTime = function () {
         $scope.license.regTime = $("#regTime").val();
         $scope.$apply();
-    }
+    };
 
     $scope.init = function () {    	
     	$scope.license = $scope.article.license;
@@ -356,7 +356,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
     $scope.sure = function () {
         $scope.article.license = $scope.license;
         if ($routeParams.op == "create") {
-            $rootScope.putSessionObject("create_article", $scope.article);
+            $rootScope.putSessionObject("article", $scope.article);
             $location.path("/article/create/step1");
         } else if ($routeParams.op == "update") {
             $rootScope.putSessionObject("article", $scope.article);
@@ -608,6 +608,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     $scope.init();
 
     $scope.choose_credit = function () {
+    	$scope.save_div();
         $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/credit");
     };
@@ -616,13 +617,6 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     	$scope.article.pledge = $("#pledge").text();
     	$scope.article.financialInfo = $("#financialInfo").text();
     	$scope.article.advantages = $("#advantages").text();
-    };
-    
-    
-
-    $scope.create_license = function () {
-        $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/license/create");
     };
     
     $scope.validate_params = function(){
@@ -1001,7 +995,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         } else {
             return "reqName";
         }
-    }
+    };
 
     $scope.setStyle_div2 = function (arg1, arg2) {
         if (arg1 && arg2) {
@@ -1013,13 +1007,13 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
     $scope.init();
     $scope.choose_classification = function () {
         $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/classification/create");
+        $location.path("/article/classification/update");
     };
 
 
     $scope.create_license = function () {
         $rootScope.putSessionObject("article", $scope.article);
-        $location.path("/article/license/create");
+        $location.path("/article/license/update");
     };
 
     $scope.next_step = function () {

@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="required1">
-    <div class="xushu" contenteditable="true">{{article.pledge || '请具体描述下抵押物的金额、权属情况、股票号等信息。'}}</div>
+    <div class="xushu" contenteditable="true" id="pledge">{{article.pledge || '请具体描述下抵押物的金额、权属情况、股票号等信息。'}}</div>
 </div>
 <div class="loadLie clear" >
 	<div class="img-list fl" ng-repeat="pledgeImg in article.pledgeImgs" ng-click="removePledgeImg($index)">
@@ -61,7 +61,7 @@
         <span class="reqNameSpan2">财务信息（应收 资产规模）</span>
     </div>
     <!--<input type="text" placeholder="点击加号添加财务报表图片" ng-model="article.financialInfo"/>-->
-    <div class="requiredDivInput" contenteditable="true">{{article.financialInfo || '点击加号添加财务报表图片'}}</div>
+    <div class="requiredDivInput" contenteditable="true" id="financialInfo">{{article.financialInfo || '点击加号添加财务报表图片'}}</div>
 </div>
 
 <div class="loadLie clear" >
@@ -92,7 +92,7 @@
         <span class="reqNameSpan2">公司优势</span>
     </div>
     <!--<input type="text" placeholder="请输入公司的其他贷款优势" ng-model="article.advantages" />-->
-    <div class="requiredDivInput" contenteditable="true">{{article.advantages || '请输入公司的其他贷款优势。'}}</div>
+    <div class="requiredDivInput" contenteditable="true" id="advantages">{{article.advantages || '请输入公司的其他贷款优势。'}}</div>
 </div>
 <div class="loadLie clear">
 	<div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs" ng-click="removeAdvantagesImg($index)">
