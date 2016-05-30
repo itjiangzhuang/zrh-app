@@ -1,10 +1,11 @@
 <div class="regForm1">
     <div class="prompt">
+        <div style="color: green"> {{success_msg}}</div>
        <div> {{error_msg}}</div>
     </div>
 	<div style="background: #ffffff">
-		<input type="password" placeholder="请输入密码(数字+字母)" class="phoneCode" ng-model="registerUser.password">
-	    <input type="password" placeholder="请再次输入密码" class="phoneCode" ng-model="registerUser.validatePwd">
+		<input type="password" placeholder="请输入密码(数字+字母 6-12位)" ng-change="textChange(resetUser.password)" class="phoneCode" maxlength="12" ng-model="registerUser.password">
+	    <input type="password" placeholder="请再次输入密码" ng-change="textChange2(resetUser.validatePwd)" class="phoneCode" maxlength="12" ng-model="registerUser.validatePwd">
     </div>
 
     <input type='button' class="regRelease" value="注册" ng-click="user_register()"/>
