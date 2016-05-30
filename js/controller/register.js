@@ -292,7 +292,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	
 });
 
-registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams) {
+registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $location,$routeParams,$timeout) {
 
 	$scope.resetUser = {
 		"mobile":$routeParams.mobile,
@@ -301,9 +301,18 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 		"token":$routeParams.token
 	};
 	
+	$scope.error_msg = "";
+	
+	$scope.changeErrorMsg = function(msg){
+		$scope.error_msg = msg;
+		$timeout(function() {  
+	              $scope.changeErrorMsg(""); 
+	        }, 5000);
+	};
+	
 	$scope.user_reset = function(){
 		var reg_str = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,12}$/;
-		if($scope.registerUser.password==$scope.registerUser.validatePwd &&reg_str.test($scope.registerUser.password)){
+		if($scope.resetUser.password==$scope.resetUser.validatePwd &&reg_str.test($scope.resetUser.password)){
 			$http({
 	            url: api_uri+"api/reg/reset",
 	            method: "POST",
@@ -342,9 +351,9 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })
 	    }else{
-	    	if($scope.registerUser.password!=$scope.registerUser.validatePwd){
+	    	if($scope.resetUser.password!=$scope.resetUser.validatePwd){
 				$scope.changeErrorMsg("两次密码输入的不一致");
-			}else if(!reg_str.test($scope.registerUser.password)){
+			}else if(!reg_str.test($scope.resetUser.password)){
 				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母(6-12位)");
 			}
 	    }
