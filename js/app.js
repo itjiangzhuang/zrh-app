@@ -19,6 +19,8 @@ var myApp = angular.module('myApp', [
 myApp.run(['$location', '$rootScope', '$http',
     function ($location, $rootScope, $http) {
 
+        $rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
+
         // 页面跳转后
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 //          var present_route = $location.$$path; //获取当前路由
