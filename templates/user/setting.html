@@ -4,15 +4,20 @@
         <span class="userSetIcon">></span>
         <img class="userSetContent" id="pickfiles" src="{{user.headImg || 'img/icon/recommendl.png'}}">
     </div>
-    <div class="userSet">
+    <div class="userSet" ng-click="update('name',user.name)">
         <span>昵称</span>
         <span class="userSetIcon">></span>
-        <span class="userSetContent">{{user.nickname || '未完善'}}</span>
+        <span class="userSetContent">{{user.name || '未完善'}}</span>
     </div>
     <div class="userSet">
-        <span>更改手机号</span>
+        <span>手机号</span>
         <span class="userSetIcon"> ></span>
         <span class="userSetContent">{{user.mobile}}</span>
+    </div>
+    <div class="userSet" ng-click="update('email',user.email)">
+        <span>邮箱</span>
+        <span class="userSetIcon"> ></span>
+        <span class="userSetContent">{{user.email}}</span>
     </div>
     <div class="userSet">
         <span>修改密码</span>
