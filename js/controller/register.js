@@ -22,7 +22,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 		$timeout(function() {  
 	              $scope.changeErrorMsg(""); 
 	        }, 5000);
-	}
+	};
 
 	//发送短信 倒计时
 	$scope.sms_second = 60;
@@ -45,14 +45,14 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 			$scope.changeErrorMsg("手机号码不能为空");
 			$("#mobile").focus();
 		}else{
+			$scope.times();	
 			$http({
 	            url: api_uri+"api/reg/validateMobile",
 	            method: "GET",
 	            params: {"mobile":$scope.registerUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
-	                $scope.enableMobile = true;
-	                $scope.times();			
+	                $scope.enableMobile = true;	                		
 					$http({
 			            url: api_uri+"api/reg/sendSms",
 			            method: "GET",
@@ -70,7 +70,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 			            }
 			
 			        }).error(function (d) {
-			            console.log("login error");
+			            $scope.changeErrorMsg("连接到服务器的网络异常");
 			        })
 	            }
 	            else {
@@ -79,10 +79,10 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	            }
 	
 	        }).error(function (d) {
-	            console.log("login error");
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })
 		}  		
-	}
+	};
 	
 	$scope.changeCode = function(){
 		if($scope.enableMobile && !isNullOrEmpty($scope.registerUser.code)){
@@ -107,7 +107,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	            	$scope.changeErrorMsg(d.result);
 	            }
 	        }).error(function (d) {
-	            console.log("login error");
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })	
 		}		
 	};
@@ -140,7 +140,7 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 	            params: $scope.registerUser
 	        }).success(function (d) {
 	            if (d.returnCode == 0) {
-	            	alert("注册成功");
+//	            	alert("注册成功");
 	            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
 	                $http({
 			            url: api_uri+"api/auth/web",
@@ -163,20 +163,20 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 			                console.log(d);
 			            }
 			        }).error(function (d) {
-			            console.log("login error");
+			            $scope.changeErrorMsg("连接到服务器的网络异常");
 			        })	 
 	            }
 	            else {
 	                console.log(d);
 	            }
 	        }).error(function (d) {
-	            console.log("login error");
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })	
 		}else{
 			if($scope.registerUser.password!=$scope.registerUser.validatePwd){
 				$scope.changeErrorMsg("两次密码输入的不一致");
 			}else if(!reg_str.test($scope.registerUser.password)){
-				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母");
+				$scope.changeErrorMsg("密码强度不够,必须包含数字和字母(6-12位)");
 			}
 		}	
 	};
@@ -222,14 +222,14 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 			$scope.changeErrorMsg("手机号码不能为空");
 			$("#mobile").focus();
 		}else{
+			$scope.times();	
 			$http({
 	            url: api_uri+"api/reg/validateMobile",
 	            method: "GET",
 	            params: {"mobile":$scope.resetUser.mobile}           
 	        }).success(function (d) {
 	            if (d.returnCode == 1001) {
-	            	$scope.enableMobile = true;
-	                $scope.times();	
+	            	$scope.enableMobile = true;	                
 					$http({
 			            url: api_uri+"api/reg/sendSms2",
 			            method: "GET",
@@ -257,7 +257,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	            }
 	
 	        }).error(function (d) {
-	            console.log("login error");
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })
 		}  
 	};
@@ -285,7 +285,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	            	$scope.changeErrorMsg(d.result);
 	            }
 	        }).error(function (d) {
-	            console.log("login error");
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
 	        })	
 		}		
 	};
@@ -302,43 +302,48 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 	};
 	
 	$scope.user_reset = function(){
-		$http({
-            url: api_uri+"api/reg/reset",
-            method: "POST",
-            params: $scope.resetUser
-        }).success(function (d) {
-            if (d.returnCode == 0) {
-            	alert("重置密码成功");
-            	$rootScope.putObject("login_mobile",$scope.resetUser.mobile);
-                $http({
-		            url: api_uri+"api/auth/web",
-		            method: "POST",
-		            params: {
-		            	"mobile":$scope.resetUser.mobile,
-		            	"password":$scope.resetUser.password
-		            }
-		        }).success(function (d) {
-		            if (d.returnCode == 0) {
-						$rootScope.login_user = {
-		            		"userId":d.result.split("_")[0],
-		            		"token":d.result.split("_")[1]
-		            	}
-						$rootScope.putObject("login_user", $rootScope.login_user);
-		            	$location.path("/article/list");
-		            }
-		            else {
-		                console.log(d);
-		            }
-		        }).error(function (d) {
-		            console.log("login error");
-		        })	 
-            }
-            else {
-                console.log(d);
-            }
-        }).error(function (d) {
-            console.log("login error");
-        })	
+		var reg_str = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,12}$/;
+		if($scope.registerUser.password==$scope.registerUser.validatePwd &&reg_str.test($scope.registerUser.password)){
+			$http({
+	            url: api_uri+"api/reg/reset",
+	            method: "POST",
+	            params: $scope.resetUser
+	        }).success(function (d) {
+	            if (d.returnCode == 0) {
+	            	alert("重置密码成功");
+	            	$rootScope.putObject("login_mobile",$scope.resetUser.mobile);
+	                $http({
+			            url: api_uri+"api/auth/web",
+			            method: "POST",
+			            params: {
+			            	"mobile":$scope.resetUser.mobile,
+			            	"password":$scope.resetUser.password
+			            }
+			        }).success(function (d) {
+			            if (d.returnCode == 0) {
+							$rootScope.login_user = {
+			            		"userId":d.result.split("_")[0],
+			            		"token":d.result.split("_")[1]
+			            	}
+							$rootScope.putObject("login_user", $rootScope.login_user);
+			            	$location.path("/article/list");
+			            }
+			            else {
+			                console.log(d);
+			            }
+			        }).error(function (d) {
+			            $scope.changeErrorMsg("连接到服务器的网络异常");
+			        })	 
+	            }
+	            else {
+	                console.log(d);
+	            }
+	        }).error(function (d) {
+	            $scope.changeErrorMsg("连接到服务器的网络异常");
+	        })
+	    }else{
+	    	
+	    }
 	};
 	
 });
