@@ -7,14 +7,11 @@ var userCtrl = angular.module('userCtrl', []);
 userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $location) {
 
     $scope.init = function () {
-        //TODO 获取个人信息 以及各种列表数量
+        //获取个人信息 以及各种列表数量
          $http({
             url: api_uri + "api/user/center",
             method: "GET",
-            params: {
-                "userId": $rootScope.login_user.userId,
-                "token": $rootScope.login_user.token
-            }
+            params: $rootScope.login_user
         }).success(function (d) {
             console.log(d);
             if (d.returnCode == 0) {
@@ -23,6 +20,7 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
                 $scope.batting = d.result.batting;
                 $scope.ms = d.result.ms;
                 $scope.cs = d.result.cs;
+                $scope.headImg = d.result.headImg;
             }else {
                 console.log(d);
             }
@@ -357,10 +355,21 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 userCtrl.controller('SettingCtrl', //用户设置
     ['$scope','$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
         $scope.init = function () {
-            //TODO 获取用户信息
-        	$scope.user = {};
-        	
-        	
+            //获取用户信息
+            $http({
+		        url: api_uri + "api/user/setting",
+		        method: "GET",
+		        params: $rootScope.login_user
+		    }).success(function (d) {
+		    	console.log(d);
+		        if (d.returnCode == 0) {
+		            $scope.user = d.result;		          
+		        }else {
+		            console.log(d);
+		        }
+		    }).error(function (d) {
+		        console.log(d);
+		    });        	
         	
 			$http({
 		        url: api_uri + "api/qiniu/getUpToken",

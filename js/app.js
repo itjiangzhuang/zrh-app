@@ -19,6 +19,8 @@ var myApp = angular.module('myApp', [
 myApp.run(['$location', '$rootScope', '$http',
     function ($location, $rootScope, $http) {
 
+        $rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
+
         // 页面跳转后
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 //          var present_route = $location.$$path; //获取当前路由
@@ -123,9 +125,6 @@ myApp.run(['$location', '$rootScope', '$http',
         };
 
         $rootScope.check_user = function () {
-        	
-        	$rootScope.qiniu_bucket_domain = "o793l6o3p.bkt.clouddn.com";
-        	
             $rootScope.login_user = $rootScope.getObject("login_user");
             //console.log($rootScope.login_user);
             if (!$rootScope.login_user) {
@@ -138,18 +137,17 @@ myApp.run(['$location', '$rootScope', '$http',
                 method: "POST",
                 params: $rootScope.login_user
             }).success(function (d) {
-                console.log(d);
                 if (d.returnCode == 0) {
                     console.log("login success");
                     return true;
                 } else {
+                	$rootScope.login_user = {};
                     $rootScope.removeObject("login_user");
                     //$location.path("/login");
                     return false;
                 }
 
             }).error(function (d) {
-                console.log(d);
                 $rootScope.removeObject("login_user");
                 //$location.path("/login");
                 return false;
