@@ -26,9 +26,62 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
     $scope.changeErrorMsg = function(msg){
 		$scope.error_msg = msg;
 		$timeout(function() {  
-	              $scope.changeErrorMsg(""); 
+            //$scope.changeErrorMsg("");
+            $scope.error_msg = "";
 	        }, 5000);
 	};
+    $scope.textChange =function(e){
+            $scope.error_msg = ""
+    }
+    $scope.loginUser = {
+        "mobile":"",
+        "code":""
+    };
+    $scope.ngBlur = function(){
+        if(isNullOrEmpty($scope.loginUser.mobile)){
+            $scope.changeErrorMsg("手机号码不能为空");
+            //$scope.error_msg = "手机号码不能为空"
+            $("#mobile").focus();
+        }else{
+            $http({
+                url: api_uri+"api/reg/validateMobile",
+                method: "GET",
+                params: {"mobile":$scope.loginUser.mobile}
+            }).success(function (d) {
+                if (d.returnCode == 1001) {
+                    $scope.enableMobile = true;
+                    $scope.times();
+                    $http({
+                        url: api_uri+"api/reg/sendSms2",
+                        method: "GET",
+                        params: {
+                            "mobile":$scope.loginUser.mobile,
+                            "token":$rootScope.encryptByDES($scope.loginUser.mobile),
+                            "timestamp":moment().format('X')
+                        }
+                    }).success(function (d) {
+                        if (d.returnCode == 0) {
+                            $("#code").focus();
+                            $scope.changeErrorMsg("短信验证码已经发送到你的手机");
+                        }
+                        else {
+                            $scope.changeErrorMsg(d.result);
+                        }
+
+                    }).error(function (d) {
+                        console.log("login error");
+                    })
+                }
+                else {
+                    $scope.enableMobile =false;
+                    $scope.changeErrorMsg("手机号错误");
+                }
+
+            }).error(function (d) {
+                console.log("login error");
+            })
+        }
+    };
     $scope.login = function () {
         var m_params = $scope.loginUser;
         if (!check_params(m_params)) return;
@@ -51,7 +104,8 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             	if(!msg){
             		msg = "登录失败";
             	}
-            	$scope.changeErrorMsg(msg);
+                $scope.error_msg = msg;
+            	//$scope.changeErrorMsg(msg);
             }
 
         }).error(function (d) {

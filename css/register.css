@@ -2,6 +2,7 @@
 .forget{
     font-size: 14px;
     margin-top: 10px;
+    /*margin-bottom: 18px;*/
     position: absolute;
     right: 15px;
     line-height: 18px;
@@ -13,7 +14,7 @@
     width:100%;
     font-size: 18px;
     position:relative;
-    /*padding-top: 40px;*/
+    padding-top: 40px;
 }
 .Verification{
     width:100%;
@@ -22,13 +23,12 @@
     height:50px;
 }
 .newUser{
-    width:40%;
+    display: inline-block;
     height:40px;
     margin-top: 20px;
     font-size: 14px;
-    margin-left: 30%;
-    text-align: center;
     cursor:pointer;
+    margin-left: -6px;
 }
 .phoneCode{
     width:100%;
@@ -71,7 +71,7 @@
      cursor:pointer;
      border:none;
      margin-left: 20%;
-     margin-top: 56px;
+     margin-top: 18px;
 }
 .hideClass{
      width:60%;
@@ -79,7 +79,7 @@
      font-size:20px;
      background:#e0e0e0;
      margin-left: 20%;
-     margin-top: 30px;
+     margin-top: 18px;
      border-radius: 26px;
      text-align: center;
      color: #888888;
@@ -89,12 +89,14 @@
      border:none;
  }
  .prompt{
-     height: 40px;
+     margin-top: 10px;
+     height: 28px;
      /*width:50%;*/
      /*text-align: center;*/
-     font-size: 12px;
+     line-height: 18px;
+     font-size: 14px;
      color:#f97383;
      margin-left:15px;
-     padding-top: 20px;
+
  }
 /*register1样式结束*/

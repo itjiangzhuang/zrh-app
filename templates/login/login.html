@@ -1,7 +1,7 @@
 <div class="regForm1">
 	<div style="background: #ffffff">
-		<input type="text" placeholder="请输入手机号" class="phoneCode"
-			ng-model="loginUser.mobile" maxlength="11"
+		<input type="text" placeholder="请输入手机号" class="phoneCode" ng-blur="ngBlur()"
+			ng-model="loginUser.mobile" maxlength="11" ng-change="textChange(loginUser.mobile)"
                onkeyup="if(event.keyCode !=37 && event.keyCode != 39){if (! /^\d+$/ig.test(this.value)){this.value=this.value.replace(/[^\d]/ig,'')}}"/>
 	    <input type="password" placeholder="请输入密码" class="phoneCode" maxlength="12"
 	    	ng-model="loginUser.password"/>
@@ -17,7 +17,7 @@
     <input  type="submit" class="regRelease" value="登录" ng-click="login()"/>
     <div style="text-align: center">
         <div class="newUser">未注册的用户，请点击</div>
-        <div class="newUser" style="color: #868ee3" ng-click="register()">注册新用户</div>
+        <div class="newUser" style="color: #868ee3;margin-left: -5px" ng-click="register()">注册新用户</div>
     </div>
 
 
