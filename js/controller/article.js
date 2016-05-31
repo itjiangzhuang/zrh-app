@@ -1081,21 +1081,20 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     		$scope.message_list = [];
     	}
 //  	//定时执行消息获取
-	    var promise = $interval(function(){
-			$scope.otherList();
-		},1000);
-		$scope.$on('$destroy',function(){
-			$interval.cancel(promise);
-		});
+//	    var promise = $interval(function(){
+//			$scope.otherList();
+//		},1000);
+//		$scope.$on('$destroy',function(){
+//			$interval.cancel(promise);
+//		});
 //		$timeout(function() {  
 //            $scope.otherList();
 //      }, 1000);
-
+        $scope.otherList();
     };
 
 
     $scope.otherList = function () {
-    	console.log($rootScope.getObject("lt_" + $routeParams.id + "_" + $routeParams.userId));
         //获取别人消息的列表 加入数组
         $http({
             url: api_uri + "api/articleComments/otherList/" + $routeParams.id + "/" + $routeParams.userId,
@@ -1118,6 +1117,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
             else {
                 console.log(d);
             }
+            $scope.otherList();
         }).error(function (d) {
             console.log(d);
         });
