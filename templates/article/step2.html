@@ -52,7 +52,8 @@
     <div ng-class="setStyle_div(article.credit)">
         <span class="reqNameSpan2">贷款方式</span>
     </div>
-    <div class="reqTips">{{article.credit || '请选择贷款方式'}}</div>
+    <div class="reqTips" ng-hide="article.credit">请选择贷款方式</div>
+    <div class="reqTipsafter" ng-show="article.credit">{{article.credit}}</div>
     <span class="setupimg"></span>
 </div>
 
