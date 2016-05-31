@@ -31,7 +31,7 @@
         <ul class="message" ng-hide="operate.admin">
             <li class="img"></li>
             <li class="messageli2">推荐人成交率</li>
-            <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
+            <li class="messageli3">{{batting.success || '0'}}/{{batting.total}}</li>
         </ul>
         <div ng-show="operate.admin">
 	        <div class="progressDetail">
