@@ -51,7 +51,8 @@
                  <span class="reqNameSpan1" ng-hide="article.classification"></span>
                  <span class="reqNameSpan2">行业分类</span>
              </div>
-             <div class="reqTips" >{{article.classification || '请选择您的行业'}}</div>
+             <div class="reqTips" ng-hide="article.classification">{{article.classification || '请选择您的行业'}}</div>
+             <div class="reqTipsafter" ng-show="article.classification">{{article.classification || '请选择您的行业'}}</div>
              <span class="setupimg"></span>
          </div>
 

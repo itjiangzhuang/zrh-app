@@ -75,7 +75,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
                 }
                 else {
                     $scope.enableMobile =false;
-                    $scope.changeErrorMsg("手机号错误");
+                    $scope.changeErrorMsg("手机号未注册");
                 }
 
             }).error(function (d) {

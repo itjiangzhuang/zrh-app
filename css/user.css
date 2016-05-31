@@ -152,7 +152,7 @@ canvas{
     -moz-background-size:70%;
     background-size:100%;
     position:absolute;
-    right:0%;
+    right:15px;
     top:11px;
 }
 /*侧边框设置*/
@@ -235,19 +235,37 @@ canvas{
 #tm:checked ~ .containerDisplay {
     background:#ffffff;
     filter: alpha(Opacity=50);
-    -moz-opacity:0.5;opacity: 0.5;
-    transform: translateX(40%);
+    -moz-opacity:0.5;
+    -webkit-opacity:0.5;
+    opacity: 0.5;
+    transform:translateX(40%);
+    -ms-transform:translateX(40%); 	/* IE 9 */
+    -moz-transform:translateX(40%); 	/* Firefox */
+    -webkit-transform:translateX(40%); /* Safari 和 Chrome */
+    -o-transform:translateX(40%); 	/* Opera */
     height: 100%; position:fixed;
 }
 #tm:checked ~ .af {
     transform: translateX(40%);
+    -ms-transform:translateX(40%); 	/* IE 9 */
+    -moz-transform:translateX(40%); 	/* Firefox */
+    -webkit-transform:translateX(40%); /* Safari 和 Chrome */
+    -o-transform:translateX(40%);
 }
 #tm:checked ~ .cartBack {
     display: block;
     transform: translateX(40%);
+    -ms-transform:translateX(40%); 	/* IE 9 */
+    -moz-transform:translateX(40%); 	/* Firefox */
+    -webkit-transform:translateX(40%); /* Safari 和 Chrome */
+    -o-transform:translateX(40%);
 }
 #tm:checked ~ .asideHide {
     transform: translateX(100%);
+    -ms-transform:translateX(100%); 	/* IE 9 */
+    -moz-transform:translateX(100%); 	/* Firefox */
+    -webkit-transform:translateX(100%); /* Safari 和 Chrome */
+    -o-transform:translateX(100%);
 }
 /*问题中心*/
 .question_list{

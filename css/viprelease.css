@@ -512,10 +512,13 @@ body{
 
 }
 .xushu{
-    width:92%;
+    /*width:92%;*/
     font-size:14px;
     line-height: 18px;
-    margin-top: 15px;
+    /*padding-left: 15px;*/
+    min-height:15px ;
+    max-height: 200px;
+
     color:#888888;
     border:1px solid transparent;
 
