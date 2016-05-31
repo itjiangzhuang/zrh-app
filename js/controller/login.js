@@ -5,6 +5,7 @@
 var loginCtrl = angular.module('loginCtrl', []);
 
 loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location,$timeout) {
+    $scope.$root.title = "登陆";
 	$scope.loginUser = {
         "mobile": "",
         "password": ""

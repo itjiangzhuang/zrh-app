@@ -1,14 +1,17 @@
-<div class="regForm1">
-	
-	
-	<div style="background: #ffffff" ng-switch="update_user.key">
-		<input type="text" placeholder="" class="phoneCode" 
-			maxlength="12" ng-switch-when="name" ng-model="update_user.value">
-			
-		<input type="email" placeholder="" class="phoneCode" 
-		 ng-switch-when="email" ng-model="update_user.value">
-	    
-  </div>
+<div class="regForm1"  ng-switch="update_user.key">
+	<div ng-switch-when="name">
+		<input type="text" placeholder="输入昵称" class="phoneCode"
+			   maxlength="12"  ng-model="update_user.value">
+		<p style="height: 28px"></p>
+		<input type='button' class="regRelease" value="确定"ng-click="sure()"/>
 
-  <input type='button' class="regRelease" value="确定" ng-click="sure()"/>
+	</div>
+	<div ng-switch-when="email">
+		<input type="email" placeholder="请输入邮箱" class="phoneCode"
+			   ng-model="update_user.value">
+		<div class="prompt">
+			<div> {{error_msg}}</div>
+		</div>
+		<input type='button' class="regRelease" value="确定" ng-click="checkEmail()"/>
+	</div>
 </div>

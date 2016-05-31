@@ -453,6 +453,10 @@ userCtrl.controller('SettingCtrl', //用户设置
 	       
         };
         $scope.init();
+        $scope.reset = function(){
+            $location.path("/register/reset1");
+        };
+
 
         $scope.update = function(key,value){
         	if(!isNullOrEmpty(key) ){    
@@ -526,6 +530,13 @@ userCtrl.controller('UserUpdateCtrl',
         	}
         	$location.path("/user/setting");
         };
-        
+        $scope.checkEmail = function(){
+            var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if(reg.test($scope.update_user.value)){
+                $scope.sure();
+            }else{
+                $scope.error_msg = "邮箱格式不正确"
+            }
+        }
         
 }]);

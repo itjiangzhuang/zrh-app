@@ -11,7 +11,7 @@
     </div>
     <div class="userSet">
         <span>手机号</span>
-        <span class="userSetIcon"> ></span>
+        <!--<span class="userSetIcon"> ></span>-->
         <span class="userSetContent">{{user.mobile}}</span>
     </div>
     <div class="userSet" ng-click="update('email',user.email)">
@@ -22,7 +22,7 @@
     <div class="userSet">
         <span>修改密码</span>
         <span class="userSetIcon"> ></span>
-        <span class="userSetContent">*********</span>
+        <span class="userSetContent" ng-click="reset()">*********</span>
     </div>
     <div class="userSetOut" ng-click="logout()">退出登录</div>
 </div>
