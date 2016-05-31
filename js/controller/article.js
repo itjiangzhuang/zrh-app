@@ -678,6 +678,9 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
             params.pledgeImgs = $scope.article.pledgeImgs.join(",");
             params.pledgeImgNames = $scope.article.pledgeImgNames.join(",");
         }
+        if (!isNullOrEmpty($scope.article.credit)) {
+            params.credit = $scope.article.credit;
+        }
         if (!isNullOrEmpty($scope.article.financialInfo)) {
             params.financialInfo = $scope.article.financialInfo;
         }
