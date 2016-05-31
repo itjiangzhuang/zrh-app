@@ -3,9 +3,9 @@
 	<!--<div class="complete">-->
           <span class="completespan1">信息完整度</span>
            <span class="completespan2">
-               <span class="completepro"  style="width:60%;"></span>
+               <span class="completepro"  style="width:{{article.integrity}}%;"></span>
            </span>
-           <span class="completespan3">60%</span>
+           <span class="completespan3">{{article.integrity}}%</span>
     </div>
     <div class="found-step1">
         <div class="tittle " id="clearBackground"></div>
@@ -31,7 +31,7 @@
         <ul class="message" ng-hide="operate.admin">
             <li class="img"></li>
             <li class="messageli2">推荐人成交率</li>
-            <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
+            <li class="messageli3">{{batting.success || '0'}}/{{batting.total}}</li>
         </ul>
         <div ng-show="operate.admin">
 	        <div class="progressDetail">
