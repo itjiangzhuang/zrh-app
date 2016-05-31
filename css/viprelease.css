@@ -205,7 +205,7 @@ body{
     height:55%;
 
 }
-.chkboxline{
+.chkboxLine{
     width:96%;
     border-bottom:2px solid #f0f0f0;
     margin: 3px auto;
@@ -240,22 +240,48 @@ body{
     opacity: 0.7;
 }
 
-.chkbox{
+.checkBox{
     width:76%;
     background: #fff;
+    padding: 30px 15px 15px 15px;
     border-radius: 12px;
     z-index:3;
-    height:336px;
-    font-size: 1.5rem;
+    font-size: 14px;
     overflow: auto;
-
-
 }
-
-
-.checknext{
+.checkList{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+.checkBoxLine{
+    border-bottom:1px solid #eaeaea;
+    border-left: 1px solid #fafafa;
+    border-right: 1px solid #fafafa;
+    position:relative;
+    height:44px;
+    line-height: 44px;
+    font-size: 14px;
+}
+.alertButton{
+    width:80%;
+    height:45px;
+    font-size:18px;
+    background:linear-gradient(45deg,#8898EB,#6045BB);
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+/*.checknext{
     display: inline-block;
-    /*border:1px solid red;*/
+    !*border:1px solid red;*!
     width:28px;
     height:28px;
     background:url("../img/icon/check.png") no-repeat 0 3px;
@@ -267,7 +293,7 @@ body{
     height:28px;
     background-size:72% !important;
     background:url("../img/icon/checked.png") no-repeat 0 3px;
-}
+}*/
 .checked{
 
     display: inline-block;
@@ -276,12 +302,6 @@ body{
     vertical-align: middle;
     background-size:100% !important;
     background:url("../img/icon/checked.png") no-repeat;
-}
-.buxiang{
-    position:absolute;
-    display: inline-block;
-    top:2px;
-    left:50px;
 }
 .surebtn{
     width:78%;
@@ -311,16 +331,16 @@ body{
     left:11%;
     top:140px;
 }
-.coverinner{
-    width:76%;
-    height:99px;
+.coverInner{
+    /*width:76%;*/
+    /*height:100%;*/
     /*border:1px solid red;*/
-    position:fixed;
+    /*position:fixed;*/
     /*bottom:14%;*/
     background: #ffffff;
     z-index: 10;
-    border-radius: 12px;
-    margin-top:237px;
+    /*border-radius: 12px;*/
+    /*margin-top:237px;*/
     /*opacity: 0.9;*/
 }
 .coverinnertop{
@@ -609,7 +629,7 @@ body{
 .next4{
     width:60%;
     height:40px;
-    font-size:2rem;
+    font-size:18px;
     background:linear-gradient(to right,#8898EB,#6045BB);
     position:fixed;
     left:20%;

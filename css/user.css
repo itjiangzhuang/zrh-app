@@ -72,6 +72,7 @@ canvas{
     margin: 30px auto 0px;
 }
 .userLogoPic{
+    border-radius: 100%;
     margin: 0 auto;
     width:48px;
     height:48px;
@@ -189,6 +190,7 @@ canvas{
     margin-left: 14%;
 }
 .asideLi1 img{
+    border-radius: 100%;
     width:33px;
     height:33px;
 }
@@ -322,6 +324,7 @@ canvas{
 }
 
 .userSet img{
+    border-radius: 100%;
    margin-top: 8px;
     width:40px;
     height:40px;

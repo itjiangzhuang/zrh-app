@@ -12,6 +12,7 @@
     text-align: center;
 }
 .blueBorder{
+    display: inline-block;
     margin: 0 auto;
     width: 70px;
     font-size:16px;
@@ -21,6 +22,7 @@
     border-bottom:2.5px solid #868ee3;
 }
 .noBorder{
+    display: inline-block;
     margin: 0 auto;
     width: 70px;
     font-size:16px;
