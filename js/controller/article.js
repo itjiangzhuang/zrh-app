@@ -1119,7 +1119,6 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
             }
             $scope.otherList();
         }).error(function (d) {
-        	$scope.otherList();
             console.log(d);
         });
     };
