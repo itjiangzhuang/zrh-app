@@ -252,7 +252,7 @@ body{
 .checkList{
     overflow-x: hidden;
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 292.5px;
 }
 .checkBoxLine{
     border-bottom:1px solid #eaeaea;
