@@ -1,5 +1,6 @@
 <div class="no-sco" style="width:100%;background:#ffffff;" ng-switch="bt_show">
 	<div class="complete" ng-show="operate.admin">
+	<!--<div class="complete">-->
           <span class="completespan1">信息完整度</span>
            <span class="completespan2">
                <span class="completepro"  style="width:60%;"></span>
@@ -32,11 +33,12 @@
             <li class="messageli2">推荐人成交率</li>
             <li class="messageli3">{{batting.success}}/{{batting.total}}</li>
         </ul>
-        <div ng-show="operate.admin"> 
+        <div ng-show="operate.admin">
 	        <div class="progressDetail">
 	            <div class="detailChild" style="width:50%;"></div>
+                <p class="detailTittle2" >跟进中</p>
 	        </div>
-	        <p class="detailtittle2" >跟进中</p>
+
         </div>
     </div>
     <div class="required" ng-show="article.classification">

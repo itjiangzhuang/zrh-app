@@ -559,28 +559,23 @@ hr {
     border-radius: 10px;
 }
 
-.detailtittle1 {
-    font-size: 1.4rem;
+.detailTittle1 {
+    width:60%;
+    font-size: 14px;
     color: #f97383;
-    position: absolute;
-    top: 172px;
-    left: 27%;
+    text-align: center;
 }
 
-.detailtittle2 {
-    font-size: 1.4rem;
+.detailTittle2 {
+    font-size: 14px;
     color: #f97383;
-    position: absolute;
-    top: 172px;
-    left: 43%;
+    text-align: center;
 }
 
-.detailtittle3 {
-    font-size: 1.4rem;
+.detailTittle3 {
+    font-size: 14px;
     color: #f97383;
-    position: absolute;
-    top: 172px;
-    right: 6%;
+   text-align: right;
 }
 
 .detailtittle4 {
