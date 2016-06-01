@@ -26,7 +26,7 @@
 </div>
 <div class="loadLie clear" >
 	<div class="img-list fl" ng-repeat="pledgeImg in article.pledgeImgs" ng-click="removePledgeImg($index)">
-        <img src="{{pledgeImg}}" alt="" style="border: 0">
+        <img ng-src="{{pledgeImg}}" alt="" style="border: 0">
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
@@ -69,7 +69,7 @@
 
 <div class="loadLie clear" >
 	<div class="img-list fl" ng-repeat="financialImg in article.financialImgs" ng-click="removeFinancialImg($index)">
-        <img src="{{financialImg}}" alt="" style="border: 0">
+        <img ng-src="{{financialImg}}" alt="" style="border: 0">
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
@@ -100,7 +100,7 @@
 </div>
 <div class="loadLie clear">
 	<div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs" ng-click="removeAdvantagesImg($index)" >
-        <img src="{{advantagesImg}}" alt="" style="border: 0" >
+        <img ng-src="{{advantagesImg}}" alt="" style="border: 0" >
         <div class="redPoint">
             <div class="redPointInner"></div>
         </div>
@@ -118,6 +118,7 @@
 </div>
 <script>
     var pledge = document.getElementById("pledge");
+    var content = document.getElementById("content");
 //    var text = document.getElementsByClassName("detailDescribe");
     var financialInfo = document.getElementById("financialInfo");
     var advantages = document.getElementById("advantages");
@@ -186,4 +187,5 @@
     autoTextarea(pledge);// 调用
     autoTextarea(financialInfo);// 调用
     autoTextarea(advantages);// 调用
+    autoTextarea(content);// 调用
 </script>

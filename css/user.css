@@ -502,24 +502,28 @@ input,button,select,textarea{
     bottom: 0px;*/
 }
 .speak{
-    vertical-align: center;
+    /*display: block;*/
+    border: none;
+    width: calc(100% - 110px);
+    resize: none;
+    height: 40px;
+    /*vertical-align: center;*/
   /*  position: relative;
     bottom: 10px;*/
-    border: none;
   /*  position: fixed;
     bottom: 8px;*/
-    /*margin-bottom: 15px;*/
+    margin-top: 15px;
+    margin-bottom: 15px;
     /*width: calc(100% - 110px);*/
-    width: 100%;
-    background: #f0f0f0;
     line-height: 20px;
     min-height: 42px;
     max-height: 120px;
     _height: 120px;
     /*margin-left: 15px;*/
-    padding-top: 22px;
-    padding-left: 15px;
-    padding-right: 70px;
+    padding-top: 12px;
+    margin-left: 15px;
+    /*padding-right: 70px;*/
+    text-wrap: none;
     outline: 0;
     /*border: 1px solid #f0f0f0;*/
     font-size: 16px;
@@ -528,7 +532,7 @@ input,button,select,textarea{
     overflow-y: visible;
     _overflow-y: hidden;
     background: #fff;
-    overflow-wrap: break-word;
+    /*overflow-wrap: break-word;*/
     /*z-index:9999;*/
 }
 .textBottomLine{
@@ -537,12 +541,17 @@ input,button,select,textarea{
     width: 80%;
     background: blue;
     height: 1px;
+    overflow: visible;
 }
 .speakBtn{
     width:65px;
-    position: fixed;
+    /*position: absolute;*/
     /*bottom: 15px;*/
-    bottom: 0px;
+    position: fixed;
+    bottom: 15px;
+    /*bottom: 0px;*/
+    /*margin-top: 15px;*/
+    /*margin-left: 15px;*/
     right: 15px;
     height:40px;
     border:none;
