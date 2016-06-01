@@ -111,31 +111,31 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
 	                "type": $scope.type
 	            }
 	        }).success(function (d) {
-	            console.log(d);
 	            if (d.returnCode == 0) {
 	                $scope.obj_list = d.result;
 	                angular.forEach($scope.obj_list, function(data){
                         if($scope.type == 0){
-                        	data.jindu == "0%";
+                        	data.jindu = "0";
                         	data.jindushow = "未发布";
                         }else if($scope.type == 1){
                         	if(data.jd = 0){
-                        		data.jindu == "10%";
+                        		data.jindu = "10";
                         	    data.jindushow = "已经发布";
                         	}else if(data.jd = 1){
-                        		data.jindu == "30%";
+                        		console.log("11111111111");
+                        		data.jindu = "30";
                         	    data.jindushow = "等待联系";
                         	}else if(data.jd = 2){
-                        		data.jindu == "50%";
+                        		data.jindu = "50";
                         	    data.jindushow = "跟进中";
                         	}else if(data.jd = 3){
-                        		data.jindu == "100%";
+                        		data.jindu = "100";
                         	    data.jindushow = "签约成功";
                         	}else if(data.jd = -2){
-                        		data.jindu == "0%";
+                        		data.jindu = "0";
                         	    data.jindushow = "签约失败";
                         	}
-                        }                        
+                        }  
                     });
 	            }else {
 	                console.log(d);
@@ -180,22 +180,22 @@ userCtrl.controller('ProjectInvestCtrl', //项目投资
 	                $scope.obj_list = d.result;
 	                angular.forEach($scope.obj_list, function(data){
                             if(data.jd = 0){
-                        		data.jindu == "10%";
+                        		data.jindu = "10";
                         	    data.jindushow = "竞标中";
                         	}else if(data.jd = 1){
-                        		data.jindu == "30%";
+                        		data.jindu = "30";
                         	    data.jindushow = "约见信息";
                         	}else if(data.jd = 2){
-                        		data.jindu == "50%";
+                        		data.jindu = "50";
                         	    data.jindushow = "跟进中";
                         	}else if(data.jd = 3){
-                        		data.jindu == "100%";
+                        		data.jindu = "100";
                         	    data.jindushow = "签约成功";
                         	}else if(data.jd = -1){
-                        		data.jindu == "0%";
+                        		data.jindu = "0";
                         	    data.jindushow = "竞标失败";
                         	}else if(data.jd = -2){
-                        		data.jindu == "0%";
+                        		data.jindu = "0";
                         	    data.jindushow = "签约失败";
                         	}
                     });
