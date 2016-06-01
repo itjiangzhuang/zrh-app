@@ -567,10 +567,13 @@ hr {
 }
 
 .detailTittle2 {
+    display: inline-block;
     font-size: 14px;
     color: #f97383;
-    text-align: center;
+    /*text-align: center;*/
+    position: relative;
 }
+
 
 .detailTittle3 {
     font-size: 14px;

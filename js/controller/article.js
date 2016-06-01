@@ -58,34 +58,46 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
                 $scope.operate = d.result.operate;
                 $scope.batting = d.result.batting;
                 $scope.step = d.result.step;
+                $scope.step_per = $scope.step*25;
+
                 if($scope.step == 0){//未发布
                 	if($scope.operate.admin){
                 		$scope.bt_show = 1;
                 	}
+                    $scope.positionText = '0';
+                	$scope.step_name = "未发布";
                 }else if($scope.step == 1){//已经发布
                 	if($scope.operate.admin){
                 		$scope.bt_show = 2;
                 	}else{
                 		$scope.bt_show = 3;
                 	}
+                    $scope.positionText = '-20';
+                	$scope.step_name = "已经发布";
                 }else if($scope.step == 2){//竞标中
                 	if($scope.operate.admin){
                 		$scope.bt_show = 4;
                 	}else{
                 		$scope.bt_show = 5;
                 	}
+                    $scope.positionText = '-20';
+                	$scope.step_name = "竞标中";
                 }else if($scope.step == 3){//等待联系
                 	if($scope.operate.admin){
                 		$scope.bt_show = 4;
                 	}else{
                 		$scope.bt_show = 7;
                 	}
+                    $scope.positionText = '-20';
+                	$scope.step_name = "等待联系";
                 }else if($scope.step == 4){//跟进中
                 	if($scope.operate.admin){
                 		$scope.bt_show = 4;
                 	}else{
                 		$scope.bt_show = 6;
                 	}
+                    $scope.positionText = '-50';
+                	$scope.step_name = "跟进中";
                 }
                 
             }else {

@@ -107,10 +107,11 @@
     border-radius: 10px;
 }
 .progressTittle{
+    position: relative;
+    display: inline-block;
     height: 20px;
     font-size:14px;
     color:#f97383;
-    text-align: center;
 
 }
 

@@ -117,23 +117,29 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
                         if($scope.type == 0){
                         	data.jindu = "0";
                         	data.jindushow = "未发布";
+                            data.jinduShowM = "0";
                         }else if($scope.type == 1){
                         	if(data.jd = 0){
                         		data.jindu = "10";
                         	    data.jindushow = "已经发布";
+                                data.jinduShowM = "-20";
                         	}else if(data.jd = 1){
                         		console.log("11111111111");
                         		data.jindu = "30";
                         	    data.jindushow = "等待联系";
+                                data.jinduShowM = "-20";
                         	}else if(data.jd = 2){
                         		data.jindu = "50";
                         	    data.jindushow = "跟进中";
+                                data.jinduShowM = "-20";
                         	}else if(data.jd = 3){
                         		data.jindu = "100";
                         	    data.jindushow = "签约成功";
+                                data.jinduShowM = "-50";
                         	}else if(data.jd = -2){
                         		data.jindu = "0";
                         	    data.jindushow = "签约失败";
+                                data.jinduShowM = "0";
                         	}
                         }  
                     });
