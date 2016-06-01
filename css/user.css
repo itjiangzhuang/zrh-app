@@ -28,6 +28,9 @@ canvas{
     width: 100%;
     border: 1px solid #000000;
 }
+input,button,select,textarea{
+    outline:none;
+}
 /*清除浮动*/
 .clear {
     zoom: 1;
@@ -639,6 +642,19 @@ canvas{
     font-size: 14px;
     border: none;
 }
+.detailDescribe{
+    display: block;
+    height: 18px;
+    border: none;
+    width: 100%;
+    padding-right: 15px;
+    font-size: 14px;
+    line-height: 18px;
+    resize: none;
+    /*height: 40px;*/
+    overflow: hidden;
+    max-height: 100px;
+}
 .describe{
     width: 100%;
 }
@@ -657,7 +673,7 @@ canvas{
 .describe div {
     width: 95%;
     margin-left: 15px;
-    font-size: 1.4rem;
+    font-size: 14px;
 }
 .policyCount{
     display: inline-block;

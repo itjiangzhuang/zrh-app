@@ -608,16 +608,10 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     $scope.init();
 
     $scope.choose_credit = function () {
-    	$scope.save_div();
         $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/credit");
     };
-    
-    $scope.save_div = function(){
-    	$scope.article.pledge = $("#pledge").text();
-    	$scope.article.financialInfo = $("#financialInfo").text();
-    	$scope.article.advantages = $("#advantages").text();
-    };
+
     
     $scope.validate_params = function(){
     	var params = {
@@ -665,8 +659,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
         if (!isNullOrEmpty($scope.article.license.corporateRepresentative)) {
             params.corporateRepresentative = $scope.article.license.corporateRepresentative;
         }
-	    
-	    $scope.save_div();
+
     	
         if (!isNullOrEmpty($scope.article.pledgeType)) {
             params.pledgeType = $scope.article.pledgeType;

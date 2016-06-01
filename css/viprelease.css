@@ -1,24 +1,4 @@
-/*全局样式开始*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: 黑体;
-
-
-}
-html,body{height:100%;
-    font-size:62.5%}
-body{
-
-    color:#4C4C4C;
-    font-size:1.2rem;
-    height:100%;
-    overflow-x: hidden;
-}
-/*全局样式结束*/
 /*release1的样式开始*/
 
 .showInformation{
@@ -70,7 +50,7 @@ body{
     padding-top: 10px;
     padding-left: 15px;
     position:relative;
-    border-bottom:1px solid #f0f0f0;
+    /*border-bottom:1px solid #f0f0f0;*/
     box-sizing: border-box;
 
 }
@@ -493,9 +473,9 @@ body{
     height: 2px;
     background: #ffffff;
 }
-.lineclear{
+/*.lineclear{
     border-right: 1px solid #ffffff;
-}
+}*/
 .collateral2{
     width:100%;
     /*border-bottom:1px solid #f0f0f0;*/
@@ -504,13 +484,13 @@ body{
 .collateral2 div{
     float:left;
 }
-.bottomline{
+/*.bottomline{
     width:90%;
     border-bottom:1px solid #f0f0f0;
     margin: 0 auto;
     padding-top: 8px;
 
-}
+}*/
 .xushu{
     /*width:92%;*/
     font-size:14px;
