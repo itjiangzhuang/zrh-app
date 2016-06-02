@@ -1,6 +1,6 @@
 .found-step1 {//公用
     width: 100%;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     background: #fff;
     /*border: 1px solid transparent;*/
     border-top: none;
@@ -21,7 +21,7 @@
     height: 30px;
     text-align: center;
     line-height: 30px;
-    background-color: #868EE3;
+    background: linear-gradient(135deg, #8898EB, #6045BB);
     border-radius: 0 0 0 14px;
     border-top: none;
     border-right: none;

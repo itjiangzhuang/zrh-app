@@ -310,7 +310,7 @@
     width: 60%;
     height: 45px;
     font-size: 18px;
-    background: linear-gradient(45deg, #8898EB, #6045BB);
+    background: linear-gradient(135deg, #8898EB, #6045BB);
     position: absolute;
     bottom: 15px;
     margin-left: 20%;
@@ -344,7 +344,7 @@
     width: 60%;
     height: 45px;
     font-size: 18px;
-    background: linear-gradient(45deg, #8898EB, #6045BB);
+    background: linear-gradient(135deg, #8898EB, #6045BB);
     position: fixed;
     bottom: 15px;
     margin-left: 20%;
@@ -398,7 +398,7 @@
 
 .doubleButtonRight {
     margin-left: -4%;
-    background: linear-gradient(45deg, #8898EB, #6045BB);
+    background: linear-gradient(135deg, #8898EB, #6045BB);
     color: #fff;
     box-shadow: 0 6px 6px #ccc;
     border-radius: 0 25px 25px 0;
