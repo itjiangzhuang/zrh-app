@@ -1,6 +1,6 @@
 .found-step1 {//公用
     width: 100%;
-    /*margin-bottom: 6px;*/
+    margin-bottom: 6px;
     background: #fff;
     /*border: 1px solid transparent;*/
     border-top: none;
@@ -16,17 +16,17 @@
 }
 
 .tittle {
-    font-size: 16px;
-    width: 25%;
-    height: 36px;
+    font-size: 15px;
+    width: 82px;
+    height: 30px;
     text-align: center;
-    line-height: 36px;
+    line-height: 30px;
     background-color: #868EE3;
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 14px;
     border-top: none;
     border-right: none;
     color: #fff;
-    margin-left: 75%;
+    margin-left: calc(100% - 82px);
 }
 
 /*
@@ -45,7 +45,7 @@
 }
 
 .countDiv {
-    font-size: 24px;
+    font-size: 30px;
     color: #f97383;
     margin-top: 8px;
     /*margin-left: 9px;*/
@@ -93,6 +93,7 @@
 
 }
 .expect_border p{
+    font-size: 12px;
     margin-top: -10px;
     line-height: 20px;
     color: #888888;
@@ -100,7 +101,7 @@
 .expect_border span{
     line-height: 28px;
     font-size: 14px;
-    color: #888888;
+    color: #4c4c4c;
     display: inline-block;
 }
 /*.expect div {
@@ -148,9 +149,10 @@
 */
 
 .line {
-    width: 98%;
+    width: calc(100% - 30px);
     margin: 0 auto;
-    border: 1.5px solid #f0f0f0;
+    border-top: none;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .message {
@@ -179,7 +181,7 @@
 
 .messageli2 {
     top: 2px;
-    left: 12%;
+    left: 32px;
     color: #888888;
 }
 
