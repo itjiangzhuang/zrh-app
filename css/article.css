@@ -63,11 +63,11 @@ hr {
 }
 /*清除背景颜色*/
 #clearBackground {
-    background-color: #ffffff;
+    background: #ffffff;
 }
 
 .clearBackground {
-    background-color: #ffffff;
+    background: #ffffff;
 }
 /*全局样式结束*/
 /*alert页面*/

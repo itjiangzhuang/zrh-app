@@ -60,7 +60,7 @@
     <div class="moneyMsg" ng-show="article.financialImg">
         <p class="financial">财务信息</p>
         <div ng-repeat="fi in article.financialImg">
-            <img class="financialImg1" src="{{fi}}" alt=""/>
+            <img class="financialImg1" ng-src="{{fi}}" alt=""/>
         </div>
     </div>
     <div class="required" ng-show="article.businessContact">
