@@ -129,5 +129,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + 'user/update.html',
             controller: 'UserUpdateCtrl'
         })
+        .when('/error', {//用户更改参数
+            templateUrl: templates_root + '404.html',
+            //controller: 'UserUpdateCtrl'
+        })
         .otherwise({redirectTo: '/article/list'})
 });

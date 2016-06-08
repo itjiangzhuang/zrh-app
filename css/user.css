@@ -1,52 +1,4 @@
-/*全局样式*/
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: OneNikeCurrency,'TradeGothicW01-BoldCn20 675334',Helvetica,Arial,'Heiti SC','ST Heiti',华文黑体,'Microsoft YaHei',雅黑体,SimHei,黑体,sans-serif;
-}
-html,body{
-    height:100%;
-    font-size:62.5%;
-}
-body{
-    background:#F0F0F0;
-    color:#4C4C4C;
-    font-size:1.2rem;
-    height:100%;
-    overflow-x: hidden;
-}
-ul,li{
-    list-style-type: none;
-}
-a,input{
-    outline: none;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-}
-canvas{
-    width: 100%;
-    border: 1px solid #000000;
-}
-input,button,select,textarea{
-    outline:none;
-}
-/*清除浮动*/
-.clear {
-    zoom: 1;
-}
-.clear:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-.fl {
-    float: left;
-}
-.fr {
-    float: right;
-}
-/*全局样式结束*/
+
 /*个人中心样式开始*/
 .asideContainer{
     width:100%;
@@ -56,7 +8,7 @@ input,button,select,textarea{
     position: relative;
 }
 .containerDisplay{
-    z-index: 3;
+    /*z-index: 3;*/
     width:100%;
     background-color: #f0f0f0;
     top:0;
@@ -184,10 +136,6 @@ input,button,select,textarea{
     font-size: 13px;
     font-family: 黑体;
     margin-bottom: 12%;
-}
-.img{
-    width:33px;
-    height:33px;
 }
 
 .asideLi1{
@@ -403,7 +351,7 @@ input,button,select,textarea{
     /*z-index: 100;*/
     position: relative;
 }
-.mycon{
+.myCon{
     overflow-x: hidden;
     width: 100%;
 }
@@ -663,7 +611,6 @@ input,button,select,textarea{
     font-size: 14px;
     line-height: 18px;
     resize: none;
-    /*height: 40px;*/
     overflow: hidden;
     max-height: 100px;
 }
@@ -698,6 +645,24 @@ input,button,select,textarea{
 
 
 /*apply_invest页面设置*/
+.release{
+    width:60%;
+    height:40px;
+    font-size:2rem;
+    background:linear-gradient(to right,#8898EB,#6045BB);
+    position:absolute;
+    bottom: 15px;
+    margin-left: 20%;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+    line-height: 38px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 8px #ccc;
+    cursor:pointer;
+    border:none;
+}
+
 .applyHeader{
     height:100px;
     width:100%;
@@ -1013,10 +978,6 @@ input,button,select,textarea{
     border: none;
     border-radius: 20px;
     font-size: 18px;
-    /*position: fixed;*/
-    /*bottom: 2%;*/
-    /*right: 15%;*/
-    /*color: #888888;*/
     position:absolute;
     bottom:15px;
     right:15%;

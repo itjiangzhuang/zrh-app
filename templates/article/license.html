@@ -1,61 +1,57 @@
 <div style="height:100%;">
-<form action="" name="uploadform1">
-   <div class="upload" id="upload_container">
-       <span class="uploadup" src=""  alt=""></span>
-       <div class="uploadtext">上传营业执照自动录入信息</div>
-       <img id="portrait" class="portrait" src=""  >
-    <!--<span >上传营业执照自动录入信息</span>-->      
-       <img class="uploadimg" id="pickfiles" src="{{license.licenseImgs || 'img/icon/upload.png' }}">
-   </div>
-</form>
-
+    <form action="" name="uploadform1">
+        <div class="upload" id="upload_container">
+            <span class="uploadUp" src="" alt=""></span>
+            <div class="uploadText">上传营业执照自动录入信息</div>
+            <img id="portrait" class="portrait" src="">
+            <!--<span >上传营业执照自动录入信息</span>-->
+            <img class="uploadImg" id="pickfiles" src="{{license.licenseImgs || 'img/icon/upload.png' }}">
+        </div>
+    </form>
     <div class="required">
-       <div ng-class="setStyle_div(license.businessName)">
-           <span class="reqNameSpan1" ng-hide="license.businessName"></span>
-           <span class="reqNameSpan2">公司名称</span>
-       </div>
-       <p><input type="text" placeholder="请输入公司名称" ng-model="license.businessName" /></p>
-    <!--<span class="setupimg"></span>-->
-   </div>
-   <div class="required">
-       <div ng-class="setStyle_div(license.regTime)">
-           <span class="reqNameSpan1" ng-hide="license.regTime"></span>
-           <span class="reqNameSpan2 ">注册时间</span>
-       </div>
-       <p>
-           <input type="text" placeholder="请选择公司注册时间" ng-change="change_time()" ng-model="license.regTime" id="time"/>
-       </p>
-       <input type="hidden" id="regTime" onchange="angular.element(this).scope().changeRegTime()"/>
-       <span class="setupimg"></span>
-   </div>
-
-    <div class="required">
-       <div ng-class="setStyle_div(license.corporateRepresentative)">
-           <span class="reqNameSpan2">法人代表</span>
-       </div>
-       <p><input type="text" placeholder="请输入法人代表姓名" ng-model="license.corporateRepresentative"/></p>
+        <div ng-class="setStyle_div(license.businessName)">
+            <span class="reqNameSpan1" ng-hide="license.businessName"></span>
+            <span class="reqNameSpan2">公司名称</span>
+        </div>
+        <p><input type="text" placeholder="请输入公司名称" ng-model="license.businessName"/></p>
+        <!--<span class="setupImg"></span>-->
     </div>
-    
+    <div class="required">
+        <div ng-class="setStyle_div(license.regTime)">
+            <span class="reqNameSpan1" ng-hide="license.regTime"></span>
+            <span class="reqNameSpan2 ">注册时间</span>
+        </div>
+        <p>
+            <input type="text" placeholder="请选择公司注册时间" ng-change="change_time()" ng-model="license.regTime" id="time"/>
+        </p>
+        <input type="hidden" id="regTime" onchange="angular.element(this).scope().changeRegTime()"/>
+        <span class="setupImg"></span>
+    </div>
+
+    <div class="required">
+        <div ng-class="setStyle_div(license.corporateRepresentative)">
+            <span class="reqNameSpan2">法人代表</span>
+        </div>
+        <p><input type="text" placeholder="请输入法人代表姓名" ng-model="license.corporateRepresentative"/></p>
+    </div>
+
     <div class="required" ng-click="choose_type()">
         <div ng-class="setStyle_div(license.businessType)">
             <span class="reqNameSpan2">类型</span>
         </div>
-       <div class="reqTips" ng-hide="license.businessType">请选择您的公司类型</div>
-       <div class="reqTipsafter" ng-show="license.businessType">{{license.businessType}}</div>
-
-       <!--<input type="text" placeholder="请选择您的公司类型" ng-model="license.businessType"/>-->
-       <span class="setupimg"></span>
+        <div class="reqTips" ng-hide="license.businessType">请选择您的公司类型</div>
+        <div class="reqTipsAfter" ng-show="license.businessType">{{license.businessType}}</div>
+        <span class="setupImg"></span>
     </div>
-    
     <div class="required">
         <div ng-class="setStyle_div(license.regFunds)">
             <span class="reqNameSpan2">注册资本(万元)</span>
         </div>
-       <p><input type="text" placeholder="请输入注册资本金额" ng-model="license.regFunds" /></p>
+        <p><input type="text" placeholder="请输入注册资本金额" ng-model="license.regFunds"/></p>
     </div>
     <!--插件中加的div-->
     <div id="datePlugin"></div>
-   <div style="background: #fff;padding: 50px ; margin:0 auto;position: relative">
-    <input type="button" value="确定" class='next' ng-click="sure()">
-   </div>
+    <div style="background: #fff;padding: 50px ; margin:0 auto;position: relative">
+        <input type="button" value="确定" class='next' ng-click="sure()">
+    </div>
 </div>

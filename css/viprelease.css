@@ -1,186 +1,13 @@
 
+
+
+
 /*release1的样式开始*/
 
-.showInformation{
-    height: calc(100% - 210px);
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-.viprelease1Header{
-    width:100%;
-    height:100px;
-    background: url('../img/icon/header.png') no-repeat center center;
-    background-size: cover;
-}
 
-.loadLie{
-    position:relative;
-    padding-left: 15px;
-    margin-bottom: 20px;
-}
-.img-list{
-    position: relative;
-    display: inline-block;
-    margin-top: 8px;
-    z-index: 2;
-    margin-right: 15px;
-
-}
-.img-list img{
-    border: 0;
-    z-index: 3;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-}
-.required{
-    background: #fff;
-    width:100%;
-    height:68px;
-    padding-top: 10px;
-    padding-left: 15px;
-    position:relative;
-    border-bottom:1px solid #f0f0f0;
-    box-sizing: border-box;
-
-}
-.required1{
-    width:100%;
-    padding-top: 10px;
-    padding-left: 15px;
-    position:relative;
-    /*border-bottom:1px solid #f0f0f0;*/
-    box-sizing: border-box;
-
-}
-.noRequired{
-    border-bottom:1px solid #f0f0f0;
-    width:100%;
-    height:68px;
-    padding-top: 10px;
-    padding-left: 15px;
-    position:relative;
-}
-.reqNameSpan1{
-    width:8px;
-    height:8px;
-    background:#f97383;
-    border-radius: 50%;
-    vertical-align: middle;
-
-}
-.reqNameSpan1,.reqNameSpan2{
-    line-height: 25px;
-    display: inline-block;
-    font-size: 14px;
-}
-.reqName{
-    height: 25px;
-    isplay: inline-block;
-    font-size: 14px;
-   color:#4c4c4c;
-}
-.afterSet{
-    line-height: 25px;
-    display: inline-block;
-    font-size: 14px;
-    color: #888888;
-}
-.setafter{
-    height: 25px;
-    display: inline-block;
-    font-size: 14px;
-    color:#888888;
-}
-.reqTipsafter{
-    color:#4c4c4c;
-    width: 80%;
-    height: 30px;
-    /*border: none;*/
-    /*border:1px solid red;*/
-    line-height: 30px;
-    font-size: 14px;
-}
-
-.reqTips{
-    width: 80%;
-    height: 30px;
-    /*border: none;*/
-    /*border:1px solid red;*/
-   line-height: 30px;
-    font-size: 14px;
-    color:#888888;
-}
-
-.required input,.noRequired input{
-    width:90%;
-    height:28px;
-    border:none;
-    font-size: 14px;
-}
-.requiredDivInput{
-    width:90%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size: 14px;
-    line-height: 16px;
-}
-.setupimg{
-    position:absolute;
-    display: inline-block;
-    /*border:1px solid red;*/
-    width:22px;
-    height:22px;
-    /*margin-left: 3%;*/
-    background:url("../img/icon/setup.png") no-repeat;
-    background-size:100%;
-    top:23px;
-    right:15px;
-
-}
-.divinput{
-    width: 86%;
-    height: 28px;
-    margin-top: 8px;
-    margin-left: 15px;
-    border: none;
-    font-size: 1.4rem;
-    color: #4c4c4c;
-}
-.viprelease1Headerp1{
-    font-size: 16px;
-    color:#ffffff;
-    padding-top: 30px;
-    padding-left:5%;
-    padding-bottom: 5px;
-}
-.viprelease1Headerp2{
-    font-size: 14px;
-    color:#ffffff;
-    margin-left:5%;
-}
-.next{
-    width:70%;
-    height:40px;
-    background:#f0f0f0;
-    border:none;
-    border-radius:20px;
-    font-size: 18px;
-    margin-left: 15%;
-  /*  position:absolute;
-    bottom:15px;
-    right:15%;*/
-    color:#888888;
-    letter-spacing: 2px;
-    z-index:0;
-
-}
-
-/*release1的样式结束*/
 
 /*release8勾选贷款方式样式开始*/
-.chccontainer{
+/*.chccontainer{
     width:70%;
     height:55%;
 
@@ -191,99 +18,11 @@
     margin: 3px auto;
     position:relative;
     height:30px;
-    /*border:1px solid red;*/
-
-}
-/*弹出框样式 约见信息 */
-.mask{
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:#55555D;
-    display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
-    display: -moz-box;      /* OLD: Firefox (buggy) */
-    display: -ms-flexbox;   /* MID: IE 10 */
-    display: -webkit-flex;  /* NEW, Chrome 21–28, Safari 6.1+ */
-    display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
-
-    -webkit-box-align: center; -moz-box-align: center; /* OLD… */
-    -ms-flex-align: center; /* You know the drill now… */
-    -webkit-align-items: center;
-    align-items: center;
-
-    -webkit-box-pack: center; -moz-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    opacity: 0.7;
-}
-
-.checkBox{
-    width:76%;
-    background: #fff;
-    padding: 30px 15px 15px 15px;
-    border-radius: 12px;
-    z-index:3;
-    font-size: 14px;
-    overflow: auto;
-}
-.checkList{
-    overflow-x: hidden;
-    overflow-y: scroll;
-    max-height: 288px;
-}
-.checkBoxLine{
-    border-bottom:1px solid #eaeaea;
-    border-left: 1px solid #fafafa;
-    border-right: 1px solid #fafafa;
-    position:relative;
-    height:44px;
-    line-height: 44px;
-    font-size: 14px;
-}
-.alertButton{
-    width:80%;
-    height:45px;
-    font-size:18px;
-    background:linear-gradient(45deg,#8898EB,#6045BB);
-    border-radius: 26px;
-    text-align: center;
-    color: #fff;
-    line-height: 38px;
-    letter-spacing: 2px;
-    box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
-    margin-left: 10%;
-    margin-top: 30px;
-}
-/*.checknext{
-    display: inline-block;
     !*border:1px solid red;*!
-    width:28px;
-    height:28px;
-    background:url("../img/icon/check.png") no-repeat 0 3px;
-    background-size:72%;
-}
-.checkednext{
-    display: inline-block;
-    width:28px;
-    height:28px;
-    background-size:72% !important;
-    background:url("../img/icon/checked.png") no-repeat 0 3px;
-}*/
-.checked{
 
-    display: inline-block;
-    width:20px;
-    height:20px;
-    vertical-align: middle;
-    background-size:100% !important;
-    background:url("../img/icon/checked.png") no-repeat;
-}
-.surebtn{
+}*/
+
+/*.surebtn{
     width:78%;
     height:38px;
     margin:0 auto;
@@ -310,25 +49,18 @@
     position:absolute;
     left:11%;
     top:140px;
-}
-.coverInner{
-    /*width:76%;*/
-    /*height:100%;*/
-    /*border:1px solid red;*/
-    /*position:fixed;*/
-    /*bottom:14%;*/
+}*/
+/*.coverInner{
+
     background: #ffffff;
     z-index: 10;
-    /*border-radius: 12px;*/
-    /*margin-top:237px;*/
-    /*opacity: 0.9;*/
+
 }
 .coverinnertop{
     width:76%;
     height:28px;
     position:fixed;
-    /*bottom:399px;*/
-    /*border:1px solid red;*/
+
     border-radius: 12px;
     background: #ffffff;
     z-index: 10;
@@ -337,8 +69,8 @@
 .moneyzhezhaoceng{
     width:100%;
     height:100%
-}
-.cover{
+}*/
+/*.cover{
     width:100%;
     height:100%;
     background:#55555D;
@@ -347,226 +79,76 @@
     top:0;
     left:0;
     opacity:0.6;
-}
+}*/
 /*release8勾选贷款方式样式开始*/
-/*release2和3样式开始*/
- .upload{
-     width:100%;
-     height:73px;
-     border-bottom:1px solid #f0f0f0;
-     line-height: 73px;
-     position:relative;
-     background: #f97383;
- }
- .upload span{
-     display: inline-block;
- }
- .uploadtext{
-     width:66%;
-     font-size:16px;
-     color:#ffffff;
-     /*border:1px solid red;*/
-     margin-left:56px;
- }
- .uploadimg{
-     width:40px;
-     height:40px;
-     right:15px;
-     position:absolute;
-     top:16px;
-     display: block;
 
 
- }
- .uploadup{
-     width:28px;
-     height:28px;
-     background: url("../img/icon/up.png");
-     background-size: 100%;
-     position:absolute;
-     left:15px;
-     top:22px;
- }
-.portrait{
-    width:42px;
-    height:42px;
-    position:absolute;
-    top:13px;
-    right:15px;
-    border:none;
-    display:none;
-    border-radius: 6px;
-}
- .noreqname{
+/* .noreqname{
      font-size:14px;
      margin-top: 10px;
      color:#888888;
- }
+ }*/
 
-/*.noRequired{
-    border-bottom:1px solid #f0f0f0;
-    width:100%;
-    !*height:68px;*!
-    position:relative;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-top: 1px solid transparent;
 
-}*/
-.release{
-    width:60%;
-    height:40px;
-    font-size:2rem;
-    background:linear-gradient(to right,#8898EB,#6045BB);
-    position:absolute;
-    bottom: 15px;
-    margin-left: 20%;
-    border-radius: 26px;
-    text-align: center;
-    color: #fff;
-    line-height: 38px;
-    letter-spacing: 2px;
-    box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
-}
 /*release2和3样式结束*/
 
 /*release4样式开始*/
-.mortgage{
+/*.mortgage{
     width:100%;
     height:50px;
     font-size:16px;
     line-height: 40px;
 
-}
-.informationContent{
-    height: 45px;
-    margin-left: 15px;
-    background: #ffffff;
-    line-height: 45px;
-}
+}*/
 
-.checkText{
-    padding-left: 5px;
-    display: inline-block;
-    font-size: 14px;
-    position:absolute;
-}
-.checkLine{
-    color: #f0f0f0;
-    position: absolute;
-    left: 100%;
-    font-size: 16px;
-}
-.clearRightBorder{
-    position: absolute;
-    right: 0;
-    background: #fff;
-    height: 100px;
-    width: 20px;
-}
-.coverBottomBorder{
-    position: relative;
-    bottom: 2px;
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
-}
+
+
+
 /*.lineclear{
     border-right: 1px solid #ffffff;
 }*/
-.collateral2{
+/*.collateral2{
     width:100%;
-    /*border-bottom:1px solid #f0f0f0;*/
-    /*overflow: hidden;*/
+    !*border-bottom:1px solid #f0f0f0;*!
+    !*overflow: hidden;*!
 }
 .collateral2 div{
     float:left;
-}
-/*.bottomline{
-    width:90%;
-    border-bottom:1px solid #f0f0f0;
-    margin: 0 auto;
-    padding-top: 8px;
-
 }*/
-.xushu{
-    /*width:92%;*/
-    font-size:14px;
-    line-height: 18px;
-    /*padding-left: 15px;*/
-    min-height:15px ;
-    max-height: 200px;
 
-    color:#888888;
-    border:1px solid transparent;
 
-}
+/*
 .load{
     width:100%;
     height:62px;
     margin-top: 20px;
     border-bottom:1px solid #f0f0f0;
 }
-.loadlast{
-    width:100%;
-    margin-top: 20px;
-    height:60px;
-    margin-bottom: 0px;
-}
-.loadimg{
+*/
+
+/*.loadimg{
     display: inline-block;
     width:44px;
     height:44px;
     border:1px solid gray;
     margin-left: 15px;
-}
-.loadjia{
-    border:0;
-    display: inline-block;
-    width:40px;
-    height:40px;
-    margin-top: 8px;
-    /*background: url('../img/icon/upload1.png');*/
-    background-size: 100%;
-    opacity: 0.7;
-}
+}*/
 
 
 
-.redPoint{
-    position:absolute;
-    top: -8px;
-    right: -8px;
-    padding-top: 8px;
-    z-index:2;
-    width: 18px;
-    height:18px;
-    border-radius: 100%;
-    border: none;
-    background: #f97383;
-}
-.redPointInner{
-    margin: 0px auto 0px;
 
-    width: 10px;
-    height:2px;
-    border-radius: 1px;
-    background:#ffffff;
-}
 
-.sureslecte{
+/*.sureslecte{
     width:86%;
     height:45px;
     position:fixed;
     bottom:15px;
     left:7%;
-    font-size:2.1rem;
+    font-size:20px;
 
 }
 .sureslecte1{
-    /*border:1px solid #f0f0f0;*/
+    !*border:1px solid #f0f0f0;*!
     border-top:1px solid #f0f0f0;
     color: #6045BB;
     background:#ffffff;
@@ -586,82 +168,15 @@
     color:#fff;
     box-shadow: 0 6px 6px #ccc;
     border-radius:  0 25px 25px 0;
-}
+}*/
 /*release4样式结束*/
 /*选择行业的样式*/
 /*选择行业的样式开始*/
-.next3{
-    width:60%;
-    height:40px;
-    font-size:2rem;
-    background:linear-gradient(to right,#8898EB,#6045BB);
-    position:fixed;
-    bottom: 17%;
-    /*margin-left: 20%;*/
-    left:20%;
-    border-radius: 26px;
-    text-align: center;
-    color: #fff;
-    line-height: 38px;
-    letter-spacing: 2px;
-    box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
-    z-index:11;
-}
-.next4{
-    width:60%;
-    height:40px;
-    font-size:18px;
-    background:linear-gradient(to right,#8898EB,#6045BB);
-    position:fixed;
-    left:20%;
-    border-radius: 26px;
-    text-align: center;
-    color: #fff;
-    line-height: 38px;
-    letter-spacing: 2px;
-    box-shadow: 0 8px 8px #ccc;
-    cursor:pointer;
-    border:none;
-    z-index:11;
-    margin-top: 276px;
-}
+
 
 
 /*show页面样式*/
 /*普通用户项目完整度样式开始*/
-.complete{
-    width:100%;
-    height:60px;
-    background:#868ee3;
-}
-.complete span{
-    display: inline-block;
-    color:#ffffff;
 
-}
-.completespan1{
-    font-size: 1.5rem;
-    /*width:20%;*/
-    /*border:1px solid red;*/
-    margin-top: 20px;
-    padding-left: 15px;
-}
-.completespan2{
-    width:58%;
-    height:12px;
-    background: #ffffff;
-    border-radius: 12px;
-}
-.completepro{
-    height:12px;
-    background: #f97383;
-    border-radius: 12px;
-}
-.completespan3{
-    font-size: 14px;
-    padding-left: 1%;
-}
 /*普通用户项目完整度样式结束*/
 /*show页面样式*/

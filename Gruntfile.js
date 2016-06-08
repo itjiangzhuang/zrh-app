@@ -8,54 +8,53 @@ module.exports = function(grunt) {
             },
             js: {
                 src: [
-                        'framework/jquery/jquery-1.9.1.js',
-                        'framework/angular-1.3.0.14/angular.min.js',
-                        'framework/angular-1.3.0.14/angular-animate.min.js',
-                        'framework/angular-1.3.0.14/angular-route.min.js',
-                        'framework/ajaxfileupload.js',
-                        'js/iscroll.js',
-                        'js/date.js',
-                        'js/daterate.js',
-                        'js/dateterm.js',
-                        'js/common.js',
-                        'framework/moment/moment.js',
-                        'framework/qiniu/qiniu.js',
-                        'framework/plupload/plupload.full.min.js',
-                        'js/mobiscroll.2.13.2.js',
-                        'js/mobiscroll.list.js',
-                        'js/moneyamount.js',
-                        'js/security/core.js',
-                        'js/security/tripledes3.js',
-                        'js/security/mode-ecb.js',
-                        'js/controller/login.js',
-                        'js/controller/register.js',
-                        'js/controller/article.js',
-                        'js/controller/user.js',
-                        'js/app.js',
-                        'js/route.js'
+                        //'framework/jquery/jquery-1.9.1.js',
+                        //'framework/angular-1.3.0.14/angular.min.js',
+                        //'framework/angular-1.3.0.14/angular-animate.min.js',
+                        //'framework/angular-1.3.0.14/angular-route.min.js',
+                        //'framework/ajaxfileupload.js',
+                        //'js/iscroll.js',
+                        //'js/date.js',
+                        //'js/daterate.js',
+                        //'js/dateterm.js',
+                        //'js/common.js',
+                        //'framework/moment/moment.js',
+                        //'framework/qiniu/qiniu.js',
+                        //'framework/plupload/plupload.full.min.js',
+                        //'js/mobiscroll.2.13.2.js',
+                        //'js/mobiscroll.list.js',
+                        //'js/moneyamount.js',
+                        //'js/security/core.js',
+                        //'js/security/tripledes3.js',
+                        //'js/security/mode-ecb.js',
+                    'js/controller/login.js',
+                    'js/controller/register.js',
+                    'js/controller/article.js',
+                    'js/controller/user.js',
+                    'js/controller/add_card.js',
+                    'js/app.js',
+                    'js/route.js'
                 ],
                 dest: 'dist/<%= pkg.name %>.js'
             },
             css: {
+
                 src: [
-                    'css/viprelease.css',
-                    'css/vipuser.css',
-                    'css/view.css',
-                    'css/register.css',
-                    'css/upload.css',
-                    'css/user.css',
-                    'css/common.css',
-                    'css/mobiscroll.2.13.2.css',
-                    'css/found.css',
-                    'css/invest_projects.css',
-                    'css/me.min.css'
+                    //'css/viprelease.css',
+                    //'css/article.css',
+                    //'css/register.css',
+                    //'css/user.css',
+                    //'css/found.css',
+                    //'css/invest_projects.css',
+                    //'css/mobiscroll.2.13.2.css',
+                    'dist/zrh-app.0.0.4.css'
                 ],
-                dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.css'
+                dest: 'dist/<%= pkg.name %>.123.<%= pkg.version %>.css'
             }
         },
         cssmin: {
             css: {
-                src:'dist/<%= pkg.name %>.<%= pkg.version %>.css',
+                src:'dist/<%= pkg.name %>.123.<%= pkg.version %>.css',
                 dest:'dist/<%= pkg.name %>.min.<%= pkg.version %>.css'
             }
         },

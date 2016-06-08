@@ -1,7 +1,7 @@
 <div style="height:100%;background:#ffffff;">
-    <div class="viprelease1Header">
-        <p class="viprelease1Headerp1">温馨提示：</p>
-        <p class="viprelease1Headerp2">信息越完整，成功率越高!</p>
+    <div class="vipRelease1Header">
+        <p class="vipRelease1HeaderP1">温馨提示：</p>
+        <p class="vipRelease1HeaderP2">信息越完整，成功率越高!</p>
     </div>
     <div class="information">基本信息</div>
     <div class="showInformation">
@@ -11,7 +11,7 @@
                 <span class="reqNameSpan2" >营业执照</span>
             </div>
             <div class="reqTips">{{article.license.regTime || '请上传您公司的营业执照'}}</div>
-            <span class="setupimg"></span>
+            <span class="setupImg"></span>
         </div>
          <div class=" required" id="aomuntmoney">
              <!--<div class=" required" ng-click="choose_loanValue()" id="aomuntmoney">    -->
@@ -20,31 +20,31 @@
                  <span class="reqNameSpan2">融资金额</span>
              </div>
              <div class="reqTips" ng-hide="article.loanValue">请选择您要融资的金额</div>
-             <div class="reqTipsafter" ng-show="article.loanValue">{{article.loanValue}}万</div>
+             <div class="reqTipsAfter" ng-show="article.loanValue">{{article.loanValue}}万</div>
              <input type="hidden" id="loanValue" onchange="angular.element(this).scope().changeLoanValue()"/>
-             <span class="setupimg"></span>
+             <span class="setupImg"></span>
          </div>
-         <div class=" required" id="term">
+         <div class="required" id="term">
              <div ng-class="setStyle_div(article.loanLife)" >
                  <span class="reqNameSpan1" ng-hide="article.loanLife"></span>
                  <span class="reqNameSpan2">融资期限</span>
              </div>
              <div class="reqTips" ng-hide="article.loanLife">请选择您要融资的期限</div>
-             <div class="reqTipsafter" ng-show="article.loanLife">{{article.loanLife}}个月</div>
+             <div class="reqTipsAfter" ng-show="article.loanLife">{{article.loanLife}}个月</div>
              <input type="hidden" id="loanLife" onchange="angular.element(this).scope().changeLoanLife()"/>
-             <span class="setupimg"></span>
+             <span class="setupImg"></span>
          </div>
-         <div class=" required" id="rate">
+         <div class="required" id="rate">
              <div ng-class="setStyle_div(article.rateCap)">
                  <span class="reqNameSpan1" ng-hide="article.rateCap"></span>
                  <span class="reqNameSpan2">接受利率</span>
 
              </div>
              <div class="reqTips" ng-hide="article.rateCap">请选择您要融资的金额</div>
-             <div class="reqTipsafter" ng-show="article.rateCap">{{article.rateCap}}%-{{article.rateFloor}}%</div>
+             <div class="reqTipsAfter" ng-show="article.rateCap">{{article.rateCap}}%-{{article.rateFloor}}%</div>
              <input type="hidden" id="rateCap" onchange="angular.element(this).scope().changeRateCap()"/>
              <input type="hidden" id="rateFloor" onchange="angular.element(this).scope().changeRateFloor()"/>
-             <span class="setupimg"></span>
+             <span class="setupImg"></span>
          </div>
          <div class=" required" ng-click="choose_classification()">
              <div ng-class="setStyle_div(article.classification)">
@@ -52,8 +52,8 @@
                  <span class="reqNameSpan2">行业分类</span>
              </div>
              <div class="reqTips" ng-hide="article.classification">{{article.classification || '请选择您的行业'}}</div>
-             <div class="reqTipsafter" ng-show="article.classification">{{article.classification || '请选择您的行业'}}</div>
-             <span class="setupimg"></span>
+             <div class="reqTipsAfter" ng-show="article.classification">{{article.classification || '请选择您的行业'}}</div>
+             <span class="setupImg"></span>
          </div>
 
          <input type="submit" value="下一步" class="singleButtonFixed" ng-click="next_step()"/>

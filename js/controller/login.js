@@ -51,27 +51,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             }).success(function (d) {
                 if (d.returnCode == 1001) {
                     $scope.enableMobile = true;
-                    $scope.times();
-                    $http({
-                        url: api_uri+"api/reg/sendSms2",
-                        method: "GET",
-                        params: {
-                            "mobile":$scope.loginUser.mobile,
-                            "token":$rootScope.encryptByDES($scope.loginUser.mobile),
-                            "timestamp":moment().format('X')
-                        }
-                    }).success(function (d) {
-                        if (d.returnCode == 0) {
-                            $("#code").focus();
-                            $scope.changeErrorMsg("短信验证码已经发送到你的手机");
-                        }
-                        else {
-                            $scope.changeErrorMsg(d.result);
-                        }
-
-                    }).error(function (d) {
-                        console.log("login error");
-                    })
+                    $scope.success_msg = "手机号输入正确";
                 }
                 else {
                     $scope.enableMobile =false;

@@ -1,128 +1,125 @@
 <div style="background: #ffffff; position: relative">
-<div class="viprelease1Header">
-    <p class="viprelease1Headerp1">温馨提示：</p>
-    <p class="viprelease1Headerp2">信息越完整，成功率越高!</p>
-</div>
-<div class="information">精准信息</div>
-<div class="informationContent">
-    <span class="reqNameSpan1"></span>
-    <span class="reqNameSpan2">抵押物</span>
-</div>
-<div class="collateral">
-    <div class="collateral1">
-        <div class="collateralDiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
-            <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
-            <span class="checkText">{{pt.name}}</span>
-            <span class="checkLine">|</span>
-            <p class="collateralLine"></p>
-        </div>
-        <p class="clearRightBorder"></p>
-        <!--<div class="coverBottomBorder"></div>-->
+    <div class="vipRelease1Header">
+        <p class="vipRelease1HeaderP1">温馨提示：</p>
+        <p class="vipRelease1HeaderP2">信息越完整，成功率越高!</p>
     </div>
-</div>
-<div class="required1" style="border-bottom: none">
-    <textarea name="" class="detailDescribe" id="pledge" maxlength="150" ng-model="article.pledge" placeholder="请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本，车本，股票号等数据图片"></textarea>
-    <!--<div class="xushu" contenteditable="true"  id="pledge">{{article.pledge || '请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本，车本，股票号等数据图片'}}</div>-->
-</div>
-<div class="loadLie clear" >
-	<div class="img-list fl" ng-repeat="pledgeImg in article.pledgeImgs" ng-click="removePledgeImg($index)">
-        <img ng-src="{{pledgeImg}}" alt="" style="border: 0">
-        <div class="redPoint">
-            <div class="redPointInner"></div>
+    <div class="information">精准信息</div>
+    <div class="informationContent">
+        <span class="reqNameSpan1"></span>
+        <span class="reqNameSpan2">抵押物</span>
+    </div>
+    <div class="collateral">
+        <div class="collateral1">
+            <div class="collateralDiv" ng-repeat="pt in pledgeTypeList" ng-click="check(pt.name)">
+                <span ng-class="{false: 'check', true: 'checked'}[pt.check]"></span>
+                <span class="checkText">{{pt.name}}</span>
+                <span class="checkLine">|</span>
+                <p class="collateralLine"></p>
+            </div>
+            <p class="clearRightBorder"></p>
+            <!--<div class="coverBottomBorder"></div>-->
         </div>
     </div>
-    <div id="upload_pledgeImg">
-	 <img id="pickPledgeImg" src="img/icon/upload1.png" class="loadjia fl">
-	</div>
-</div>
+    <div class="required1" style="border-bottom: none">
+        <textarea name="" class="detailDescribe" id="pledge" maxlength="150" ng-model="article.pledge"
+                  placeholder="请具体描述下抵押物的金额、权属情况、股票号等信息。也可以点击加号直接上传房本，车本，股票号等数据图片"></textarea>
+    </div>
+    <div class="loadLie clear">
+        <div class="img-list fl" ng-repeat="pledgeImg in article.pledgeImgs" ng-click="removePledgeImg($index)">
+            <img ng-src="{{pledgeImg}}" alt="" style="border: 0">
+            <div class="redPoint">
+                <div class="redPointInner"></div>
+            </div>
+        </div>
+        <div id="upload_pledgeImg">
+            <img id="pickPledgeImg" src="img/icon/upload1.png" class="loadAdd fl">
+        </div>
+    </div>
 
-<div class="required">
-    <div ng-class="setStyle_div(article.continualOperateYear)">
-        <span class="reqNameSpan1" ng-hide="article.continualOperateYear"></span>
-        <span class="reqNameSpan2">年实际经营流水（万元）</span>
-    </div>
-    <input type="text" placeholder="请输入对公账户流水" ng-model="article.continualOperateYear"/>
-</div>
-<div class="required">
-    <div ng-class="setStyle_div(article.continualPublicYear)">
-        <span class="reqNameSpan2">对公账户流水（万元）</span>
-    </div>
-    <input type="text" placeholder="请输入对公账户流水" ng-model="article.continualPublicYear"/>
-</div>
-<div class="required" ng-click="choose_credit()">
-    <div ng-class="setStyle_div(article.credit)">
-        <span class="reqNameSpan2">贷款方式</span>
-    </div>
-    <div class="reqTips" ng-hide="article.credit">请选择贷款方式</div>
-    <div class="reqTipsafter" ng-show="article.credit">{{article.credit}}</div>
-    <span class="setupimg"></span>
-</div>
-
-<div class="required1">
-    <div ng-class="setStyle_div(article.financialInfo)">
-        <span class="reqNameSpan2">财务信息（应收 资产规模）</span>
-    </div>
-    <textarea name="" class="detailDescribe" id="financialInfo" maxlength="150" ng-model="article.financialInfo" placeholder="点击加号添加财务报表图片。"></textarea>
-    <!--<input type="text" placeholder="点击加号添加财务报表图片" ng-model="article.financialInfo"/>-->
-    <!--<div class="requiredDivInput" contenteditable="true" id="financialInfo">{{article.financialInfo || '点击加号添加财务报表图片'}}</div>-->
-</div>
-
-<div class="loadLie clear" >
-	<div class="img-list fl" ng-repeat="financialImg in article.financialImgs" ng-click="removeFinancialImg($index)">
-        <img ng-src="{{financialImg}}" alt="" style="border: 0">
-        <div class="redPoint">
-            <div class="redPointInner"></div>
+    <div class="required">
+        <div ng-class="setStyle_div(article.continualOperateYear)">
+            <span class="reqNameSpan1" ng-hide="article.continualOperateYear"></span>
+            <span class="reqNameSpan2">年实际经营流水（万元）</span>
         </div>
-	</div>
-	<div id="upload_financialImg">
-       <img src="img/icon/upload1.png" class="loadjia fl" id="pickFinancialImg">
+        <input type="text" placeholder="请输入对公账户流水" ng-model="article.continualOperateYear"/>
     </div>
-</div>
-<div class="required">
-    <div ng-class="setStyle_div(article.businessContact)">
-        <span class="reqNameSpan2">业务往来</span>
-    </div>
-    <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="article.businessContact"/>
-</div>
-<div class="required">
-    <div ng-class="setStyle_div(article.corporateResidence)">
-        <span class="reqNameSpan2">法人户籍</span>
-    </div>
-    <input type="text" placeholder="请输入法人户籍" ng-model="article.corporateResidence"/>
-</div>
-<div class="required1">
-    <div ng-class="setStyle_div(article.advantages)">
-        <span class="reqNameSpan2">公司优势</span>
-    </div>
-    <textarea name="" class="detailDescribe" id="advantages" maxlength="150" ng-model="article.advantages" placeholder="请输入公司的其他贷款优势。"></textarea>
-    <!--<input type="text" placeholder="请输入公司的其他贷款优势" ng-model="article.advantages" />-->
-    <!--<div class="requiredDivInput" contenteditable="true" id="advantages">{{article.advantages || '请输入公司的其他贷款优势。'}}</div>-->
-</div>
-<div class="loadLie clear">
-	<div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs" ng-click="removeAdvantagesImg($index)" >
-        <img ng-src="{{advantagesImg}}" alt="" style="border: 0" >
-        <div class="redPoint">
-            <div class="redPointInner"></div>
+    <div class="required">
+        <div ng-class="setStyle_div(article.continualPublicYear)">
+            <span class="reqNameSpan2">对公账户流水（万元）</span>
         </div>
-	</div>
-    <div id="upload_advantagesImg">
-        <img src="img/icon/upload1.png" class="loadjia fl" id="pickAdvantagesImg">
+        <input type="text" placeholder="请输入对公账户流水" ng-model="article.continualPublicYear"/>
+    </div>
+    <div class="required" ng-click="choose_credit()">
+        <div ng-class="setStyle_div(article.credit)">
+            <span class="reqNameSpan2">贷款方式</span>
+        </div>
+        <div class="reqTips" ng-hide="article.credit">请选择贷款方式</div>
+        <div class="reqTipsAfter" ng-show="article.credit">{{article.credit}}</div>
+        <span class="setupImg"></span>
+    </div>
+
+    <div class="required1">
+        <div ng-class="setStyle_div(article.financialInfo)">
+            <span class="reqNameSpan2">财务信息（应收 资产规模）</span>
+        </div>
+        <textarea name="" ng-keyup="autoExpand($event)" class="detailDescribe" id="financialInfo" maxlength="150" ng-model="article.financialInfo"
+                  placeholder="点击加号添加财务报表图片。"></textarea>
+    </div>
+
+    <div class="loadLie clear">
+        <div class="img-list fl" ng-repeat="financialImg in article.financialImgs"
+             ng-click="removeFinancialImg($index)">
+            <img ng-src="{{financialImg}}" alt="" style="border: 0">
+            <div class="redPoint">
+                <div class="redPointInner"></div>
+            </div>
+        </div>
+        <div id="upload_financialImg">
+            <img src="img/icon/upload1.png" class="loadAdd fl" id="pickFinancialImg">
+        </div>
+    </div>
+    <div class="required">
+        <div ng-class="setStyle_div(article.businessContact)">
+            <span class="reqNameSpan2">业务往来</span>
+        </div>
+        <input type="text" placeholder="请输入几个上下游主要客户和采购对象" ng-model="article.businessContact"/>
+    </div>
+    <div class="required">
+        <div ng-class="setStyle_div(article.corporateResidence)">
+            <span class="reqNameSpan2">法人户籍</span>
+        </div>
+        <input type="text" placeholder="请输入法人户籍" ng-model="article.corporateResidence"/>
+    </div>
+    <div class="required1">
+        <div ng-class="setStyle_div(article.advantages)">
+            <span class="reqNameSpan2">公司优势</span>
+        </div>
+        <textarea name="" ng-keyup="autoExpand($event)" class="detailDescribe" id="advantages" maxlength="150" ng-model="article.advantages"
+                  placeholder="请输入公司的其他贷款优势。"></textarea>
+    </div>
+    <div class="loadLie clear">
+        <div class="img-list fl" ng-repeat="advantagesImg in article.advantagesImgs"
+             ng-click="removeAdvantagesImg($index)">
+            <img ng-src="{{advantagesImg}}" alt="" style="border: 0">
+            <div class="redPoint">
+                <div class="redPointInner"></div>
+            </div>
+        </div>
+        <div id="upload_advantagesImg">
+            <img src="img/icon/upload1.png" class="loadAdd fl" id="pickAdvantagesImg">
+        </div>
+    </div>
+    <div class="loadLast">
+        <div class="doubleButton">
+            <span class="doubleButtonLeft" ng-click="save()">保存</span>
+            <span class="doubleButtonRight" ng-click="release()">发布</span>
+        </div>
     </div>
 </div>
-<div  class="loadlast">
-    <div class="doubleButton">
-    <span class="doubleButtonLeft" ng-click="save()">保存</span>
-    <span class="doubleButtonRight" ng-click="release()">发布</span>
-</div>
-</div>
-</div>
+<!--
 <script>
-    var pledge = document.getElementById("pledge");
-    var content = document.getElementById("content");
-//    var text = document.getElementsByClassName("detailDescribe");
-    var financialInfo = document.getElementById("financialInfo");
-    var advantages = document.getElementById("advantages");
     var autoTextarea = function (elem, extra, maxHeight) {
+        console.log(elem);
         extra = extra || 0;
         var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
                 isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
@@ -130,23 +127,22 @@
                     elem.addEventListener ?
                             elem.addEventListener(type, callback, false) :
                             elem.attachEvent('on' + type, callback);
-                },
-                getStyle = elem.currentStyle ? function (name) {
-                    var val = elem.currentStyle[name];
+                }
+        getStyle = elem.currentStyle ? function (name) {
+            var val = elem.currentStyle[name];
 
-                    if (name === 'height' && val.search(/px/i) !== 1) {
-                        var rect = elem.getBoundingClientRect();
-                        return rect.bottom - rect.top -
-                                parseFloat(getStyle('paddingTop')) -
-                                parseFloat(getStyle('paddingBottom')) + 'px';
-                    };
+            if (name === 'height' && val.search(/px/i) !== 1) {
+                var rect = elem.getBoundingClientRect();
+                return rect.bottom - rect.top -
+                        parseFloat(getStyle('paddingTop')) -
+                        parseFloat(getStyle('paddingBottom')) + 'px';
+            }
 
-                    return val;
-                } : function (name) {
-                    return getComputedStyle(elem, null)[name];
-                },
+            return val;
+        } : function (name) {
+            return window.getComputedStyle(elem, null)[name];
+        },
                 minHeight = parseFloat(getStyle('height'));
-
         elem.style.resize = 'none';
 
         var change = function () {
@@ -159,7 +155,7 @@
 
             if (!isFirefox && !isOpera) {
                 padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
-            };
+            }
             scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 
             elem.style.height = minHeight + 'px';
@@ -170,13 +166,13 @@
                 } else {
                     height = elem.scrollHeight - padding;
                     style.overflowY = 'hidden';
-                };
+                }
                 style.height = height + extra + 'px';
                 scrollTop += parseInt(style.height) - elem.currHeight;
                 document.body.scrollTop = scrollTop;
                 document.documentElement.scrollTop = scrollTop;
                 elem.currHeight = parseInt(style.height);
-            };
+            }
         };
 
         addEvent('propertychange', change);
@@ -184,8 +180,10 @@
         addEvent('focus', change);
         change();
     };
-    autoTextarea(pledge);// 调用
-    autoTextarea(financialInfo);// 调用
-    autoTextarea(advantages);// 调用
-    autoTextarea(content);// 调用
-</script>
+    autoTextarea($("#pledge"));// 调用
+    console.log("111");
+    autoTextarea($("#financialInfo"));// 调用
+    console.log("222");
+    autoTextarea($("#advantages"));// 调用
+    console.log("333");
+</script>-->

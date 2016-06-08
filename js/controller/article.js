@@ -21,6 +21,7 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 
         }).error(function (d) {
             console.log("login error");
+            $location.path("/error");
         })
     };
 
@@ -105,6 +106,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
             }
         }).error(function (d) {
             console.log("login error");
+            $location.path("/error");
         });        
     };
     $scope.init();
@@ -210,7 +212,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.setStyle_div = function (args) {
         if (args) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -218,7 +220,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.setStyle_div2 = function (arg1, arg2) {
         if (arg1 && arg2) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -341,7 +343,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
 
     $scope.setStyle_div = function (args) {
         if (args) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -380,6 +382,86 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
 articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, $location, $routeParams) {
 
 
+    // 调用
+    var pledge = document.getElementById("pledge");
+    var financialInfo = document.getElementById("financialInfo");
+    var advantages = document.getElementById("advantages");
+    var autoTextarea = function (elem, extra, maxHeight) {
+        extra = extra || 0;
+        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
+            isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
+            addEvent = function (type, callback) {
+                elem.addEventListener ?
+                    elem.addEventListener(type, callback, false) :
+                    elem.attachEvent('on' + type, callback);
+            },
+            getStyle = elem.currentStyle ? function (name) {
+                var val = elem.currentStyle[name];
+
+                if (name === 'height' && val.search(/px/i) !== 1) {
+                    var rect = elem.getBoundingClientRect();
+                    return rect.bottom - rect.top -
+                        parseFloat(getStyle('paddingTop')) -
+                        parseFloat(getStyle('paddingBottom')) + 'px';
+                }
+                ;
+
+                return val;
+            } : function (name) {
+                return getComputedStyle(elem, null)[name];
+            },
+            minHeight = parseFloat(getStyle('height'));
+
+        elem.style.resize = 'none';
+
+        var change = function () {
+            var scrollTop, height,
+                padding = 0,
+                style = elem.style;
+
+            if (elem._length === elem.value.length) return;
+            elem._length = elem.value.length;
+
+            if (!isFirefox && !isOpera) {
+                padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+            }
+            ;
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            elem.style.height = minHeight + 'px';
+            if (elem.scrollHeight > minHeight) {
+                if (maxHeight && elem.scrollHeight > maxHeight) {
+                    height = maxHeight - padding;
+                    style.overflowY = 'auto';
+                } else {
+                    height = elem.scrollHeight - padding;
+                    style.overflowY = 'hidden';
+                }
+                ;
+                style.height = height + extra + 'px';
+                scrollTop += parseInt(style.height) - elem.currHeight;
+                document.body.scrollTop = scrollTop;
+                document.documentElement.scrollTop = scrollTop;
+                elem.currHeight = parseInt(style.height);
+            }
+            ;
+        };
+
+        addEvent('propertychange', change);
+        addEvent('input', change);
+        addEvent('focus', change);
+        change();
+    };// 调用
+    autoTextarea(pledge);// 调用
+    autoTextarea(financialInfo);// 调用
+    autoTextarea(advantages);// 调用
+
+
+
+
+
+
+
     $scope.pledgeTypeList = [
         {"name": "房产", "check": false},
         {"name": "地产", "check": false},
@@ -390,7 +472,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
     $scope.setStyle_div = function (args) {
         if (args) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -999,7 +1081,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.setStyle_div = function (args) {
         if (args) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -1007,7 +1089,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.setStyle_div2 = function (arg1, arg2) {
         if (arg1 && arg2) {
-            return "setafter";
+            return "setAfter";
         } else {
             return "reqName";
         }
@@ -1025,8 +1107,6 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
     };
 
     $scope.next_step = function () {
-        
-
         $rootScope.putSessionObject("article", $scope.article);
         $location.path("/article/step2");
 //      $scope.$apply();
@@ -1036,6 +1116,79 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
 });
 
 articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $location, $routeParams, $timeout, $interval) {
+
+    var ibc = $(window).height() - 253;
+//        alert(ibc);
+    $(".displayFrame").css("height", ibc + "px");
+    var content = document.getElementById("content");
+    var autoTextarea = function (elem, extra, maxHeight) {
+        extra = extra || 0;
+        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
+            isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
+            addEvent = function (type, callback) {
+                elem.addEventListener ?
+                    elem.addEventListener(type, callback, false) :
+                    elem.attachEvent('on' + type, callback);
+            },
+            getStyle = elem.currentStyle ? function (name) {
+                var val = elem.currentStyle[name];
+
+                if (name === 'height' && val.search(/px/i) !== 1) {
+                    var rect = elem.getBoundingClientRect();
+                    return rect.bottom - rect.top -
+                        parseFloat(getStyle('paddingTop')) -
+                        parseFloat(getStyle('paddingBottom')) + 'px';
+                }
+                ;
+
+                return val;
+            } : function (name) {
+                return getComputedStyle(elem, null)[name];
+            },
+            minHeight = parseFloat(getStyle('height'));
+
+        elem.style.resize = 'none';
+
+        var change = function () {
+            var scrollTop, height,
+                padding = 0,
+                style = elem.style;
+
+            if (elem._length === elem.value.length) return;
+            elem._length = elem.value.length;
+
+            if (!isFirefox && !isOpera) {
+                padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+            }
+            ;
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            elem.style.height = minHeight + 'px';
+            if (elem.scrollHeight > minHeight) {
+                if (maxHeight && elem.scrollHeight > maxHeight) {
+                    height = maxHeight - padding;
+                    style.overflowY = 'auto';
+                } else {
+                    height = elem.scrollHeight - padding;
+                    style.overflowY = 'hidden';
+                }
+                ;
+                style.height = height + extra + 'px';
+                scrollTop += parseInt(style.height) - elem.currHeight;
+                document.body.scrollTop = scrollTop;
+                document.documentElement.scrollTop = scrollTop;
+                elem.currHeight = parseInt(style.height);
+            }
+            ;
+        };
+
+        addEvent('propertychange', change);
+        addEvent('input', change);
+        addEvent('focus', change);
+        change();
+    };
+    autoTextarea(content);// 调用
+
 
     $scope.init = function () {
         //初始化消息时间
