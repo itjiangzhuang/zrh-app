@@ -2,8 +2,8 @@
  * Created by jiangzhuang on 5/5/16.
  */
 
-api_uri = "http://zrh.supeiyunjing.com/api/";
-templates_root = "/app/templates/";
+api_uri = "http://api.supeiyunjing.com/";
+templates_root = "/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
 var myApp = angular.module('myApp', [
