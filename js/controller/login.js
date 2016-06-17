@@ -78,7 +78,8 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             		"token":d.result.split("_")[1]
             	}
                 $rootScope.putObject("login_user", $rootScope.login_user);
-            	$location.path("/article/list");
+            	//$location.path("/article/list");
+                $location.path("/user/setting");
             }else {
 
             	var msg = $scope.error_code_msg[d.returnCode];
