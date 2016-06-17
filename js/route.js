@@ -133,5 +133,5 @@ myApp.config(function ($routeProvider) {
             templateUrl: templates_root + '404.html',
             //controller: 'UserUpdateCtrl'
         })
-        .otherwise({redirectTo: '/article/list'})
+        .otherwise({redirectTo: '/login'})
 });
