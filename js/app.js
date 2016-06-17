@@ -133,7 +133,7 @@ myApp.run(['$location', '$rootScope', '$http',
                 return false;
             }
             $http({
-                url: api_uri + "api/auth/validateAuth",
+                url: api_uri + "auth/validateAuth",
                 method: "POST",
                 params: $rootScope.login_user
             }).success(function (d) {
