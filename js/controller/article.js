@@ -8,7 +8,7 @@ articleCtrl.controller('ArticleListCtrl', function ($http, $scope, $rootScope, $
 	 
 	 $scope.list = function () {
         $http({
-            url: api_uri+"api/article/list",
+            url: api_uri+"article/list",
             method: "GET"
         }).success(function (d) {
         	console.log(d);
@@ -49,7 +49,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
     $scope.init = function () {
     	$scope.bt_show = 0;
         $http({
-            url: api_uri + "api/article/show/" + $routeParams.id,
+            url: api_uri + "article/show/" + $routeParams.id,
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -112,7 +112,7 @@ articleCtrl.controller('ArticleShowCtrl', function ($http, $scope, $rootScope, $
     $scope.init();
     
     $scope.release = function(){
-    	$.get(api_uri + "api/article/release/"+$routeParams.id, $rootScope.login_user,
+    	$.get(api_uri + "article/release/"+$routeParams.id, $rootScope.login_user,
             function (d) {
                 if (d.returnCode == 0) {		                    
                     $location.path("/article/show/"+d.result);
@@ -147,7 +147,7 @@ articleCtrl.controller('ArticleCreateStep1Ctrl', function ($http, $scope, $rootS
 
     $scope.getFormToken = function () {
         $http({
-            url: api_uri + "api/article/formToken",
+            url: api_uri + "article/formToken",
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -267,7 +267,7 @@ articleCtrl.controller('ArticleLicenseCtrl', function ($http, $scope, $rootScope
 		    $scope.license = {}
 		}
         $http({
-            url: api_uri + "api/qiniu/getUpToken",
+            url: api_uri + "qiniu/getUpToken",
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -511,7 +511,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     	}
     	$scope.check($scope.article.pledgeType);
         $http({
-            url: api_uri + "api/qiniu/getUpToken",
+            url: api_uri + "qiniu/getUpToken",
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -799,7 +799,7 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
 
     $scope.save = function () {
 	    var params = $scope.validate_params();
-        $.post(api_uri + "api/article/save", params,
+        $.post(api_uri + "article/save", params,
             function (data) {
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("article");
@@ -816,12 +816,12 @@ articleCtrl.controller('ArticleStep2Ctrl', function ($http, $scope, $rootScope, 
     	
     	var params = $scope.validate_params();
         console.log(params);
-        $.post(api_uri + "api/article/save", params,
+        $.post(api_uri + "article/save", params,
             function (data) {
                 if (data.returnCode == 0) {
                     $rootScope.removeSessionObject("article");
  
-                    $.get(api_uri + "api/article/release/"+data.result, $rootScope.login_user,
+                    $.get(api_uri + "article/release/"+data.result, $rootScope.login_user,
 			            function (d) {
 			                if (data.returnCode == 0) {		                    
 			                    $location.path("/article/show/"+data.result);
@@ -1013,7 +1013,7 @@ articleCtrl.controller('ArticleUpdateStep1Ctrl', function ($http, $scope, $rootS
         if (!$scope.article) {
         	params.id = $routeParams.id
         	$http({
-	            url: api_uri + "api/article/update",
+	            url: api_uri + "article/update",
 	            method: "GET",
 	            params: params
 	        }).success(function (data) {
@@ -1199,7 +1199,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
 
         //获取项目信息
         $http({
-            url: api_uri + "api/article/showTitle/" + $routeParams.id,
+            url: api_uri + "article/showTitle/" + $routeParams.id,
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -1216,7 +1216,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
         });
         //获取全部消息列表
         $http({
-            url: api_uri + "api/articleComments/list/" + $routeParams.id + "/" + $routeParams.userId,
+            url: api_uri + "articleComments/list/" + $routeParams.id + "/" + $routeParams.userId,
             method: "GET",
             params: {
                 "userId": $rootScope.login_user.userId,
@@ -1258,7 +1258,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
     $scope.otherList = function () {
         //获取别人消息的列表 加入数组
         $http({
-            url: api_uri + "api/articleComments/otherList/" + $routeParams.id + "/" + $routeParams.userId,
+            url: api_uri + "articleComments/otherList/" + $routeParams.id + "/" + $routeParams.userId,
             method: "GET",
             params: {
                 "userId": $rootScope.login_user.userId,
@@ -1293,7 +1293,7 @@ articleCtrl.controller('QuestionsCtrl', function ($http, $scope, $rootScope, $lo
 			"content":content
     	};
     	//提交评论,并且添加进入列表
-    	$.post(api_uri+"api/articleComments/leave/"+$routeParams.id+"/"+$routeParams.userId,
+    	$.post(api_uri+"articleComments/leave/"+$routeParams.id+"/"+$routeParams.userId,
     	  params,function(data){
             if (data.returnCode == 0) {
                 console.log("发送成功");
@@ -1323,7 +1323,7 @@ articleCtrl.controller('ArticleBidCtrl', function ($http, $scope, $rootScope, $l
 		$scope.content = "申请中,请稍后......";
      	$scope.return_url = "/article/show/"+$routeParams.id;
      	$http({
-            url: api_uri+"api/articleUser/bid/"+$routeParams.id,
+            url: api_uri+"articleUser/bid/"+$routeParams.id,
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -1350,7 +1350,7 @@ articleCtrl.controller('ArticleMobileCtrl', function ($http, $scope, $rootScope,
      
      $scope.init= function(){ 
      	$http({
-            url: api_uri+"api/article/mobile/"+$routeParams.id,
+            url: api_uri+"article/mobile/"+$routeParams.id,
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -1374,7 +1374,7 @@ articleCtrl.controller('ArticleBankCtrl', function ($http, $scope, $rootScope, $
      
      $scope.init= function(){ 
      	$http({
-            url: api_uri+"api/article/bank/"+$routeParams.id,
+            url: api_uri+"article/bank/"+$routeParams.id,
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {

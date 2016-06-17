@@ -45,7 +45,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             $("#mobile").focus();
         }else{
             $http({
-                url: api_uri+"api/reg/validateMobile",
+                url: api_uri+"reg/validateMobile",
                 method: "GET",
                 params: {"mobile":$scope.loginUser.mobile}
             }).success(function (d) {
@@ -67,7 +67,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         var m_params = $scope.loginUser;
         if (!check_params(m_params)) return;
         $http({
-            url: api_uri+"api/auth/web",
+            url: api_uri+"auth/web",
             method: "POST",
             params: m_params           
         }).success(function (d) {
@@ -78,7 +78,8 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             		"token":d.result.split("_")[1]
             	}
                 $rootScope.putObject("login_user", $rootScope.login_user);
-            	$location.path("/article/list");
+            	//$location.path("/article/list");
+                $location.path("/user/setting");
             }else {
 
             	var msg = $scope.error_code_msg[d.returnCode];

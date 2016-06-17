@@ -46,7 +46,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 			$("#mobile").focus();
 		}else{
 			$http({
-	            url: api_uri+"api/reg/validateMobile",
+	            url: api_uri+"reg/validateMobile",
 	            method: "GET",
 	            params: {"mobile":$scope.registerUser.mobile}
 	        }).success(function (d) {
@@ -54,7 +54,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	                $scope.enableMobile = true;
 	                $scope.times();
 					$http({
-			            url: api_uri+"api/reg/sendSms",
+			            url: api_uri+"reg/sendSms",
 			            method: "GET",
 			            params: {
 			            	"mobile":$scope.registerUser.mobile,
@@ -96,7 +96,7 @@ registerCtrl.controller('RegStep1Ctrl', function ($http, $scope, $rootScope, $lo
 	$scope.validateCode = function(){
 		if($scope.isVerify){
 			$http({
-	            url: api_uri+"api/reg/validateSms",
+	            url: api_uri+"reg/validateSms",
 	            method: "POST",
 	            params: $scope.registerUser
 	        }).success(function (d) {
@@ -163,7 +163,7 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 		var reg_str = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,12}$/;
 		if($scope.registerUser.password==$scope.registerUser.validatePwd &&reg_str.test($scope.registerUser.password)){
 			$http({
-	            url: api_uri+"api/reg/regist",
+	            url: api_uri+"reg/regist",
 	            method: "POST",
 	            params: $scope.registerUser
 	        }).success(function (d) {
@@ -171,7 +171,7 @@ registerCtrl.controller('RegStep2Ctrl', function ($http, $scope, $rootScope, $lo
 	            	alert("注册成功");
 	            	$rootScope.putObject("login_mobile",$scope.registerUser.mobile);
 	                $http({
-			            url: api_uri+"api/auth/web",
+			            url: api_uri+"auth/web",
 			            method: "POST",
 			            params: {
 			            	"mobile":$scope.registerUser.mobile,
@@ -251,7 +251,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 			$("#mobile").focus();
 		}else{
 			$http({
-	            url: api_uri+"api/reg/validateMobile",
+	            url: api_uri+"reg/validateMobile",
 	            method: "GET",
 	            params: {"mobile":$scope.resetUser.mobile}
 	        }).success(function (d) {
@@ -259,7 +259,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	            	$scope.enableMobile = true;
 	                $scope.times();
 					$http({
-			            url: api_uri+"api/reg/sendSms2",
+			            url: api_uri+"reg/sendSms2",
 			            method: "GET",
 			            params: {
 			            	"mobile":$scope.resetUser.mobile,
@@ -302,7 +302,7 @@ registerCtrl.controller('ResetStep1Ctrl', function ($http, $scope, $rootScope, $
 	$scope.validateCode = function(){
 		if($scope.isVerify){
 			$http({
-	            url: api_uri+"api/reg/validateSms",
+	            url: api_uri+"reg/validateSms",
 	            method: "POST",
 	            params: $scope.resetUser
 	        }).success(function (d) {
@@ -352,7 +352,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 	}
 	$scope.user_reset = function(){
 		$http({
-            url: api_uri+"api/reg/reset",
+            url: api_uri+"reg/reset",
             method: "POST",
             params: $scope.resetUser
         }).success(function (d) {
@@ -360,7 +360,7 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
             	alert("重置密码成功");
             	$rootScope.putObject("login_mobile",$scope.resetUser.mobile);
                 $http({
-		            url: api_uri+"api/auth/web",
+		            url: api_uri+"auth/web",
 		            method: "POST",
 		            params: {
 		            	"mobile":$scope.resetUser.mobile,
