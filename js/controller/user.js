@@ -9,7 +9,7 @@ userCtrl.controller('UserCenterCtrl', function ($http, $scope, $rootScope, $loca
     $scope.init = function () {
         //获取个人信息 以及各种列表数量
          $http({
-            url: api_uri + "api/user/center",
+            url: api_uri + "user/center",
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -65,7 +65,7 @@ userCtrl.controller('MyQuestionsCtrl', function ($http, $scope, $rootScope, $loc
 
     $scope.init = function () {
         $http({
-            url: api_uri + "api/articleComments/lastList",
+            url: api_uri + "articleComments/lastList",
             method: "GET",
             params: {
                 "userId": $rootScope.login_user.userId,
@@ -103,7 +103,7 @@ userCtrl.controller('ProjectManageCtrl', //项目管理
         	}
 
 	        $http({
-	            url: api_uri + "api/article/myList",
+	            url: api_uri + "article/myList",
 	            method: "GET",
 	            params: {
 	                "userId": $rootScope.login_user.userId,
@@ -177,7 +177,7 @@ userCtrl.controller('ProjectInvestCtrl', //项目投资
         $scope.init = function () {
 
 	        $http({
-	            url: api_uri + "api/article/investList",
+	            url: api_uri + "article/investList",
 	            method: "GET",
 	            params: $rootScope.login_user
 	        }).success(function (d) {
@@ -226,7 +226,7 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
 
 	$scope.init = function(){
 		 $http({
-            url: api_uri + "api/user/showIq",
+            url: api_uri + "user/showIq",
             method: "GET",
             params: {
                 "userId": $rootScope.login_user.userId,
@@ -247,7 +247,7 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
         });
 
         $http({
-            url: api_uri + "api/qiniu/getUpToken",
+            url: api_uri + "qiniu/getUpToken",
             method: "GET",
             params: $rootScope.login_user
         }).success(function (d) {
@@ -340,7 +340,7 @@ userCtrl.controller("ApplyInvestCtrl",function ($http, $scope, $rootScope, $loca
             params.cardImg = $scope.userApplyInvest.cardImg;
         }
 
-        $.post(api_uri + "api/user/applyIq", params,
+        $.post(api_uri + "user/applyIq", params,
             function (data) {
                 if (data.returnCode == 0) {
                     alert("提交成功,请等待审核...");
@@ -363,7 +363,7 @@ userCtrl.controller('SettingCtrl', //用户设置
         $scope.init = function () {
             //获取用户信息
             $http({
-		        url: api_uri + "api/user/setting",
+		        url: api_uri + "user/setting",
 		        method: "GET",
 		        params: $rootScope.login_user
 		    }).success(function (d) {
@@ -378,7 +378,7 @@ userCtrl.controller('SettingCtrl', //用户设置
 		    });        	
         	
 			$http({
-		        url: api_uri + "api/qiniu/getUpToken",
+		        url: api_uri + "qiniu/getUpToken",
 		        method: "GET",
 		        params: $rootScope.login_user
 		    }).success(function (d) {
@@ -425,7 +425,7 @@ userCtrl.controller('SettingCtrl', //用户设置
 		                        var params = $rootScope.login_user;
 		                        params.key = "headImg";
 		                        params.value = $scope.user.headImg;
-		                        $.post(api_uri + "api/user/update", params,
+		                        $.post(api_uri + "user/update", params,
 								    function (data) {
 								        if (data.returnCode == 0) {
 								            
@@ -474,7 +474,7 @@ userCtrl.controller('SettingCtrl', //用户设置
 
         $scope.logout =  function(){
             $http({
-	            url: api_uri + "api/auth/logout",
+	            url: api_uri + "auth/logout",
 	            method: "GET",
 	            params: $rootScope.login_user
 	        }).success(function (d) {
@@ -524,7 +524,7 @@ userCtrl.controller('UserUpdateCtrl',
         	console.log(params);
         	var keys = ["name","email"];
         	if($.inArray(params.key, keys)>=0){
-        		$.post(api_uri + "api/user/update", params,
+        		$.post(api_uri + "user/update", params,
 			    function (data) {
 			        if (data.returnCode == 0) {
 			            

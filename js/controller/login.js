@@ -45,7 +45,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
             $("#mobile").focus();
         }else{
             $http({
-                url: api_uri+"api/reg/validateMobile",
+                url: api_uri+"reg/validateMobile",
                 method: "GET",
                 params: {"mobile":$scope.loginUser.mobile}
             }).success(function (d) {
@@ -67,7 +67,7 @@ loginCtrl.controller('LoginCtrl', function ($http, $scope, $rootScope, $location
         var m_params = $scope.loginUser;
         if (!check_params(m_params)) return;
         $http({
-            url: api_uri+"api/auth/web",
+            url: api_uri+"auth/web",
             method: "POST",
             params: m_params           
         }).success(function (d) {

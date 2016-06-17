@@ -2,7 +2,7 @@
  * Created by jiangzhuang on 5/5/16.
  */
 
-api_uri = "http://zrh.supeiyunjing.com/";
+api_uri = "http://zrh.supeiyunjing.com/api/";
 templates_root = "/app/templates/";
 deskey = "abc123.*abc123.*abc123.*abc123.*";
 
