@@ -6,7 +6,7 @@
     	    onkeyup="if(event.keyCode !=37 && event.keyCode != 39){if (! /^\d+$/ig.test(this.value)){this.value=this.value.replace(/[^\d]/ig,'')}}"
     	    ng-blur="validate_mobile()" />
         <div class="Verification">
-            <input type="text" placeholder="请输入验证码" class="verCode " id="code" maxlength="6"
+            <input type="text" placeholder="请输入验证码" class="verCode" id="code" maxlength="6"
                 ng-model="registerUser.code" ng-change="changeCode()">
             <span class="verBtn fr" ng-click="send_code()" ng-show="send_sms" id="send_sms">发送验证码</span>
             <span class="verBtn fr" ng-hide="send_sms">{{sms_second}}s</span>

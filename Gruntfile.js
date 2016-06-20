@@ -47,14 +47,14 @@ module.exports = function(grunt) {
                     //'css/found.css',
                     //'css/invest_projects.css',
                     //'css/mobiscroll.2.13.2.css',
-                    'dist/zrh-app.0.0.4.css'
+                    'dist/zrh-app.123.0.0.4.css'
                 ],
-                dest: 'dist/<%= pkg.name %>.123.<%= pkg.version %>.css'
+                dest: 'dist/<%= pkg.name %>.1234.<%= pkg.version %>.css'
             }
         },
         cssmin: {
             css: {
-                src:'dist/<%= pkg.name %>.123.<%= pkg.version %>.css',
+                src:'dist/<%= pkg.name %>.1234.<%= pkg.version %>.css',
                 dest:'dist/<%= pkg.name %>.min.<%= pkg.version %>.css'
             }
         },

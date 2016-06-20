@@ -27,7 +27,7 @@
 
     <div class="displayFrame">
         <div ng-repeat="message in message_list">
-            <div ng-class="{true:'myCon',false:'otherCon'}[message.self]">
+            <div   ng-class="{true:'myCon',false:'otherCon'}[message.self]">
                 <div ng-class="{true:'myFrame',false:'otherFrame'}[message.self]">
                     <span ng-class="{true:'spanImg',false:'spanImgOther'}[message.self]"></span>
                     <span ng-class="{true:'my',false:'others'}[message.self]">{{message.comment}}</span>
