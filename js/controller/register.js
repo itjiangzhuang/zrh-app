@@ -373,7 +373,8 @@ registerCtrl.controller('ResetStep2Ctrl', function ($http, $scope, $rootScope, $
 		            		"token":d.result.split("_")[1]
 		            	}
 						$rootScope.putObject("login_user", $rootScope.login_user);
-		            	$location.path("/article/list");
+		            	//$location.path("/article/list");
+						$location.path("/user/setting");
 		            }
 		            else {
 		                console.log(d);
